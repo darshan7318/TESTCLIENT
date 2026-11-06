@@ -1,0 +1,70 @@
+/**
+ * Trendz Eventz — Accessibility Engine (WCAG 2.2 AA Compliance)
+ */
+
+/* 1. Skip Navigation Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1.5rem;
+    z-index: 9999;
+    padding: 0.85rem 1.5rem;
+    background: #000000;
+    color: #FFFFFF;
+    border: 2px solid var(--color-purple-primary);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 1.5rem;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(121, 40, 202, 0.4);
+}
+
+/* 2. Uncompromising Focus States for Keyboard Navigation */
+:focus-visible {
+    outline: 2px solid var(--color-lavender) !important;
+    outline-offset: 3px !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-purple-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* 3. Screen Reader Only Utility */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* 4. High Contrast Mode Support */
+@media (forced-colors: active) {
+    .btn--primary,
+    .btn--secondary,
+    .filter-btn,
+    .badge {
+        forced-color-adjust: none;
+        border: 2px solid ButtonText;
+    }
+
+    .site-header {
+        border-bottom: 2px solid CanvasText;
+    }
+}
+

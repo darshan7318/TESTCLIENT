@@ -1,0 +1,8 @@
+# Trendz Eventz Robots Directive
+User-agent: *
+Allow: /
+Disallow: /storage/
+Disallow: /includes/
+
+Sitemap: https://trendzeventz.com/sitemap.xml
+

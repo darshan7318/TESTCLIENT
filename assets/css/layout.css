@@ -1,0 +1,403 @@
+/**
+ * Trendz Eventz — Layout & Container Systems
+ */
+
+/* 1. Global Containers */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.0rem, 3.5vw, 2.5rem);
+    padding-right: clamp(1.0rem, 3.5vw, 2.5rem);
+}
+
+.container--narrow {
+    max-width: var(--container-narrow);
+}
+
+/* 2. Top Announcement Bar */
+.top-bar {
+    background-color: #060608;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-xs);
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+}
+
+.top-bar__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.top-bar__badge {
+    display: inline-block;
+    background: var(--color-lavender-subtle);
+    color: var(--color-lavender);
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    margin-right: 0.5rem;
+}
+
+.top-bar__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.top-bar__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color var(--transition-fast);
+}
+
+.top-bar__link:hover {
+    color: var(--color-lavender);
+}
+
+.top-bar__divider {
+    color: var(--color-border);
+}
+
+/* 3. Global Sticky Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    background: rgba(11, 11, 15, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border-light);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.site-header--scrolled {
+    background: rgba(8, 8, 12, 0.96);
+    border-bottom-color: var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.site-logo__img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .desktop-nav {
+        display: block;
+    }
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0.9rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link--active {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.nav-link__pill {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 3px;
+    background: var(--color-purple-primary);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 0 10px var(--color-purple-primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn--header {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .btn--header {
+        display: inline-flex;
+    }
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-border);
+}
+
+@media (min-width: 900px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
+
+.mobile-toggle__bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: var(--radius-pill);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-drawer);
+    visibility: hidden;
+    transition: visibility var(--transition-base);
+}
+
+.mobile-drawer--open {
+    visibility: visible;
+}
+
+.mobile-drawer__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.mobile-drawer--open .mobile-drawer__backdrop {
+    opacity: 1;
+}
+
+.mobile-drawer__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 360px;
+    background: var(--color-bg-surface);
+    border-left: 1px solid var(--color-border);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    overflow-y: auto;
+}
+
+.mobile-drawer--open .mobile-drawer__content {
+    transform: translateX(0);
+}
+
+.mobile-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-drawer__close {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+}
+
+.mobile-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+}
+
+.mobile-nav__link--active, .mobile-nav__link:hover {
+    color: #FFFFFF;
+    background: rgba(121, 40, 202, 0.12);
+    border-color: var(--color-border-glow);
+}
+
+.mobile-drawer__footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.mobile-drawer__contact {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.mobile-drawer__contact a {
+    color: var(--color-lavender);
+}
+
+/* 4. Section Standard Spacing */
+.section {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    position: relative;
+}
+
+.section--alt {
+    background-color: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.section--dark {
+    background-color: var(--color-bg-base);
+}
+
+/* Organic Ambient Lighting Spotlight */
+.ambient-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-glow-ambient) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ambient-glow--top-center {
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ambient-glow--right {
+    top: 20%;
+    right: -200px;
+}
+
+.ambient-glow--left {
+    bottom: 10%;
+    left: -200px;
+}
+
+/* 5. Responsive Grid Utilities */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+}
+
+@media (min-width: 480px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+

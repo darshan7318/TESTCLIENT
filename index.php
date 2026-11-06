@@ -1,0 +1,8413 @@
+<?php
+/**
+ * Trendz Eventz — Homepage
+ * Clean Corporate Light Theme with Tailwind CSS & DaisyUI
+ * Minimal PHP: direct static semantic HTML layout.
+ */
+$current_page = 'home';
+$page_title = 'Trendz Eventz — Experiential Marketing & Corporate Events Agency Mumbai';
+$page_desc = 'Meaningful experiences. Measurable momentum. Trendz Eventz delivers corporate events, pan-India dealer meets, launches, BTL activations, and retail branding.';
+include __DIR__ . '/includes/header.php';
+?>
+
+
+
+<!-- ==========================================================
+     TRENDZ HERO
+========================================================== -->
+<style>
+/* ==========================================================
+   TRENDZ HERO — CINEMATIC VIEWPORT SYSTEM
+   ========================================================== */
+#trendzHero.trendz-hero{
+  --hero-nav-h:5rem;
+  --hero-pad:clamp(12px,2vw,32px);
+  position:relative;
+  height:calc(100svh - var(--hero-nav-h));
+  min-height:calc(100svh - var(--hero-nav-h));
+  max-height:calc(100dvh - var(--hero-nav-h));
+  overflow:hidden;
+  isolation:isolate;
+}
+#trendzHero .hero-main{height:100%;min-height:0;}
+#trendzHero .hero-main > header{position:relative;z-index:30;}
+#trendzHero .hero-main > .relative.grid{min-height:0;overflow:hidden;}
+#trendzHero .hero-main > footer{min-height:28px;}
+#trendzHero .hero-image-wrap{height:100%;min-height:0;border-radius:2px;}
+#trendzHero .trendzSwiper{height:100%;}
+#trendzHero .swiper-wrapper,#trendzHero .swiper-slide{height:100%;min-height:0;}
+#trendzHero .swiper-slide{overflow:hidden;background:#111;}
+#trendzHero .hero-image{transform:scale(1.06);transition:transform 1.4s cubic-bezier(.16,1,.3,1),filter 1s ease;filter:saturate(.9) contrast(1.05);}
+#trendzHero .swiper-slide-active .hero-image{transform:scale(1.015);filter:saturate(1) contrast(1.06);}
+#trendzHero .swiper-slide::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.02) 38%,rgba(0,0,0,.78) 100%);pointer-events:none;}
+#trendzHero .swiper-slide::after{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(circle at 72% 20%,rgba(255,255,255,.13),transparent 28%),linear-gradient(110deg,rgba(105,65,255,.12),transparent 45%);mix-blend-mode:screen;pointer-events:none;}
+#trendzHero .swiper-slide > div{z-index:5;}
+#trendzHero .hero-image-wrap::before{content:"";position:absolute;inset:0;z-index:10;pointer-events:none;border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(0,0,0,.18),inset 0 0 90px rgba(0,0,0,.2);}
+#trendzHero .hero-grid{opacity:.38;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);}
+#trendzHero .hero-noise{opacity:.055;mix-blend-mode:screen;}
+#trendzHero .hero-kicker::before{content:"";display:inline-block;width:28px;height:1px;margin:0 10px 3px 0;background:currentColor;opacity:.6;}
+#trendzHero .hero-heading .split-line{overflow:hidden;}
+#trendzHero .hero-heading{filter:drop-shadow(0 8px 35px rgba(0,0,0,.14));}
+#trendzHero .hero-progress{position:relative;height:2px;background:rgba(255,255,255,.22);overflow:hidden;transition:height .25s ease,background .25s ease;}
+#trendzHero .hero-progress:hover{height:4px;background:rgba(255,255,255,.4);}
+#trendzHero .hero-progress-fill{display:block;height:100%;width:0;background:#fff;transform-origin:left center;transition:width .45s cubic-bezier(.16,1,.3,1);}
+#trendzHero .hero-progress.is-active .hero-progress-fill{width:100%;}
+#trendzHero .hero-progress.is-active{background:rgba(255,255,255,.5);}
+#trendzHero .hero-slide-meta{opacity:0;transform:translateY(16px);transition:opacity .7s ease .12s,transform .7s cubic-bezier(.16,1,.3,1) .12s;}
+#trendzHero .swiper-slide-active .hero-slide-meta{opacity:1;transform:none;}
+#trendzHero .hero-scroll-cue{position:absolute;right:clamp(14px,2vw,32px);bottom:clamp(70px,8vh,110px);z-index:40;display:flex;align-items:center;gap:9px;writing-mode:vertical-rl;font:500 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.38);pointer-events:none;}
+#trendzHero .hero-scroll-cue::after{content:"";width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,.55),transparent);animation:trendzScrollCue 1.8s ease-in-out infinite;}
+@keyframes trendzScrollCue{0%,100%{transform:scaleY(.45);transform-origin:top;opacity:.35}50%{transform:scaleY(1);transform-origin:top;opacity:1}}
+#trendzHero .hero-edge-glow{position:absolute;inset:auto 0 0;height:90px;z-index:8;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.18),transparent);}
+@media (max-width:767px){
+  #trendzHero.trendz-hero{--hero-nav-h:5rem;height:calc(100svh - var(--hero-nav-h));max-height:calc(100dvh - var(--hero-nav-h));}
+  #trendzHero .hero-main{padding-top:12px;padding-bottom:12px;}
+  #trendzHero .hero-main > .relative.grid{grid-template-rows:minmax(0,1fr) minmax(205px,39svh);gap:10px;overflow:hidden;}
+  #trendzHero .hero-main > .relative.grid > div:first-child{justify-content:center;min-height:0;overflow:hidden;}
+  #trendzHero .hero-heading{font-size:clamp(2.75rem,13vw,4.5rem);line-height:.84;}
+  #trendzHero .hero-description{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  #trendzHero .hero-main > footer{margin-top:8px;padding-top:8px;}
+  #trendzHero .hero-scroll-cue{display:none;}
+}
+@media (max-height:700px) and (min-width:768px){
+  #trendzHero .hero-main{padding-top:10px;padding-bottom:10px;}
+  #trendzHero .hero-main > .relative.grid{padding-top:10px;gap:12px;}
+  #trendzHero .hero-description{margin-top:10px;}
+  #trendzHero .hero-main .hero-reveal.mt-7{margin-top:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  #trendzHero .hero-scroll-cue::after{animation:none;}
+  #trendzHero .hero-image{transition:none;}
+}
+</style>
+<section
+  id="trendzHero"
+  class="trendz-hero relative w-full bg-trendz-deep text-white mt-20"
+  aria-label="Trendz Eventz — Experiential Agency"
+>
+
+  <!-- Atmospheric background -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    aria-hidden="true"
+  >
+
+    <div
+      class="hero-glow absolute -left-[18vw] -top-[20vh]
+             h-[55vw] w-[55vw] rounded-full
+             bg-trendz-purple/30"
+      data-parallax="0.08"
+    ></div>
+
+    <div
+      class="hero-glow absolute -right-[18vw] top-[15vh]
+             h-[45vw] w-[45vw] rounded-full
+             bg-trendz-pink/10"
+      data-parallax="-0.05"
+    ></div>
+
+    <div
+      class="hero-grid absolute inset-0"
+    ></div>
+
+    <div
+      class="hero-noise absolute inset-0"
+    ></div>
+  </div>
+
+
+  <!-- Main shell -->
+  <div
+    class="hero-main mx-auto flex h-full w-full max-w-[1600px]
+           flex-col px-5 py-5
+           sm:px-7 sm:py-7
+           lg:px-10 lg:py-8"
+  >
+
+    <!-- TOP NAV -->
+    <header
+      class="hero-reveal flex shrink-0 items-center justify-between"
+    >
+
+      <a
+        href="#"
+        class="group flex items-center gap-3"
+        aria-label="Trendz Eventz home"
+      >
+
+        <div
+          class="flex h-9 w-9 items-center justify-center
+                 border border-white/30 bg-white/5
+                 font-display text-xs font-bold
+                 transition group-hover:bg-white group-hover:text-trendz-deep"
+        >
+          TZ
+        </div>
+
+        <div class="hidden sm:block">
+          <div class="font-display text-[13px] font-bold tracking-[.18em]">
+            TRENDZ
+          </div>
+
+          <div
+            class="font-mono text-[8px] tracking-[.28em] text-white/45"
+          >
+            EVENTZ
+          </div>
+        </div>
+
+      </a>
+
+
+      <div
+        class="hidden items-center gap-8
+               font-mono text-[9px] uppercase tracking-[.2em]
+               text-white/55 md:flex"
+      >
+        <span>Experiential Agency</span>
+
+        <span class="h-px w-12 bg-white/20"></span>
+
+        <span>India / Global</span>
+      </div>
+
+    </header>
+
+
+    <!-- HERO CONTENT -->
+    <div
+      class="relative grid flex-1
+             grid-cols-1 gap-5 pt-5
+             md:grid-cols-[minmax(0,1fr)_minmax(320px,43%)]
+             md:gap-7 md:pt-6
+             lg:grid-cols-[minmax(0,1fr)_minmax(430px,46%)]
+             lg:gap-10 lg:pt-8"
+    >
+
+      <!-- LEFT -->
+      <div
+        class="flex min-h-0 flex-col justify-center"
+      >
+
+        <!-- Kicker -->
+        <div
+          class="hero-reveal hero-kicker mb-4
+                 font-mono text-[9px] font-medium uppercase
+                 tracking-[.3em] text-white/55
+                 sm:mb-5 sm:text-[10px]"
+        >
+          Experiential / Corporate / Live
+        </div>
+
+
+        <!-- Main headline -->
+        <h1
+          class="hero-heading hero-reveal
+                 max-w-[900px]
+                 font-display font-semibold
+                 leading-[.84] tracking-[-.065em]
+                 text-[clamp(3.2rem,8vw,8.8rem)]"
+        >
+
+          <span class="block text-white">
+            <span class="split-line">WE ARCHITECT</span>
+          </span>
+
+          <span class="mt-1 block text-white/35">
+            <span class="split-line">EXPERIENCES THAT</span>
+          </span>
+
+          <span class="mt-1 block text-trendz-lilac">
+            <span class="split-line">
+              MOVE MARKETS
+              <span class="text-white">&amp;</span>
+              MINDS.
+            </span>
+          </span>
+
+        </h1>
+
+
+        <!-- Description -->
+        <p
+          class="hero-description hero-reveal mt-5 max-w-[560px]
+                 text-[11px] leading-[1.65] text-white/58
+                 sm:mt-6 sm:text-xs
+                 lg:mt-7 lg:text-[13px]"
+        >
+          Trendz Eventz creates corporate experiences, brand
+          moments and live productions designed to make people
+          remember what happened next.
+        </p>
+
+
+        <!-- CTA -->
+        <div
+          class="hero-reveal mt-5 flex flex-wrap items-center gap-3
+                 sm:mt-6 lg:mt-7"
+        >
+
+          <a
+            href="#work"
+            class="magnetic group inline-flex items-center gap-3
+                   bg-white px-5 py-3.5
+                   font-mono text-[9px] font-medium
+                   uppercase tracking-[.18em]
+                   text-trendz-deep
+                   transition-all duration-300
+                   hover:bg-trendz-lilac"
+          >
+
+            <span>Explore our work</span>
+
+            <i
+              data-lucide="arrow-up-right"
+              class="h-4 w-4 transition-transform
+                     group-hover:translate-x-1 group-hover:-translate-y-1"
+            ></i>
+
+          </a>
+
+
+          <a
+            href="#contact"
+            class="magnetic inline-flex items-center gap-3
+                   border border-white/20 px-5 py-3.5
+                   font-mono text-[9px]
+                   uppercase tracking-[.18em]
+                   text-white/75
+                   transition-all duration-300
+                   hover:border-white hover:text-white"
+          >
+
+            <span>Start a conversation</span>
+
+          </a>
+
+        </div>
+
+
+        <!-- Proof -->
+        <div
+          class="hero-reveal mt-7 flex flex-wrap
+                 border-t border-white/10 pt-4
+                 sm:mt-8 sm:pt-5"
+        >
+
+          <div class="pr-6 sm:pr-8">
+            <div
+              class="font-display text-xl font-semibold
+                     tracking-[-.04em] sm:text-2xl"
+            >
+              15+
+            </div>
+
+            <div
+              class="mt-1 font-mono text-[7px]
+                     uppercase tracking-[.22em] text-white/40"
+            >
+              Years
+            </div>
+          </div>
+
+
+          <div
+            class="border-l border-white/10 px-6 sm:px-8"
+          >
+            <div
+              class="font-display text-xl font-semibold
+                     tracking-[-.04em] sm:text-2xl"
+            >
+              500+
+            </div>
+
+            <div
+              class="mt-1 font-mono text-[7px]
+                     uppercase tracking-[.22em] text-white/40"
+            >
+              Productions
+            </div>
+          </div>
+
+
+          <div
+            class="border-l border-white/10 pl-6 sm:pl-8"
+          >
+            <div
+              class="font-display text-xl font-semibold
+                     tracking-[-.04em] sm:text-2xl"
+            >
+              PAN
+            </div>
+
+            <div
+              class="mt-1 font-mono text-[7px]
+                     uppercase tracking-[.22em] text-white/40"
+            >
+              India Execution
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT / SWIPER -->
+      <div
+        class="hero-reveal relative min-h-0 overflow-hidden"
+      >
+
+        <div
+          class="hero-image-wrap relative h-full min-h-[250px]
+                 overflow-hidden border border-white/10
+                 bg-black/20"
+        >
+
+          <div
+            class="swiper trendzSwiper h-full w-full"
+          >
+
+            <div class="swiper-wrapper">
+
+              <!-- SLIDE 1 -->
+              <article class="swiper-slide relative h-full">
+
+                <img
+                  src="assets/img/work/case-studies-hero-1.jpg"
+                  alt="Trendz Eventz corporate event experience"
+                  class="hero-image absolute inset-0 h-full w-full
+                         object-cover"
+                />
+
+                <div
+                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
+                         sm:p-6 lg:p-7"
+                >
+
+                  <div
+                    class="mb-3 font-mono text-[8px]
+                           uppercase tracking-[.24em] text-white/55"
+                  >
+                    01 / Corporate Experience
+                  </div>
+
+                  <h2
+                    class="max-w-[430px]
+                           font-display text-xl font-medium
+                           leading-[.95] tracking-[-.035em]
+                           sm:text-2xl lg:text-3xl"
+                  >
+                    Philips National Dealers Convention
+                  </h2>
+
+                  <div
+                    class="mt-4 flex items-center justify-between
+                           border-t border-white/20 pt-3"
+                  >
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      Goa
+                    </span>
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      500+ Dealers
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- SLIDE 2 -->
+              <article class="swiper-slide relative h-full">
+
+                <img
+                  src="assets/img/work/case-studies-hero-2.jpg"
+                  alt="Trendz Eventz brand experience"
+                  class="hero-image absolute inset-0 h-full w-full
+                         object-cover"
+                />
+
+                <div
+                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
+                         sm:p-6 lg:p-7"
+                >
+
+                  <div
+                    class="mb-3 font-mono text-[8px]
+                           uppercase tracking-[.24em] text-white/55"
+                  >
+                    02 / Brand Experience
+                  </div>
+
+                  <h2
+                    class="max-w-[430px]
+                           font-display text-xl font-medium
+                           leading-[.95] tracking-[-.035em]
+                           sm:text-2xl lg:text-3xl"
+                  >
+                    Enterprise Brand Experience
+                  </h2>
+
+                  <div
+                    class="mt-4 flex items-center justify-between
+                           border-t border-white/20 pt-3"
+                  >
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      Mumbai
+                    </span>
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      National Campaign
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- SLIDE 3 -->
+              <article class="swiper-slide relative h-full">
+
+                <img
+                  src="assets/img/work/case-studies-hero-3.jpg"
+                  alt="Trendz Eventz synchronized retail launch"
+                  class="hero-image absolute inset-0 h-full w-full
+                         object-cover"
+                />
+
+                <div
+                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
+                         sm:p-6 lg:p-7"
+                >
+
+                  <div
+                    class="mb-3 font-mono text-[8px]
+                           uppercase tracking-[.24em] text-white/55"
+                  >
+                    03 / Retail Activation
+                  </div>
+
+                  <h2
+                    class="max-w-[430px]
+                           font-display text-xl font-medium
+                           leading-[.95] tracking-[-.035em]
+                           sm:text-2xl lg:text-3xl"
+                  >
+                    Synchronized Retail Launch
+                  </h2>
+
+                  <div
+                    class="mt-4 flex items-center justify-between
+                           border-t border-white/20 pt-3"
+                  >
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      Pan-India
+                    </span>
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      100 Stores
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- SLIDE 4 -->
+              <article class="swiper-slide relative h-full">
+
+                <img
+                  src="assets/img/work/case-studies-hero-4.jpg"
+                  alt="Trendz Eventz corporate leadership event"
+                  class="hero-image absolute inset-0 h-full w-full
+                         object-cover"
+                />
+
+                <div
+                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
+                         sm:p-6 lg:p-7"
+                >
+
+                  <div
+                    class="mb-3 font-mono text-[8px]
+                           uppercase tracking-[.24em] text-white/55"
+                  >
+                    04 / Leadership Experience
+                  </div>
+
+                  <h2
+                    class="max-w-[430px]
+                           font-display text-xl font-medium
+                           leading-[.95] tracking-[-.035em]
+                           sm:text-2xl lg:text-3xl"
+                  >
+                    Corporate Leadership Experience
+                  </h2>
+
+                  <div
+                    class="mt-4 flex items-center justify-between
+                           border-t border-white/20 pt-3"
+                  >
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      India
+                    </span>
+
+                    <span
+                      class="font-mono text-[8px]
+                             uppercase tracking-[.18em] text-white/60"
+                    >
+                      Enterprise Event
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </div>
+
+
+          <!-- Slide counter -->
+          <div
+            class="absolute left-5 top-5 z-20
+                   font-mono text-[9px] tracking-[.2em]"
+          >
+
+            <span id="slideCurrent">01</span>
+
+            <span class="mx-1 text-white/30">/</span>
+
+            <span class="text-white/40">04</span>
+
+          </div>
+
+
+          <!-- Controls -->
+          <div
+            class="absolute right-5 top-5 z-20 flex gap-2"
+          >
+
+            <button
+              id="prevSlide"
+              type="button"
+              aria-label="Previous project"
+              class="magnetic flex h-9 w-9 items-center justify-center
+                     border border-white/25 bg-black/10
+                     backdrop-blur-sm
+                     transition hover:bg-white hover:text-trendz-deep"
+            >
+              <i data-lucide="arrow-left" class="h-3.5 w-3.5"></i>
+            </button>
+
+
+            <button
+              id="nextSlide"
+              type="button"
+              aria-label="Next project"
+              class="magnetic flex h-9 w-9 items-center justify-center
+                     border border-white/25 bg-black/10
+                     backdrop-blur-sm
+                     transition hover:bg-white hover:text-trendz-deep"
+            >
+              <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+            </button>
+
+          </div>
+
+
+          <!-- Progress -->
+          <div
+            class="absolute bottom-5 left-5 right-5 z-20
+                   grid grid-cols-4 gap-2"
+          >
+
+            <button
+              type="button"
+              class="hero-progress"
+              data-slide="0"
+              aria-label="Go to slide 1"
+            >
+              <span class="hero-progress-fill"></span>
+            </button>
+
+            <button
+              type="button"
+              class="hero-progress"
+              data-slide="1"
+              aria-label="Go to slide 2"
+            >
+              <span class="hero-progress-fill"></span>
+            </button>
+
+            <button
+              type="button"
+              class="hero-progress"
+              data-slide="2"
+              aria-label="Go to slide 3"
+            >
+              <span class="hero-progress-fill"></span>
+            </button>
+
+            <button
+              type="button"
+              class="hero-progress"
+              data-slide="3"
+              aria-label="Go to slide 4"
+            >
+              <span class="hero-progress-fill"></span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM TICKER -->
+    <footer
+      class="hero-reveal mt-4 flex shrink-0 items-center
+             overflow-hidden border-t border-white/10
+             pt-3 sm:mt-5 sm:pt-4"
+    >
+
+      <div
+        class="mr-5 shrink-0 font-mono text-[7px]
+               uppercase tracking-[.25em] text-white/35"
+      >
+        We create
+      </div>
+
+      <div
+        class="flex min-w-0 overflow-hidden"
+      >
+
+        <div
+          class="flex shrink-0 gap-8 whitespace-nowrap
+                 font-display text-[10px] font-medium
+                 uppercase tracking-[.08em] text-white/55
+                 sm:text-xs"
+        >
+
+          <span>Corporate Summits</span>
+          <span class="text-trendz-pink">●</span>
+
+          <span>Brand Launches</span>
+          <span class="text-trendz-pink">●</span>
+
+          <span>Dealer Meets</span>
+          <span class="text-trendz-pink">●</span>
+
+          <span>Experiential Marketing</span>
+          <span class="text-trendz-pink">●</span>
+
+          <span>Destination Events</span>
+          <span class="text-trendz-pink">●</span>
+
+          <span>Live Productions</span>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-24 left-3 hidden
+           -rotate-90 origin-left
+           font-mono text-[7px] uppercase
+           tracking-[.35em] text-white/30
+           xl:block"
+  >
+    Scroll to explore
+  </div>
+
+  <div class="hero-scroll-cue" aria-hidden="true">Scroll to change</div>
+  <div class="hero-edge-glow" aria-hidden="true"></div>
+</section>
+
+
+<!-- ==========================================================
+     LIBRARIES
+========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<!-- ==========================================================
+     TRENDZ HERO ENGINE
+========================================================== -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  "use strict";
+
+
+  /* ----------------------------------------------------------
+     ICONS
+  ---------------------------------------------------------- */
+
+  lucide.createIcons();
+
+
+  /* ----------------------------------------------------------
+     REDUCED MOTION
+  ---------------------------------------------------------- */
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+
+  /* ----------------------------------------------------------
+     LENIS
+  ---------------------------------------------------------- */
+
+  if (!reducedMotion && typeof Lenis !== "undefined") {
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    if (typeof ScrollTrigger !== "undefined") {
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
+    }
+  }
+
+
+  /* ----------------------------------------------------------
+     GSAP
+  ---------------------------------------------------------- */
+
+  if (
+    !reducedMotion &&
+    typeof gsap !== "undefined"
+  ) {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    /* --------------------------------------------
+       HERO REVEAL
+    -------------------------------------------- */
+
+    const revealElements = document.querySelectorAll(
+      ".hero-reveal"
+    );
+
+    gsap.fromTo(
+      revealElements,
+      {
+        opacity: 0,
+        y: 28,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.08,
+        ease: "power4.out",
+        delay: 0.15,
+      }
+    );
+
+
+    /* --------------------------------------------
+       HEADLINE
+    -------------------------------------------- */
+
+    const heading = document.querySelector(
+      ".hero-heading"
+    );
+
+    if (
+      heading &&
+      typeof SplitType !== "undefined"
+    ) {
+
+      const split = new SplitType(
+        heading.querySelectorAll(".split-line"),
+        {
+          types: "lines,words",
+        }
+      );
+
+      gsap.fromTo(
+        split.words,
+        {
+          yPercent: 115,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.05,
+          stagger: 0.035,
+          ease: "power4.out",
+          delay: 0.25,
+        }
+      );
+    }
+
+
+    /* --------------------------------------------
+       ATMOSPHERIC PARALLAX
+    -------------------------------------------- */
+
+    document
+      .querySelectorAll("[data-parallax]")
+      .forEach((element) => {
+
+        const amount = Number(
+          element.dataset.parallax
+        );
+
+        gsap.to(element, {
+          yPercent: amount * 100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#trendzHero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+      });
+
+
+    /* --------------------------------------------
+       HERO IMAGE MICRO PARALLAX
+    -------------------------------------------- */
+
+    gsap.to(".hero-image", {
+      yPercent: -4,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#trendzHero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+  }
+
+
+  /* ----------------------------------------------------------
+     SWIPER
+  ---------------------------------------------------------- */
+
+  const swiper = new Swiper(
+    ".trendzSwiper",
+    {
+      loop: false,
+
+      speed: reducedMotion ? 0 : 1050,
+
+      autoplay: false,
+
+      mousewheel: reducedMotion ? false : {
+        enabled: true,
+        forceToAxis: true,
+        releaseOnEdges: true,
+        sensitivity: 0.85,
+        thresholdDelta: 35,
+        thresholdTime: 650,
+      },
+
+      effect: "fade",
+
+      fadeEffect: {
+        crossFade: true,
+      },
+
+      keyboard: {
+        enabled: true,
+      },
+
+      grabCursor: true,
+
+      allowTouchMove: true,
+
+      preloadImages: true,
+
+      watchSlidesProgress: true,
+
+      on: {
+
+        init(swiper) {
+          updateCounter(swiper);
+          updateProgress(swiper);
+        },
+
+        slideChange(swiper) {
+          updateCounter(swiper);
+          updateProgress(swiper);
+        },
+
+      },
+    }
+  );
+
+
+  /* ----------------------------------------------------------
+     COUNTER
+  ---------------------------------------------------------- */
+
+  function updateCounter(swiper) {
+
+    const counter =
+      document.getElementById("slideCurrent");
+
+    if (!counter) return;
+
+    const realIndex =
+      swiper.realIndex + 1;
+
+    counter.textContent =
+      String(realIndex).padStart(2, "0");
+  }
+
+  function updateProgress(swiper) {
+    document.querySelectorAll(".hero-progress").forEach((button, index) => {
+      button.classList.toggle("is-active", index === swiper.activeIndex);
+    });
+  }
+
+
+  /* ----------------------------------------------------------
+     NAVIGATION
+  ---------------------------------------------------------- */
+
+  document
+    .getElementById("prevSlide")
+    ?.addEventListener(
+      "click",
+      () => swiper.slidePrev()
+    );
+
+  document
+    .getElementById("nextSlide")
+    ?.addEventListener(
+      "click",
+      () => swiper.slideNext()
+    );
+
+
+  /* ----------------------------------------------------------
+     CUSTOM PROGRESS
+  ---------------------------------------------------------- */
+
+  document
+    .querySelectorAll("[data-slide]")
+    .forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const index =
+            Number(button.dataset.slide);
+
+          swiper.slideTo(index);
+
+        }
+      );
+
+    });
+
+
+  /* ----------------------------------------------------------
+     MAGNETIC BUTTONS
+  ---------------------------------------------------------- */
+
+  if (
+    !reducedMotion &&
+    typeof gsap !== "undefined"
+  ) {
+
+    document
+      .querySelectorAll(".magnetic")
+      .forEach((element) => {
+
+        element.addEventListener(
+          "mousemove",
+          (event) => {
+
+            const rect =
+              element.getBoundingClientRect();
+
+            const x =
+              event.clientX -
+              rect.left -
+              rect.width / 2;
+
+            const y =
+              event.clientY -
+              rect.top -
+              rect.height / 2;
+
+            gsap.to(element, {
+              x: x * 0.15,
+              y: y * 0.15,
+              duration: 0.35,
+              ease: "power3.out",
+            });
+
+          }
+        );
+
+
+        element.addEventListener(
+          "mouseleave",
+          () => {
+
+            gsap.to(element, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: "elastic.out(1, .5)",
+            });
+
+          }
+        );
+
+      });
+
+  }
+
+
+  /* ----------------------------------------------------------
+     VISIBILITY / INPUT SAFETY
+  ---------------------------------------------------------- */
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      swiper.mousewheel?.disable();
+    } else if (!reducedMotion) {
+      swiper.mousewheel?.enable();
+    }
+  });
+
+
+  /* ----------------------------------------------------------
+     TOUCH / POINTER SAFETY
+  ---------------------------------------------------------- */
+
+  const hero = document.getElementById("trendzHero");
+
+  hero?.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "PageDown") {
+      event.preventDefault();
+      swiper.slideNext();
+    }
+    if (event.key === "ArrowUp" || event.key === "PageUp") {
+      event.preventDefault();
+      swiper.slidePrev();
+    }
+  });
+
+  /* Keep wheel transitions deliberate instead of allowing rapid skipping. */
+  let lastWheel = 0;
+  hero?.addEventListener("wheel", (event) => {
+    if (reducedMotion) return;
+    const now = performance.now();
+    if (now - lastWheel < 550) return;
+    if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return;
+    lastWheel = now;
+  }, { passive: true });
+
+
+});
+</script>
+
+
+
+<style>
+    .light-marquee {
+        display: flex;
+        width: max-content;
+        will-change: transform;
+    }
+
+    .light-group {
+        display: flex;
+        gap: 14px;
+        padding-right: 14px;
+    }
+
+
+    /* Premium light logo card */
+    .light-brand {
+        position: relative;
+
+        width: 220px;
+        height: 96px;
+
+        flex: 0 0 220px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        border: 1px solid rgba(226,232,240,.95);
+
+        border-radius: 22px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.98),
+                rgba(248,250,252,.88)
+            );
+
+        box-shadow:
+            0 5px 20px rgba(15,23,42,.045),
+            inset 0 1px 0 rgba(255,255,255,.9);
+
+        transition:
+            transform .45s cubic-bezier(.2,.8,.2,1),
+            border-color .45s ease,
+            box-shadow .45s ease;
+    }
+
+
+    /* subtle light sweep */
+    .light-brand::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                115deg,
+                transparent 25%,
+                rgba(255,255,255,.9) 50%,
+                transparent 75%
+            );
+
+        transform: translateX(-120%);
+
+        transition: transform .7s ease;
+    }
+
+
+    /* soft hover glow */
+    .light-brand::after {
+        content: "";
+
+        position: absolute;
+
+        width: 130px;
+        height: 130px;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        background: rgba(59,130,246,.055);
+
+        filter: blur(30px);
+
+        opacity: 0;
+
+        transition: opacity .4s ease;
+    }
+
+
+    .light-brand:hover {
+        transform: translateY(-6px) scale(1.02);
+
+        border-color: rgba(148,163,184,.65);
+
+        box-shadow:
+            0 20px 50px rgba(15,23,42,.10),
+            0 3px 10px rgba(15,23,42,.04);
+    }
+
+
+    .light-brand:hover::before {
+        transform: translateX(120%);
+    }
+
+
+    .light-brand:hover::after {
+        opacity: 1;
+    }
+
+
+    /* Logo */
+    .light-brand img {
+        position: relative;
+        z-index: 3;
+
+        max-width: 125px;
+        max-height: 40px;
+
+        width: auto;
+        height: auto;
+
+        object-fit: contain;
+
+        filter: grayscale(100%);
+
+        opacity: .55;
+
+        transition:
+            filter .5s ease,
+            opacity .5s ease,
+            transform .5s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    .light-brand:hover img {
+        filter: grayscale(0);
+
+        opacity: 1;
+
+        transform: scale(1.08);
+    }
+
+
+    /* Number */
+    .light-brand > span {
+        position: absolute;
+
+        left: 15px;
+        top: 13px;
+
+        z-index: 5;
+
+        font-size: 8px;
+
+        font-weight: 800;
+
+        letter-spacing: .18em;
+
+        color: #cbd5e1;
+
+        transition:
+            color .3s ease,
+            transform .3s ease;
+    }
+
+
+    .light-brand:hover > span {
+        color: #64748b;
+        transform: translateX(2px);
+    }
+
+
+    /* Motion */
+    .light-forward {
+        animation: light-forward 46s linear infinite;
+    }
+
+    .light-reverse {
+        animation: light-reverse 52s linear infinite;
+    }
+
+
+    @keyframes light-forward {
+        from {
+            transform: translate3d(0,0,0);
+        }
+
+        to {
+            transform: translate3d(calc(-50% - 7px),0,0);
+        }
+    }
+
+
+    @keyframes light-reverse {
+        from {
+            transform: translate3d(calc(-50% - 7px),0,0);
+        }
+
+        to {
+            transform: translate3d(0,0,0);
+        }
+    }
+
+
+    /* Pause */
+    .light-marquee:hover {
+        animation-play-state: paused;
+    }
+
+
+    /* Mobile */
+    @media (max-width: 640px) {
+
+        .light-brand {
+            width: 155px;
+            height: 78px;
+            flex-basis: 155px;
+            border-radius: 17px;
+        }
+
+        .light-brand img {
+            max-width: 95px;
+            max-height: 32px;
+        }
+
+        .light-brand > span {
+            left: 11px;
+            top: 10px;
+            font-size: 7px;
+        }
+
+        .light-group {
+            gap: 10px;
+            padding-right: 10px;
+        }
+
+        .light-forward {
+            animation-duration: 34s;
+        }
+
+        .light-reverse {
+            animation-duration: 40s;
+        }
+    }
+
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .light-marquee {
+            animation: none !important;
+        }
+
+        .light-brand {
+            transition: none;
+        }
+    }
+</style>
+
+<!-- WHAT TRENDZ DOES -->
+<section class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
+
+    <!-- Ambient background -->
+    <div class="pointer-events-none absolute inset-0">
+        <div class="absolute -left-32 top-20 h-96 w-96 rounded-full bg-purple-100/50 blur-3xl"></div>
+        <div class="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-indigo-100/40 blur-3xl"></div>
+
+        <div class="absolute inset-0 opacity-[0.035]"
+             style="background-image:radial-gradient(#4f46e5 1px,transparent 1px);background-size:24px 24px;">
+        </div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="mx-auto mb-14 max-w-4xl text-center">
+
+            <span class="inline-flex items-center gap-2 rounded-full border border-purple-200
+                         bg-purple-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em]
+                         text-purple-700">
+                <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
+                What Trendz Does
+            </span>
+
+            <h2 class="mt-6 text-4xl font-black tracking-[-0.04em] text-slate-950
+                       sm:text-5xl lg:text-6xl">
+                We turn brands into
+                <span class="text-purple-700">experiences.</span>
+            </h2>
+
+            <p class="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                From boardrooms to busy streets and retail floors,
+                Trendz creates experiences that make brands visible,
+                memorable and impossible to ignore.
+            </p>
+        </div>
+
+        <!-- Capability Cards -->
+        <div class="grid gap-6 lg:grid-cols-3">
+
+            <!-- CORPORATE -->
+            <article class="group relative min-h-[470px] overflow-hidden rounded-[2rem]
+                            border border-indigo-100 bg-indigo-950 shadow-xl
+                            shadow-indigo-100/40 transition-all duration-700
+                            hover:-translate-y-3 hover:shadow-2xl">
+
+                <img src="assets/img/services/corporate-events.jpg"
+                     alt="Corporate event experience"
+                     class="absolute inset-0 h-full w-full object-cover
+                            transition-transform duration-[1200ms]
+                            group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t
+                            from-indigo-950 via-indigo-950/65 to-indigo-950/10"></div>
+
+                <div class="absolute inset-0 bg-indigo-700/10
+                            mix-blend-multiply transition-opacity duration-500
+                            group-hover:bg-indigo-600/25"></div>
+
+                <div class="relative flex min-h-[470px] flex-col justify-between p-7 sm:p-8">
+
+                    <div class="flex items-start justify-between">
+                        <span class="rounded-full border border-white/20 bg-white/10
+                                     px-3 py-1.5 text-[10px] font-bold tracking-[0.2em]
+                                     text-white backdrop-blur-md">
+                            01 / CORPORATE
+                        </span>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl
+                                    border border-white/20 bg-white/10 text-white backdrop-blur-md
+                                    transition-transform duration-500 group-hover:rotate-6">
+                            <i data-lucide="building-2" class="h-5 w-5"></i>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <span class="mb-3 block text-xs font-semibold uppercase
+                                     tracking-[0.18em] text-indigo-200">
+                            Enterprise Experiences
+                        </span>
+
+                        <h3 class="text-3xl font-black tracking-tight text-white">
+                            Corporate Events
+                        </h3>
+
+                        <p class="mt-4 max-w-md text-sm leading-7 text-indigo-50/85">
+                            Dealer meets, annual general assemblies, executive
+                            conventions and awards galas engineered for leadership
+                            stature and stakeholder alignment.
+                        </p>
+
+                        <a href="services.php#corporate-events"
+                           class="mt-6 inline-flex items-center gap-3 text-sm font-bold text-white">
+                            Explore capability
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full
+                                         bg-white text-indigo-950 transition-transform
+                                         duration-300 group-hover:translate-x-1">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- BTL -->
+            <article class="group relative min-h-[470px] overflow-hidden rounded-[2rem]
+                            border border-fuchsia-100 bg-fuchsia-950 shadow-xl
+                            shadow-fuchsia-100/40 transition-all duration-700
+                            hover:-translate-y-3 hover:shadow-2xl">
+
+                <img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg"
+                     alt="BTL experiential brand activation"
+                     class="absolute inset-0 h-full w-full object-cover
+                            transition-transform duration-[1200ms]
+                            group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t
+                            from-fuchsia-950 via-fuchsia-950/60 to-fuchsia-950/10"></div>
+
+                <div class="absolute inset-0 bg-fuchsia-700/10
+                            mix-blend-multiply transition-opacity duration-500
+                            group-hover:bg-fuchsia-600/25"></div>
+
+                <div class="relative flex min-h-[470px] flex-col justify-between p-7 sm:p-8">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="rounded-full border border-white/20 bg-white/10
+                                     px-3 py-1.5 text-[10px] font-bold tracking-[0.2em]
+                                     text-white backdrop-blur-md">
+                            02 / ACTIVATION
+                        </span>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl
+                                    border border-white/20 bg-white/10 text-white backdrop-blur-md
+                                    transition-transform duration-500 group-hover:-rotate-6">
+                            <i data-lucide="zap" class="h-5 w-5"></i>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <span class="mb-3 block text-xs font-semibold uppercase
+                                     tracking-[0.18em] text-fuchsia-200">
+                            Brand Activation
+                        </span>
+
+                        <h3 class="text-3xl font-black tracking-tight text-white">
+                            BTL & Experiential
+                        </h3>
+
+                        <p class="mt-4 max-w-md text-sm leading-7 text-fuchsia-50/85">
+                            Mall takeovers, nationwide product sampling tours,
+                            festive roadshows and guerrilla spectacles that turn
+                            footfall into brand advocacy.
+                        </p>
+
+                        <a href="services.php#btl-experiential"
+                           class="mt-6 inline-flex items-center gap-3 text-sm font-bold text-white">
+                            Explore capability
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full
+                                         bg-white text-fuchsia-950 transition-transform
+                                         duration-300 group-hover:translate-x-1">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- RETAIL -->
+            <article class="group relative min-h-[470px] overflow-hidden rounded-[2rem]
+                            border border-emerald-100 bg-emerald-950 shadow-xl
+                            shadow-emerald-100/40 transition-all duration-700
+                            hover:-translate-y-3 hover:shadow-2xl">
+
+                <img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg"
+                     alt="Retail branding and visual merchandising"
+                     class="absolute inset-0 h-50 w-full object-cover
+                            transition-transform duration-[1200ms]
+                            group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t
+                            from-emerald-950 via-emerald-950/60 to-emerald-950/10"></div>
+
+                <div class="absolute inset-0 bg-emerald-700/10
+                            mix-blend-multiply transition-opacity duration-500
+                            group-hover:bg-emerald-600/25"></div>
+
+                <div class="relative flex min-h-[470px] flex-col justify-between p-7 sm:p-8">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="rounded-full border border-white/20 bg-white/10
+                                     px-3 py-1.5 text-[10px] font-bold tracking-[0.2em]
+                                     text-white backdrop-blur-md">
+                            03 / RETAIL
+                        </span>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl
+                                    border border-white/20 bg-white/10 text-white backdrop-blur-md
+                                    transition-transform duration-500 group-hover:rotate-6">
+                            <i data-lucide="store" class="h-5 w-5"></i>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <span class="mb-3 block text-xs font-semibold uppercase
+                                     tracking-[0.18em] text-emerald-200">
+                            Retail Transformation
+                        </span>
+
+                        <h3 class="text-3xl font-black tracking-tight text-white">
+                            Retail Branding
+                        </h3>
+
+                        <p class="mt-4 max-w-md text-sm leading-7 text-emerald-50/85">
+                            Store launches across 100+ doors, custom POS fixtures,
+                            visual merchandising audits and pan-India retail
+                            transformations.
+                        </p>
+
+                        <a href="services.php#retail-branding"
+                           class="mt-6 inline-flex items-center gap-3 text-sm font-bold text-white">
+                            Explore capability
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full
+                                         bg-white text-emerald-950 transition-transform
+                                         duration-300 group-hover:translate-x-1">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Bottom statement -->
+        <div class="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl
+                    border border-slate-200 bg-slate-50/80 px-6 py-5 text-center
+                    sm:flex-row sm:text-left">
+
+            <div>
+                <p class="text-sm font-bold text-slate-900">
+                    One partner. Three ways to move your brand forward.
+                </p>
+                <p class="mt-1 text-xs text-slate-500">
+                    Strategy · Creative · Production · Execution
+                </p>
+            </div>
+
+            <a href="services.php"
+               class="inline-flex items-center gap-2 text-sm font-bold text-purple-700
+                      hover:text-purple-900">
+                View all services
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+</script>
+
+<!-- 4. WHY TRENDZ (4 Core Competitive Advantages) -->
+<!-- =========================================================
+     WHY TRENDZ EVENTZ — ORGANIC MOTION SYSTEM
+========================================================= -->
+
+<section id="why-trendz"
+         class="trendz-why relative overflow-hidden bg-[#24113f]
+                py-20 sm:py-24 lg:py-28">
+
+    <!-- =====================================================
+         ORGANIC ATMOSPHERE
+    ====================================================== -->
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+
+        <!-- Floating blobs -->
+        <div class="why-blob why-blob-1"></div>
+        <div class="why-blob why-blob-2"></div>
+        <div class="why-blob why-blob-3"></div>
+
+        <!-- Fine organic grid -->
+        <div class="why-grid"></div>
+
+        <!-- Animated contour -->
+        <svg class="why-contour absolute left-[-10%] top-[18%]
+                    h-[600px] w-[700px] opacity-[0.12]"
+             viewBox="0 0 700 600"
+             fill="none">
+
+            <path class="contour-line"
+                  d="M30 300C100 100 250 40 380 150
+                     C510 260 600 160 680 40"/>
+
+            <path class="contour-line contour-delay"
+                  d="M0 370C120 180 270 120 400 220
+                     C520 320 610 240 700 110"/>
+
+            <path class="contour-line contour-delay-2"
+                  d="M20 440C140 260 290 220 420 300
+                     C540 380 620 330 700 210"/>
+
+        </svg>
+
+        <!-- Shooting particle -->
+        <span class="why-particle particle-1"></span>
+        <span class="why-particle particle-2"></span>
+        <span class="why-particle particle-3"></span>
+
+    </div>
+
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="why-reveal max-w-4xl">
+
+            <div class="flex flex-wrap items-center gap-4">
+
+                <span class="inline-flex items-center gap-2 rounded-full
+                             border border-violet-300/20 bg-white/[0.07]
+                             px-4 py-2 text-[10px] font-bold uppercase
+                             tracking-[0.25em] text-violet-200
+                             backdrop-blur-md">
+
+                    <span class="relative flex h-2 w-2">
+
+                        <span class="absolute inline-flex h-full w-full
+                                     animate-ping rounded-full bg-fuchsia-400
+                                     opacity-60"></span>
+
+                        <span class="relative inline-flex h-2 w-2
+                                     rounded-full bg-fuchsia-400">
+                        </span>
+
+                    </span>
+
+                    Why Trendz Eventz
+
+                </span>
+
+                <span class="text-xs font-medium text-violet-300/50">
+                    Beyond execution · Built for impact
+                </span>
+
+            </div>
+
+
+            <h2 class="mt-7 max-w-5xl text-4xl font-black leading-[0.92]
+                       tracking-[-0.055em] text-white
+                       sm:text-5xl lg:text-7xl">
+
+                What brands get
+
+                <span class="why-gradient-text">
+                    when they work with us.
+                </span>
+
+            </h2>
+
+
+            <p class="mt-7 max-w-2xl text-sm leading-7 text-violet-100/60 sm:text-base">
+                Enterprises choose Trendz Eventz when the commercial stakes
+                are too high for vendor delegation and creative compromise.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CAPABILITY CARDS
+        ================================================== -->
+
+        <div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+
+            <!-- CARD 01 -->
+            <article class="why-card why-reveal"
+                     data-index="1">
+
+                <div class="why-card-glow"></div>
+
+                <div class="why-card-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="why-number">
+                            01
+                        </span>
+
+                        <div class="why-icon why-icon-violet">
+                            <i data-lucide="map"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <span class="why-kicker text-violet-300">
+                            Geographic Advantage
+                        </span>
+
+                        <h3 class="why-title">
+                            Pan-India Reach
+                        </h3>
+
+                        <p class="why-description">
+                            Programmes run across 10 cities, approximately
+                            50 driving centres, and 200 stores at the exact
+                            same time with synchronized rigor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- animated bottom line -->
+                <span class="why-card-line bg-violet-400"></span>
+
+            </article>
+
+
+            <!-- CARD 02 -->
+            <article class="why-card why-reveal"
+                     data-index="2">
+
+                <div class="why-card-glow glow-fuchsia"></div>
+
+                <div class="why-card-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="why-number">
+                            02
+                        </span>
+
+                        <div class="why-icon why-icon-fuchsia">
+                            <i data-lucide="layers-3"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <span class="why-kicker text-fuchsia-300">
+                            Operational Scale
+                        </span>
+
+                        <h3 class="why-title">
+                            Built for Scale
+                        </h3>
+
+                        <p class="why-description">
+                            From 500-dealer meets in Goa to 600-strong
+                            national sales felicitations, we manage
+                            high-capacity hospitality, staging and logistics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="why-card-line bg-fuchsia-400"></span>
+
+            </article>
+
+
+            <!-- CARD 03 -->
+            <article class="why-card why-reveal"
+                     data-index="3">
+
+                <div class="why-card-glow glow-cyan"></div>
+
+                <div class="why-card-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="why-number">
+                            03
+                        </span>
+
+                        <div class="why-icon why-icon-cyan">
+                            <i data-lucide="workflow"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <span class="why-kicker text-cyan-300">
+                            Integrated Delivery
+                        </span>
+
+                        <h3 class="why-title">
+                            End to End
+                        </h3>
+
+                        <p class="why-description">
+                            Retail branding, highway OOH, BTL activations
+                            and corporate events delivered under one roof,
+                            with a single point of contact.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="why-card-line bg-cyan-400"></span>
+
+            </article>
+
+
+            <!-- CARD 04 -->
+            <article class="why-card why-reveal"
+                     data-index="4">
+
+                <div class="why-card-glow glow-amber"></div>
+
+                <div class="why-card-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="why-number">
+                            04
+                        </span>
+
+                        <div class="why-icon why-icon-amber">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <span class="why-kicker text-amber-300">
+                            Creative Technology
+                        </span>
+
+                        <h3 class="why-title">
+                            Creativity & Tech
+                        </h3>
+
+                        <p class="why-description">
+                            Audacious stagecraft and interactive digital
+                            engagement that forge genuine emotional
+                            connections between brands and consumers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="why-card-line bg-amber-400"></span>
+
+            </article>
+
+        </div>
+
+
+        <!-- =================================================
+             BOTTOM STATEMENT
+        ================================================== -->
+
+        <div class="why-bottom why-reveal">
+
+            <div class="why-bottom-orb"></div>
+
+            <div class="relative flex flex-col gap-6
+                        lg:flex-row lg:items-center lg:justify-between">
+
+                <div>
+
+                    <span class="why-kicker text-violet-300">
+                        The Trendz Advantage
+                    </span>
+
+                    <h3 class="mt-2 text-xl font-black
+                               tracking-tight text-white sm:text-2xl">
+
+                        One partner.
+                        <span class="text-violet-300">
+                            Complete experiential control.
+                        </span>
+
+                    </h3>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2">
+
+                    <span class="why-pill">
+                        Strategy
+                    </span>
+
+                    <span class="why-pill">
+                        Creative
+                    </span>
+
+                    <span class="why-pill">
+                        Production
+                    </span>
+
+                    <span class="why-pill why-pill-active">
+                        Execution
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STYLES
+========================================================= -->
+
+<style>
+
+    /* ================================================
+       SECTION
+    ================================================ */
+
+    .trendz-why {
+        isolation: isolate;
+    }
+
+
+    /* ================================================
+       ORGANIC BLOBS
+    ================================================ */
+
+    .why-blob {
+        position: absolute;
+        filter: blur(70px);
+        opacity: .35;
+        will-change: transform;
+        animation: organicFloat 12s ease-in-out infinite;
+    }
+
+    .why-blob-1 {
+        width: 420px;
+        height: 420px;
+        left: -150px;
+        top: -120px;
+        background: #7c3aed;
+        border-radius: 42% 58% 63% 37% /
+                     48% 43% 57% 52%;
+    }
+
+    .why-blob-2 {
+        width: 460px;
+        height: 460px;
+        right: -180px;
+        top: 25%;
+        background: #c026d3;
+        opacity: .18;
+        border-radius: 58% 42% 35% 65% /
+                     45% 55% 45% 55%;
+        animation-delay: -4s;
+    }
+
+    .why-blob-3 {
+        width: 500px;
+        height: 300px;
+        left: 35%;
+        bottom: -180px;
+        background: #4f46e5;
+        opacity: .15;
+        border-radius: 55% 45% 30% 70% /
+                     60% 40% 60% 40%;
+        animation-delay: -8s;
+    }
+
+
+    @keyframes organicFloat {
+
+        0%, 100% {
+            transform:
+                translate3d(0,0,0)
+                rotate(0deg)
+                scale(1);
+        }
+
+        33% {
+            transform:
+                translate3d(30px,-25px,0)
+                rotate(4deg)
+                scale(1.05);
+        }
+
+        66% {
+            transform:
+                translate3d(-20px,25px,0)
+                rotate(-3deg)
+                scale(.96);
+        }
+
+    }
+
+
+    /* ================================================
+       GRID
+    ================================================ */
+
+    .why-grid {
+        position: absolute;
+        inset: 0;
+        opacity: .045;
+
+        background-image:
+            radial-gradient(
+                rgba(255,255,255,.8) 1px,
+                transparent 1px
+            );
+
+        background-size: 28px 28px;
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+    }
+
+
+    /* ================================================
+       CONTOUR LINES
+    ================================================ */
+
+    .contour-line {
+        stroke: #c4b5fd;
+        stroke-width: 1;
+        stroke-dasharray: 8 14;
+        animation: contourMove 18s linear infinite;
+    }
+
+    .contour-delay {
+        animation-delay: -6s;
+    }
+
+    .contour-delay-2 {
+        animation-delay: -12s;
+    }
+
+
+    @keyframes contourMove {
+
+        to {
+            stroke-dashoffset: -440;
+        }
+
+    }
+
+
+    /* ================================================
+       PARTICLES
+    ================================================ */
+
+    .why-particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #ddd6fe;
+        box-shadow: 0 0 18px #c4b5fd;
+        animation: particleFloat 7s ease-in-out infinite;
+    }
+
+    .particle-1 {
+        left: 18%;
+        top: 25%;
+    }
+
+    .particle-2 {
+        right: 22%;
+        top: 38%;
+        animation-delay: -2s;
+    }
+
+    .particle-3 {
+        left: 52%;
+        bottom: 18%;
+        animation-delay: -4s;
+    }
+
+
+    @keyframes particleFloat {
+
+        0%,100% {
+            transform: translate3d(0,0,0);
+            opacity: .2;
+        }
+
+        50% {
+            transform: translate3d(30px,-45px,0);
+            opacity: 1;
+        }
+
+    }
+
+
+    /* ================================================
+       GRADIENT TEXT
+    ================================================ */
+
+    .why-gradient-text {
+        background:
+            linear-gradient(
+                110deg,
+                #ddd6fe 0%,
+                #c4b5fd 35%,
+                #f0abfc 65%,
+                #ddd6fe 100%
+            );
+
+        background-size: 200% auto;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        animation: gradientShift 7s ease-in-out infinite;
+    }
+
+
+    @keyframes gradientShift {
+
+        0%,100% {
+            background-position: 0% center;
+        }
+
+        50% {
+            background-position: 100% center;
+        }
+
+    }
+
+
+    /* ================================================
+       CARD
+    ================================================ */
+
+    .why-card {
+        position: relative;
+        min-height: 390px;
+        overflow: hidden;
+
+        padding: 28px;
+
+        border: 1px solid rgba(255,255,255,.09);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.095),
+                rgba(255,255,255,.035)
+            );
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        border-radius:
+            3rem 1.25rem 3rem 1.25rem;
+
+        transition:
+            transform .7s cubic-bezier(.16,1,.3,1),
+            border-radius .8s cubic-bezier(.16,1,.3,1),
+            border-color .5s ease,
+            background .5s ease;
+
+        will-change: transform;
+    }
+
+
+    .why-card:nth-child(even) {
+        border-radius:
+            1.25rem 3rem 1.25rem 3rem;
+    }
+
+
+    .why-card:hover {
+        transform:
+            translateY(-14px)
+            rotateX(2deg)
+            rotateY(-2deg);
+
+        border-radius:
+            1.25rem 3rem 1.25rem 3rem;
+
+        border-color:
+            rgba(196,181,253,.3);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.13),
+                rgba(255,255,255,.055)
+            );
+    }
+
+
+    /* ================================================
+       CARD GLOW
+    ================================================ */
+
+    .why-card-glow {
+        position: absolute;
+
+        width: 220px;
+        height: 220px;
+
+        right: -100px;
+        top: -100px;
+
+        border-radius:
+            42% 58% 63% 37% /
+            48% 43% 57% 52%;
+
+        background: #8b5cf6;
+
+        filter: blur(45px);
+
+        opacity: .16;
+
+        transition:
+            transform .8s cubic-bezier(.16,1,.3,1),
+            opacity .5s ease;
+    }
+
+
+    .why-card:hover .why-card-glow {
+        transform: scale(1.5) rotate(30deg);
+        opacity: .3;
+    }
+
+
+    .glow-fuchsia {
+        background: #d946ef;
+    }
+
+    .glow-cyan {
+        background: #22d3ee;
+    }
+
+    .glow-amber {
+        background: #fbbf24;
+    }
+
+
+    /* ================================================
+       CARD CONTENT
+    ================================================ */
+
+    .why-card-content {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+
+
+    /* ================================================
+       NUMBERS
+    ================================================ */
+
+    .why-number {
+        font-size: 7rem;
+        line-height: .8;
+
+        font-weight: 900;
+
+        letter-spacing: -.1em;
+
+        color: rgba(255,255,255,.055);
+
+        transition:
+            transform .7s cubic-bezier(.16,1,.3,1),
+            color .5s ease;
+    }
+
+
+    .why-card:hover .why-number {
+        transform:
+            translateX(8px)
+            translateY(-4px);
+
+        color: rgba(196,181,253,.12);
+    }
+
+
+    /* ================================================
+       ICON
+    ================================================ */
+
+    .why-icon {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius:
+            42% 58% 55% 45%;
+
+        transition:
+            transform .6s cubic-bezier(.16,1,.3,1),
+            border-radius .6s ease;
+    }
+
+
+    .why-card:hover .why-icon {
+        transform:
+            rotate(12deg)
+            scale(1.08);
+
+        border-radius:
+            55% 45% 40% 60%;
+    }
+
+
+    .why-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .why-icon-violet {
+        color: #ddd6fe;
+        background: rgba(139,92,246,.13);
+        border: 1px solid rgba(167,139,250,.2);
+    }
+
+    .why-icon-fuchsia {
+        color: #f5d0fe;
+        background: rgba(217,70,239,.13);
+        border: 1px solid rgba(232,121,249,.2);
+    }
+
+    .why-icon-cyan {
+        color: #a5f3fc;
+        background: rgba(34,211,238,.1);
+        border: 1px solid rgba(103,232,249,.2);
+    }
+
+    .why-icon-amber {
+        color: #fde68a;
+        background: rgba(251,191,36,.1);
+        border: 1px solid rgba(252,211,77,.2);
+    }
+
+
+    /* ================================================
+       TYPOGRAPHY
+    ================================================ */
+
+    .why-kicker {
+        display: block;
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .22em;
+        text-transform: uppercase;
+    }
+
+
+    .why-title {
+        margin-top: 8px;
+
+        color: white;
+
+        font-size: 1.5rem;
+        line-height: 1.1;
+
+        font-weight: 900;
+
+        letter-spacing: -.03em;
+
+        transition:
+            transform .5s cubic-bezier(.16,1,.3,1);
+    }
+
+
+    .why-card:hover .why-title {
+        transform: translateX(4px);
+    }
+
+
+    .why-description {
+        margin-top: 16px;
+
+        color: rgba(237,233,254,.58);
+
+        font-size: .875rem;
+        line-height: 1.75;
+    }
+
+
+    /* ================================================
+       BOTTOM LINE
+    ================================================ */
+
+    .why-card-line {
+        position: absolute;
+
+        left: 28px;
+        right: 28px;
+        bottom: 0;
+
+        height: 2px;
+
+        transform:
+            scaleX(.15);
+
+        transform-origin: left;
+
+        opacity: .35;
+
+        transition:
+            transform .7s cubic-bezier(.16,1,.3,1),
+            opacity .5s ease;
+    }
+
+
+    .why-card:hover .why-card-line {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+
+    /* ================================================
+       BOTTOM BAR
+    ================================================ */
+
+    .why-bottom {
+        position: relative;
+
+        margin-top: 28px;
+
+        overflow: hidden;
+
+        padding: 28px 36px;
+
+        border:
+            1px solid rgba(196,181,253,.13);
+
+        background:
+            rgba(255,255,255,.045);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        border-radius:
+            2.5rem 1rem 2.5rem 1rem;
+    }
+
+
+    .why-bottom-orb {
+        position: absolute;
+
+        right: -100px;
+        top: -120px;
+
+        width: 280px;
+        height: 280px;
+
+        border-radius:
+            50% 50% 40% 60%;
+
+        background:
+            radial-gradient(
+                circle,
+                rgba(167,139,250,.2),
+                transparent 65%
+            );
+
+        animation:
+            organicFloat 9s ease-in-out infinite;
+    }
+
+
+    .why-pill {
+        border:
+            1px solid rgba(255,255,255,.09);
+
+        background:
+            rgba(255,255,255,.045);
+
+        color:
+            rgba(237,233,254,.6);
+
+        padding:
+            9px 16px;
+
+        border-radius:
+            999px;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        transition:
+            transform .3s ease,
+            background .3s ease,
+            color .3s ease;
+    }
+
+
+    .why-pill:hover {
+        transform: translateY(-2px);
+        background: rgba(255,255,255,.09);
+        color: white;
+    }
+
+
+    .why-pill-active {
+        border-color:
+            rgba(196,181,253,.25);
+
+        background:
+            rgba(139,92,246,.14);
+
+        color:
+            #ddd6fe;
+    }
+
+
+    /* ================================================
+       ENTRANCE ANIMATION
+    ================================================ */
+
+    .why-reveal {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.97);
+
+        transition:
+            opacity .9s cubic-bezier(.16,1,.3,1),
+            transform .9s cubic-bezier(.16,1,.3,1);
+    }
+
+
+    .why-reveal.is-visible {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    .why-card:nth-child(1) {
+        transition-delay: .05s;
+    }
+
+    .why-card:nth-child(2) {
+        transition-delay: .15s;
+    }
+
+    .why-card:nth-child(3) {
+        transition-delay: .25s;
+    }
+
+    .why-card:nth-child(4) {
+        transition-delay: .35s;
+    }
+
+
+    /* ================================================
+       MOBILE
+    ================================================ */
+
+    @media (max-width: 640px) {
+
+        .why-card {
+            min-height: 350px;
+            border-radius: 2rem 1rem 2rem 1rem;
+        }
+
+        .why-card:nth-child(even) {
+            border-radius: 1rem 2rem 1rem 2rem;
+        }
+
+        .why-number {
+            font-size: 5.5rem;
+        }
+
+        .why-bottom {
+            padding: 24px;
+            border-radius: 2rem 1rem 2rem 1rem;
+        }
+
+        .why-contour {
+            left: -40%;
+        }
+
+    }
+
+
+    /* ================================================
+       REDUCED MOTION
+    ================================================ */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .why-blob,
+        .why-particle,
+        .contour-line,
+        .why-gradient-text,
+        .why-bottom-orb {
+            animation: none !important;
+        }
+
+        .why-reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .why-card {
+            transition: none;
+        }
+
+    }
+
+</style>
+
+
+<!-- =========================================================
+     MOTION ENGINE
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /*
+     * Lucide
+     */
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /*
+     * Intersection Observer
+     * Reveals elements only when entering viewport.
+     */
+    const revealObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+    document
+        .querySelectorAll(".why-reveal")
+        .forEach(el => revealObserver.observe(el));
+
+
+    /*
+     * Subtle cursor-reactive organic lighting
+     */
+    const section = document.querySelector("#why-trendz");
+
+    if (section && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+        section.addEventListener("pointermove", event => {
+
+            const rect = section.getBoundingClientRect();
+
+            const x =
+                ((event.clientX - rect.left) / rect.width) * 100;
+
+            const y =
+                ((event.clientY - rect.top) / rect.height) * 100;
+
+            section.style.setProperty("--mouse-x", `${x}%`);
+            section.style.setProperty("--mouse-y", `${y}%`);
+
+        });
+
+    }
+
+
+    /*
+     * Card magnetic tilt
+     * Extremely subtle — avoids gimmicky 3D.
+     */
+    document
+        .querySelectorAll(".why-card")
+        .forEach(card => {
+
+            card.addEventListener("pointermove", event => {
+
+                if (window.innerWidth < 1024) return;
+
+                const rect = card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const rotateY =
+                    ((x / rect.width) - .5) * 4;
+
+                const rotateX =
+                    ((y / rect.height) - .5) * -4;
+
+                card.style.transform =
+                    `translateY(-14px)
+                     perspective(900px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)`;
+
+            });
+
+
+            card.addEventListener("pointerleave", () => {
+
+                card.style.transform = "";
+
+            });
+
+        });
+
+});
+
+</script>
+<!-- =========================================================
+     TRENDZ — SIX CAPABILITIES / ORGANIC EDITORIAL GRID
+========================================================= -->
+
+<section id="capabilities"
+         class="capabilities-section relative overflow-hidden
+                bg-[#24113f] py-20 sm:py-24 lg:py-32">
+
+    <!-- BACKGROUND ATMOSPHERE -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+
+        <div class="cap-blob cap-blob-1"></div>
+        <div class="cap-blob cap-blob-2"></div>
+        <div class="cap-blob cap-blob-3"></div>
+
+        <div class="cap-stars"></div>
+
+        <svg class="absolute -right-40 top-20 h-[700px] w-[700px]
+                    opacity-[0.09]"
+             viewBox="0 0 700 700"
+             fill="none">
+
+            <path class="cap-contour"
+                  d="M50 500C150 250 350 150 650 80"/>
+            <path class="cap-contour cap-contour-2"
+                  d="M20 580C190 300 390 220 690 120"/>
+            <path class="cap-contour cap-contour-3"
+                  d="M100 650C280 390 450 320 700 200"/>
+
+        </svg>
+
+    </div>
+
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="cap-reveal mb-14 flex flex-col gap-7
+                    md:flex-row md:items-end md:justify-between">
+
+            <div class="max-w-4xl">
+
+                <span class="inline-flex items-center gap-2
+                             rounded-full border border-violet-300/20
+                             bg-white/[0.07] px-4 py-2
+                             text-[10px] font-black uppercase
+                             tracking-[0.25em] text-violet-200
+                             backdrop-blur-xl">
+
+                    <span class="h-1.5 w-1.5 rounded-full bg-fuchsia-400
+                                 shadow-[0_0_14px_#e879f9]"></span>
+
+                    Core Capabilities
+                </span>
+
+
+                <h2 class="mt-6 text-4xl font-black leading-[.92]
+                           tracking-[-0.055em] text-white
+                           sm:text-5xl lg:text-7xl">
+
+                    Six ways we make
+                    <span class="cap-gradient">
+                        brands move.
+                    </span>
+
+                </h2>
+
+
+                <p class="mt-6 max-w-2xl text-sm leading-7
+                          text-violet-100/60 sm:text-base">
+
+                    Delivered with proprietary teams, local vendor networks,
+                    and verified municipal execution.
+
+                </p>
+
+            </div>
+
+
+            <a href="services.php"
+               class="group inline-flex shrink-0 items-center gap-3
+                      rounded-full border border-violet-300/20
+                      bg-white/[0.06] px-5 py-3 text-xs font-bold
+                      text-violet-100 backdrop-blur-xl
+                      transition-all duration-500
+                      hover:-translate-y-1
+                      hover:border-violet-300/40
+                      hover:bg-violet-400/10">
+
+                <span>View Deep Capabilities</span>
+
+                <span class="flex h-8 w-8 items-center justify-center
+                             rounded-full bg-violet-300 text-[#24113f]
+                             transition-transform duration-500
+                             group-hover:rotate-45">
+
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             CAPABILITY GRID
+        ================================================== -->
+
+        <div class="grid gap-5 lg:grid-cols-12">
+
+
+            <!-- =================================================
+                 CARD 01 — FEATURED
+            ================================================== -->
+
+            <article class="cap-card cap-featured cap-reveal
+                            lg:col-span-7">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/philips-dealers-meet-1.jpg"
+                         alt="Corporate Events"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-violet">
+                            Corporate
+                        </span>
+
+                        <span class="cap-index">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto max-w-xl">
+
+                        <div class="cap-mini">
+                            HIGH-STAKES EXPERIENCES
+                        </div>
+
+                        <h3 class="cap-title">
+                            Corporate Events
+                        </h3>
+
+                        <p class="cap-description">
+                            High-stakes corporate gatherings, dealer conferences,
+                            and executive milestones executed with uncompromising
+                            precision.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Dealer meets</span>
+                            <span>Annual meets</span>
+                            <span>Product launches</span>
+                        </div>
+
+
+                        <a href="services.php#corporate-events"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CARD 02
+            ================================================== -->
+
+            <article class="cap-card cap-reveal lg:col-span-5">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/lipton-mall-engagement-1.jpg"
+                         alt="BTL and Experiential"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-fuchsia">
+                            Experiential
+                        </span>
+
+                        <span class="cap-index">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <div class="cap-mini">
+                            BRAND ACTIVATION
+                        </div>
+
+                        <h3 class="cap-title">
+                            BTL & Experiential
+                        </h3>
+
+                        <p class="cap-description">
+                            High-touch consumer activations, immersive mall
+                            setups, and sampling programmes that bridge brands
+                            with everyday people.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Mall experiences</span>
+                            <span>Sampling</span>
+                            <span>Roadshows</span>
+                        </div>
+
+
+                        <a href="services.php#btl-experiential"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CARD 03
+            ================================================== -->
+
+            <article class="cap-card cap-reveal lg:col-span-4">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/samsung-store-launch-1.jpg"
+                         alt="Retail Branding"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-cyan">
+                            Retail
+                        </span>
+
+                        <span class="cap-index">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <div class="cap-mini">
+                            RETAIL TRANSFORMATION
+                        </div>
+
+                        <h3 class="cap-title">
+                            Retail Branding
+                        </h3>
+
+                        <p class="cap-description">
+                            Pan-India visual merchandising, store thematic
+                            launches, and high-standard retail audits across
+                            hundreds of doors.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Store launches</span>
+                            <span>VM audits</span>
+                            <span>Rollouts</span>
+                        </div>
+
+
+                        <a href="services.php#retail-branding"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CARD 04
+            ================================================== -->
+
+            <article class="cap-card cap-reveal lg:col-span-4">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/lipton-flash-mob-1.jpg"
+                         alt="Digital Marketing"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-pink">
+                            Digital
+                        </span>
+
+                        <span class="cap-index">
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <div class="cap-mini">
+                            DIGITAL AMPLIFICATION
+                        </div>
+
+                        <h3 class="cap-title">
+                            Digital Marketing
+                        </h3>
+
+                        <p class="cap-description">
+                            Campaign concepts, social-first activation, and
+                            digital amplification that extend physical momentum
+                            into viral reach.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Campaigns</span>
+                            <span>Content</span>
+                            <span>Social activation</span>
+                        </div>
+
+
+                        <a href="services.php#digital-marketing"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CARD 05
+            ================================================== -->
+
+            <article class="cap-card cap-reveal lg:col-span-4">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/maruti-driving-school-1.jpg"
+                         alt="Mobile and Tele Marketing"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-amber">
+                            Outreach
+                        </span>
+
+                        <span class="cap-index">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto">
+
+                        <div class="cap-mini">
+                            DIRECT ENGAGEMENT
+                        </div>
+
+                        <h3 class="cap-title">
+                            Mobile & Tele Marketing
+                        </h3>
+
+                        <p class="cap-description">
+                            Trained on-ground field forces and direct outreach
+                            programmes that convert prospect curiosity into
+                            qualified participation.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Field forces</span>
+                            <span>Tele-outreach</span>
+                            <span>Registration</span>
+                        </div>
+
+
+                        <a href="services.php#mobile-tele-marketing"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CARD 06
+            ================================================== -->
+
+            <article class="cap-card cap-reveal lg:col-span-8">
+
+                <div class="cap-image-wrap">
+
+                    <img src="assets/img/work/yokohama-road-safety-1.jpg"
+                         alt="Broadcast Print and Outdoor"
+                         class="cap-image">
+
+                    <div class="cap-image-overlay"></div>
+
+                </div>
+
+
+                <div class="cap-content">
+
+                    <div class="flex items-start justify-between">
+
+                        <span class="cap-category cap-green">
+                            Outdoor
+                        </span>
+
+                        <span class="cap-index">
+                            06
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-auto max-w-2xl">
+
+                        <div class="cap-mini">
+                            HIGH-VISIBILITY MEDIA
+                        </div>
+
+                        <h3 class="cap-title">
+                            Broadcast, Print & Outdoor
+                        </h3>
+
+                        <p class="cap-description">
+                            Strategic highway takeovers, toll-naka distribution,
+                            print collateral, and guerrilla PR stunts in
+                            high-visibility corridors.
+                        </p>
+
+
+                        <div class="cap-tags">
+                            <span>Highway branding</span>
+                            <span>Outdoor</span>
+                            <span>Guerrilla PR</span>
+                        </div>
+
+
+                        <a href="services.php#broadcast-print-outdoor"
+                           class="cap-link">
+
+                            Explore Pillar Details
+
+                            <span class="cap-arrow">
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.capabilities-section {
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   ORGANIC BACKGROUND
+========================================================= */
+
+.cap-blob {
+    position: absolute;
+    filter: blur(90px);
+    opacity: .25;
+    animation: capFloat 14s ease-in-out infinite;
+}
+
+.cap-blob-1 {
+    width: 520px;
+    height: 520px;
+    left: -180px;
+    top: -150px;
+    background: #7c3aed;
+    border-radius: 42% 58% 63% 37% /
+                     48% 43% 57% 52%;
+}
+
+.cap-blob-2 {
+    width: 460px;
+    height: 460px;
+    right: -180px;
+    top: 25%;
+    background: #c026d3;
+    opacity: .16;
+    border-radius: 58% 42% 35% 65% /
+                     45% 55% 45% 55%;
+    animation-delay: -5s;
+}
+
+.cap-blob-3 {
+    width: 500px;
+    height: 350px;
+    left: 35%;
+    bottom: -200px;
+    background: #2563eb;
+    opacity: .12;
+    border-radius: 55% 45% 30% 70% /
+                     60% 40% 60% 40%;
+    animation-delay: -9s;
+}
+
+
+@keyframes capFloat {
+
+    0%,100% {
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg)
+            scale(1);
+    }
+
+    35% {
+        transform:
+            translate3d(35px,-30px,0)
+            rotate(5deg)
+            scale(1.06);
+    }
+
+    70% {
+        transform:
+            translate3d(-25px,25px,0)
+            rotate(-4deg)
+            scale(.96);
+    }
+
+}
+
+
+/* =========================================================
+   STAR / DOT FIELD
+========================================================= */
+
+.cap-stars {
+    position: absolute;
+    inset: 0;
+
+    opacity: .035;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.9) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   CONTOURS
+========================================================= */
+
+.cap-contour {
+    stroke: #ddd6fe;
+    stroke-width: 1;
+    stroke-dasharray: 10 18;
+
+    animation:
+        contourFlow 22s linear infinite;
+}
+
+.cap-contour-2 {
+    animation-delay: -7s;
+}
+
+.cap-contour-3 {
+    animation-delay: -14s;
+}
+
+
+@keyframes contourFlow {
+
+    to {
+        stroke-dashoffset: -560;
+    }
+
+}
+
+
+/* =========================================================
+   GRADIENT HEADLINE
+========================================================= */
+
+.cap-gradient {
+
+    background:
+        linear-gradient(
+            110deg,
+            #ddd6fe,
+            #c4b5fd,
+            #f0abfc,
+            #ddd6fe
+        );
+
+    background-size: 220% auto;
+
+    color: transparent;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation:
+        capGradient 8s ease-in-out infinite;
+}
+
+
+@keyframes capGradient {
+
+    0%,100% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cap-card {
+
+    position: relative;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,.11);
+
+    background:
+        rgba(255,255,255,.055);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius:
+        3rem 1.2rem 3rem 1.2rem;
+
+    transition:
+        transform .8s cubic-bezier(.16,1,.3,1),
+        border-radius .8s cubic-bezier(.16,1,.3,1),
+        border-color .5s ease;
+
+    transform-style: preserve-3d;
+}
+
+
+.cap-card:nth-child(even) {
+    border-radius:
+        1.2rem 3rem 1.2rem 3rem;
+}
+
+
+.cap-card:hover {
+
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(196,181,253,.35);
+
+    border-radius:
+        1.2rem 3rem 1.2rem 3rem;
+}
+
+
+/* =========================================================
+   FEATURED CARD
+========================================================= */
+
+.cap-featured {
+    min-height: 590px;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.cap-image-wrap {
+
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+}
+
+
+.cap-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform:
+        scale(1.02);
+
+    filter:
+        saturate(.82)
+        contrast(1.03);
+
+    transition:
+        transform 1.4s cubic-bezier(.16,1,.3,1),
+        filter 1s ease;
+}
+
+
+.cap-card:hover .cap-image {
+
+    transform:
+        scale(1.1);
+
+    filter:
+        saturate(1.08)
+        contrast(1.04);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.cap-image-overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,10,35,.15) 0%,
+            rgba(20,10,35,.18) 25%,
+            rgba(20,10,35,.72) 68%,
+            rgba(20,10,35,.96) 100%
+        );
+
+    transition:
+        background .8s ease;
+}
+
+
+.cap-card:hover .cap-image-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,10,35,.08) 0%,
+            rgba(20,10,35,.16) 25%,
+            rgba(20,10,35,.66) 65%,
+            rgba(20,10,35,.95) 100%
+        );
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.cap-content {
+
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+
+    height: 100%;
+
+    min-height: 500px;
+
+    flex-direction: column;
+
+    padding: 28px;
+}
+
+
+.cap-featured .cap-content {
+    min-height: 590px;
+}
+
+
+/* =========================================================
+   INDEX
+========================================================= */
+
+.cap-index {
+
+    font-size: 5rem;
+
+    line-height: .75;
+
+    font-weight: 900;
+
+    letter-spacing: -.09em;
+
+    color:
+        rgba(255,255,255,.16);
+
+    transition:
+        transform .7s cubic-bezier(.16,1,.3,1),
+        color .5s ease;
+}
+
+
+.cap-card:hover .cap-index {
+
+    transform:
+        translateY(-6px);
+
+    color:
+        rgba(255,255,255,.3);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.cap-category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    padding:
+        7px 12px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(20,10,35,.32);
+
+    backdrop-filter: blur(12px);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+
+    color: white;
+}
+
+
+.cap-violet {
+    border-color: rgba(196,181,253,.35);
+}
+
+.cap-fuchsia {
+    border-color: rgba(232,121,249,.35);
+}
+
+.cap-cyan {
+    border-color: rgba(103,232,249,.35);
+}
+
+.cap-pink {
+    border-color: rgba(244,114,182,.35);
+}
+
+.cap-amber {
+    border-color: rgba(252,211,77,.35);
+}
+
+.cap-green {
+    border-color: rgba(110,231,183,.35);
+}
+
+
+/* =========================================================
+   MINI LABEL
+========================================================= */
+
+.cap-mini {
+
+    margin-bottom: 7px;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: .23em;
+
+    color:
+        rgba(221,214,254,.7);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.cap-title {
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    font-weight: 950;
+
+    letter-spacing: -.04em;
+
+    color: white;
+
+    transition:
+        transform .6s cubic-bezier(.16,1,.3,1);
+}
+
+
+.cap-featured .cap-title {
+
+    font-size:
+        clamp(2.5rem, 5vw, 4.5rem);
+
+}
+
+
+.cap-card:hover .cap-title {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.cap-description {
+
+    max-width: 620px;
+
+    margin-top: 14px;
+
+    font-size: .875rem;
+
+    line-height: 1.75;
+
+    color:
+        rgba(245,243,255,.68);
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.cap-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 18px;
+}
+
+
+.cap-tags span {
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    color:
+        rgba(245,243,255,.62);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.cap-card:hover .cap-tags span {
+
+    background:
+        rgba(255,255,255,.09);
+
+    color:
+        rgba(255,255,255,.85);
+}
+
+
+.cap-tags span:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.cap-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    color:
+        #ddd6fe;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+}
+
+
+.cap-arrow {
+
+    display: flex;
+
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(196,181,253,.15);
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1),
+        background .4s ease;
+}
+
+
+.cap-arrow svg {
+
+    width: 15px;
+    height: 15px;
+}
+
+
+.cap-card:hover .cap-arrow {
+
+    transform:
+        translate(4px,-4px)
+        rotate(8deg);
+
+    background:
+        rgba(196,181,253,.3);
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.cap-reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(55px)
+        scale(.97);
+
+    transition:
+        opacity .9s cubic-bezier(.16,1,.3,1),
+        transform .9s cubic-bezier(.16,1,.3,1);
+}
+
+
+.cap-reveal.is-visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.cap-reveal:nth-child(1) {
+    transition-delay: .05s;
+}
+
+.cap-reveal:nth-child(2) {
+    transition-delay: .13s;
+}
+
+.cap-reveal:nth-child(3) {
+    transition-delay: .21s;
+}
+
+.cap-reveal:nth-child(4) {
+    transition-delay: .29s;
+}
+
+.cap-reveal:nth-child(5) {
+    transition-delay: .37s;
+}
+
+.cap-reveal:nth-child(6) {
+    transition-delay: .45s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1023px) {
+
+    .cap-featured {
+        min-height: 520px;
+    }
+
+    .cap-featured .cap-content {
+        min-height: 520px;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .cap-card,
+    .cap-featured {
+        min-height: 450px;
+
+        border-radius:
+            2rem 1rem 2rem 1rem;
+    }
+
+    .cap-card:nth-child(even) {
+        border-radius:
+            1rem 2rem 1rem 2rem;
+    }
+
+    .cap-content,
+    .cap-featured .cap-content {
+        min-height: 450px;
+        padding: 24px;
+    }
+
+    .cap-featured .cap-title {
+        font-size: 2.5rem;
+    }
+
+    .cap-title {
+        font-size: 1.7rem;
+    }
+
+    .cap-index {
+        font-size: 4rem;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cap-blob,
+    .cap-contour,
+    .cap-gradient {
+        animation: none !important;
+    }
+
+    .cap-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .cap-card,
+    .cap-image,
+    .cap-title,
+    .cap-index {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Lucide */
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /* Scroll reveal */
+    const revealObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+    document
+        .querySelectorAll(".cap-reveal")
+        .forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+    /* Subtle magnetic image movement */
+    document
+        .querySelectorAll(".cap-card")
+        .forEach(card => {
+
+            const image =
+                card.querySelector(".cap-image");
+
+            card.addEventListener("pointermove", event => {
+
+                if (window.innerWidth < 1024) {
+                    return;
+                }
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width - .5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height - .5;
+
+                image.style.transform =
+                    `scale(1.1)
+                     translate(${x * -10}px, ${y * -10}px)`;
+
+            });
+
+
+            card.addEventListener("pointerleave", () => {
+
+                image.style.transform = "";
+
+            });
+
+        });
+
+});
+
+</script>
+
+
+<!-- 7. OPERATING DISCIPLINE -->
+<section class="execution-system relative overflow-hidden bg-white border-b border-slate-100">
+
+    <!-- Ambient organic shapes -->
+    <div class="exec-orb exec-orb-1"></div>
+    <div class="exec-orb exec-orb-2"></div>
+    <div class="exec-grid"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+
+        <!-- Header -->
+        <div class="exec-header">
+            <div class="exec-heading-wrap">
+
+                <span class="exec-eyebrow">
+                    <span class="exec-eyebrow-dot"></span>
+                    Operating Discipline
+                </span>
+
+                <h2 class="exec-title">
+                    Our 5-Step Execution
+                    <span>Operating System</span>
+                </h2>
+
+                <p class="exec-intro">
+                    One dedicated team from first idea to final report.
+                    Brands deal with a single point of contact across cities.
+                </p>
+
+            </div>
+
+            <div class="exec-side-note">
+                <span class="exec-side-number">05</span>
+                <span>Stages.<br>One Team.</span>
+            </div>
+        </div>
+
+
+        <!-- Execution Journey -->
+        <div class="exec-journey">
+
+            <!-- Connecting line -->
+            <div class="exec-line">
+                <div class="exec-line-progress"></div>
+            </div>
+
+
+            <!-- STEP 01 -->
+            <article class="exec-step exec-reveal">
+
+                <div class="exec-marker">
+                    <span>01</span>
+                </div>
+
+                <div class="exec-card">
+
+                    <div class="exec-card-top">
+                        <span class="exec-stage">Stage 01</span>
+
+                        <div class="exec-icon">
+                            <i data-lucide="scan-search"></i>
+                        </div>
+                    </div>
+
+                    <h3>Understand</h3>
+
+                    <p>
+                        Decode the brief, the brand and the audience
+                        we need to move.
+                    </p>
+
+                    <div class="exec-footer">
+                        <span>Brief → Insight</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- STEP 02 -->
+            <article class="exec-step exec-reveal">
+
+                <div class="exec-marker">
+                    <span>02</span>
+                </div>
+
+                <div class="exec-card">
+
+                    <div class="exec-card-top">
+                        <span class="exec-stage">Stage 02</span>
+
+                        <div class="exec-icon">
+                            <i data-lucide="lightbulb"></i>
+                        </div>
+                    </div>
+
+                    <h3>Ideate</h3>
+
+                    <p>
+                        Build the concept, creative and experience
+                        journey.
+                    </p>
+
+                    <div class="exec-footer">
+                        <span>Insight → Concept</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- STEP 03 -->
+            <article class="exec-step exec-reveal">
+
+                <div class="exec-marker">
+                    <span>03</span>
+                </div>
+
+                <div class="exec-card">
+
+                    <div class="exec-card-top">
+                        <span class="exec-stage">Stage 03</span>
+
+                        <div class="exec-icon">
+                            <i data-lucide="clipboard-check"></i>
+                        </div>
+                    </div>
+
+                    <h3>Plan</h3>
+
+                    <p>
+                        Lock locations, vendors, permissions,
+                        budgets and timelines.
+                    </p>
+
+                    <div class="exec-footer">
+                        <span>Concept → Blueprint</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- STEP 04 -->
+            <article class="exec-step exec-reveal">
+
+                <div class="exec-marker">
+                    <span>04</span>
+                </div>
+
+                <div class="exec-card">
+
+                    <div class="exec-card-top">
+                        <span class="exec-stage">Stage 04</span>
+
+                        <div class="exec-icon">
+                            <i data-lucide="rocket"></i>
+                        </div>
+                    </div>
+
+                    <h3>Execute</h3>
+
+                    <p>
+                        Deliver on ground with our own teams,
+                        city by city.
+                    </p>
+
+                    <div class="exec-footer">
+                        <span>Blueprint → Reality</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- STEP 05 -->
+            <article class="exec-step exec-reveal">
+
+                <div class="exec-marker">
+                    <span>05</span>
+                </div>
+
+                <div class="exec-card">
+
+                    <div class="exec-card-top">
+                        <span class="exec-stage">Stage 05</span>
+
+                        <div class="exec-icon">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                    </div>
+
+                    <h3>Report</h3>
+
+                    <p>
+                        Share photos, numbers and learnings after
+                        every programme.
+                    </p>
+
+                    <div class="exec-footer">
+                        <span>Reality → Intelligence</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </div>
+
+                </div>
+            </article>
+
+        </div>
+
+
+        <!-- Bottom statement -->
+        <div class="exec-bottom exec-reveal">
+
+            <div class="exec-bottom-mark">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div>
+                <strong>One operating rhythm.</strong>
+                <span>
+                    From first brief to final report.
+                </span>
+            </div>
+
+            <div class="exec-bottom-right">
+                <span>Single Point of Contact</span>
+                <span>Multi-City Execution</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+/* =========================================================
+   TRENDZ — 5 STEP EXECUTION SYSTEM
+========================================================= */
+
+.execution-system {
+    isolation: isolate;
+}
+
+.exec-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .3;
+
+    background-image:
+        radial-gradient(
+            circle at 1px 1px,
+            rgba(124, 58, 237, .12) 1px,
+            transparent 0
+        );
+
+    background-size: 30px 30px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            transparent 85%
+        );
+}
+
+.exec-orb {
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(90px);
+}
+
+.exec-orb-1 {
+    width: 420px;
+    height: 420px;
+    top: -220px;
+    right: -120px;
+    background: rgba(124, 58, 237, .09);
+}
+
+.exec-orb-2 {
+    width: 320px;
+    height: 320px;
+    bottom: -180px;
+    left: -140px;
+    background: rgba(14, 165, 233, .07);
+}
+
+
+/* HEADER */
+
+.exec-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.exec-heading-wrap {
+    max-width: 800px;
+}
+
+.exec-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+
+    padding: .45rem .8rem;
+
+    border: 1px solid rgba(124, 58, 237, .18);
+    border-radius: 999px;
+
+    background: rgba(124, 58, 237, .055);
+
+    color: #6d28d9;
+
+    font-size: .67rem;
+    font-weight: 900;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.exec-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+
+    background: #7c3aed;
+
+    box-shadow:
+        0 0 0 5px rgba(124, 58, 237, .09);
+}
+
+.exec-title {
+    margin-top: 1rem;
+
+    color: #111827;
+
+    font-family: var(--font-heading, inherit);
+    font-size: clamp(2.15rem, 5vw, 4rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    font-weight: 900;
+}
+
+.exec-title span {
+    color: #7c3aed;
+}
+
+.exec-intro {
+    max-width: 680px;
+    margin-top: 1rem;
+
+    color: #64748b;
+
+    font-size: clamp(.9rem, 1.5vw, 1rem);
+    line-height: 1.7;
+}
+
+.exec-side-note {
+    display: flex;
+    align-items: flex-end;
+    gap: .8rem;
+
+    color: #94a3b8;
+
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+.exec-side-number {
+    color: rgba(124, 58, 237, .18);
+
+    font-size: 5rem;
+    line-height: .7;
+    font-weight: 900;
+    letter-spacing: -.08em;
+}
+
+
+/* JOURNEY */
+
+.exec-journey {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+
+/* CONNECTING LINE */
+
+.exec-line {
+    position: absolute;
+    top: 31px;
+    left: 7%;
+    right: 7%;
+
+    height: 2px;
+
+    background: #e9e4f3;
+
+    z-index: 0;
+}
+
+.exec-line-progress {
+    width: 100%;
+    height: 100%;
+
+    transform-origin: left center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c4b5fd,
+            #7c3aed,
+            #a78bfa
+        );
+
+    animation: exec-progress 2s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes exec-progress {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* STEP */
+
+.exec-step {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/* MARKER */
+
+.exec-marker {
+    width: 62px;
+    height: 62px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto;
+
+    border: 6px solid #fff;
+
+    border-radius: 50%;
+
+    color: #6d28d9;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5f3ff,
+            #ede9fe
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(124, 58, 237, .15),
+        0 10px 25px rgba(76, 29, 149, .08);
+
+    font-family: var(--font-display, inherit);
+    font-size: .78rem;
+    font-weight: 900;
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        background .35s ease,
+        color .35s ease,
+        box-shadow .35s ease;
+}
+
+.exec-step:hover .exec-marker {
+    color: #fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8b5cf6,
+            #6d28d9
+        );
+
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 0 0 1px rgba(124, 58, 237, .2),
+        0 15px 35px rgba(124, 58, 237, .25);
+}
+
+
+/* CARD */
+
+.exec-card {
+    position: relative;
+
+    min-height: 275px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1.35rem;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 1.35rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(248,247,252,.94)
+        );
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.035);
+
+    overflow: hidden;
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        border-color .35s ease,
+        box-shadow .45s ease;
+}
+
+.exec-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -90px;
+    top: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(124,58,237,.08);
+
+    transition:
+        transform .6s ease,
+        opacity .4s ease;
+}
+
+.exec-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8b5cf6,
+            transparent
+        );
+
+    transform: scaleX(0);
+
+    transition: transform .45s ease;
+}
+
+.exec-step:hover .exec-card {
+    transform: translateY(-8px);
+
+    border-color: rgba(124,58,237,.25);
+
+    box-shadow:
+        0 25px 55px rgba(76,29,149,.10);
+}
+
+.exec-step:hover .exec-card::before {
+    transform: scale(2);
+}
+
+.exec-step:hover .exec-card::after {
+    transform: scaleX(1);
+}
+
+
+/* CARD CONTENT */
+
+.exec-card-top {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exec-stage {
+    color: #94a3b8;
+
+    font-size: .58rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.exec-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    color: #6d28d9;
+
+    background: #f5f3ff;
+
+    border: 1px solid #ddd6fe;
+
+    border-radius: 12px;
+}
+
+.exec-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.exec-card h3 {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 2rem;
+    margin-bottom: .6rem;
+
+    color: #111827;
+
+    font-family: var(--font-heading, inherit);
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: -.025em;
+}
+
+.exec-card p {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .76rem;
+    line-height: 1.7;
+}
+
+.exec-footer {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+    padding-top: 1.2rem;
+
+    border-top: 1px solid #eef2f7;
+
+    color: #7c3aed;
+
+    font-size: .58rem;
+    font-weight: 900;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.exec-footer svg {
+    width: 14px;
+    height: 14px;
+
+    transition: transform .3s ease;
+}
+
+.exec-step:hover .exec-footer svg {
+    transform: translate(3px, -3px);
+}
+
+
+/* BOTTOM */
+
+.exec-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+
+    background: rgba(255,255,255,.7);
+
+    backdrop-filter: blur(12px);
+}
+
+.exec-bottom-mark {
+    display: flex;
+    gap: 4px;
+}
+
+.exec-bottom-mark span {
+    width: 4px;
+    height: 18px;
+
+    border-radius: 99px;
+
+    background: #7c3aed;
+}
+
+.exec-bottom-mark span:nth-child(2) {
+    height: 13px;
+    opacity: .6;
+}
+
+.exec-bottom-mark span:nth-child(3) {
+    height: 8px;
+    opacity: .3;
+}
+
+.exec-bottom strong {
+    color: #334155;
+
+    font-size: .72rem;
+    font-weight: 900;
+}
+
+.exec-bottom > div:nth-child(2) span {
+    margin-left: .45rem;
+
+    color: #94a3b8;
+
+    font-size: .68rem;
+}
+
+.exec-bottom-right {
+    display: flex;
+    gap: 1.25rem;
+
+    color: #64748b;
+
+    font-size: .58rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+
+/* REVEAL */
+
+.exec-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1);
+}
+
+.exec-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+
+    .exec-journey {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .exec-line {
+        display: none;
+    }
+
+    .exec-step:last-child {
+        grid-column: span 2;
+        max-width: calc(50% - .5rem);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+    .exec-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+    }
+
+    .exec-side-note {
+        display: none;
+    }
+
+    .exec-title {
+        font-size: 2.35rem;
+    }
+
+    .exec-intro {
+        font-size: .88rem;
+    }
+
+    .exec-journey {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .exec-step:last-child {
+        max-width: none;
+    }
+
+    .exec-step {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        align-items: start;
+        gap: .8rem;
+    }
+
+    .exec-marker {
+        width: 52px;
+        height: 52px;
+
+        border-width: 4px;
+
+        position: sticky;
+        top: 100px;
+    }
+
+    .exec-card {
+        min-height: 240px;
+        padding: 1.15rem;
+    }
+
+    .exec-card h3 {
+        margin-top: 1.5rem;
+    }
+
+    .exec-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .exec-bottom-right {
+        flex-wrap: wrap;
+        gap: .7rem 1rem;
+    }
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .exec-line-progress {
+        animation: none;
+    }
+
+    .exec-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .exec-card,
+    .exec-marker,
+    .exec-footer svg {
+        transition: none;
+    }
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Lucide */
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    /* Scroll reveal */
+    const items = document.querySelectorAll(".exec-reveal");
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -60px 0px"
+            }
+        );
+
+        items.forEach((item, index) => {
+            item.style.transitionDelay =
+                `${Math.min(index * 90, 360)}ms`;
+
+            observer.observe(item);
+        });
+
+    } else {
+
+        items.forEach(item => {
+            item.classList.add("is-visible");
+        });
+
+    }
+
+});
+</script>
+
+<!-- =========================================================
+     TRENDZ — ARTISTIC ORGANIC CAPABILITIES
+========================================================= -->
+<section id="capabilities" class="trendz-art-section">
+
+    <!-- Ambient organic artwork -->
+    <div class="art-bg" aria-hidden="true">
+        <div class="art-blob art-blob-1"></div>
+        <div class="art-blob art-blob-2"></div>
+        <div class="art-blob art-blob-3"></div>
+
+        <svg class="art-ribbon art-ribbon-1" viewBox="0 0 1200 700"
+             preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="ribbonGradient1"
+                    x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a855f7"/>
+                    <stop offset="35%" stop-color="#ec4899"/>
+                    <stop offset="70%" stop-color="#f97316"/>
+                    <stop offset="100%" stop-color="#22d3ee"/>
+                </linearGradient>
+            </defs>
+
+            <path
+                d="M-100 560
+                   C180 180 330 720 610 310
+                   S930 40 1320 300"
+                fill="none"
+                stroke="url(#ribbonGradient1)"
+                stroke-width="105"
+                stroke-linecap="round"
+                opacity=".16"/>
+        </svg>
+
+        <svg class="art-ribbon art-ribbon-2" viewBox="0 0 1200 700"
+             preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="ribbonGradient2"
+                    x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#22d3ee"/>
+                    <stop offset="35%" stop-color="#6366f1"/>
+                    <stop offset="70%" stop-color="#d946ef"/>
+                    <stop offset="100%" stop-color="#fb7185"/>
+                </linearGradient>
+            </defs>
+
+            <path
+                d="M-150 220
+                   C150 620 400 30 650 390
+                   S1000 680 1350 150"
+                fill="none"
+                stroke="url(#ribbonGradient2)"
+                stroke-width="42"
+                stroke-linecap="round"
+                opacity=".24"/>
+        </svg>
+
+        <div class="art-grid"></div>
+    </div>
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Header -->
+        <header class="art-header">
+
+            <div class="art-eyebrow">
+                <span class="art-eyebrow-dot"></span>
+                What Trendz Does
+            </div>
+
+            <div class="art-heading-wrap">
+
+                <div>
+                    <h2 class="art-heading">
+                        We turn brand strategy
+                        <span>into real-world experiences.</span>
+                    </h2>
+                </div>
+
+                <div class="art-intro">
+                    <p>
+                        Great events do not happen by chance. They happen when
+                        audacious creative meets relentless execution discipline
+                        across retail, on-ground activations, and high-stakes
+                        corporate conventions.
+                    </p>
+
+                    <div class="art-meta">
+                        <span>Strategy</span>
+                        <i></i>
+                        <span>Creative</span>
+                        <i></i>
+                        <span>Execution</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+
+        <!-- Artistic capability canvas -->
+        <div class="art-canvas">
+
+            <!-- Curved connector -->
+            <svg class="art-connector" viewBox="0 0 1200 1150"
+                 preserveAspectRatio="none" aria-hidden="true">
+
+                <defs>
+                    <linearGradient id="connectorGradient"
+                        x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#a855f7"/>
+                        <stop offset="45%" stop-color="#ec4899"/>
+                        <stop offset="75%" stop-color="#f97316"/>
+                        <stop offset="100%" stop-color="#22d3ee"/>
+                    </linearGradient>
+                </defs>
+
+                <path
+                    d="M120 110
+                       C430 20 500 300 730 250
+                       S1080 120 1040 430
+                       S720 610 500 570
+                       S180 650 260 930
+                       S690 1100 1050 950"
+                    fill="none"
+                    stroke="url(#connectorGradient)"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke-dasharray="12 18"
+                    opacity=".55"/>
+            </svg>
+
+
+            <!-- =================================================
+                 CORPORATE EVENTS
+            ================================================= -->
+            <article class="art-card art-card-large art-card-purple">
+
+                <div class="art-card-glow"></div>
+
+                <div class="art-card-top">
+                    <span class="art-index">01</span>
+
+                    <span class="art-category">
+                        Enterprise Experiences
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="building-2"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        Corporate
+                        <em>Events</em>
+                    </h3>
+
+                    <p>
+                        Dealer meets, annual general assemblies, executive
+                        conventions, and awards galas engineered for leadership
+                        stature, stakeholder alignment, and memorable celebration.
+                    </p>
+
+                    <a href="services.php#corporate-events" class="art-link">
+                        <span>Explore capability</span>
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+                <div class="art-card-watermark">
+                    CORPORATE
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 BTL
+            ================================================= -->
+            <article class="art-card art-card-pink">
+
+                <div class="art-card-top">
+                    <span class="art-index">02</span>
+
+                    <span class="art-category">
+                        Brand Activation
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        BTL &
+                        <em>Experiential</em>
+                    </h3>
+
+                    <p>
+                        High-touch consumer activations, immersive mall setups,
+                        and sampling programmes that bridge brands with everyday
+                        people.
+                    </p>
+
+                    <a href="services.php#btl-experiential" class="art-link">
+                        <span>Explore capability</span>
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 RETAIL
+            ================================================= -->
+            <article class="art-card art-card-orange">
+
+                <div class="art-card-top">
+                    <span class="art-index">03</span>
+
+                    <span class="art-category">
+                        Retail Transformation
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="store"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        Retail
+                        <em>Branding</em>
+                    </h3>
+
+                    <p>
+                        Pan-India visual merchandising, store thematic launches,
+                        and high-standard retail audits across hundreds of doors.
+                    </p>
+
+                    <a href="services.php#retail-branding" class="art-link">
+                        <span>Explore capability</span>
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 DIGITAL
+            ================================================= -->
+            <article class="art-card art-card-cyan">
+
+                <div class="art-card-top">
+                    <span class="art-index">04</span>
+
+                    <span class="art-category">
+                        Digital Amplification
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="radio"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        Digital
+                        <em>Marketing</em>
+                    </h3>
+
+                    <p>
+                        Campaign concepts, social-first activation, and digital
+                        amplification that extend physical momentum into viral reach.
+                    </p>
+
+                    <a href="services.php#digital-marketing" class="art-link">
+                        <span>Explore capability</span>
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 MOBILE / TELE
+            ================================================= -->
+            <article class="art-card art-card-violet">
+
+                <div class="art-card-top">
+                    <span class="art-index">05</span>
+
+                    <span class="art-category">
+                        Direct Outreach
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="phone-call"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        Mobile &
+                        <em>Tele Marketing</em>
+                    </h3>
+
+                    <p>
+                        Trained on-ground field forces and direct outreach
+                        programmes that convert prospect curiosity into qualified
+                        participation.
+                    </p>
+
+                    <a href="services.php#mobile-tele-marketing" class="art-link">
+                        <span>Explore capability</span>
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 BROADCAST / PRINT / OUTDOOR
+            ================================================= -->
+            <article class="art-card art-card-wide art-card-indigo">
+
+                <div class="art-card-top">
+                    <span class="art-index">06</span>
+
+                    <span class="art-category">
+                        High-Visibility Media
+                    </span>
+                </div>
+
+                <div class="art-icon">
+                    <i data-lucide="megaphone"></i>
+                </div>
+
+                <div class="art-card-content">
+
+                    <h3>
+                        Broadcast, Print
+                        <em>& Outdoor</em>
+                    </h3>
+
+                    <p>
+                        Strategic highway takeovers, toll-naka distribution,
+                        print collateral, and guerrilla PR stunts in
+                        high-visibility corridors.
+                    </p>
+
+                    <a href="services.php#broadcast-print-outdoor"
+                       class="art-link">
+                        <span>Explore capability</span>
+
+                        <span class="art-arrow">
+                            <i data-lucide="arrow-up-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+                <div class="art-card-watermark">
+                    VISIBILITY
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- Bottom statement -->
+        <div class="art-footer">
+
+            <div class="art-footer-line"></div>
+
+            <div class="art-footer-content">
+
+                <div>
+                    <span class="art-footer-label">
+                        ONE EXPERIENTIAL PARTNER
+                    </span>
+
+                    <h3>
+                        From concept to execution —
+                        <span>we make the experience happen.</span>
+                    </h3>
+                </div>
+
+                <a href="services.php" class="art-main-cta">
+                    <span>Explore all capabilities</span>
+
+                    <span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+
+/* =========================================================
+   ARTISTIC TRENDZ SYSTEM
+========================================================= */
+
+.trendz-art-section {
+    position: relative;
+    overflow: hidden;
+    padding: 7rem 0;
+    color: #fff;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(168,85,247,.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(34,211,238,.14),
+            transparent 28%
+        ),
+        #24113f;
+}
+
+
+/* ---------- Background ---------- */
+
+.art-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.art-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.13) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 15%,
+            #000 80%,
+            transparent
+        );
+
+    opacity: .14;
+}
+
+.art-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    animation: organicFloat 12s ease-in-out infinite alternate;
+}
+
+.art-blob-1 {
+    width: 420px;
+    height: 420px;
+    background: rgba(168,85,247,.25);
+    top: -180px;
+    left: -120px;
+}
+
+.art-blob-2 {
+    width: 360px;
+    height: 360px;
+    background: rgba(236,72,153,.18);
+    right: -100px;
+    top: 30%;
+    animation-delay: -4s;
+}
+
+.art-blob-3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(34,211,238,.15);
+    left: 40%;
+    bottom: -160px;
+    animation-delay: -7s;
+}
+
+@keyframes organicFloat {
+    from {
+        transform: translate3d(0,0,0) scale(1);
+    }
+
+    to {
+        transform: translate3d(35px,-25px,0) scale(1.12);
+    }
+}
+
+
+/* ---------- SVG ribbons ---------- */
+
+.art-ribbon {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    left: -10%;
+    top: 0;
+    overflow: visible;
+}
+
+.art-ribbon-1 {
+    animation: ribbonDrift 18s ease-in-out infinite alternate;
+}
+
+.art-ribbon-2 {
+    animation: ribbonDriftReverse 22s ease-in-out infinite alternate;
+}
+
+@keyframes ribbonDrift {
+    from {
+        transform: translateX(-1%) rotate(-1deg);
+    }
+
+    to {
+        transform: translateX(2%) rotate(1deg);
+    }
+}
+
+@keyframes ribbonDriftReverse {
+    from {
+        transform: translateX(1%) rotate(1deg);
+    }
+
+    to {
+        transform: translateX(-2%) rotate(-1deg);
+    }
+}
+
+
+/* ---------- Header ---------- */
+
+.art-header {
+    position: relative;
+    margin-bottom: 5rem;
+}
+
+.art-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+
+    padding: .55rem .9rem;
+
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.07);
+
+    color: rgba(255,255,255,.8);
+
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    backdrop-filter: blur(18px);
+}
+
+.art-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c084fc,
+            #fb7185,
+            #22d3ee
+        );
+
+    box-shadow:
+        0 0 18px rgba(236,72,153,.8);
+
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    50% {
+        transform: scale(1.6);
+        opacity: .6;
+    }
+}
+
+
+.art-heading-wrap {
+    display: grid;
+    grid-template-columns: minmax(0,1.35fr) minmax(280px,.65fr);
+    gap: 4rem;
+    align-items: end;
+
+    margin-top: 1.5rem;
+}
+
+.art-heading {
+    max-width: 850px;
+
+    margin: 0;
+
+    font-size: clamp(
+        3rem,
+        7vw,
+        6.7rem
+    );
+
+    line-height: .88;
+
+    letter-spacing: -.065em;
+
+    font-weight: 900;
+
+    color: #fff;
+}
+
+.art-heading span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c084fc 0%,
+            #f472b6 30%,
+            #fb923c 60%,
+            #67e8f9 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    background-size: 200% auto;
+
+    animation: gradientMove 8s linear infinite;
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.art-intro {
+    max-width: 430px;
+}
+
+.art-intro p {
+    margin: 0;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.art-meta {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+
+    margin-top: 1.5rem;
+
+    color: rgba(255,255,255,.42);
+
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.art-meta i {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #f472b6;
+}
+
+
+/* =========================================================
+   CANVAS
+========================================================= */
+
+.art-canvas {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(12,minmax(0,1fr));
+
+    gap: 1.25rem;
+
+    isolation: isolate;
+}
+
+.art-connector {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.art-card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 2rem;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 3rem 1.25rem 3rem 1.25rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.045)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.18);
+
+    backdrop-filter: blur(22px);
+
+    transition:
+        transform .6s cubic-bezier(.16,1,.3,1),
+        border-color .4s ease,
+        box-shadow .5s ease;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px)
+        rotateX(3deg);
+}
+
+.art-card.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotateX(0);
+}
+
+.art-card:hover {
+    transform:
+        translateY(-12px)
+        rotate(-.4deg);
+
+    border-color:
+        rgba(255,255,255,.28);
+
+    box-shadow:
+        0 45px 100px rgba(0,0,0,.32);
+}
+
+
+/* Organic corners */
+
+.art-card:nth-child(2n) {
+    border-radius:
+        1.25rem 3rem 1.25rem 3rem;
+}
+
+.art-card:nth-child(3n) {
+    border-radius:
+        3rem 1.25rem 1.25rem 3rem;
+}
+
+
+/* ---------- Grid positioning ---------- */
+
+.art-card-large {
+    grid-column: span 7;
+    min-height: 470px;
+}
+
+.art-card-pink {
+    grid-column: span 5;
+}
+
+.art-card-orange {
+    grid-column: span 4;
+}
+
+.art-card-cyan {
+    grid-column: span 4;
+}
+
+.art-card-violet {
+    grid-column: span 4;
+}
+
+.art-card-wide {
+    grid-column: span 8;
+    min-height: 430px;
+}
+
+
+/* ---------- Card gradients ---------- */
+
+.art-card-purple {
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(168,85,247,.42),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(124,58,237,.34),
+            rgba(255,255,255,.055)
+        );
+}
+
+.art-card-pink {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(244,114,182,.42),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(219,39,119,.26),
+            rgba(255,255,255,.05)
+        );
+}
+
+.art-card-orange {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(251,146,60,.38),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(234,88,12,.22),
+            rgba(255,255,255,.05)
+        );
+}
+
+.art-card-cyan {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(34,211,238,.35),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(8,145,178,.22),
+            rgba(255,255,255,.05)
+        );
+}
+
+.art-card-violet {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(192,132,252,.38),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(109,40,217,.24),
+            rgba(255,255,255,.05)
+        );
+}
+
+.art-card-indigo {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(99,102,241,.4),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(67,56,202,.27),
+            rgba(255,255,255,.05)
+        );
+}
+
+
+/* ---------- Card content ---------- */
+
+.art-card-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+.art-index {
+    font-size: .7rem;
+
+    font-weight: 900;
+
+    letter-spacing: .12em;
+
+    color: rgba(255,255,255,.5);
+}
+
+.art-category {
+    padding: .45rem .7rem;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 999px;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: .58rem;
+
+    font-weight: 800;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+
+    background: rgba(255,255,255,.055);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* ---------- Icon ---------- */
+
+.art-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    margin-top: 3rem;
+
+    border-radius:
+        1.5rem .5rem 1.5rem .5rem;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border:
+        1px solid rgba(255,255,255,.14);
+
+    color: #fff;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.15),
+        0 15px 35px rgba(0,0,0,.12);
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+.art-card:hover .art-icon {
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+}
+
+.art-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* ---------- Main content ---------- */
+
+.art-card-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 620px;
+
+    margin-top: 1.8rem;
+}
+
+.art-card h3 {
+    margin: 0;
+
+    font-size:
+        clamp(2rem,4vw,3.5rem);
+
+    line-height: .95;
+
+    letter-spacing: -.045em;
+
+    font-weight: 900;
+
+    color: #fff;
+}
+
+.art-card:not(.art-card-large):not(.art-card-wide) h3 {
+    font-size:
+        clamp(1.8rem,3vw,2.7rem);
+}
+
+.art-card h3 em {
+    display: block;
+
+    font-style: normal;
+
+    color: rgba(255,255,255,.43);
+}
+
+.art-card p {
+    max-width: 600px;
+
+    margin:
+        1.2rem 0 0;
+
+    color: rgba(255,255,255,.62);
+
+    font-size: .9rem;
+
+    line-height: 1.75;
+}
+
+
+/* ---------- Link ---------- */
+
+.art-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    margin-top: 1.8rem;
+
+    color: #fff;
+
+    font-size: .72rem;
+
+    font-weight: 900;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+.art-arrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+.art-arrow svg {
+    width: 15px;
+    height: 15px;
+}
+
+.art-link:hover .art-arrow {
+    transform:
+        translate(4px,-4px);
+
+    background:
+        rgba(255,255,255,.23);
+}
+
+
+/* ---------- Watermark ---------- */
+
+.art-card-watermark {
+    position: absolute;
+
+    right: -1rem;
+    bottom: -2rem;
+
+    font-size:
+        clamp(4rem,9vw,9rem);
+
+    line-height: 1;
+
+    font-weight: 1000;
+
+    letter-spacing: -.08em;
+
+    color: rgba(255,255,255,.035);
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ---------- Glow ---------- */
+
+.art-card-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -150px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.2),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    transition:
+        transform .7s ease;
+}
+
+.art-card:hover .art-card-glow {
+    transform:
+        translate(-80px,80px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.art-footer {
+    margin-top: 5rem;
+}
+
+.art-footer-line {
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+}
+
+.art-footer-content {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    padding-top: 2rem;
+}
+
+.art-footer-label {
+    display: block;
+
+    margin-bottom: .7rem;
+
+    color: rgba(255,255,255,.38);
+
+    font-size: .6rem;
+
+    font-weight: 900;
+
+    letter-spacing: .16em;
+}
+
+.art-footer h3 {
+    margin: 0;
+
+    max-width: 700px;
+
+    font-size:
+        clamp(1.5rem,3vw,2.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -.04em;
+
+    color: #fff;
+}
+
+.art-footer h3 span {
+    color: rgba(255,255,255,.4);
+}
+
+
+/* ---------- Main CTA ---------- */
+
+.art-main-cta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: .75rem .75rem .75rem 1.2rem;
+
+    border-radius: 999px;
+
+    background: #fff;
+
+    color: #24113f;
+
+    font-size: .7rem;
+
+    font-weight: 900;
+
+    letter-spacing: .06em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.art-main-cta span:last-child {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7,
+            #ec4899,
+            #fb923c
+        );
+
+    color: #fff;
+}
+
+.art-main-cta svg {
+    width: 16px;
+    height: 16px;
+}
+
+.art-main-cta:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .trendz-art-section {
+        padding: 5.5rem 0;
+    }
+
+    .art-heading-wrap {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .art-intro {
+        max-width: 650px;
+    }
+
+    .art-card-large,
+    .art-card-wide {
+        grid-column: span 12;
+    }
+
+    .art-card-pink,
+    .art-card-orange,
+    .art-card-cyan,
+    .art-card-violet {
+        grid-column: span 6;
+    }
+
+    .art-connector {
+        opacity: .35;
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .trendz-art-section {
+        padding: 4.5rem 0;
+    }
+
+    .art-heading {
+        font-size:
+            clamp(2.8rem,15vw,5rem);
+    }
+
+    .art-header {
+        margin-bottom: 3rem;
+    }
+
+    .art-canvas {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .art-connector {
+        display: none;
+    }
+
+    .art-card,
+    .art-card-large,
+    .art-card-wide,
+    .art-card-pink,
+    .art-card-orange,
+    .art-card-cyan,
+    .art-card-violet {
+        width: 100%;
+        min-height: 350px;
+        padding: 1.5rem;
+
+        border-radius:
+            2rem 1rem 2rem 1rem;
+    }
+
+    .art-card-large,
+    .art-card-wide {
+        min-height: 420px;
+    }
+
+    .art-icon {
+        margin-top: 2.5rem;
+
+        width: 54px;
+        height: 54px;
+    }
+
+    .art-card h3 {
+        font-size: 2.2rem;
+    }
+
+    .art-card p {
+        font-size: .85rem;
+    }
+
+    .art-footer-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .art-main-cta {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .art-blob {
+        filter: blur(55px);
+    }
+
+    .art-ribbon {
+        opacity: .6;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .art-blob,
+    .art-ribbon,
+    .art-heading span,
+    .art-eyebrow-dot {
+        animation: none !important;
+    }
+
+    .art-card {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .art-card:hover {
+        transform: none;
+    }
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Lucide icons */
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /* Scroll reveal */
+    const cards = document.querySelectorAll(".art-card");
+
+    if (
+        "IntersectionObserver" in window &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("is-visible");
+
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        cards.forEach((card, index) => {
+
+            card.style.transitionDelay =
+                `${Math.min(index * 70, 350)}ms`;
+
+            observer.observe(card);
+
+        });
+
+    } else {
+
+        cards.forEach(card => {
+            card.classList.add("is-visible");
+        });
+
+    }
+
+
+    /* Subtle pointer-driven organic movement */
+    const section =
+        document.querySelector(".trendz-art-section");
+
+    if (
+        section &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        section.addEventListener(
+            "pointermove",
+            (event) => {
+
+                const rect =
+                    section.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width - .5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height - .5;
+
+                const blobs =
+                    section.querySelectorAll(".art-blob");
+
+                blobs.forEach((blob, index) => {
+
+                    const strength =
+                        (index + 1) * 10;
+
+                    blob.style.transform =
+                        `translate(
+                            ${x * strength}px,
+                            ${y * strength}px
+                        )`;
+
+                });
+
+            },
+            { passive: true }
+        );
+
+    }
+
+});
+</script>
+
+<!-- =========================================================
+     TRENDZ — ARTISTIC TRUSTED NETWORK
+========================================================= -->
+<section class="trendz-trust relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+
+    <!-- =====================================================
+         ORGANIC BACKGROUND ART
+    ====================================================== -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+
+        <!-- Soft color fields -->
+        <div class="trust-orb trust-orb-purple"></div>
+        <div class="trust-orb trust-orb-cyan"></div>
+        <div class="trust-orb trust-orb-orange"></div>
+
+        <!-- Fine editorial grid -->
+        <div class="trust-grid"></div>
+
+        <!-- Organic flowing ribbon -->
+        <svg
+            class="trust-ribbon trust-ribbon-main"
+            viewBox="0 0 1600 700"
+            preserveAspectRatio="none"
+            aria-hidden="true">
+
+            <defs>
+                <linearGradient
+                    id="trustGradientMain"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+
+                    <stop offset="0%"
+                          stop-color="#8b5cf6"/>
+
+                    <stop offset="30%"
+                          stop-color="#ec4899"/>
+
+                    <stop offset="62%"
+                          stop-color="#fb923c"/>
+
+                    <stop offset="100%"
+                          stop-color="#22d3ee"/>
+                </linearGradient>
+            </defs>
+
+            <path
+                d="
+                    M-100 520
+                    C180 110
+                    390 690
+                    650 350
+                    S1080 60
+                    1740 430
+                "
+                fill="none"
+                stroke="url(#trustGradientMain)"
+                stroke-width="95"
+                stroke-linecap="round"
+                opacity=".11">
+            </path>
+        </svg>
+
+
+        <!-- Secondary ribbon -->
+        <svg
+            class="trust-ribbon trust-ribbon-secondary"
+            viewBox="0 0 1600 700"
+            preserveAspectRatio="none"
+            aria-hidden="true">
+
+            <defs>
+                <linearGradient
+                    id="trustGradientSecondary"
+                    x1="100%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%">
+
+                    <stop offset="0%"
+                          stop-color="#22d3ee"/>
+
+                    <stop offset="35%"
+                          stop-color="#6366f1"/>
+
+                    <stop offset="70%"
+                          stop-color="#d946ef"/>
+
+                    <stop offset="100%"
+                          stop-color="#fb7185"/>
+                </linearGradient>
+            </defs>
+
+            <path
+                d="
+                    M-150 180
+                    C230 590
+                    470 20
+                    780 360
+                    S1220 720
+                    1750 170
+                "
+                fill="none"
+                stroke="url(#trustGradientSecondary)"
+                stroke-width="26"
+                stroke-linecap="round"
+                opacity=".18">
+            </path>
+        </svg>
+
+
+        <!-- Floating artistic dots -->
+        <span class="trust-dot trust-dot-1"></span>
+        <span class="trust-dot trust-dot-2"></span>
+        <span class="trust-dot trust-dot-3"></span>
+        <span class="trust-dot trust-dot-4"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+    <div class="relative z-10">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div class="trust-header">
+
+                <!-- Left -->
+                <div>
+
+                    <div class="trust-eyebrow">
+
+                        <span class="trust-live">
+                            <span></span>
+                        </span>
+
+                        <span>
+                            Trusted Network
+                        </span>
+
+                    </div>
+
+
+                    <h2 class="trust-title">
+
+                        Trusted by brands
+
+                        <span>
+                            that matter.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <!-- Right -->
+                <div class="trust-intro">
+
+                    <p>
+                        Creating memorable corporate experiences
+                        for leading organisations across India.
+                    </p>
+
+                    <div class="trust-meta">
+
+                        <span></span>
+
+                        <strong>
+                            Selected partnerships
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BRAND MARQUEE
+        ================================================== -->
+        <div class="relative mt-14 sm:mt-16">
+
+            <!-- Edge masks -->
+            <div class="trust-edge trust-edge-left"></div>
+            <div class="trust-edge trust-edge-right"></div>
+
+
+            <!-- =================================================
+                 ROW 1
+            ================================================== -->
+            <div class="overflow-hidden">
+
+                <div class="trust-marquee trust-forward">
+
+                    <!-- GROUP -->
+                    <div class="trust-group">
+
+                        <div class="trust-brand">
+                            <small>01</small>
+                            <img
+                                src="assets/img/clients/samsung.png"
+                                alt="Samsung">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>02</small>
+                            <img
+                                src="assets/img/clients/philips.png"
+                                alt="Philips">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>03</small>
+                            <img
+                                src="assets/img/clients/tvs-tyres.png"
+                                alt="TVS Tyres">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>04</small>
+                            <img
+                                src="assets/img/clients/lipton.png"
+                                alt="Lipton">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>05</small>
+                            <img
+                                src="assets/img/clients/cadbury.png"
+                                alt="Cadbury">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>06</small>
+                            <img
+                                src="assets/img/clients/maruti-driving-school.png"
+                                alt="Maruti Driving School">
+                        </div>
+
+                    </div>
+
+
+                    <!-- DUPLICATE -->
+                    <div class="trust-group" aria-hidden="true">
+
+                        <div class="trust-brand">
+                            <small>01</small>
+                            <img src="assets/img/clients/samsung.png" alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>02</small>
+                            <img src="assets/img/clients/philips.png" alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>03</small>
+                            <img src="assets/img/clients/tvs-tyres.png" alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>04</small>
+                            <img src="assets/img/clients/lipton.png" alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>05</small>
+                            <img src="assets/img/clients/cadbury.png" alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>06</small>
+                            <img
+                                src="assets/img/clients/maruti-driving-school.png"
+                                alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARTISTIC CENTER CONNECTOR
+            ================================================== -->
+            <div class="trust-center">
+
+                <svg
+                    class="trust-center-curve"
+                    viewBox="0 0 600 90"
+                    preserveAspectRatio="none"
+                    aria-hidden="true">
+
+                    <defs>
+                        <linearGradient
+                            id="centerCurve"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%">
+
+                            <stop offset="0%"
+                                  stop-color="#8b5cf6"
+                                  stop-opacity="0"/>
+
+                            <stop offset="35%"
+                                  stop-color="#ec4899"/>
+
+                            <stop offset="65%"
+                                  stop-color="#fb923c"/>
+
+                            <stop offset="100%"
+                                  stop-color="#22d3ee"
+                                  stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path
+                        d="
+                            M0 45
+                            C100 0 180 90 300 45
+                            S500 0 600 45
+                        "
+                        fill="none"
+                        stroke="url(#centerCurve)"
+                        stroke-width="2">
+                    </path>
+
+                </svg>
+
+
+                <div class="trust-center-pill">
+
+                    <span class="trust-center-icon">
+                        <span></span>
+                    </span>
+
+                    <span>
+                        Corporate Trust
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ROW 2
+            ================================================== -->
+            <div class="overflow-hidden">
+
+                <div class="trust-marquee trust-reverse">
+
+                    <!-- GROUP -->
+                    <div class="trust-group">
+
+                        <div class="trust-brand">
+                            <small>06</small>
+                            <img
+                                src="assets/img/clients/maruti-driving-school.png"
+                                alt="Maruti Driving School">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>05</small>
+                            <img
+                                src="assets/img/clients/cadbury.png"
+                                alt="Cadbury">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>04</small>
+                            <img
+                                src="assets/img/clients/lipton.png"
+                                alt="Lipton">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>03</small>
+                            <img
+                                src="assets/img/clients/tvs-tyres.png"
+                                alt="TVS Tyres">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>02</small>
+                            <img
+                                src="assets/img/clients/philips.png"
+                                alt="Philips">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>01</small>
+                            <img
+                                src="assets/img/clients/samsung.png"
+                                alt="Samsung">
+                        </div>
+
+                    </div>
+
+
+                    <!-- DUPLICATE -->
+                    <div class="trust-group" aria-hidden="true">
+
+                        <div class="trust-brand">
+                            <small>06</small>
+                            <img
+                                src="assets/img/clients/maruti-driving-school.png"
+                                alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>05</small>
+                            <img
+                                src="assets/img/clients/cadbury.png"
+                                alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>04</small>
+                            <img
+                                src="assets/img/clients/lipton.png"
+                                alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>03</small>
+                            <img
+                                src="assets/img/clients/tvs-tyres.png"
+                                alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>02</small>
+                            <img
+                                src="assets/img/clients/philips.png"
+                                alt="">
+                        </div>
+
+                        <div class="trust-brand">
+                            <small>01</small>
+                            <img
+                                src="assets/img/clients/samsung.png"
+                                alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+        <div class="mx-auto mt-10 flex max-w-7xl
+                    items-center justify-between
+                    px-4 sm:px-6 lg:px-8">
+
+            <span class="trust-footer-label">
+                Trendz Events
+            </span>
+
+            <div class="hidden items-center gap-3 sm:flex">
+
+                <span class="trust-footer-label">
+                    Experiences
+                </span>
+
+                <span class="trust-footer-dot"></span>
+
+                <span class="trust-footer-label">
+                    Partnerships
+                </span>
+
+            </div>
+
+            <span class="trust-footer-label">
+                01 — 06
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   TRENDZ ARTISTIC TRUST SYSTEM
+========================================================= */
+
+.trendz-trust {
+    --trust-purple: #8b5cf6;
+    --trust-pink: #ec4899;
+    --trust-orange: #fb923c;
+    --trust-cyan: #22d3ee;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.trust-orb {
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+
+    border-radius: 999px;
+
+    filter: blur(90px);
+
+    opacity: .45;
+
+    animation:
+        trustFloat 12s ease-in-out infinite alternate;
+}
+
+.trust-orb-purple {
+    left: -12rem;
+    top: 35%;
+
+    background:
+        rgba(139,92,246,.18);
+}
+
+.trust-orb-cyan {
+    right: -12rem;
+    top: 5%;
+
+    background:
+        rgba(34,211,238,.13);
+
+    animation-delay: -4s;
+}
+
+.trust-orb-orange {
+    left: 42%;
+    bottom: -15rem;
+
+    background:
+        rgba(251,146,60,.1);
+
+    animation-delay: -7s;
+}
+
+
+@keyframes trustFloat {
+
+    from {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(35px,-25px,0)
+            scale(1.12);
+    }
+
+}
+
+
+.trust-grid {
+
+    position: absolute;
+    inset: 0;
+
+    opacity: .32;
+
+    background-image:
+        radial-gradient(
+            #cbd5e1 .7px,
+            transparent .7px
+        );
+
+    background-size:
+        25px 25px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 18%,
+            black 80%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   RIBBONS
+========================================================= */
+
+.trust-ribbon {
+
+    position: absolute;
+
+    width: 120%;
+    height: 100%;
+
+    left: -10%;
+    top: 0;
+
+    overflow: visible;
+}
+
+.trust-ribbon-main {
+
+    animation:
+        trustRibbonMove 18s
+        ease-in-out
+        infinite alternate;
+}
+
+.trust-ribbon-secondary {
+
+    animation:
+        trustRibbonReverse 22s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes trustRibbonMove {
+
+    from {
+        transform:
+            translateX(-1%)
+            rotate(-.5deg);
+    }
+
+    to {
+        transform:
+            translateX(2%)
+            rotate(.7deg);
+    }
+
+}
+
+
+@keyframes trustRibbonReverse {
+
+    from {
+        transform:
+            translateX(1%)
+            rotate(.4deg);
+    }
+
+    to {
+        transform:
+            translateX(-2%)
+            rotate(-.5deg);
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING DOTS
+========================================================= */
+
+.trust-dot {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--trust-purple),
+            var(--trust-pink)
+        );
+
+    box-shadow:
+        0 0 20px rgba(236,72,153,.4);
+
+    animation:
+        trustDotFloat
+        5s
+        ease-in-out
+        infinite;
+}
+
+.trust-dot-1 {
+    top: 22%;
+    left: 19%;
+}
+
+.trust-dot-2 {
+    top: 42%;
+    right: 21%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--trust-orange),
+            var(--trust-cyan)
+        );
+
+    animation-delay: -1.5s;
+}
+
+.trust-dot-3 {
+    bottom: 24%;
+    left: 34%;
+
+    animation-delay: -3s;
+}
+
+.trust-dot-4 {
+    bottom: 18%;
+    right: 34%;
+
+    background:
+        var(--trust-cyan);
+
+    animation-delay: -4s;
+}
+
+
+@keyframes trustDotFloat {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(0,-14px,0)
+            scale(1.5);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.trust-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 3rem;
+}
+
+
+.trust-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .65rem;
+
+    padding: .6rem .9rem;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    box-shadow:
+        0 8px 30px rgba(15,23,42,.05);
+
+    backdrop-filter:
+        blur(14px);
+
+    color: #64748b;
+
+    font-size: .6rem;
+
+    font-weight: 900;
+
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+}
+
+
+.trust-live {
+
+    position: relative;
+
+    display: flex;
+
+    width: 7px;
+    height: 7px;
+}
+
+
+.trust-live::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(16,185,129,.25);
+
+    animation:
+        trustPing 2s
+        ease-out
+        infinite;
+}
+
+
+.trust-live span {
+
+    position: relative;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #10b981;
+}
+
+
+@keyframes trustPing {
+
+    0% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+
+}
+
+
+.trust-title {
+
+    max-width: 800px;
+
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+
+    font-size:
+        clamp(
+            2.8rem,
+            7vw,
+            6rem
+        );
+
+    line-height: .88;
+
+    letter-spacing: -.065em;
+
+    font-weight: 950;
+
+    color: #020617;
+}
+
+
+.trust-title span {
+
+    display: block;
+
+    color: #cbd5e1;
+}
+
+
+.trust-intro {
+
+    max-width: 350px;
+
+    padding-bottom: .2rem;
+}
+
+
+.trust-intro p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .78rem;
+
+    line-height: 1.8;
+}
+
+
+.trust-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .65rem;
+
+    margin-top: 1rem;
+
+    color: #94a3b8;
+
+    font-size: .56rem;
+
+    font-weight: 900;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+
+.trust-meta span {
+
+    width: 30px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--trust-purple),
+            var(--trust-pink)
+        );
+}
+
+
+/* =========================================================
+   EDGE MASK
+========================================================= */
+
+.trust-edge {
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    z-index: 20;
+
+    width: 15rem;
+
+    pointer-events: none;
+}
+
+
+.trust-edge-left {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff 0%,
+            rgba(255,255,255,.94) 35%,
+            transparent 100%
+        );
+}
+
+
+.trust-edge-right {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            #fff 0%,
+            rgba(255,255,255,.94) 35%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.trust-marquee {
+
+    display: flex;
+
+    width: max-content;
+
+    will-change: transform;
+}
+
+
+.trust-forward {
+
+    animation:
+        trustForward
+        32s
+        linear
+        infinite;
+}
+
+
+.trust-reverse {
+
+    animation:
+        trustReverse
+        36s
+        linear
+        infinite;
+}
+
+
+.trust-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding-right: 1rem;
+}
+
+
+@keyframes trustForward {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+@keyframes trustReverse {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   BRAND CARD
+========================================================= */
+
+.trust-brand {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: clamp(
+        210px,
+        22vw,
+        290px
+    );
+
+    height: 105px;
+
+    padding: 1.5rem;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:
+        2rem .75rem 2rem .75rem;
+
+    background:
+        rgba(255,255,255,.88);
+
+    box-shadow:
+        0 12px 40px
+        rgba(15,23,42,.045);
+
+    backdrop-filter:
+        blur(16px);
+
+    transition:
+        transform .5s
+        cubic-bezier(.16,1,.3,1),
+
+        border-color .4s ease,
+
+        box-shadow .4s ease;
+}
+
+
+.trust-brand:nth-child(2n) {
+
+    border-radius:
+        .75rem 2rem .75rem 2rem;
+}
+
+
+.trust-brand:nth-child(3n) {
+
+    transform:
+        translateY(7px);
+}
+
+
+.trust-brand:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(-.5deg);
+
+    border-color:
+        rgba(139,92,246,.35);
+
+    box-shadow:
+        0 25px 65px
+        rgba(99,102,241,.13);
+}
+
+
+.trust-brand small {
+
+    position: absolute;
+
+    left: 1rem;
+    top: .85rem;
+
+    color: #cbd5e1;
+
+    font-size: .52rem;
+
+    font-weight: 900;
+
+    letter-spacing: .15em;
+}
+
+
+.trust-brand img {
+
+    width: auto;
+
+    max-width: 150px;
+
+    max-height: 45px;
+
+    object-fit: contain;
+
+    filter:
+        grayscale(100%)
+        opacity(.6);
+
+    transition:
+        filter .4s ease,
+        opacity .4s ease,
+        transform .4s ease;
+}
+
+
+.trust-brand:hover img {
+
+    filter:
+        grayscale(0%)
+        opacity(1);
+
+    transform:
+        scale(1.06);
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.trust-center {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 90px;
+}
+
+
+.trust-center-curve {
+
+    position: absolute;
+
+    width: min(600px, 70vw);
+
+    height: 90px;
+
+    opacity: .7;
+}
+
+
+.trust-center-pill {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .65rem;
+
+    padding: .65rem 1.1rem;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.07);
+
+    backdrop-filter:
+        blur(20px);
+
+    color: #64748b;
+
+    font-size: .55rem;
+
+    font-weight: 950;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+}
+
+
+.trust-center-icon {
+
+    position: relative;
+
+    display: flex;
+
+    width: 6px;
+    height: 6px;
+}
+
+
+.trust-center-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(16,185,129,.25);
+}
+
+
+.trust-center-icon span {
+
+    position: relative;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #10b981;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.trust-footer-label {
+
+    color: #cbd5e1;
+
+    font-size: .52rem;
+
+    font-weight: 950;
+
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+}
+
+
+.trust-footer-dot {
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--trust-purple),
+            var(--trust-pink)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .trust-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 1.5rem;
+    }
+
+    .trust-intro {
+
+        max-width: 500px;
+    }
+
+    .trust-edge {
+
+        width: 8rem;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .trendz-trust {
+
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+
+    .trust-title {
+
+        font-size:
+            clamp(
+                2.7rem,
+                14vw,
+                4.5rem
+            );
+    }
+
+
+    .trust-brand {
+
+        width: 190px;
+        height: 90px;
+
+        border-radius:
+            1.5rem .6rem 1.5rem .6rem;
+    }
+
+
+    .trust-brand img {
+
+        max-width: 125px;
+        max-height: 38px;
+    }
+
+
+    .trust-group {
+
+        gap: .7rem;
+
+        padding-right: .7rem;
+    }
+
+
+    .trust-center {
+
+        height: 75px;
+    }
+
+
+    .trust-center-curve {
+
+        width: 100%;
+
+        height: 75px;
+    }
+
+
+    .trust-edge {
+
+        width: 4rem;
+    }
+
+
+    .trust-ribbon {
+
+        width: 160%;
+
+        left: -30%;
+
+        opacity: .65;
+    }
+
+
+    .trust-dot {
+
+        display: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .trust-orb,
+    .trust-ribbon,
+    .trust-forward,
+    .trust-reverse,
+    .trust-dot,
+    .trust-live::before {
+
+        animation: none !important;
+    }
+
+    .trust-brand:hover {
+
+        transform: none;
+    }
+
+}
+
+</style>
+<?php include __DIR__ . '/includes/footer.php'; ?>
