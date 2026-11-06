@@ -1,4 +1,4 @@
-# Trendz Eventz — Official Corporate Website
+# Trendz Eventz — Official Corporate Website (Netlify Static Edition)
 
 > **Meaningful experiences. Measurable momentum.**  
 > Official corporate website for Trendz Eventz, an experiential marketing and corporate event agency in Mumbai, Maharashtra, India.  
@@ -8,90 +8,97 @@
 
 ## 1. Project Overview & Architecture
 
-This repository contains the complete implementation of the official **Trendz Eventz** website, refactored according to corporate web standards:
-- **Light Corporate Theme:** Crisp white background (`bg-white`), neutral slate accents (`bg-slate-50`), and Trendz royal purple brand highlights (`bg-purple-700`, `text-purple-700`). Zero dark mode.
-- **Tailwind CSS & DaisyUI:** Complete replacement of custom CSS and inline styles with utility classes and DaisyUI components (`navbar`, `card`, `badge`, `btn`, `input`, `select`, `textarea`).
-- **Static-First with Minimal PHP:** Direct, transparent HTML markup on every page with minimal PHP includes (`include 'includes/header.php'` and `include 'includes/footer.php'`).
-- **Zero Heavy Framework Overhead:** Runs standalone on standard LAMP/cPanel hosting or PHP CLI without node build chains.
+This repository contains the official **Trendz Eventz** website, customized for **high-performance static deployment on Netlify without PHP**:
+- **Pure Jamstack / Zero PHP:** Fully decoupled static HTML5, CSS3, and modern JavaScript. Requires no PHP interpreter, Node compiler, or dynamic backend.
+- **Netlify Forms Integration:** Contact RFP submissions are captured natively using Netlify Forms (`data-netlify="true"`, spam bot honeypot, and instant AJAX feedback).
+- **SEO & Canonical Routing:** 100% pre-rendered pages, comprehensive XML sitemap (`sitemap.xml`), and Netlify edge redirects (`_redirects` & `netlify.toml`) preserving legacy `.php` paths.
+- **Dynamic & Static Case Studies:** Interactive query-param explorer (`case-study.html?slug=...`) paired with dedicated static case study pages (`case-studies/*.html`).
+- **Edge Security Headers:** Pre-configured `_headers` and `netlify.toml` deploying HTTP security headers (`nosniff`, `SAMEORIGIN`, `strict-origin-when-cross-origin`, CSP).
 
 ---
 
 ## 2. Directory Structure
 
 ```
-trendz_v13_work/
-├── index.php                     # Homepage (Hero, Marquee, Services, Work, Scale, Founder)
-├── about.php                     # Corporate profile, Bharat Jadhav leadership & 15+ years
-├── services.php                  # Six specialized experiential capability pillars
-├── work.php                      # Filterable case study explorer
-├── case-study.php                # Individual case study detail view (12 verified projects)
-├── clients.php                   # 13 verified enterprise client brand partners
-├── contact.php                   # Direct coordinates & RFP submission form
-├── robots.txt                    # Search crawler index directives
-├── sitemap.xml                   # XML sitemap covering all 20 canonical endpoints
-├── QA_REPORT.md                  # Defect tracking & multi-role audit sign-off
-├── GO_LIVE_STATUS.md             # Quality gate verification (Status: GO)
-├── includes/
-│   ├── header.php                # Semantic HTML5 header, navigation & Tailwind/DaisyUI setup
-│   └── footer.php                # Pre-footer CTA, corporate footer, scripts
+TESTCLIENT/
+├── index.html                    # Homepage (Hero, Marquee, Services, Work, Scale)
+├── about.html                    # Corporate profile, Bharat Jadhav leadership & 15+ years
+├── services.html                 # Six specialized experiential capability pillars
+├── work.html                     # Filterable case study explorer
+├── case-study.html               # Dynamic case study explorer (?slug= routing)
+├── case-studies/                 # 12 pre-rendered static case study detail pages
+├── clients.html                  # 13 verified enterprise client brand partners
+├── contact.html                  # Netlify Forms RFP submission experience
+├── netlify.toml                  # Netlify build, redirects, and edge security headers
+├── _redirects                    # Netlify redirect rules (legacy .php -> .html)
+├── _headers                      # Netlify HTTP security and caching headers
+├── robots.txt                    # Search crawler directives
+├── sitemap.xml                   # XML sitemap covering all canonical endpoints
+├── generate_static.py            # Automated static site generator
+├── test_static_build.py          # Quality assurance and verification test suite
 ├── assets/
-│   ├── css/
-│   │   └── daisyui.min.css       # Local DaisyUI CSS bundle
-│   ├── js/
-│   │   └── vendor/
-│   │       └── tailwindcss.js    # Local Tailwind CSS engine
+│   ├── css/                      # Tokens, base, components, motion
+│   ├── js/                       # Core lifecycle & interactions
 │   └── img/
-│       ├── brand/                # Official logos, animated icons, founder signature
+│       ├── brand/                # Logos, icons, founder signature
 │       ├── clients/              # 13 verified client partner logos (PNG)
 │       └── work/                 # 39 authentic on-ground event photos
-└── storage/
-    ├── .htaccess                 # Deny all direct web access
-    ├── index.php                 # 403 Forbidden exit trap
-    └── inquiries.json            # Quarantined flat-file JSON inquiry database
+└── legacy_php/                   # Quarantined legacy PHP templates & includes
 ```
 
 ---
 
-## 3. Strict Content Truth Protocol
+## 3. Netlify Deployment Guide
 
-Every statistic, project, and claim on this site is derived from verified physical credentials (`CLIENTDOCS/`):
-- **15+** Years Experience
-- **500+** Productions & Activations Delivered
-- **50+** Maruti Driving School Centres Activated
-- **10** Cities Covered in a Single TVS Launch Tour
-- **100** Samsung Stores Launched Thematically Across 3 Cities
-- **500** Philips Dealers Hosted in Goa Celebrating ₹100 Crore Sales
-- **600** Bombay Dyeing Sales Staff Felicitated
-- **200** Stores Activated for Lipton MTO Sampling
+### Option A: Connect via Git (GitHub / GitLab / Bitbucket)
+1. Push this repository to GitHub/GitLab.
+2. In Netlify Dashboard, click **Add new site** > **Import an existing project**.
+3. Select your repository.
+4. Deployment settings are auto-detected from `netlify.toml`:
+   - **Base directory:** (leave empty)
+   - **Build command:** (leave empty, or `python generate_static.py`)
+   - **Publish directory:** `.`
+5. Click **Deploy site**.
 
----
-
-## 4. Local Quickstart
-
-### Running Locally via PHP Built-in Server
-1. Open terminal in the project root:
-   ```bash
-   cd c:\Dev\CLIENTS\trendz-mvp-2\trendz_v13_work
-   ```
-2. Start the local server:
-   ```bash
-   php -S 127.0.0.1:8088
-   ```
-3. Open your browser and navigate to:
-   ```
-   http://127.0.0.1:8088
-   ```
-
-### Running the Automated QA Suite
+### Option B: Netlify CLI
 ```bash
-python scratch/qa_suite.py
+npm install -g netlify-cli
+netlify deploy --prod --dir=.
+```
+
+### Option C: Drag & Drop
+Drag the project folder directly into the Netlify Drop web interface: [https://app.netlify.com/drop](https://app.netlify.com/drop).
+
+---
+
+## 4. Local Quickstart (Zero PHP Required)
+
+Run locally using Python's built-in static HTTP server or Node `serve`:
+
+### Using Python:
+```bash
+python -m http.server 8080
+```
+Open your browser at `http://localhost:8080`.
+
+### Running the QA & Integrity Suite:
+```bash
+python test_static_build.py
 ```
 
 ---
 
-## 5. Credits & Leadership
+## 5. Form Handling via Netlify Forms
+
+The RFP form on `contact.html` is built natively for Netlify Forms:
+- **Netlify attributes:** `<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">`
+- **Dashboard submissions:** Inquiries appear immediately in your Netlify site dashboard under **Forms**.
+- **Email Notifications:** Configurable in Netlify Dashboard under *Site Settings > Forms > Form notifications* to alert `info@trendzeventz.com`.
+
+---
+
+## 6. Credits & Leadership
 - **Company:** Trendz Eventz
 - **Founder & Managing Director:** Bharat Jadhav
 - **Headquarters:** Mumbai, Maharashtra, India
 - **Contact:** info@trendzeventz.com | +91 99873 99997
-"# TESTCLIENT" 

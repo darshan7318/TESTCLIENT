@@ -1,0 +1,6537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         CORE
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#F7F7F9"
+    >
+
+    <meta
+        name="color-scheme"
+        content="light"
+    >
+
+    <title>
+        About Us | Trendz Eventz — 15+ Years Experiential Agency Mumbai
+    </title>
+
+    <meta
+        name="description"
+        content="Discover Trendz Eventz: Founded by Bharat Jadhav, we combine audacious creative with relentless execution discipline across 500+ corporate productions."
+    >
+
+    <link
+        rel="canonical"
+        href="https://trendzeventz.com/about.html"
+    >
+
+    <!-- =====================================================
+         BRAND
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/img/brand/logo.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="assets/img/brand/logo.png"
+    >
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         TAILWIND
+    ====================================================== -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        trendz: {
+
+                            ink: '#17151F',
+                            purple: '#5C55A2',
+                            lilac: '#8B85CF',
+                            pink: '#D52D91',
+                            paper: '#F7F7F9',
+                            muted: '#6F6B78',
+                            line: '#E8E7EC'
+
+                        }
+
+                    },
+
+                    fontFamily: {
+
+                        sans: [
+                            'Inter',
+                            'sans-serif'
+                        ],
+
+                        heading: [
+                            '"Plus Jakarta Sans"',
+                            'sans-serif'
+                        ],
+
+                        display: [
+                            'Syne',
+                            'sans-serif'
+                        ],
+
+                        mono: [
+                            '"DM Mono"',
+                            'monospace'
+                        ]
+
+                    }
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- =====================================================
+         GSAP
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+
+    <!-- =====================================================
+         HEADER CSS
+    ====================================================== -->
+
+    <style>
+
+        :root {
+
+            --tz-ink: #17151F;
+            --tz-purple: #5C55A2;
+            --tz-lilac: #8B85CF;
+            --tz-pink: #D52D91;
+            --tz-paper: #F7F7F9;
+            --tz-line: #E8E7EC;
+
+        }
+
+
+        /* ===================================================
+           BASE
+        ==================================================== */
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            background:
+                var(--tz-paper);
+
+            color:
+                var(--tz-ink);
+
+        }
+
+
+        html,
+        body {
+
+            max-width: 100%;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* ===================================================
+           HEADER
+        ==================================================== */
+
+        .tz-header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(247, 247, 249, 0.94);
+
+            border-bottom:
+                1px solid rgba(23, 21, 31, 0.06);
+
+            transition:
+                height 400ms cubic-bezier(.2,.8,.2,1),
+                background 300ms ease,
+                box-shadow 300ms ease,
+                border-color 300ms ease;
+
+        }
+
+
+        .tz-header.is-scrolled {
+
+            background:
+                rgba(247, 247, 249, 0.82);
+
+            border-color:
+                rgba(23, 21, 31, 0.10);
+
+            box-shadow:
+                0 16px 50px rgba(23, 21, 31, 0.075);
+
+            backdrop-filter:
+                blur(22px);
+
+            -webkit-backdrop-filter:
+                blur(22px);
+
+        }
+
+
+        /* ===================================================
+           UTILITY BAR
+        ==================================================== */
+
+        .tz-utility {
+
+            transition:
+                height 300ms ease,
+                opacity 250ms ease,
+                transform 300ms ease;
+
+        }
+
+
+        .tz-header.is-scrolled .tz-utility {
+
+            height: 0;
+
+            opacity: 0;
+
+            overflow: hidden;
+
+            transform:
+                translateY(-100%);
+
+        }
+
+
+        /* ===================================================
+           MAIN NAV
+        ==================================================== */
+
+        .tz-main-nav {
+
+            transition:
+                height 350ms cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .tz-header.is-scrolled .tz-main-nav {
+
+            height: 64px;
+
+        }
+
+
+        /* ===================================================
+           BRAND
+        ==================================================== */
+
+        .tz-brand {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            height: 48px;
+
+            perspective: 800px;
+
+            text-decoration: none;
+
+        }
+
+
+        /*
+         * Complete brand lockup:
+         *
+         * [ TZ CIRCLE ] [ ORIGINAL TRENDZ LOGO ]
+         */
+        .tz-brand-lockup {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            height: 100%;
+
+        }
+
+
+        /* ===================================================
+           TZ CIRCLE
+        ==================================================== */
+
+        .tz-monogram {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 34px;
+
+            height: 34px;
+
+            min-width: 34px;
+
+            flex: 0 0 34px;
+
+            border:
+                1.5px solid var(--tz-purple);
+
+            border-radius: 50%;
+
+            background:
+                transparent;
+
+            color:
+                var(--tz-purple);
+
+            overflow: hidden;
+
+            transform:
+                translateZ(0);
+
+            transition:
+                transform 350ms cubic-bezier(.2,.8,.2,1),
+                border-color 250ms ease,
+                background 250ms ease,
+                color 250ms ease,
+                box-shadow 300ms ease;
+
+        }
+
+
+        /*
+         * Architectural horizontal cut.
+         */
+        .tz-monogram::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: -15%;
+
+            top: 50%;
+
+            width: 130%;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(92,85,162,.25) 25%,
+                    rgba(92,85,162,.60) 50%,
+                    rgba(213,45,145,.50) 75%,
+                    transparent 100%
+                );
+
+            opacity: .7;
+
+            transform:
+                translateY(-50%);
+
+        }
+
+
+        /*
+         * Small brand accent.
+         */
+        .tz-monogram::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 4px;
+
+            height: 4px;
+
+            right: 4px;
+
+            top: 4px;
+
+            border-radius: 50%;
+
+            background:
+                var(--tz-pink);
+
+            opacity: .9;
+
+            box-shadow:
+                0 0 0 3px rgba(213,45,145,.06);
+
+        }
+
+
+        /* ===================================================
+           TZ LETTERS
+        ==================================================== */
+
+        .tz-monogram-text {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: block;
+
+            font-family:
+                'Syne',
+                sans-serif;
+
+            font-size: 12px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing:
+                -0.12em;
+
+            transform:
+                translateX(-1px);
+
+            transition:
+                transform 300ms cubic-bezier(.2,.8,.2,1),
+                color 250ms ease;
+
+        }
+
+
+        /* ===================================================
+           ORIGINAL LOGO WRAPPER
+        ==================================================== */
+
+        .tz-logo-wrap {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: visible;
+
+        }
+
+
+        /* ===================================================
+           ORIGINAL TRENDZ LOGO
+        ==================================================== */
+
+        .tz-logo {
+
+            position: relative;
+
+            z-index: 3;
+
+            display: block;
+
+            height: 43px;
+
+            width: auto;
+
+            object-fit: contain;
+
+            transform-origin: left center;
+
+            will-change: transform;
+
+            transition:
+                filter 300ms ease,
+                transform 350ms cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        /*
+         * Do not alter the supplied logo artwork.
+         * Only apply a subtle presentation effect.
+         */
+        .tz-brand:hover .tz-logo {
+
+            filter:
+                drop-shadow(
+                    0 8px 18px
+                    rgba(92,85,162,.16)
+                );
+
+        }
+
+
+        /* ===================================================
+           BRAND UNDERLINE
+        ==================================================== */
+
+        .tz-logo-accent {
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -5px;
+
+            width: 0;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--tz-purple),
+                    var(--tz-pink)
+                );
+
+            transition:
+                width 400ms cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .tz-brand:hover .tz-logo-accent {
+
+            width: 100%;
+
+        }
+
+
+        /* ===================================================
+           TZ HOVER
+        ==================================================== */
+
+        .tz-brand:hover .tz-monogram {
+
+            transform:
+                translateY(-1px)
+                rotate(-4deg);
+
+            border-color:
+                var(--tz-pink);
+
+            color:
+                var(--tz-pink);
+
+            background:
+                rgba(213,45,145,.035);
+
+            box-shadow:
+                0 0 0 5px
+                rgba(213,45,145,.055);
+
+        }
+
+
+        .tz-brand:hover .tz-monogram-text {
+
+            transform:
+                translateX(-1px)
+                scale(1.05);
+
+        }
+
+
+        .tz-brand:hover .tz-logo {
+
+            transform:
+                translateX(2px);
+
+        }
+
+
+        /* ===================================================
+           NAV LINKS
+        ==================================================== */
+
+        .tz-nav-link {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            height: 42px;
+
+            padding:
+                0 15px;
+
+            border-radius: 999px;
+
+            color:
+                rgba(23, 21, 31, 0.62);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                -0.01em;
+
+            transition:
+                color 180ms ease,
+                background 180ms ease;
+
+        }
+
+
+        .tz-nav-link:hover {
+
+            color:
+                var(--tz-ink);
+
+            background:
+                rgba(23,21,31,.035);
+
+        }
+
+
+        .tz-nav-link::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 5px;
+
+            left: 50%;
+
+            width: 5px;
+
+            height: 5px;
+
+            border-radius: 50%;
+
+            background:
+                var(--tz-purple);
+
+            transform:
+                translateX(-50%)
+                scale(0);
+
+            opacity: 0;
+
+            transition:
+                transform 200ms ease,
+                opacity 200ms ease;
+
+        }
+
+
+        .tz-nav-link.is-active {
+
+            color:
+                var(--tz-purple);
+
+            background:
+                rgba(92,85,162,.07);
+
+        }
+
+
+        .tz-nav-link.is-active::after {
+
+            transform:
+                translateX(-50%)
+                scale(1);
+
+            opacity: 1;
+
+        }
+
+
+        /* ===================================================
+           CTA
+        ==================================================== */
+
+        .tz-cta {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            height: 44px;
+
+            padding:
+                0 8px 0 18px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background:
+                var(--tz-ink);
+
+            color:
+                white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                .01em;
+
+            isolation: isolate;
+
+            transition:
+                transform 250ms cubic-bezier(.2,.8,.2,1),
+                background 250ms ease,
+                box-shadow 250ms ease;
+
+        }
+
+
+        .tz-cta::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -1;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    var(--tz-purple),
+                    var(--tz-pink)
+                );
+
+            transform:
+                translateX(-105%);
+
+            transition:
+                transform 500ms cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .tz-cta:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 14px 30px
+                rgba(92,85,162,.20);
+
+        }
+
+
+        .tz-cta:hover::before {
+
+            transform:
+                translateX(0);
+
+        }
+
+
+        .tz-cta-arrow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 28px;
+
+            height: 28px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.10);
+
+            transition:
+                transform 300ms ease,
+                background 300ms ease;
+
+        }
+
+
+        .tz-cta:hover .tz-cta-arrow {
+
+            transform:
+                rotate(45deg);
+
+            background:
+                rgba(255,255,255,.18);
+
+        }
+
+
+        /* ===================================================
+           MOBILE PANEL
+        ==================================================== */
+
+        .tz-mobile-panel {
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            top: 100%;
+
+            background:
+                rgba(247,247,249,.98);
+
+            border-bottom:
+                1px solid rgba(23,21,31,.08);
+
+            box-shadow:
+                0 24px 60px
+                rgba(23,21,31,.10);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transform:
+                translateY(-12px);
+
+            transition:
+                opacity 220ms ease,
+                transform 280ms cubic-bezier(.2,.8,.2,1),
+                visibility 220ms ease;
+
+        }
+
+
+        .tz-mobile-panel.is-open {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* ===================================================
+           MOBILE BACKDROP
+        ==================================================== */
+
+        .tz-mobile-backdrop {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 900;
+
+            background:
+                rgba(23,21,31,.20);
+
+            backdrop-filter:
+                blur(4px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition:
+                opacity 200ms ease,
+                visibility 200ms ease;
+
+        }
+
+
+        .tz-mobile-backdrop.is-open {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+        }
+
+
+        /* ===================================================
+           MOBILE MENU BUTTON
+        ==================================================== */
+
+        .tz-menu-button {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                1px solid rgba(23,21,31,.10);
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.55);
+
+            transition:
+                border-color 200ms ease,
+                background 200ms ease;
+
+        }
+
+
+        .tz-menu-button:hover {
+
+            border-color:
+                rgba(92,85,162,.35);
+
+            background:
+                white;
+
+        }
+
+
+        .tz-menu-line {
+
+            position: absolute;
+
+            width: 17px;
+
+            height: 1.5px;
+
+            background:
+                currentColor;
+
+            transition:
+                transform 220ms ease,
+                opacity 180ms ease;
+
+        }
+
+
+        .tz-menu-line:nth-child(1) {
+
+            transform:
+                translateY(-5px);
+
+        }
+
+
+        .tz-menu-line:nth-child(2) {
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .tz-menu-line:nth-child(3) {
+
+            transform:
+                translateY(5px);
+
+        }
+
+
+        .tz-menu-button.is-open
+        .tz-menu-line:nth-child(1) {
+
+            transform:
+                translateY(0)
+                rotate(45deg);
+
+        }
+
+
+        .tz-menu-button.is-open
+        .tz-menu-line:nth-child(2) {
+
+            opacity: 0;
+
+        }
+
+
+        .tz-menu-button.is-open
+        .tz-menu-line:nth-child(3) {
+
+            transform:
+                translateY(0)
+                rotate(-45deg);
+
+        }
+
+
+        /* ===================================================
+           MOBILE NAV LINKS
+        ==================================================== */
+
+        .tz-mobile-link {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            min-height: 54px;
+
+            padding:
+                0 16px;
+
+            border:
+                1px solid transparent;
+
+            border-radius: 14px;
+
+            color:
+                rgba(23,21,31,.70);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition:
+                color 180ms ease,
+                background 180ms ease,
+                border-color 180ms ease,
+                transform 180ms ease;
+
+        }
+
+
+        .tz-mobile-link:hover {
+
+            color:
+                var(--tz-ink);
+
+            background:
+                rgba(23,21,31,.035);
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .tz-mobile-link.is-active {
+
+            color:
+                var(--tz-purple);
+
+            background:
+                rgba(92,85,162,.07);
+
+            border-color:
+                rgba(92,85,162,.12);
+
+        }
+
+
+        /* ===================================================
+           ACCESSIBILITY
+        ==================================================== */
+
+        :focus-visible {
+
+            outline:
+                2px solid var(--tz-purple);
+
+            outline-offset:
+                3px;
+
+        }
+
+
+        /* ===================================================
+           RESPONSIVE BRAND
+        ==================================================== */
+
+        @media (max-width: 768px) {
+
+            .tz-brand-lockup {
+
+                gap: 9px;
+
+            }
+
+
+            .tz-monogram {
+
+                width: 31px;
+
+                height: 31px;
+
+                min-width: 31px;
+
+                flex-basis: 31px;
+
+            }
+
+
+            .tz-monogram-text {
+
+                font-size: 11px;
+
+            }
+        }
+
+
+        @media (max-width: 640px) {
+
+            .tz-brand-lockup {
+
+                gap: 8px;
+
+            }
+
+
+            .tz-monogram {
+
+                width: 29px;
+
+                height: 29px;
+
+                min-width: 29px;
+
+                flex-basis: 29px;
+
+                border-width:
+                    1.25px;
+
+            }
+
+
+            .tz-monogram-text {
+
+                font-size: 10px;
+
+            }
+
+        }
+
+
+        @media (max-width: 380px) {
+
+            .tz-brand-lockup {
+
+                gap: 7px;
+
+            }
+
+
+            .tz-monogram {
+
+                width: 26px;
+
+                height: 26px;
+
+                min-width: 26px;
+
+                flex-basis: 26px;
+
+            }
+
+
+            .tz-monogram-text {
+
+                font-size: 9px;
+
+            }
+
+        }
+
+
+        /* ===================================================
+           REDUCED MOTION
+        ==================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-trendz-paper text-trendz-ink antialiased">
+
+
+<!-- =========================================================
+     SKIP NAVIGATION
+========================================================== -->
+
+<a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white"
+>
+    Skip to main content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+========================================================== -->
+
+<header
+    id="site-header"
+    class="tz-header"
+>
+
+    <!-- =====================================================
+         UTILITY BAR
+    ====================================================== -->
+
+    <div
+        class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block"
+    >
+
+        <div
+            class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10"
+        >
+
+            <div class="flex items-center gap-3">
+
+                <span
+                    class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple"
+                >
+                    PAN-INDIA
+                </span>
+
+                <span class="h-3 w-px bg-black/10"></span>
+
+                <span
+                    class="text-[10px] font-medium text-trendz-muted"
+                >
+                    Headquartered in Mumbai · Delivering across 50+ cities
+                </span>
+
+            </div>
+
+
+            <div class="flex items-center gap-5">
+
+                <a
+                    href="tel:+919987399997"
+                    class="group flex items-center gap-2 text-[10px] font-medium text-trendz-muted transition-colors hover:text-trendz-ink"
+                >
+
+                    <i
+                        data-lucide="phone"
+                        class="h-3.5 w-3.5 text-trendz-purple"
+                    ></i>
+
+                    <span>
+                        +91 99873 99997
+                    </span>
+
+                </a>
+
+
+                <span class="h-3 w-px bg-black/10"></span>
+
+
+                <a
+                    href="mailto:info@trendzeventz.com"
+                    class="group flex items-center gap-2 text-[10px] font-medium text-trendz-muted transition-colors hover:text-trendz-ink"
+                >
+
+                    <i
+                        data-lucide="mail"
+                        class="h-3.5 w-3.5 text-trendz-purple"
+                    ></i>
+
+                    <span>
+                        info@trendzeventz.com
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN NAV
+    ====================================================== -->
+
+    <div
+        class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10"
+    >
+
+        <div
+            class="tz-main-nav flex h-[76px] items-center justify-between"
+        >
+
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
+
+            <a
+                href="index.html"
+                class="tz-brand group"
+                aria-label="Trendz Eventz — Home"
+            >
+
+                <span class="tz-brand-lockup">
+
+                    <!-- =========================================
+                         ORIGINAL TRENDZ LOGO
+                    ========================================== -->
+
+                    <span class="tz-logo-wrap bg-[#70518e] rounded-lg">
+
+                        <img
+                            src="assets/img/brand/logo2.gif"
+                            alt="Trendz Eventz"
+                            width="100%"
+                            height="100%"
+                            loading="eager"
+                            decoding="async"
+                            class="tz-logo"
+                        >
+
+
+                        <span
+                            class="tz-logo-accent"
+                            aria-hidden="true"
+                        ></span>
+
+                    </span>
+
+                </span>
+
+            </a>
+
+
+            <!-- =================================================
+                 DESKTOP NAV
+            ================================================== -->
+
+            <nav
+                class="hidden lg:block"
+                aria-label="Primary navigation"
+            >
+
+                <ul class="flex items-center gap-0.5">
+
+                    <li>
+
+                        <a
+                            href="index.html"
+                            class="tz-nav-link"
+                            
+                        >
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="about.html"
+                            class="tz-nav-link is-active"
+                            aria-current="page"
+                        >
+                            About
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="services.html"
+                            class="tz-nav-link"
+                            
+                        >
+                            Services
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="work.html"
+                            class="tz-nav-link"
+                            
+                        >
+                            Work
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="clients.html"
+                            class="tz-nav-link"
+                            
+                        >
+                            Clients
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="contact.html"
+                            class="tz-nav-link"
+                            
+                        >
+                            Contact
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- =================================================
+                 DESKTOP CTA
+            ================================================== -->
+
+            <div class="hidden lg:block">
+
+                <a
+                    href="contact.html"
+                    class="tz-cta"
+                >
+
+                    <span>
+                        Request a Proposal
+                    </span>
+
+                    <span
+                        class="tz-cta-arrow"
+                    >
+
+                        <i
+                            data-lucide="arrow-up-right"
+                            class="h-4 w-4"
+                        ></i>
+
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 MOBILE CONTROLS
+            ================================================== -->
+
+            <div class="flex items-center gap-2 lg:hidden">
+
+                <a
+                    href="contact.html"
+                    aria-label="Request a Proposal"
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white transition-all hover:-translate-y-0.5 hover:bg-trendz-purple"
+                >
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        class="h-4 w-4"
+                    ></i>
+
+                </a>
+
+
+                <button
+                    id="mobile-menu-button"
+                    type="button"
+                    class="tz-menu-button"
+                    aria-label="Open navigation menu"
+                    aria-controls="mobile-navigation"
+                    aria-expanded="false"
+                >
+
+                    <span
+                        class="tz-menu-line"
+                    ></span>
+
+                    <span
+                        class="tz-menu-line"
+                    ></span>
+
+                    <span
+                        class="tz-menu-line"
+                    ></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MOBILE PANEL
+    ====================================================== -->
+
+    <div
+        id="mobile-navigation"
+        class="tz-mobile-panel lg:hidden"
+        aria-hidden="true"
+    >
+
+        <div
+            class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6"
+        >
+
+            <!-- Mobile panel heading -->
+
+            <div
+                class="mb-4 flex items-center justify-between"
+            >
+
+                <span
+                    class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted"
+                >
+                    Navigation
+                </span>
+
+                <span
+                    class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple"
+                >
+                    Trendz Eventz
+                </span>
+
+            </div>
+
+
+            <!-- Mobile navigation -->
+
+            <nav
+                aria-label="Mobile navigation"
+            >
+
+                <div class="space-y-1">
+
+                                            <a
+                            href="index.html"
+                            class="tz-mobile-link"
+                        >
+                            <span>
+                                Home
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                        <a
+                            href="about.html"
+                            class="tz-mobile-link is-active" aria-current="page"
+                        >
+                            <span>
+                                About
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                        <a
+                            href="services.html"
+                            class="tz-mobile-link"
+                        >
+                            <span>
+                                Services
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                        <a
+                            href="work.html"
+                            class="tz-mobile-link"
+                        >
+                            <span>
+                                Work
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                        <a
+                            href="clients.html"
+                            class="tz-mobile-link"
+                        >
+                            <span>
+                                Clients
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                        <a
+                            href="contact.html"
+                            class="tz-mobile-link"
+                        >
+                            <span>
+                                Contact
+                            </span>
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="h-4 w-4"
+                            ></i>
+                        </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- Contact -->
+
+            <div
+                class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2"
+            >
+
+                <a
+                    href="tel:+919987399997"
+                    class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted hover:bg-white"
+                >
+
+                    <i
+                        data-lucide="phone"
+                        class="h-4 w-4 text-trendz-purple"
+                    ></i>
+
+                    <span>
+                        +91 99873 99997
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="mailto:info@trendzeventz.com"
+                    class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted hover:bg-white"
+                >
+
+                    <i
+                        data-lucide="mail"
+                        class="h-4 w-4 text-trendz-purple"
+                    ></i>
+
+                    <span class="truncate">
+                        info@trendzeventz.com
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a
+                href="contact.html"
+                class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white transition-colors hover:bg-trendz-purple"
+            >
+
+                <span>
+                    Start a conversation
+                </span>
+
+                <span
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"
+                >
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        class="h-4 w-4"
+                    ></i>
+
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE BACKDROP
+========================================================== -->
+
+<div
+    id="mobile-menu-backdrop"
+    class="tz-mobile-backdrop lg:hidden"
+    aria-hidden="true"
+></div>
+
+
+<!-- =========================================================
+     MAIN
+========================================================== -->
+
+<main
+    id="main-content"
+    class="flex-grow"
+>
+
+
+<!-- =========================================================
+     HEADER JAVASCRIPT
+========================================================== -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    'use strict';
+
+
+    /* =====================================================
+       ICONS
+    ====================================================== */
+
+    if (typeof lucide !== 'undefined') {
+
+        lucide.createIcons();
+
+    }
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const header =
+        document.getElementById('site-header');
+
+    const menuButton =
+        document.getElementById('mobile-menu-button');
+
+    const mobileNavigation =
+        document.getElementById('mobile-navigation');
+
+    const mobileBackdrop =
+        document.getElementById('mobile-menu-backdrop');
+
+    const brand =
+        document.querySelector('.tz-brand');
+
+    const logo =
+        document.querySelector('.tz-logo');
+
+
+    /* =====================================================
+       SCROLL STATE
+    ====================================================== */
+
+    let ticking = false;
+
+
+    const updateHeader = function () {
+
+        if (!header) {
+            return;
+        }
+
+
+        if (window.scrollY > 20) {
+
+            header.classList.add('is-scrolled');
+
+        } else {
+
+            header.classList.remove('is-scrolled');
+
+        }
+
+
+        ticking = false;
+
+    };
+
+
+    window.addEventListener(
+        'scroll',
+        function () {
+
+            if (!ticking) {
+
+                window.requestAnimationFrame(
+                    updateHeader
+                );
+
+                ticking = true;
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    updateHeader();
+
+
+    /* =====================================================
+       LOGO MAGNETIC MICRO-INTERACTION
+    ====================================================== */
+
+    if (
+        brand &&
+        logo &&
+        !window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches
+    ) {
+
+        brand.addEventListener(
+            'mousemove',
+            function (event) {
+
+                const rect =
+                    brand.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX - rect.left;
+
+
+                const y =
+                    event.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const moveX =
+                    ((x - centerX) / centerX) * 3;
+
+
+                const moveY =
+                    ((y - centerY) / centerY) * 2;
+
+
+                logo.style.transform =
+                    `translate(${moveX}px, ${moveY}px)`;
+
+            }
+        );
+
+
+        brand.addEventListener(
+            'mouseleave',
+            function () {
+
+                logo.style.transform =
+                    'translate(0, 0)';
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    let menuOpen = false;
+
+
+    const openMenu = function () {
+
+        menuOpen = true;
+
+
+        menuButton?.classList.add(
+            'is-open'
+        );
+
+
+        mobileNavigation?.classList.add(
+            'is-open'
+        );
+
+
+        mobileBackdrop?.classList.add(
+            'is-open'
+        );
+
+
+        menuButton?.setAttribute(
+            'aria-expanded',
+            'true'
+        );
+
+
+        menuButton?.setAttribute(
+            'aria-label',
+            'Close navigation menu'
+        );
+
+
+        mobileNavigation?.setAttribute(
+            'aria-hidden',
+            'false'
+        );
+
+
+        document.body.style.overflow =
+            'hidden';
+
+
+        /* Animate links */
+
+        if (
+            typeof gsap !== 'undefined' &&
+            mobileNavigation
+        ) {
+
+            const links =
+                mobileNavigation.querySelectorAll(
+                    '.tz-mobile-link'
+                );
+
+
+            gsap.fromTo(
+                links,
+
+                {
+                    opacity: 0,
+                    y: 12
+                },
+
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35,
+                    stagger: 0.045,
+                    ease: 'power3.out'
+                }
+            );
+
+        }
+
+    };
+
+
+    const closeMenu = function () {
+
+        menuOpen = false;
+
+
+        menuButton?.classList.remove(
+            'is-open'
+        );
+
+
+        mobileNavigation?.classList.remove(
+            'is-open'
+        );
+
+
+        mobileBackdrop?.classList.remove(
+            'is-open'
+        );
+
+
+        menuButton?.setAttribute(
+            'aria-expanded',
+            'false'
+        );
+
+
+        menuButton?.setAttribute(
+            'aria-label',
+            'Open navigation menu'
+        );
+
+
+        mobileNavigation?.setAttribute(
+            'aria-hidden',
+            'true'
+        );
+
+
+        document.body.style.overflow =
+            '';
+
+    };
+
+
+    menuButton?.addEventListener(
+        'click',
+        function () {
+
+            if (menuOpen) {
+
+                closeMenu();
+
+            } else {
+
+                openMenu();
+
+            }
+
+        }
+    );
+
+
+    mobileBackdrop?.addEventListener(
+        'click',
+        closeMenu
+    );
+
+
+    /* =====================================================
+       MOBILE LINK CLOSE
+    ====================================================== */
+
+    mobileNavigation
+        ?.querySelectorAll('a')
+        .forEach(function (link) {
+
+            link.addEventListener(
+                'click',
+                closeMenu
+            );
+
+        });
+
+
+    /* =====================================================
+       ESCAPE
+    ====================================================== */
+
+    document.addEventListener(
+        'keydown',
+        function (event) {
+
+            if (
+                event.key === 'Escape' &&
+                menuOpen
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       DESKTOP BREAKPOINT RESET
+    ====================================================== */
+
+    const desktopQuery =
+        window.matchMedia(
+            '(min-width: 1024px)'
+        );
+
+
+    const resetOnDesktop =
+        function (event) {
+
+            if (
+                event.matches &&
+                menuOpen
+            ) {
+
+                closeMenu();
+
+            }
+
+        };
+
+
+    if (
+        desktopQuery.addEventListener
+    ) {
+
+        desktopQuery.addEventListener(
+            'change',
+            resetOnDesktop
+        );
+
+    } else {
+
+        desktopQuery.addListener(
+            resetOnDesktop
+        );
+
+    }
+
+
+    /* =====================================================
+       GSAP INITIAL ENTRANCE
+    ====================================================== */
+
+    if (
+        typeof gsap !== 'undefined' &&
+        !window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches
+    ) {
+
+        const utility =
+            document.querySelector(
+                '.tz-utility'
+            );
+
+
+        const mainNav =
+            document.querySelector(
+                '.tz-main-nav'
+            );
+
+
+        gsap.set(
+            [utility, mainNav],
+            {
+                opacity: 0
+            }
+        );
+
+
+        const intro =
+            gsap.timeline({
+                defaults: {
+                    ease: 'power3.out'
+                }
+            });
+
+
+        if (utility) {
+
+            intro.to(
+                utility,
+                {
+                    opacity: 1,
+                    duration: 0.35
+                }
+            );
+
+        }
+
+
+        if (mainNav) {
+
+            intro.fromTo(
+                mainNav,
+
+                {
+                    y: -10,
+                    opacity: 0
+                },
+
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.55
+                },
+
+                '-=0.15'
+            );
+
+        }
+
+    }
+
+});
+
+</script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            body: ["Manrope", "sans-serif"],
+            mono: ["DM Mono", "monospace"],
+          },
+
+          colors: {
+            trendz: {
+              purple: "#5C55A2",
+              deep: "#1E1C38",
+              ink: "#11101E",
+              lilac: "#8B85CF",
+              pink: "#D52D91",
+              paper: "#F7F7FB",
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1c38;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .trendz-hero {
+      height: 100svh;
+      height: 100dvh;
+      min-height: 0;
+      max-height: 100dvh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.055) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.055) 1px,
+          transparent 1px
+        );
+      background-size: 56px 56px;
+    }
+
+    .hero-noise {
+      opacity: .055;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .hero-glow {
+      filter: blur(80px);
+      will-change: transform;
+    }
+
+    .hero-image {
+      transform: scale(1.04);
+      transition:
+        transform 1.2s cubic-bezier(.16,1,.3,1),
+        filter 1.2s ease;
+    }
+
+    .swiper-slide-active .hero-image {
+      transform: scale(1);
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(30,28,56,.16),
+          transparent 50%,
+          rgba(17,16,30,.15)
+        ),
+        linear-gradient(
+          180deg,
+          transparent 55%,
+          rgba(17,16,30,.58)
+        );
+      pointer-events: none;
+    }
+
+    .swiper-slide {
+      overflow: hidden;
+    }
+
+    .hero-progress {
+      width: 100%;
+      height: 2px;
+      background: rgba(255,255,255,.18);
+      overflow: hidden;
+    }
+
+    .hero-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: white;
+      transform-origin: left center;
+    }
+
+    .swiper-slide-active .hero-progress-fill {
+      animation: progress 6.5s linear forwards;
+    }
+
+    @keyframes progress {
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 10px;
+      border-radius: 999px;
+      background: #d52d91;
+      box-shadow: 0 0 18px rgba(213,45,145,.8);
+    }
+
+    .hero-word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+    }
+
+    .hero-word-inner {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .magnetic {
+      will-change: transform;
+    }
+
+    @media (max-width: 767px) {
+      .hero-grid {
+        background-size: 32px 32px;
+      }
+    }
+
+    @media (max-height: 680px) and (min-width: 768px) {
+      .hero-main {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+
+      .hero-heading {
+        font-size: clamp(3rem, 6vw, 5.8rem) !important;
+      }
+
+      .hero-description {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .trendz-hero {
+        height: 100svh;
+        height: 100dvh;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<style>
+/* =========================================================
+   TRENDZ ABOUT — ART-DIRECTED MOTION SYSTEM
+========================================================= */
+
+:root {
+    --tz-violet: #5b21b6;
+    --tz-violet-deep: #32135f;
+    --tz-orchid: #a855f7;
+    --tz-pink: #ec4899;
+    --tz-ink: #17121f;
+    --tz-muted: #6f6878;
+    --tz-paper: #faf9f7;
+    --tz-line: rgba(91, 33, 182, .12);
+}
+
+/* ---------- BASE ---------- */
+
+.tz-about {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfafc 42%,
+            #ffffff 100%
+        );
+    color: var(--tz-ink);
+}
+
+.tz-about *,
+.tz-about *::before,
+.tz-about *::after {
+    box-sizing: border-box;
+}
+
+.tz-about img {
+    display: block;
+    max-width: 100%;
+}
+
+.tz-about a {
+    text-decoration: none;
+}
+
+/* ---------- GLOBAL AMBIENT ---------- */
+
+.tz-ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.tz-blob {
+    position: absolute;
+    width: 34rem;
+    height: 34rem;
+    border-radius: 42% 58% 63% 37% / 43% 39% 61% 57%;
+    filter: blur(70px);
+    opacity: .14;
+    will-change: transform;
+}
+
+.tz-blob-1 {
+    top: -12rem;
+    right: -12rem;
+    background: #c084fc;
+    animation: organicBlobOne 14s ease-in-out infinite alternate;
+}
+
+.tz-blob-2 {
+    top: 34%;
+    left: -18rem;
+    background: #f0abfc;
+    animation: organicBlobTwo 18s ease-in-out infinite alternate;
+}
+
+.tz-blob-3 {
+    bottom: 4%;
+    right: -15rem;
+    background: #93c5fd;
+    animation: organicBlobThree 16s ease-in-out infinite alternate;
+}
+
+@keyframes organicBlobOne {
+    0% {
+        transform: translate3d(0,0,0) rotate(0deg) scale(1);
+        border-radius: 42% 58% 63% 37% / 43% 39% 61% 57%;
+    }
+    100% {
+        transform: translate3d(-5rem,4rem,0) rotate(25deg) scale(1.12);
+        border-radius: 64% 36% 42% 58% / 56% 62% 38% 44%;
+    }
+}
+
+@keyframes organicBlobTwo {
+    0% {
+        transform: translate3d(0,0,0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(4rem,-3rem,0) rotate(-20deg);
+    }
+}
+
+@keyframes organicBlobThree {
+    0% {
+        transform: translate3d(0,0,0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-4rem,-2rem,0) rotate(18deg);
+    }
+}
+
+/* ---------- GRID ---------- */
+
+.tz-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .28;
+    background-image:
+        linear-gradient(rgba(91,33,182,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91,33,182,.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        transparent 72%
+    );
+}
+
+/* ---------- CONTOURS ---------- */
+
+.tz-contours {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.tz-contours svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tz-contour-path {
+    fill: none;
+    stroke: rgba(124,58,237,.13);
+    stroke-width: 1;
+    stroke-dasharray: 12 20;
+    animation: contourMove 20s linear infinite;
+}
+
+.tz-contour-path:nth-child(2) {
+    stroke: rgba(236,72,153,.09);
+    animation-duration: 28s;
+}
+
+.tz-contour-path:nth-child(3) {
+    stroke: rgba(59,130,246,.08);
+    animation-duration: 35s;
+}
+
+@keyframes contourMove {
+    to {
+        stroke-dashoffset: -500;
+    }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.tz-hero {
+    position: relative;
+    min-height: min(850px, calc(100svh - 70px));
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+}
+
+.tz-hero-inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding:
+        7rem 1.25rem
+        6rem;
+}
+
+.tz-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    margin-bottom: 2.5rem;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #6d28d9;
+}
+
+.tz-breadcrumb-line {
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        transparent
+    );
+}
+
+.tz-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .55rem .8rem;
+    border: 1px solid rgba(124,58,237,.18);
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(16px);
+    border-radius: 999px;
+    color: #6d28d9;
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 35px rgba(91,33,182,.06);
+}
+
+.tz-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #a855f7;
+    box-shadow: 0 0 0 5px rgba(168,85,247,.10);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%,100% {
+        transform: scale(1);
+        opacity: .75;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+}
+
+.tz-hero-title {
+    max-width: 1000px;
+    margin: 1.5rem 0 1.75rem;
+    font-size: clamp(3.5rem, 8.5vw, 8rem);
+    line-height: .9;
+    letter-spacing: -.065em;
+    font-weight: 900;
+    color: #21172a;
+}
+
+.tz-hero-title .line {
+    display: block;
+    overflow: hidden;
+}
+
+.tz-hero-title .word {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+}
+
+.tz-hero-title .accent {
+    color: #6d28d9;
+    position: relative;
+}
+
+.tz-hero-title .accent::after {
+    content: "";
+    position: absolute;
+    left: 3%;
+    right: -2%;
+    bottom: .05em;
+    height: .08em;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #ec4899,
+        #c084fc
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.tz-hero-copy {
+    max-width: 720px;
+    color: #6b6472;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.85;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.tz-hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 2.5rem;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.tz-meta-item {
+    position: relative;
+}
+
+.tz-meta-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1.25rem;
+    width: 1px;
+    height: 100%;
+    background: rgba(91,33,182,.14);
+}
+
+.tz-meta-number {
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 900;
+    color: #3b1a5d;
+}
+
+.tz-meta-label {
+    margin-top: .45rem;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #8a8290;
+}
+
+/* ---------- HERO ORBIT ---------- */
+
+.tz-hero-orbit {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    right: -130px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.tz-orbit {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(124,58,237,.13);
+    border-radius: 50%;
+    animation: orbitRotate 28s linear infinite;
+}
+
+.tz-orbit:nth-child(2) {
+    inset: 70px;
+    border-color: rgba(236,72,153,.12);
+    animation-duration: 20s;
+    animation-direction: reverse;
+}
+
+.tz-orbit:nth-child(3) {
+    inset: 145px;
+    border-color: rgba(59,130,246,.10);
+    animation-duration: 15s;
+}
+
+.tz-orbit-core {
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 47% 53% 58% 42% / 48% 41% 59% 52%;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,255,255,.95),
+            rgba(196,181,253,.5) 45%,
+            rgba(168,85,247,.18)
+        );
+    filter: blur(.2px);
+    box-shadow:
+        0 30px 100px rgba(124,58,237,.15);
+    animation: coreMorph 8s ease-in-out infinite alternate;
+}
+
+@keyframes orbitRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes coreMorph {
+    from {
+        border-radius: 47% 53% 58% 42% / 48% 41% 59% 52%;
+    }
+    to {
+        border-radius: 63% 37% 45% 55% / 58% 51% 49% 42%;
+    }
+}
+
+/* =========================================================
+   SECTION SYSTEM
+========================================================= */
+
+.tz-section {
+    position: relative;
+    padding: 8rem 1.25rem;
+    overflow: hidden;
+}
+
+.tz-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.tz-section-header {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.tz-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    margin-bottom: 1rem;
+    color: #7c3aed;
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.tz-kicker::before {
+    content: "";
+    width: 2.2rem;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #ec4899
+    );
+}
+
+.tz-section-title {
+    margin: 0;
+    color: #21172a;
+    font-size: clamp(2.7rem, 5vw, 5rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    font-weight: 900;
+}
+
+.tz-section-copy {
+    margin-top: 1.25rem;
+    max-width: 700px;
+    color: #716a76;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.tz-story {
+    background: #fff;
+}
+
+.tz-story-layout {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 7vw, 8rem);
+    align-items: center;
+}
+
+.tz-chapter {
+    font-size: clamp(6rem, 14vw, 12rem);
+    line-height: .7;
+    font-weight: 900;
+    letter-spacing: -.1em;
+    color: rgba(91,33,182,.055);
+    margin-bottom: -1rem;
+}
+
+.tz-story-title {
+    max-width: 650px;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    font-weight: 900;
+    color: #24182d;
+}
+
+.tz-story-text {
+    margin-top: 1.5rem;
+    color: #716a76;
+    line-height: 1.9;
+}
+
+.tz-story-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-top: 2rem;
+}
+
+.tz-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    min-height: 48px;
+    padding: .8rem 1.2rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 800;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+    overflow: hidden;
+}
+
+.tz-btn-primary {
+    color: white;
+    background: #5b21b6;
+    box-shadow: 0 15px 35px rgba(91,33,182,.2);
+}
+
+.tz-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(91,33,182,.3);
+}
+
+.tz-btn-secondary {
+    color: #5b21b6;
+    border: 1px solid rgba(91,33,182,.18);
+    background: rgba(255,255,255,.8);
+}
+
+.tz-btn-secondary:hover {
+    transform: translateY(-3px);
+    border-color: rgba(91,33,182,.4);
+}
+
+.tz-story-visual {
+    position: relative;
+}
+
+.tz-story-image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3rem 1rem 3rem 1rem;
+    box-shadow:
+        0 40px 100px rgba(44,23,62,.14);
+}
+
+.tz-story-image {
+    width: 100%;
+    aspect-ratio: 4 / 4.6;
+    object-fit: cover;
+    transform: scale(1.08);
+    transition: transform 1.4s cubic-bezier(.16,1,.3,1);
+}
+
+.tz-story-image-wrap:hover .tz-story-image {
+    transform: scale(1.15);
+}
+
+.tz-story-image-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(35,18,50,.6) 100%
+        );
+}
+
+.tz-story-caption {
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    color: white;
+}
+
+.tz-story-caption small {
+    display: block;
+    margin-bottom: .4rem;
+    font-size: .62rem;
+    font-weight: 900;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+.tz-story-caption strong {
+    font-size: 1.2rem;
+}
+
+.tz-story-float {
+    position: absolute;
+    left: -2rem;
+    bottom: -2rem;
+    width: 170px;
+    padding: 1.2rem;
+    border-radius: 1.5rem 1.5rem .4rem 1.5rem;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.9);
+    box-shadow: 0 25px 70px rgba(42,20,58,.15);
+}
+
+.tz-story-float-number {
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 900;
+    color: #5b21b6;
+}
+
+.tz-story-float-label {
+    margin-top: .4rem;
+    color: #817986;
+    font-size: .65rem;
+    line-height: 1.4;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+.tz-scale {
+    background:
+        linear-gradient(
+            135deg,
+            #f7f3fb 0%,
+            #fff 45%,
+            #faf6fb 100%
+        );
+}
+
+.tz-scale-layout {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 5rem;
+    align-items: end;
+}
+
+.tz-scale-intro {
+    position: sticky;
+    top: 120px;
+}
+
+.tz-scale-statement {
+    margin-top: 1.5rem;
+    color: #6f6875;
+    line-height: 1.8;
+}
+
+.tz-scale-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.tz-stat {
+    position: relative;
+    min-height: 240px;
+    padding: 1.7rem;
+    overflow: hidden;
+    border: 1px solid rgba(91,33,182,.1);
+    background: rgba(255,255,255,.76);
+    border-radius: 2rem 1rem 2rem 1rem;
+    box-shadow: 0 15px 50px rgba(49,28,61,.05);
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1),
+        box-shadow .5s ease;
+}
+
+.tz-stat:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(91,33,182,.12);
+}
+
+.tz-stat-index {
+    font-size: .62rem;
+    font-weight: 900;
+    color: #a394ab;
+    letter-spacing: .15em;
+}
+
+.tz-stat-number {
+    margin-top: 2.7rem;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: .8;
+    font-weight: 900;
+    letter-spacing: -.07em;
+    color: #32135f;
+}
+
+.tz-stat-label {
+    margin-top: 1.3rem;
+    max-width: 180px;
+    color: #6f6875;
+    font-size: .78rem;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.tz-stat-orb {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    right: -35px;
+    top: -35px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(192,132,252,.24),
+        transparent 70%
+    );
+}
+
+/* =========================================================
+   FOUNDER
+========================================================= */
+
+.tz-founder {
+    background: #fff;
+}
+
+.tz-founder-panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    min-height: 620px;
+    overflow: hidden;
+    border-radius: 3rem 1rem 3rem 1rem;
+    background:
+        linear-gradient(
+            135deg,
+            #2e174c 0%,
+            #4b236f 50%,
+            #32184d 100%
+        );
+    box-shadow: 0 45px 120px rgba(51,23,73,.2);
+}
+
+.tz-founder-panel::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -200px;
+    top: -250px;
+    border-radius: 45% 55% 65% 35%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(236,72,153,.25),
+            transparent 68%
+        );
+    animation: founderBlob 12s ease-in-out infinite alternate;
+}
+
+@keyframes founderBlob {
+    to {
+        transform: rotate(30deg) translate(-30px,40px);
+        border-radius: 65% 35% 45% 55%;
+    }
+}
+
+.tz-founder-image {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    min-height: 620px;
+}
+
+.tz-founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(.85);
+}
+
+.tz-founder-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 45%,
+            rgba(46,23,76,.65) 100%
+        );
+}
+
+.tz-founder-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem,5vw,5rem);
+    color: white;
+}
+
+.tz-founder-kicker {
+    color: #d8b4fe;
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.tz-founder-quote {
+    margin-top: 1.5rem;
+    font-size: clamp(2rem, 4vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -.045em;
+    font-weight: 900;
+}
+
+.tz-founder-name {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.tz-founder-role {
+    margin-top: .35rem;
+    color: rgba(255,255,255,.6);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.tz-signature {
+    width: 170px;
+    margin-top: 2rem;
+    filter: brightness(0) invert(1);
+    opacity: .8;
+}
+
+.tz-founder-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tz-founder-stat strong {
+    display: block;
+    font-size: 1.6rem;
+}
+
+.tz-founder-stat span {
+    display: block;
+    margin-top: .3rem;
+    color: rgba(255,255,255,.5);
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.tz-process {
+    background: #faf9f7;
+}
+
+.tz-process-layout {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 5rem;
+}
+
+.tz-process-intro {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+}
+
+.tz-process-note {
+    margin-top: 1.5rem;
+    max-width: 380px;
+    color: #716a76;
+    line-height: 1.8;
+}
+
+.tz-process-list {
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.tz-process-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 12px;
+    width: 2px;
+    background: rgba(91,33,182,.1);
+    overflow: hidden;
+}
+
+.tz-process-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background:
+        linear-gradient(
+            180deg,
+            #7c3aed,
+            #ec4899,
+            #c084fc
+        );
+    transform-origin: top;
+}
+
+.tz-process-item {
+    position: relative;
+    min-height: 220px;
+    padding-bottom: 4rem;
+}
+
+.tz-process-node {
+    position: absolute;
+    left: -3.5rem;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    border: 5px solid #faf9f7;
+    border-radius: 50%;
+    background: #7c3aed;
+    box-shadow:
+        0 0 0 1px rgba(124,58,237,.2),
+        0 10px 30px rgba(124,58,237,.25);
+    transform: scale(.5);
+    transition: transform .4s ease;
+}
+
+.tz-process-item.is-active .tz-process-node {
+    transform: scale(1);
+}
+
+.tz-process-stage {
+    display: inline-block;
+    margin-bottom: .75rem;
+    color: #7c3aed;
+    font-size: .65rem;
+    font-weight: 900;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.tz-process-title {
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 1;
+    letter-spacing: -.045em;
+    font-weight: 900;
+    color: #24182d;
+}
+
+.tz-process-copy {
+    max-width: 580px;
+    margin-top: 1rem;
+    color: #716a76;
+    line-height: 1.8;
+}
+
+.tz-process-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: 1.2rem;
+    color: #5b21b6;
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.tz-process-arrow svg {
+    transition: transform .3s ease;
+}
+
+.tz-process-item:hover .tz-process-arrow svg {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.tz-closing {
+    position: relative;
+    padding: 8rem 1.25rem 9rem;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #32135f 0%,
+            #4b1f68 55%,
+            #32135f 100%
+        );
+    overflow: hidden;
+}
+
+.tz-closing::before,
+.tz-closing::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.tz-closing::before {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -120px;
+    background: rgba(236,72,153,.16);
+}
+
+.tz-closing::after {
+    width: 400px;
+    height: 400px;
+    bottom: -250px;
+    left: -120px;
+    background: rgba(168,85,247,.2);
+}
+
+.tz-closing-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.tz-closing-kicker {
+    color: #d8b4fe;
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.tz-closing-title {
+    margin-top: 1rem;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: .9;
+    letter-spacing: -.065em;
+    font-weight: 900;
+}
+
+.tz-closing-copy {
+    max-width: 650px;
+    margin: 1.5rem auto 2rem;
+    color: rgba(255,255,255,.7);
+    line-height: 1.8;
+}
+
+.tz-closing-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+
+.tz-closing .tz-btn-primary {
+    color: #32135f;
+    background: white;
+}
+
+.tz-closing .tz-btn-secondary {
+    color: white;
+    border-color: rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   REVEAL SYSTEM
+========================================================= */
+
+.tz-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.tz-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.tz-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .tz-hero-orbit {
+        width: 420px;
+        height: 420px;
+        right: -180px;
+        opacity: .65;
+    }
+
+    .tz-story-layout,
+    .tz-scale-layout,
+    .tz-founder-panel,
+    .tz-process-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .tz-scale-intro,
+    .tz-process-intro {
+        position: static;
+    }
+
+    .tz-founder-image {
+        min-height: 520px;
+    }
+
+    .tz-founder-content {
+        min-height: 500px;
+    }
+
+    .tz-process-layout {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tz-section {
+        padding: 5.5rem 1rem;
+    }
+
+    .tz-hero {
+        min-height: auto;
+    }
+
+    .tz-hero-inner {
+        padding:
+            5rem 1rem
+            5rem;
+    }
+
+    .tz-hero-title {
+        font-size: clamp(3.2rem, 15vw, 5.5rem);
+    }
+
+    .tz-hero-copy {
+        font-size: .98rem;
+    }
+
+    .tz-hero-meta {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .tz-meta-item:not(:last-child)::after {
+        right: -.5rem;
+    }
+
+    .tz-meta-number {
+        font-size: 1.5rem;
+    }
+
+    .tz-meta-label {
+        font-size: .55rem;
+    }
+
+    .tz-hero-orbit {
+        width: 320px;
+        height: 320px;
+        right: -180px;
+        top: 20%;
+        opacity: .4;
+    }
+
+    .tz-story-layout {
+        gap: 3rem;
+    }
+
+    .tz-story-float {
+        left: 1rem;
+        bottom: -1.5rem;
+    }
+
+    .tz-scale-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tz-stat {
+        min-height: 210px;
+    }
+
+    .tz-founder-panel {
+        border-radius: 2rem .7rem 2rem .7rem;
+    }
+
+    .tz-founder-image {
+        min-height: 420px;
+    }
+
+    .tz-founder-content {
+        min-height: auto;
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .tz-founder-quote {
+        font-size: 2.5rem;
+    }
+
+    .tz-founder-stats {
+        gap: 1.3rem;
+    }
+
+    .tz-process-list {
+        padding-left: 2.8rem;
+    }
+
+    .tz-process-line {
+        left: 10px;
+    }
+
+    .tz-process-node {
+        left: -2.8rem;
+        width: 22px;
+        height: 22px;
+    }
+
+    .tz-process-item {
+        min-height: 200px;
+    }
+
+    .tz-closing {
+        padding: 6rem 1rem 7rem;
+    }
+
+    .tz-closing-title {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tz-hero-meta {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tz-meta-item {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        align-items: center;
+    }
+
+    .tz-meta-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .tz-meta-label {
+        margin-top: 0;
+    }
+
+    .tz-story-title {
+        font-size: 2.6rem;
+    }
+
+    .tz-section-title {
+        font-size: 2.8rem;
+    }
+
+    .tz-process-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .tz-reveal,
+    .tz-reveal-left,
+    .tz-reveal-right,
+    .tz-hero-title .word,
+    .tz-hero-copy,
+    .tz-hero-meta {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .tz-hero-title .accent::after {
+        transform: scaleX(1);
+    }
+}
+</style>
+
+<main class="tz-about">
+
+    <!-- =====================================================
+         AMBIENT ART DIRECTION
+    ====================================================== -->
+
+    <div class="tz-ambient" aria-hidden="true">
+        <div class="tz-grid"></div>
+
+        <div class="tz-blob tz-blob-1"></div>
+        <div class="tz-blob tz-blob-2"></div>
+        <div class="tz-blob tz-blob-3"></div>
+
+        <div class="tz-contours">
+            <svg viewBox="0 0 1600 1200" preserveAspectRatio="none">
+                <path
+                    class="tz-contour-path"
+                    d="M-100 700 C250 300 500 950 850 500 C1100 180 1350 420 1700 120"
+                />
+                <path
+                    class="tz-contour-path"
+                    d="M-150 850 C220 500 480 1100 900 620 C1180 300 1430 600 1750 250"
+                />
+                <path
+                    class="tz-contour-path"
+                    d="M-120 980 C260 600 550 1150 950 760 C1240 470 1470 720 1800 400"
+                />
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="tz-hero">
+
+        <div class="tz-hero-orbit" aria-hidden="true">
+            <div class="tz-orbit"></div>
+            <div class="tz-orbit"></div>
+            <div class="tz-orbit"></div>
+            <div class="tz-orbit-core"></div>
+        </div>
+
+        <div class="tz-hero-inner">
+
+            <div class="tz-breadcrumb tz-hero-reveal">
+                <span>Trendz Eventz</span>
+                <span class="tz-breadcrumb-line"></span>
+                <span>About Us</span>
+            </div>
+
+            <div class="tz-eyebrow tz-hero-reveal">
+                <span class="tz-eyebrow-dot"></span>
+                Corporate Profile
+            </div>
+
+            <h1 class="tz-hero-title" aria-label="15+ Years of Audacious Creative and Relentless Execution">
+
+                <span class="line">
+                    <span class="word">15+</span>
+                    <span class="word">Years</span>
+                    <span class="word">of</span>
+                </span>
+
+                <span class="line">
+                    <span class="word accent">Audacious</span>
+                    <span class="word">Creative</span>
+                </span>
+
+                <span class="line">
+                    <span class="word">&amp;</span>
+                    <span class="word">Relentless</span>
+                    <span class="word">Execution.</span>
+                </span>
+
+            </h1>
+
+            <p class="tz-hero-copy">
+                Trendz Eventz is a Mumbai-rooted experiential agency built around
+                one conviction: brands become more powerful when people experience
+                them in the real world. For 15+ years, we have combined audacious
+                creative thinking with relentless execution discipline across
+                India's major commercial hubs.
+            </p>
+
+            <div class="tz-hero-meta">
+
+                <div class="tz-meta-item">
+                    <div class="tz-meta-number">15+</div>
+                    <div class="tz-meta-label">Years Experience</div>
+                </div>
+
+                <div class="tz-meta-item">
+                    <div class="tz-meta-number">500+</div>
+                    <div class="tz-meta-label">Productions &amp; Meets</div>
+                </div>
+
+                <div class="tz-meta-item">
+                    <div class="tz-meta-number">Pan-India</div>
+                    <div class="tz-meta-label">Execution Footprint</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STORY
+    ====================================================== -->
+
+    <section class="tz-section tz-story">
+
+        <div class="tz-container tz-story-layout">
+
+            <div class="tz-story-copy tz-reveal-left">
+
+                <div class="tz-chapter">01</div>
+
+                <div class="tz-kicker">
+                    The Foundation
+                </div>
+
+                <h2 class="tz-story-title">
+                    Bringing brands face to face with the people who matter.
+                </h2>
+
+                <p class="tz-story-text">
+                    Trendz Eventz was founded on a simple conviction:
+                    the strongest brand relationships are built through
+                    meaningful real-world experiences.
+                </p>
+
+                <p class="tz-story-text">
+                    Over 15+ years, that conviction has evolved into an
+                    execution model spanning 500+ activations, conventions,
+                    retail rollouts and national tours. We operate as one
+                    accountable team — connecting creative thinking,
+                    operational planning and on-ground delivery.
+                </p>
+
+                <div class="tz-story-actions">
+
+                    <a href="work.html" class="tz-btn tz-btn-primary">
+                        <span>Explore Our Work</span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                    <a href="contact.html" class="tz-btn tz-btn-secondary">
+                        <span>Start a Conversation</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="tz-story-visual tz-reveal-right">
+
+                <div class="tz-story-image-wrap">
+
+                    <img
+                        src="assets/img/work/vitra-annual-meet-1.jpg"
+                        alt="Vitra Corporate Annual Assembly"
+                        class="tz-story-image"
+                        loading="lazy"
+                    >
+
+                    <div class="tz-story-image-overlay"></div>
+
+                    <div class="tz-story-caption">
+                        <small>Corporate Stature</small>
+                        <strong>Vitra Corporate Annual Assembly</strong>
+                    </div>
+
+                </div>
+
+                <div class="tz-story-float">
+                    <div class="tz-story-float-number">15+</div>
+                    <div class="tz-story-float-label">
+                        Years of experiential execution
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCALE
+    ====================================================== -->
+
+    <section class="tz-section tz-scale">
+
+        <div class="tz-container tz-scale-layout">
+
+            <div class="tz-scale-intro tz-reveal-left">
+
+                <div class="tz-kicker">
+                    Proven Scale
+                </div>
+
+                <h2 class="tz-section-title">
+                    Experience measured in real-world execution.
+                </h2>
+
+                <p class="tz-scale-statement">
+                    Our scale is defined by programmes delivered,
+                    locations activated and teams coordinated on the ground.
+                </p>
+
+            </div>
+
+
+            <div class="tz-scale-grid">
+
+                <article class="tz-stat tz-reveal">
+
+                    <span class="tz-stat-index">01 / EXPERIENCE</span>
+
+                    <div
+                        class="tz-stat-number tz-counter"
+                        data-target="15"
+                        data-suffix="+"
+                    >
+                        0
+                    </div>
+
+                    <div class="tz-stat-label">
+                        Corporate event &amp; experiential mastery
+                    </div>
+
+                    <div class="tz-stat-orb"></div>
+
+                </article>
+
+
+                <article class="tz-stat tz-reveal">
+
+                    <span class="tz-stat-index">02 / PRODUCTIONS</span>
+
+                    <div
+                        class="tz-stat-number tz-counter"
+                        data-target="500"
+                        data-suffix="+"
+                    >
+                        0
+                    </div>
+
+                    <div class="tz-stat-label">
+                        High-attendance executions nationwide
+                    </div>
+
+                    <div class="tz-stat-orb"></div>
+
+                </article>
+
+
+                <article class="tz-stat tz-reveal">
+
+                    <span class="tz-stat-index">03 / ACTIVATION</span>
+
+                    <div
+                        class="tz-stat-number tz-counter"
+                        data-target="50"
+                        data-suffix="+"
+                    >
+                        0
+                    </div>
+
+                    <div class="tz-stat-label">
+                        MDS centres activated
+                    </div>
+
+                    <div class="tz-stat-orb"></div>
+
+                </article>
+
+
+                <article class="tz-stat tz-reveal">
+
+                    <span class="tz-stat-index">04 / NATIONAL TOUR</span>
+
+                    <div
+                        class="tz-stat-number tz-counter"
+                        data-target="10"
+                    >
+                        0
+                    </div>
+
+                    <div class="tz-stat-label">
+                        Cities executed in one synchronized tour
+                    </div>
+
+                    <div class="tz-stat-orb"></div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOUNDER
+    ====================================================== -->
+
+    <section class="tz-section tz-founder">
+
+        <div class="tz-container">
+
+            <div class="tz-founder-panel tz-reveal">
+
+                <div class="tz-founder-image">
+
+                    <img
+                        src="assets/img/brand/bharat-jadhav.jpg"
+                        alt="Bharat Jadhav, Founder and Managing Director of Trendz Eventz"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="tz-founder-content">
+
+                    <div class="tz-founder-kicker">
+                        Leadership &amp; Vision
+                    </div>
+
+                    <blockquote class="tz-founder-quote">
+                        “Great events do not happen by chance.
+                        They happen when audacious creative meets
+                        relentless execution discipline.”
+                    </blockquote>
+
+                    <div class="tz-founder-name">
+                        Bharat Jadhav
+                    </div>
+
+                    <div class="tz-founder-role">
+                        Founder &amp; Managing Director · Mumbai
+                    </div>
+
+                    <img
+                        src="assets/img/brand/founder-signature.png"
+                        alt="Bharat Jadhav signature"
+                        class="tz-signature"
+                        loading="lazy"
+                    >
+
+                    <div class="tz-founder-stats">
+
+                        <div class="tz-founder-stat">
+                            <strong>15+</strong>
+                            <span>Years</span>
+                        </div>
+
+                        <div class="tz-founder-stat">
+                            <strong>500+</strong>
+                            <span>Productions</span>
+                        </div>
+
+                        <div class="tz-founder-stat">
+                            <strong>1</strong>
+                            <span>Single Point Accountability</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXECUTION SYSTEM
+    ====================================================== -->
+
+    <section class="tz-section tz-process">
+
+        <div class="tz-container tz-process-layout">
+
+            <div class="tz-process-intro tz-reveal-left">
+
+                <div class="tz-kicker">
+                    Operating System
+                </div>
+
+                <h2 class="tz-section-title">
+                    Five steps.
+                    One accountable team.
+                </h2>
+
+                <p class="tz-process-note">
+                    Every programme moves through the same disciplined
+                    execution rhythm — from the first brief to the final report.
+                </p>
+
+            </div>
+
+
+            <div class="tz-process-list">
+
+                <div class="tz-process-line">
+                    <div class="tz-process-progress"></div>
+                </div>
+
+
+                <article class="tz-process-item">
+
+                    <div class="tz-process-node"></div>
+
+                    <span class="tz-process-stage">
+                        01 · Foundation
+                    </span>
+
+                    <h3 class="tz-process-title">
+                        Understand
+                    </h3>
+
+                    <p class="tz-process-copy">
+                        Decode the brief, the brand and the audience
+                        we need to move.
+                    </p>
+
+                    <span class="tz-process-arrow">
+                        Brief → Insight
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </article>
+
+
+                <article class="tz-process-item">
+
+                    <div class="tz-process-node"></div>
+
+                    <span class="tz-process-stage">
+                        02 · Creative
+                    </span>
+
+                    <h3 class="tz-process-title">
+                        Ideate
+                    </h3>
+
+                    <p class="tz-process-copy">
+                        Build the concept, creative and experience journey.
+                    </p>
+
+                    <span class="tz-process-arrow">
+                        Insight → Concept
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </article>
+
+
+                <article class="tz-process-item">
+
+                    <div class="tz-process-node"></div>
+
+                    <span class="tz-process-stage">
+                        03 · Operations
+                    </span>
+
+                    <h3 class="tz-process-title">
+                        Plan
+                    </h3>
+
+                    <p class="tz-process-copy">
+                        Lock locations, vendors, permissions,
+                        budgets and timelines.
+                    </p>
+
+                    <span class="tz-process-arrow">
+                        Concept → Blueprint
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </article>
+
+
+                <article class="tz-process-item">
+
+                    <div class="tz-process-node"></div>
+
+                    <span class="tz-process-stage">
+                        04 · On-Ground
+                    </span>
+
+                    <h3 class="tz-process-title">
+                        Execute
+                    </h3>
+
+                    <p class="tz-process-copy">
+                        Deliver on ground with our own teams,
+                        city by city.
+                    </p>
+
+                    <span class="tz-process-arrow">
+                        Blueprint → Reality
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </article>
+
+
+                <article class="tz-process-item">
+
+                    <div class="tz-process-node"></div>
+
+                    <span class="tz-process-stage">
+                        05 · Intelligence
+                    </span>
+
+                    <h3 class="tz-process-title">
+                        Report
+                    </h3>
+
+                    <p class="tz-process-copy">
+                        Share photos, numbers and learnings
+                        after every programme.
+                    </p>
+
+                    <span class="tz-process-arrow">
+                        Reality → Intelligence
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CLOSING CTA
+    ====================================================== -->
+
+    <section class="tz-closing">
+
+        <div class="tz-closing-inner tz-reveal">
+
+            <div class="tz-closing-kicker">
+                Build Something Worth Experiencing
+            </div>
+
+            <h2 class="tz-closing-title">
+                Your brief.
+                Our execution.
+            </h2>
+
+            <p class="tz-closing-copy">
+                Tell us what needs to happen on ground.
+                We will bring the creative, operational discipline
+                and execution team to make it happen.
+            </p>
+
+            <div class="tz-closing-actions">
+
+                <a
+                    href="contact.html"
+                    class="tz-btn tz-btn-primary"
+                >
+                    <span>Request a Proposal</span>
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+                <a
+                    href="tel:+9199873999997"
+                    class="tz-btn tz-btn-secondary"
+                >
+                    <span>Call +91 99873 99997</span>
+                    <i data-lucide="phone"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     GSAP
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* -------------------------------------------------------
+       ICONS
+    ------------------------------------------------------- */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /* -------------------------------------------------------
+       REDUCED MOTION
+    ------------------------------------------------------- */
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion || typeof gsap === "undefined") {
+
+        document
+            .querySelectorAll(".tz-reveal, .tz-reveal-left, .tz-reveal-right")
+            .forEach(el => {
+                el.style.opacity = "1";
+                el.style.transform = "none";
+            });
+
+        document
+            .querySelectorAll(".tz-hero-title .word")
+            .forEach(el => {
+                el.style.opacity = "1";
+                el.style.transform = "none";
+            });
+
+        document
+            .querySelectorAll(".tz-counter")
+            .forEach(counter => {
+                counter.textContent =
+                    counter.dataset.target +
+                    (counter.dataset.suffix || "");
+            });
+
+        return;
+    }
+
+
+    /* -------------------------------------------------------
+       GSAP
+    ------------------------------------------------------- */
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    /* -------------------------------------------------------
+       HERO INTRO
+    ------------------------------------------------------- */
+
+    const heroTimeline = gsap.timeline({
+        defaults: {
+            ease: "power4.out"
+        }
+    });
+
+    heroTimeline
+        .from(".tz-hero-reveal", {
+            y: 25,
+            opacity: 0,
+            duration: .8,
+            stagger: .12
+        })
+        .to(".tz-hero-title .word", {
+            y: "0%",
+            opacity: 1,
+            duration: 1.05,
+            stagger: .065
+        }, "-=.25")
+        .to(".tz-hero-title .accent::after", {
+            scaleX: 1,
+            duration: .8,
+            ease: "power3.inOut"
+        }, "-=.35")
+        .to(".tz-hero-copy", {
+            y: 0,
+            opacity: 1,
+            duration: .8
+        }, "-=.35")
+        .to(".tz-hero-meta", {
+            y: 0,
+            opacity: 1,
+            duration: .8
+        }, "-=.45");
+
+
+    /* -------------------------------------------------------
+       GENERIC REVEALS
+    ------------------------------------------------------- */
+
+    gsap.utils.toArray(".tz-reveal").forEach(el => {
+
+        gsap.fromTo(
+            el,
+            {
+                opacity: 0,
+                y: 60
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 82%",
+                    once: true
+                }
+            }
+        );
+
+    });
+
+
+    gsap.utils.toArray(".tz-reveal-left").forEach(el => {
+
+        gsap.fromTo(
+            el,
+            {
+                opacity: 0,
+                x: -70
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 82%",
+                    once: true
+                }
+            }
+        );
+
+    });
+
+
+    gsap.utils.toArray(".tz-reveal-right").forEach(el => {
+
+        gsap.fromTo(
+            el,
+            {
+                opacity: 0,
+                x: 70
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 82%",
+                    once: true
+                }
+            }
+        );
+
+    });
+
+
+    /* -------------------------------------------------------
+       STORY IMAGE PARALLAX
+    ------------------------------------------------------- */
+
+    const storyImage = document.querySelector(".tz-story-image");
+
+    if (storyImage) {
+
+        gsap.to(storyImage, {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".tz-story-image-wrap",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+    }
+
+
+    /* -------------------------------------------------------
+       SCALE COUNTERS
+    ------------------------------------------------------- */
+
+    document.querySelectorAll(".tz-counter").forEach(counter => {
+
+        const target = Number(counter.dataset.target);
+        const suffix = counter.dataset.suffix || "";
+
+        const state = {
+            value: 0
+        };
+
+        ScrollTrigger.create({
+            trigger: counter,
+            start: "top 85%",
+            once: true,
+
+            onEnter: () => {
+
+                gsap.to(state, {
+                    value: target,
+                    duration: 1.8,
+                    ease: "power2.out",
+
+                    onUpdate: () => {
+                        counter.textContent =
+                            Math.floor(state.value) + suffix;
+                    }
+                });
+
+            }
+        });
+
+    });
+
+
+    /* -------------------------------------------------------
+       STAT CARDS STAGGER
+    ------------------------------------------------------- */
+
+    gsap.from(".tz-stat", {
+        opacity: 0,
+        y: 50,
+        scale: .97,
+        duration: .9,
+        stagger: .12,
+        ease: "power3.out",
+
+        scrollTrigger: {
+            trigger: ".tz-scale-grid",
+            start: "top 80%",
+            once: true
+        }
+    });
+
+
+    /* -------------------------------------------------------
+       FOUNDER PANEL
+    ------------------------------------------------------- */
+
+    gsap.from(".tz-founder-image img", {
+        scale: 1.18,
+        duration: 1.8,
+        ease: "power3.out",
+
+        scrollTrigger: {
+            trigger: ".tz-founder-panel",
+            start: "top 75%",
+            once: true
+        }
+    });
+
+
+    /* -------------------------------------------------------
+       PROCESS TIMELINE
+    ------------------------------------------------------- */
+
+    const processList = document.querySelector(".tz-process-list");
+    const processProgress =
+        document.querySelector(".tz-process-progress");
+
+    if (processList && processProgress) {
+
+        gsap.to(processProgress, {
+            height: "100%",
+            ease: "none",
+
+            scrollTrigger: {
+                trigger: processList,
+                start: "top 60%",
+                end: "bottom 60%",
+                scrub: 1
+            }
+        });
+
+        const processItems =
+            document.querySelectorAll(".tz-process-item");
+
+        processItems.forEach(item => {
+
+            ScrollTrigger.create({
+                trigger: item,
+                start: "top 58%",
+                end: "bottom 58%",
+
+                onEnter: () => {
+                    item.classList.add("is-active");
+                },
+
+                onEnterBack: () => {
+                    item.classList.add("is-active");
+                },
+
+                onLeaveBack: () => {
+                    item.classList.remove("is-active");
+                }
+            });
+
+        });
+
+    }
+
+
+    /* -------------------------------------------------------
+       CLOSING SCALE REVEAL
+    ------------------------------------------------------- */
+
+    gsap.from(".tz-closing-title", {
+        y: 70,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power4.out",
+
+        scrollTrigger: {
+            trigger: ".tz-closing",
+            start: "top 75%",
+            once: true
+        }
+    });
+
+
+    /* -------------------------------------------------------
+       DESKTOP POINTER LIGHT
+    ------------------------------------------------------- */
+
+    if (
+        window.matchMedia("(pointer: fine)").matches
+    ) {
+
+        const pointerGlow = document.createElement("div");
+
+        pointerGlow.style.cssText = `
+            position: fixed;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(168,85,247,.08) 0%,
+                    rgba(168,85,247,0) 70%
+                );
+            transform: translate(-50%, -50%);
+        `;
+
+        document.body.appendChild(pointerGlow);
+
+        window.addEventListener(
+            "pointermove",
+            e => {
+
+                gsap.to(pointerGlow, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: .7,
+                    ease: "power3.out"
+                });
+
+                pointerGlow.style.opacity = ".9";
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* -------------------------------------------------------
+       MAGNETIC BUTTONS
+    ------------------------------------------------------- */
+
+    if (
+        window.matchMedia("(pointer: fine)").matches
+    ) {
+
+        document.querySelectorAll(".tz-btn").forEach(button => {
+
+            button.addEventListener("pointermove", e => {
+
+                const rect = button.getBoundingClientRect();
+
+                const x =
+                    e.clientX -
+                    (rect.left + rect.width / 2);
+
+                const y =
+                    e.clientY -
+                    (rect.top + rect.height / 2);
+
+                gsap.to(button, {
+                    x: x * .12,
+                    y: y * .12,
+                    duration: .35,
+                    ease: "power3.out"
+                });
+
+            });
+
+            button.addEventListener("pointerleave", () => {
+
+                gsap.to(button, {
+                    x: 0,
+                    y: 0,
+                    duration: .5,
+                    ease: "elastic.out(1, .5)"
+                });
+
+            });
+
+        });
+
+    }
+
+
+    /* -------------------------------------------------------
+       REFRESH AFTER ALL ASSETS
+    ------------------------------------------------------- */
+
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
+
+});
+</script>
+
+<!-- =========================================================
+     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER
+========================================================= -->
+
+<!-- PRE-FOOTER CTA -->
+<section class="trendz-cta relative overflow-hidden">
+
+    <!-- Organic artwork -->
+    <div class="cta-art" aria-hidden="true">
+
+        <div class="cta-orb cta-orb-1"></div>
+        <div class="cta-orb cta-orb-2"></div>
+        <div class="cta-orb cta-orb-3"></div>
+
+        <svg class="cta-ribbon cta-ribbon-1"
+             viewBox="0 0 1600 700"
+             preserveAspectRatio="none">
+
+            <defs>
+                <linearGradient id="ctaGradient"
+                                x1="0%" y1="0%"
+                                x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a855f7"/>
+                    <stop offset="30%" stop-color="#ec4899"/>
+                    <stop offset="62%" stop-color="#fb923c"/>
+                    <stop offset="100%" stop-color="#22d3ee"/>
+                </linearGradient>
+            </defs>
+
+            <path
+                d="M-100 520
+                   C180 80 420 720 700 330
+                   S1120 40 1700 390"
+                fill="none"
+                stroke="url(#ctaGradient)"
+                stroke-width="115"
+                stroke-linecap="round"
+                opacity=".18">
+            </path>
+        </svg>
+
+        <svg class="cta-ribbon cta-ribbon-2"
+             viewBox="0 0 1600 700"
+             preserveAspectRatio="none">
+
+            <path
+                d="M-100 160
+                   C260 620 480 0 800 370
+                   S1220 700 1700 150"
+                fill="none"
+                stroke="url(#ctaGradient)"
+                stroke-width="32"
+                stroke-linecap="round"
+                opacity=".4">
+            </path>
+        </svg>
+
+        <div class="cta-noise"></div>
+
+    </div>
+
+
+    <div class="relative z-10 mx-auto max-w-7xl
+                px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+
+        <div class="cta-shell">
+
+            <!-- Eyebrow -->
+            <div class="cta-eyebrow">
+                <span class="cta-pulse"></span>
+                Start Your Project
+            </div>
+
+
+            <!-- Main copy -->
+            <h2 class="cta-title">
+                Audacious creative
+                <span>meets relentless execution.</span>
+            </h2>
+
+            <p class="cta-description">
+                Partner with Mumbai's proven corporate experiential agency.
+                From high-stakes 500-dealer meets in Goa to 100-store retail
+                rollouts across India, we deliver measurable momentum.
+            </p>
+
+
+            <!-- Actions -->
+            <div class="cta-actions">
+
+                <a href="contact.html"
+                   class="cta-primary">
+
+                    <span>
+                        Request an Event Proposal
+                    </span>
+
+                    <span class="cta-arrow">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+
+                </a>
+
+
+                <a href="tel:+919987399997"
+                   class="cta-phone">
+
+                    <span class="cta-phone-icon">
+                        <i data-lucide="phone"></i>
+                    </span>
+
+                    <span>
+                        +91 99873 99997
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- Decorative footer metadata -->
+            <div class="cta-meta">
+
+                <span>Concept</span>
+                <i></i>
+
+                <span>Experience</span>
+                <i></i>
+
+                <span>Execution</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN FOOTER
+========================================================= -->
+
+<footer class="trendz-footer">
+
+    <!-- Organic footer background -->
+    <div class="footer-art" aria-hidden="true">
+
+        <div class="footer-orb footer-orb-1"></div>
+        <div class="footer-orb footer-orb-2"></div>
+
+        <svg class="footer-curve"
+             viewBox="0 0 1600 600"
+             preserveAspectRatio="none">
+
+            <defs>
+                <linearGradient id="footerCurveGradient"
+                                x1="0%" y1="0%"
+                                x2="100%" y2="0%">
+
+                    <stop offset="0%"
+                          stop-color="#8b5cf6"/>
+
+                    <stop offset="30%"
+                          stop-color="#ec4899"/>
+
+                    <stop offset="65%"
+                          stop-color="#fb923c"/>
+
+                    <stop offset="100%"
+                          stop-color="#22d3ee"/>
+
+                </linearGradient>
+            </defs>
+
+            <path
+                d="M-100 500
+                   C300 80 520 700 850 300
+                   S1250 60 1700 380"
+                fill="none"
+                stroke="url(#footerCurveGradient)"
+                stroke-width="90"
+                stroke-linecap="round"
+                opacity=".08">
+            </path>
+
+        </svg>
+
+        <div class="footer-grid"></div>
+
+    </div>
+
+
+    <div class="relative z-10 mx-auto max-w-7xl
+                px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+
+        <!-- =================================================
+             FOOTER TOP
+        ================================================== -->
+
+        <div class="footer-grid-layout">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <a href="index.html"
+                   class="footer-logo">
+
+                    <img src="assets/img/brand/logo.png"
+                         alt="Trendz Eventz">
+
+                </a>
+
+
+                <p class="footer-tagline">
+                    Meaningful experiences.
+                    <span>Measurable momentum.</span>
+                </p>
+
+
+                <p class="footer-description">
+                    Trendz Eventz is an experiential marketing and corporate
+                    event agency headquartered in Mumbai, delivering pan-India
+                    dealer meets, launches, on-ground activations, and retail
+                    branding since 2011.
+                </p>
+
+
+                <!-- Contact -->
+                <div class="footer-contact">
+
+                    <a href="#"
+                       class="footer-contact-item">
+
+                        <span class="footer-contact-icon">
+                            <i data-lucide="map-pin"></i>
+                        </span>
+
+                        <span>
+                            Mumbai, Maharashtra, India
+                        </span>
+
+                    </a>
+
+
+                    <a href="tel:+919987399997"
+                       class="footer-contact-item">
+
+                        <span class="footer-contact-icon">
+                            <i data-lucide="phone"></i>
+                        </span>
+
+                        <span>
+                            +91 99873 99997
+                        </span>
+
+                    </a>
+
+
+                    <a href="mailto:info@trendzeventz.com"
+                       class="footer-contact-item">
+
+                        <span class="footer-contact-icon">
+                            <i data-lucide="mail"></i>
+                        </span>
+
+                        <span>
+                            info@trendzeventz.com
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <div class="footer-column">
+
+                <span class="footer-heading">
+                    Navigation
+                </span>
+
+                <nav class="footer-links">
+
+                    <a href="index.html">
+                        Home Overview
+                    </a>
+
+                    <a href="about.html">
+                        About Trendz
+                    </a>
+
+                    <a href="services.html">
+                        Core Capabilities
+                    </a>
+
+                    <a href="work.html">
+                        Case Studies & Work
+                    </a>
+
+                    <a href="clients.html">
+                        Client Portfolio
+                    </a>
+
+                    <a href="contact.html">
+                        Request a Proposal
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- CAPABILITIES -->
+            <div class="footer-column">
+
+                <span class="footer-heading">
+                    Core Capabilities
+                </span>
+
+                <nav class="footer-links">
+
+                    <a href="services.html#corporate-events">
+                        Corporate Events & Dealer Meets
+                    </a>
+
+                    <a href="services.html#btl-experiential">
+                        BTL Activations & Mall Takeovers
+                    </a>
+
+                    <a href="services.html#retail-branding">
+                        Retail Audits & Store Branding
+                    </a>
+
+                    <a href="services.html#digital-marketing">
+                        Digital Campaign Amplification
+                    </a>
+
+                    <a href="services.html#mobile-tele-marketing">
+                        Field Force & Candidate Outreach
+                    </a>
+
+                    <a href="services.html#broadcast-print-outdoor">
+                        Highway OOH & PR Stunts
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- SCALE -->
+            <div class="footer-column footer-scale">
+
+                <span class="footer-heading">
+                    Leadership & Scale
+                </span>
+
+
+                <div class="footer-leader">
+
+                    <strong>
+                        Bharat Jadhav
+                    </strong>
+
+                    <span>
+                        Founder & Managing Director
+                    </span>
+
+                </div>
+
+
+                <div class="footer-badges">
+
+                    <span>
+                        15+ Years
+                    </span>
+
+                    <span>
+                        500+ Events
+                    </span>
+
+                    <span>
+                        Pan-India Footprint
+                    </span>
+
+                    <span>
+                        10-City Tours
+                    </span>
+
+                    <span>
+                        100 Stores Launched
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER DIVIDER
+        ================================================== -->
+
+        <div class="footer-divider">
+            <span></span>
+        </div>
+
+
+        <!-- =================================================
+             BOTTOM FOOTER
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Trendz Eventz.
+                All rights reserved.
+                <span>Built for corporate excellence.</span>
+            </p>
+
+
+            <div class="footer-bottom-right">
+
+                <span>
+                    Mumbai · Pune · Bangalore · Delhi · Goa
+                </span>
+
+
+                <a href="https://instagram.com/trendz_eventz"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="footer-instagram">
+
+                    <i data-lucide="instagram"></i>
+
+                    <span>
+                        @trendz_eventz
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<style>
+
+/* =========================================================
+   PRE-FOOTER CTA
+========================================================= */
+
+.trendz-cta {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(168,85,247,.32),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(34,211,238,.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #2e0b4e 0%,
+            #42105f 48%,
+            #1e174d 100%
+        );
+}
+
+
+.cta-art {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+.cta-orb {
+    position: absolute;
+
+    width: 28rem;
+    height: 28rem;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .4;
+
+    animation:
+        ctaFloat
+        14s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cta-orb-1 {
+    left: -14rem;
+    top: 25%;
+
+    background:
+        rgba(168,85,247,.35);
+}
+
+
+.cta-orb-2 {
+    right: -14rem;
+    top: 10%;
+
+    background:
+        rgba(236,72,153,.25);
+
+    animation-delay: -4s;
+}
+
+
+.cta-orb-3 {
+    left: 45%;
+    bottom: -18rem;
+
+    background:
+        rgba(34,211,238,.14);
+
+    animation-delay: -8s;
+}
+
+
+@keyframes ctaFloat {
+
+    from {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(35px,-25px,0)
+            scale(1.1);
+    }
+
+}
+
+
+.cta-ribbon {
+    position: absolute;
+
+    width: 120%;
+    height: 100%;
+
+    left: -10%;
+}
+
+
+.cta-ribbon-1 {
+    animation:
+        ctaRibbonMove
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cta-ribbon-2 {
+    animation:
+        ctaRibbonReverse
+        22s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes ctaRibbonMove {
+
+    from {
+        transform:
+            translateX(-1%)
+            rotate(-.5deg);
+    }
+
+    to {
+        transform:
+            translateX(2%)
+            rotate(.6deg);
+    }
+
+}
+
+
+@keyframes ctaRibbonReverse {
+
+    from {
+        transform:
+            translateX(1%);
+    }
+
+    to {
+        transform:
+            translateX(-2%);
+    }
+
+}
+
+
+.cta-noise {
+    position: absolute;
+    inset: 0;
+
+    opacity: .08;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.8) .7px,
+            transparent .7px
+        );
+
+    background-size:
+        17px 17px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 20%,
+            #000 80%,
+            transparent
+        );
+}
+
+
+.cta-shell {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.cta-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .65rem;
+
+    padding: .6rem .9rem;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    backdrop-filter:
+        blur(18px);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size: .6rem;
+
+    font-weight: 900;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+
+.cta-pulse {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #67e8f9;
+
+    box-shadow:
+        0 0 20px #22d3ee;
+
+    animation:
+        ctaPulse 2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes ctaPulse {
+
+    50% {
+        transform: scale(1.5);
+        opacity: .6;
+    }
+
+}
+
+
+.cta-title {
+    margin:
+        1.6rem auto 0;
+
+    max-width: 900px;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6.5rem
+        );
+
+    line-height: .86;
+
+    letter-spacing: -.065em;
+
+    font-weight: 950;
+
+    color: #fff;
+}
+
+
+.cta-title span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c084fc,
+            #f472b6,
+            #fb923c,
+            #67e8f9
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        ctaGradientMove
+        8s
+        linear
+        infinite;
+}
+
+
+@keyframes ctaGradientMove {
+
+    to {
+        background-position: 200% center;
+    }
+
+}
+
+
+.cta-description {
+    max-width: 680px;
+
+    margin:
+        1.5rem auto 0;
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size:
+        clamp(.85rem,2vw,1rem);
+
+    line-height: 1.8;
+}
+
+
+.cta-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: .8rem;
+
+    margin-top: 2rem;
+}
+
+
+.cta-primary {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .9rem;
+
+    padding:
+        .55rem .55rem .55rem 1.3rem;
+
+    border-radius: 999px;
+
+    background: #fff;
+
+    color: #35104d;
+
+    font-size: .7rem;
+
+    font-weight: 950;
+
+    letter-spacing: .04em;
+
+    text-decoration: none;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.cta-primary:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
+}
+
+
+.cta-arrow {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899,
+            #fb923c
+        );
+}
+
+
+.cta-arrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+.cta-phone {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    padding: .75rem 1.2rem;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    border-radius: 999px;
+
+    color: #fff;
+
+    background:
+        rgba(255,255,255,.06);
+
+    backdrop-filter:
+        blur(16px);
+
+    font-size: .7rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+
+.cta-phone:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+.cta-phone-icon {
+
+    display: flex;
+
+    width: 30px;
+    height: 30px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+
+.cta-phone-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.cta-meta {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: .65rem;
+
+    margin-top: 2rem;
+
+    color:
+        rgba(255,255,255,.28);
+
+    font-size: .55rem;
+
+    font-weight: 900;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+
+.cta-meta i {
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c084fc,
+            #22d3ee
+        );
+}
+
+
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
+
+.trendz-footer {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        #160d25;
+
+    color: #cbd5e1;
+}
+
+
+.footer-art {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.footer-orb {
+
+    position: absolute;
+
+    width: 25rem;
+    height: 25rem;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: .16;
+}
+
+
+.footer-orb-1 {
+
+    left: -15rem;
+    top: 15%;
+
+    background:
+        #8b5cf6;
+}
+
+
+.footer-orb-2 {
+
+    right: -15rem;
+    bottom: 0;
+
+    background:
+        #22d3ee;
+}
+
+
+.footer-curve {
+
+    position: absolute;
+
+    width: 120%;
+
+    height: 100%;
+
+    left: -10%;
+
+    top: 0;
+
+    opacity: .8;
+}
+
+
+.footer-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .1;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.5) .6px,
+            transparent .6px
+        );
+
+    background-size:
+        28px 28px;
+}
+
+
+/* =========================================================
+   FOOTER LAYOUT
+========================================================= */
+
+.footer-grid-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1.5fr)
+        repeat(3,minmax(0,1fr));
+
+    gap: 3.5rem;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: .65rem .8rem;
+
+    border-radius:
+        1rem .4rem 1rem .4rem;
+
+    background: #fff;
+
+    transition:
+        transform .4s ease;
+}
+
+
+.footer-logo:hover {
+
+    transform:
+        translateY(-3px)
+        rotate(-1deg);
+}
+
+
+.footer-logo img {
+
+    display: block;
+
+    height: 2.25rem;
+
+    width: auto;
+}
+
+
+.footer-tagline {
+
+    margin:
+        1.5rem 0 0;
+
+    color: #fff;
+
+    font-size: .9rem;
+
+    font-weight: 850;
+
+    line-height: 1.4;
+}
+
+
+.footer-tagline span {
+
+    display: block;
+
+    color: #a78bfa;
+}
+
+
+.footer-description {
+
+    max-width: 390px;
+
+    margin-top: .8rem;
+
+    color:
+        rgba(203,213,225,.55);
+
+    font-size: .7rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .7rem;
+
+    margin-top: 1.5rem;
+}
+
+
+.footer-contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    color:
+        rgba(203,213,225,.55);
+
+    font-size: .67rem;
+
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.footer-contact-item:hover {
+
+    color: #fff;
+
+    transform:
+        translateX(4px);
+}
+
+
+.footer-contact-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: #a78bfa;
+}
+
+
+.footer-contact-icon svg {
+
+    width: 13px;
+    height: 13px;
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-heading {
+
+    display: block;
+
+    margin-bottom: 1.3rem;
+
+    color: #fff;
+
+    font-size: .6rem;
+
+    font-weight: 950;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .7rem;
+}
+
+
+.footer-links a {
+
+    color:
+        rgba(203,213,225,.5);
+
+    font-size: .68rem;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.footer-links a:hover {
+
+    color: #c4b5fd;
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+.footer-leader {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .25rem;
+
+    margin-bottom: 1.2rem;
+}
+
+
+.footer-leader strong {
+
+    color: #fff;
+
+    font-size: .9rem;
+}
+
+
+.footer-leader span {
+
+    color: #a78bfa;
+
+    font-size: .62rem;
+
+    font-weight: 700;
+}
+
+
+.footer-badges {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .45rem;
+}
+
+
+.footer-badges span {
+
+    padding: .45rem .6rem;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:
+        rgba(203,213,225,.6);
+
+    font-size: .5rem;
+
+    font-weight: 850;
+
+    letter-spacing: .04em;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.footer-divider {
+
+    position: relative;
+
+    height: 1px;
+
+    margin:
+        4rem 0 1.5rem;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.13),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color:
+        rgba(148,163,184,.45);
+
+    font-size: .58rem;
+
+    line-height: 1.7;
+}
+
+
+.footer-bottom p span {
+
+    color:
+        rgba(148,163,184,.65);
+}
+
+
+.footer-bottom-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1.5rem;
+}
+
+
+.footer-bottom-right > span {
+
+    color:
+        rgba(148,163,184,.42);
+
+    font-size: .55rem;
+
+    font-weight: 700;
+}
+
+
+.footer-instagram {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .4rem;
+
+    color: #a78bfa;
+
+    font-size: .58rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        color .3s ease;
+}
+
+
+.footer-instagram:hover {
+
+    color: #f0abfc;
+}
+
+
+.footer-instagram svg {
+
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .footer-grid-layout {
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap: 3rem 2rem;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .trendz-cta {
+
+        min-height: auto;
+    }
+
+
+    .cta-title {
+
+        font-size:
+            clamp(
+                2.8rem,
+                14vw,
+                4.8rem
+            );
+    }
+
+
+    .cta-actions {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .cta-primary,
+    .cta-phone {
+
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+
+    .cta-meta {
+
+        flex-wrap: wrap;
+    }
+
+
+    .footer-grid-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .footer-bottom-right {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: .8rem;
+    }
+
+
+    .footer-curve {
+
+        width: 170%;
+
+        left: -35%;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cta-orb,
+    .cta-ribbon,
+    .cta-title span,
+    .cta-pulse {
+
+        animation: none !important;
+    }
+
+    .cta-primary:hover,
+    .cta-phone:hover,
+    .footer-logo:hover {
+
+        transform: none;
+    }
+
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+});
+</script>

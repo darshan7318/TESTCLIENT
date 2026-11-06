@@ -1,0 +1,68 @@
+# Netlify Configuration for Trendz Eventz
+# Zero-PHP Static Deployment with Native Netlify Forms & CDN Security Headers
+
+[build]
+  publish = "."
+
+# Backward-compatibility redirects from PHP routes to Static HTML
+[[redirects]]
+  from = "/case-study.php"
+  query = {slug = ":slug"}
+  to = "/case-study.html?slug=:slug"
+  status = 301
+
+[[redirects]]
+  from = "/case-study.php"
+  to = "/case-study.html"
+  status = 301
+
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about.php"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/services.php"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/work.php"
+  to = "/work.html"
+  status = 301
+
+[[redirects]]
+  from = "/clients.php"
+  to = "/clients.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact.php"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/:page.php"
+  to = "/:page.html"
+  status = 301
+
+# Production Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-XSS-Protection = "1; mode=block"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

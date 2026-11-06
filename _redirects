@@ -1,0 +1,10 @@
+# Trendz Eventz — Netlify URL Routing & Legacy PHP Redirects
+/case-study.php  slug=:slug  /case-study.html?slug=:slug  301
+/case-study.php  /case-study.html  301
+/index.php       /                 301
+/about.php       /about.html       301
+/services.php    /services.html    301
+/work.php        /work.html        301
+/clients.php     /clients.html     301
+/contact.php     /contact.html     301
+/*.php           /:splat.html      301
