@@ -1,0 +1,15 @@
+/* Trendz Eventz — shared footer isolation and structural safety */
+#trendz-shared-footer{
+  all:initial;
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  color:#cbd5e1;
+  isolation:isolate;
+  contain:layout style;
+}
+#trendz-shared-footer,
+#trendz-shared-footer *{box-sizing:border-box}
+#trendz-shared-footer{max-width:100%;overflow:hidden}
+#trendz-shared-footer a{overflow-wrap:anywhere}
