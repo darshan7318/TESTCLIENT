@@ -13,3 +13,12 @@
 #trendz-shared-footer *{box-sizing:border-box}
 #trendz-shared-footer{max-width:100%;overflow:hidden}
 #trendz-shared-footer a{overflow-wrap:anywhere}
+
+/* Footer load-failure state */
+#trendz-shared-footer-error{
+  padding:32px 20px;
+  text-align:center;
+  background:#120f18;
+  color:#94a3b8;
+  font:12px/1.6 Inter,Arial,sans-serif;
+}
