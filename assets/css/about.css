@@ -922,3 +922,16 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 .about-v4 .v4-promise-content .v4-small{
   display:none;
 }
+
+
+/* ITERATION 12 — asymmetrical values rhythm for a more editorial organic composition */
+@media(min-width:901px){
+  .about-v4 .v4-values-editorial article:nth-child(2){padding-top:64px}
+  .about-v4 .v4-values-editorial article:nth-child(3){padding-top:46px}
+  .about-v4 .v4-values-editorial article:nth-child(4){padding-top:76px}
+  .about-v4 .v4-values-editorial article:nth-child(5){padding-top:52px}
+  .about-v4 .v4-values-editorial article:nth-child(6){padding-top:88px}
+}
+@media(min-width:641px) and (max-width:900px){
+  .about-v4 .v4-values-editorial article:nth-child(even){padding-top:46px}
+}
