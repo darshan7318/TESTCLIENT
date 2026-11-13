@@ -279,3 +279,8 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:900px){.v5-people-gallery{grid-template-columns:minmax(0,1fr) minmax(190px,.72fr)}.v5-people-gallery-main{min-height:500px}}
 @media(max-width:640px){.v5-people-gallery{grid-template-columns:1fr;gap:12px}.v5-people-gallery-main{min-height:430px}.v5-people-gallery-side{grid-template-columns:1fr 1fr;grid-template-rows:none;gap:12px}.v5-people-gallery-side figure{aspect-ratio:1/1;min-height:0}.v5-people-gallery figcaption{left:12px;right:12px;bottom:12px;font-size:.52rem}.v5-people-gallery figcaption span{font-size:.44rem}}
 @media(max-width:380px){.v5-people-gallery-main{min-height:360px}.v5-people-gallery-side{grid-template-columns:1fr}.v5-people-gallery-side figure{aspect-ratio:16/10}}
+
+
+/* ITERATION 2 — shared footer isolation moved out of page markup */
+#trendz-shared-footer{all:initial;display:block;width:100%;box-sizing:border-box;font-family:Inter,"Segoe UI",Arial,sans-serif;color:#cbd5e1;isolation:isolate;contain:layout style}
+#trendz-shared-footer,#trendz-shared-footer *{box-sizing:border-box}
