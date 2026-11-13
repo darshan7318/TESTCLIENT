@@ -263,35 +263,7 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
  .about-v4 .v4-hero-art,.about-v4 .v4-story-marker,.about-v4 .v5-people-gallery,.about-v4 .v4-promise-curve{will-change:auto;transition:none}
 }
 </style>
-<script id="about-iteration-3-motion-script">
-(function(){
- const root=document.querySelector('.about-v4'); if(!root)return;
- const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const targets=[...root.querySelectorAll('.v4-story-copy,.v4-purpose-card,.v4-values-editorial article,.v4-people-heading,.v4-people-copy,.v4-promise-content')];
- targets.forEach((el,i)=>{el.classList.add('about-motion');el.style.transitionDelay=(i%4)*70+'ms'});
- if(reduce){targets.forEach(el=>el.classList.add('is-visible'));return;}
- const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
- targets.forEach(el=>io.observe(el));
- const parallax=[
-  [root.querySelector('.v4-hero-art'),.035],
-  [root.querySelector('.v4-story-marker'),-.018],
-  [root.querySelector('.v5-people-gallery'),.022],
-  [root.querySelector('.v4-promise-curve'),.028]
- ].filter(x=>x[0]);
- let ticking=false;
- function render(){
-   const sy=window.scrollY;
-   parallax.forEach(([el,s])=>{
-     const r=el.getBoundingClientRect();
-     const offset=(r.top+r.height*.5-window.innerHeight*.5)*s;
-     el.style.transform='translate3d(0,'+(-offset)+'px,0)';
-   });
-   ticking=false;
- }
- window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(render);ticking=true}},{passive:true});
- render();
-})();
-</script>
+
 <style id="about-iteration-4-production">
 /* ITERATION 4 — responsive art direction + CTA/footer continuity */
 .about-v4 .v4-hero-curve-a{border-radius:58% 42% 39% 61% / 47% 62% 38% 53%}
@@ -471,22 +443,7 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:640px){.about-redesign .ar-container{width:calc(100% - 32px)}.ar-section-meta{font-size:.5rem}.ar-section-meta .meta-right{display:none}.ar-hero-container{padding:68px 0 24px}.ar-eyebrow{font-size:.5rem}.ar-hero-title{font-size:clamp(3.45rem,15vw,5.2rem);line-height:.84;margin-top:24px}.ar-hero-sub{margin-top:31px;font-size:.47rem;gap:11px}.ar-sub-curve{width:38px}.ar-hero-visual{min-height:390px}.ar-image-shell{width:70vw;max-width:330px}.ar-orbit-1{width:86vw}.ar-orbit-2{width:70vw}.ar-year-marker{top:5%;left:0}.ar-year-marker strong{font-size:4rem}.ar-hero-coordinate{font-size:.42rem;bottom:8%}.ar-hero-bottom{flex-direction:column;align-items:flex-start;gap:8px;margin-top:24px}.ar-story-container,.ar-purpose .ar-container,.ar-values .ar-container,.ar-people .ar-container{padding-top:70px;padding-bottom:76px}.ar-story-layout{padding-top:55px}.ar-story-anchor{min-height:235px}.ar-giant-year{font-size:10rem}.ar-anchor-caption{left:6%;bottom:13%;font-size:.44rem}.ar-anchor-loop{width:220px;height:275px}.ar-story-copy h2{font-size:3.45rem}.ar-story-lead p{font-size:1.18rem}.ar-story-body{font-size:.82rem;line-height:1.85}.ar-story-copy blockquote{margin-top:34px;padding:24px 22px 24px 34px;font-size:.88rem;border-radius:0 28px 0 28px}.ar-purpose-intro{padding-top:52px}.ar-purpose-intro h2{font-size:3.05rem}.ar-purpose-grid{margin-top:52px}.ar-purpose-card{min-height:470px;padding:26px 24px 34px}.ar-purpose-card.ar-mission{border-radius:42px 0 42px 0}.ar-purpose-card.ar-vision{border-radius:0 42px 0 42px}.ar-purpose-card h3{margin-top:125px;font-size:2.35rem}.ar-purpose-card p{font-size:.79rem;line-height:1.85}.ar-values-heading{padding-top:50px}.ar-values-heading h2{font-size:3.2rem}.ar-values-grid{grid-template-columns:1fr;margin-top:50px}.ar-value{min-height:250px}.ar-value h3{margin-top:62px;font-size:1.15rem}.ar-people-layout{padding-top:54px}.ar-people-heading h2{font-size:3.35rem}.ar-people-orbit{margin-top:40px}.ar-people-copy p{font-size:.81rem;line-height:1.85}.ar-people-copy .ar-people-lead{font-size:1.16rem}.ar-promise .ar-container{padding-top:88px;padding-bottom:105px}.ar-promise-content{padding-top:52px}.ar-promise-content h2{font-size:3.55rem}.ar-promise-content p{font-size:.86rem;line-height:1.85}.ar-promise-line{align-items:flex-start;gap:12px;margin-top:42px}.ar-promise-line strong{font-size:.52rem}.ar-promise-wave{right:-520px}.ar-wave-a{width:120vw;height:90vw}.ar-wave-b{width:90vw;height:70vw}}
 @media(prefers-reduced-motion:reduce){.ar-wave-a,.ar-wave-b,.ar-orbit-1,.ar-orbit-2,.ar-anchor-loop,.ar-people-orbit span{animation:none!important}.is-revealed{transition:none!important}.ar-image-shell img{transition:none}.ar-purpose-card:hover,.ar-value:hover{transform:none}}
 </style>
-<script id="about-redesign-v1-motion">
-(function(){
-  const page=document.querySelector('.about-redesign');
-  if(!page)return;
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealItems=page.querySelectorAll('[data-reveal]');
-  if(reduced){revealItems.forEach(el=>el.classList.add('is-revealed'));return;}
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed');io.unobserve(entry.target);}});
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  revealItems.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);});
-  const hero=page.querySelector('.ar-hero-visual');
-  const img=page.querySelector('.ar-image-shell');
-  if(hero&&img){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=((e.clientX-r.left)/r.width-.5)*2;const y=((e.clientY-r.top)/r.height-.5)*2;img.style.transform=`rotate(${3+x*1.1}deg) translate3d(${x*7}px,${y*6}px,0)`},{passive:true});hero.addEventListener('pointerleave',()=>{img.style.transform='';});}
-})();
-</script>
+
 <main id="main-content" class="about-redesign about-v4">
 <section class="about-hero-v4" aria-labelledby="about-title">
   <div class="v4-hero-curve v4-hero-curve-a" aria-hidden="true"></div><div class="v4-hero-curve v4-hero-curve-b" aria-hidden="true"></div>
@@ -580,23 +537,7 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:640px){.v10-wrap,.v10-hero-grid,.v10-hero-bottom{width:calc(100% - 32px)}.v10-hero{padding-top:82px}.v10-hero h1{font-size:clamp(3rem,14vw,5rem)}.v10-hero-actions{margin-top:26px}.v10-hero-visual{margin-top:8px}.v10-hero-bottom{gap:12px 25px;font-size:.5rem}.v10-profile .v10-wrap{padding:60px 0}.v10-stats{grid-template-columns:1fr 1fr}.v10-stats div{min-height:120px}.v10-stats strong{font-size:2.7rem}.v10-section{padding:78px 0}.v10-section-head h2,.v10-story-content h2,.v10-people h2{font-size:clamp(2.65rem,12vw,4.5rem)}.v10-timeline{margin-top:48px}.v10-timeline article{grid-template-columns:42px 1fr;gap:14px;padding:24px 0}.v10-direction-grid{margin-top:48px}.v10-direction article{min-height:auto;padding:28px 0 42px}.v10-direction h3{margin-top:62px;font-size:2.55rem}.v10-method-grid,.v10-values-grid{grid-template-columns:1fr;margin-top:45px}.v10-method article{min-height:220px;border-right:0;border-bottom:1px solid var(--line)}.v10-method article:last-child{border-bottom:0}.v10-values article{min-height:220px}.v10-values h3{margin-top:52px}.v10-people-statement{grid-template-columns:1fr}.v10-promise h2{font-size:clamp(2.8rem,13vw,5rem)}.v10-promise-bottom{align-items:flex-start;flex-direction:column}.v10-promise-bottom a{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.about-v10 *{scroll-behavior:auto!important;transition:none!important;animation:none!important}.v10-image-frame{transform:none}}
 </style>
-<script id="about-v10-motion">
-document.addEventListener("DOMContentLoaded",()=>{
-  const page=document.querySelector('.about-v10'); if(!page)return;
-  if(window.lucide)window.lucide.createIcons();
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced||!window.gsap){return;}
-  const hero=page.querySelectorAll('.v10-hero .v10-eyebrow,.v10-hero h1,.v10-hero .v10-lead,.v10-hero-actions,.v10-hero-visual,.v10-hero-bottom');
-  window.gsap.fromTo(hero,{opacity:0,y:26},{opacity:1,y:0,duration:1,stagger:.08,ease:'power4.out',delay:.12});
-  if('IntersectionObserver' in window){
-    const targets=page.querySelectorAll('.v10-profile-intro,.v10-stats,.v10-story-content,.v10-section-head,.v10-timeline article,.v10-direction article,.v10-method article,.v10-values article,.v10-people-content,.v10-promise .v10-wrap');
-    const io=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(!e.isIntersecting)return;window.gsap.fromTo(e.target,{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:'power3.out',overwrite:true});obs.unobserve(e.target);});},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
-    targets.forEach(el=>io.observe(el));
-  }
-  const visual=page.querySelector('.v10-image-frame');
-  if(visual){page.addEventListener('pointermove',e=>{const r=visual.getBoundingClientRect();if(r.width===0)return;const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;window.gsap.to(visual,{rotation:1.5+x*2,y:y*5,duration:.7,ease:'power3.out',overwrite:true});});page.addEventListener('pointerleave',()=>window.gsap.to(visual,{rotation:1.5,y:0,duration:.8,ease:'power3.out'}));}
-});
-</script>
+
 <!-- PRE-FOOTER CTA -->
 <section class="trendz-cta relative overflow-hidden">
  <div class="cta-art" aria-hidden="true"><div class="cta-orb cta-orb-1"></div><div class="cta-orb cta-orb-2"></div><div class="cta-orb cta-orb-3"></div>
@@ -803,38 +744,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <div class="organic-cursor-light" aria-hidden="true"></div>
 
-<script id="about-organic-ui-motion-v3">
-document.addEventListener("DOMContentLoaded",()=>{
- const page=document.querySelector(".about-page"); if(!page)return;
- const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- const light=page.querySelector(".organic-cursor-light");
- if(!reduced && light && window.gsap){
-   let visible=false;
-   window.addEventListener("pointermove",e=>{
-     if(!visible){visible=true;light.style.opacity="1";}
-     window.gsap.to(light,{x:e.clientX,y:e.clientY,duration:.55,ease:"power3.out",overwrite:true});
-   },{passive:true});
-   window.addEventListener("pointerleave",()=>{light.style.opacity="0"},{passive:true});
- }
- if(reduced || !window.gsap)return;
- const cards=page.querySelectorAll(".about-direction-card,.about-value,.about-people-aside");
- cards.forEach(card=>{
-   card.addEventListener("pointermove",e=>{
-     const r=card.getBoundingClientRect();
-     const x=(e.clientX-r.left)/r.width-.5;
-     const y=(e.clientY-r.top)/r.height-.5;
-     window.gsap.to(card,{rotationY:x*1.2,rotationX:-y*1.1,transformPerspective:900,duration:.45,ease:"power2.out",overwrite:true});
-   },{passive:true});
-   card.addEventListener("pointerleave",()=>window.gsap.to(card,{rotationY:0,rotationX:0,duration:.65,ease:"power3.out",overwrite:true}),{passive:true});
- });
- const title=page.querySelector(".about-promise-title");
- if(title){window.gsap.fromTo(title,{clipPath:"inset(0 0 100% 0)"},{clipPath:"inset(0 0 0% 0)",duration:1.2,ease:"power4.out",scrollTrigger:window.ScrollTrigger?{trigger:title,start:"top 82%",once:true}:undefined});}
- const nodes=page.querySelectorAll(".organic-node");
- nodes.forEach(node=>{node.addEventListener("pointermove",e=>{const r=node.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;window.gsap.to(node,{x:x*8,y:y*7,duration:.35,ease:"power2.out",overwrite:true});},{passive:true});node.addEventListener("pointerleave",()=>window.gsap.to(node,{x:0,y:0,duration:.55,ease:"power3.out",overwrite:true}),{passive:true});});
- const sections=page.querySelectorAll(".about-section,.organic-field");
- if(window.ScrollTrigger){sections.forEach((section,i)=>{window.ScrollTrigger.create({trigger:section,start:"top 78%",onEnter:()=>section.classList.add("is-visible"),once:true});});}
-});
-</script>
+
 
 <style id="about-corporate-organic-v6">
 /* CORPORATE ORGANIC V6 — structured enterprise storytelling */
@@ -922,33 +832,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 </style>
 
 
-<script id="about-section-01-hero-v14-motion">
-(function(){
-  const hero=document.querySelector('.v13-hero');
-  if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const art=hero.querySelector('.v13-hero-art');
-  const image=hero.querySelector('.v13-hero-image');
-  const rings=hero.querySelectorAll('.v13-hero-ring');
-  if(!art) return;
-  let raf=0, tx=0, ty=0, cx=0, cy=0;
-  art.addEventListener('pointermove', e=>{
-    const r=art.getBoundingClientRect();
-    tx=((e.clientX-r.left)/r.width-.5)*2;
-    ty=((e.clientY-r.top)/r.height-.5)*2;
-    if(!raf) raf=requestAnimationFrame(()=>{
-      cx+=(tx-cx)*.12; cy+=(ty-cy)*.12;
-      if(image) image.style.transform=`rotate(${3+cx*1.2}deg) translate3d(${cx*7}px,${cy*6}px,0) scale(1.012)`;
-      rings.forEach((ring,i)=>{ring.style.marginLeft=`${cx*(i?5:8)}px`;ring.style.marginTop=`${cy*(i?4:7)}px`;});
-      raf=0;
-    });
-  }, {passive:true});
-  art.addEventListener('pointerleave',()=>{
-    tx=ty=0;
-    if(image) image.style.transform='';
-    rings.forEach(r=>{r.style.marginLeft='';r.style.marginTop='';});
-  });
-})();
-</script>
+
 
 
 <style id="about-v8-iteration-4-production">
@@ -1114,19 +998,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 .about-v4 .v4-hero-copy h1 span{clip-path:inset(0 0 100% 0);animation:v4LineIn .9s cubic-bezier(.2,.8,.2,1) forwards}.about-v4 .v4-hero-copy h1 span:nth-child(1){animation-delay:.12s}.about-v4 .v4-hero-copy h1 span:nth-child(2){animation-delay:.2s}.about-v4 .v4-hero-copy h1 span:nth-child(3){animation-delay:.28s}.about-v4 .v4-hero-copy h1 span:nth-child(4){animation-delay:.36s}@keyframes v4LineIn{to{clip-path:inset(0 0 0 0)}}
 @media(prefers-reduced-motion:reduce){.about-v4 [data-v4-reveal]{opacity:1;transform:none;transition:none}.about-v4 .v4-people-orbit,.about-v4 .v4-orbit-dot,.about-v4 .v4-hero-copy h1 span{animation:none;clip-path:none}.about-v4 .v4-purpose-card,.about-v4 .v4-values-grid article{will-change:auto}}
 </style>
-<script id="about-redesign-iteration-3-motion">
-(function(){
- const root=document.querySelector('.about-v4'); if(!root)return;
- const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- root.querySelectorAll('.v4-story-copy,.v4-story-marker,.v4-purpose-card,.v4-values-grid article,.v4-people-heading,.v4-people-copy,.v4-promise-content').forEach(el=>el.setAttribute('data-v4-reveal',''));
- if(reduce){root.querySelectorAll('[data-v4-reveal]').forEach(el=>el.classList.add('is-in'));return;}
- const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -7% 0px'});
- root.querySelectorAll('[data-v4-reveal]').forEach(el=>io.observe(el));
- const art=root.querySelector('.v4-hero-art'),img=root.querySelector('.v4-image'),rings=root.querySelectorAll('.v4-art-ring');
- if(art){art.addEventListener('pointermove',e=>{const r=art.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2,y=((e.clientY-r.top)/r.height-.5)*2;img.style.transform=`rotate(${3+x*1.1}deg) translate3d(${x*7}px,${y*6}px,0)`;rings.forEach((ring,i)=>ring.style.margin=`${y*(i+1)*3}px ${x*(i+1)*4}px`)},{passive:true});art.addEventListener('pointerleave',()=>{img.style.transform='';rings.forEach(r=>r.style.margin='')});}
- root.querySelectorAll('.v4-purpose-card,.v4-values-grid article').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2,y=((e.clientY-r.top)/r.height-.5)*2;card.style.transform=`perspective(900px) rotateX(${y*-1.2}deg) rotateY(${x*1.2}deg) translateY(-4px)`},{passive:true});card.addEventListener('pointerleave',()=>card.style.transform='')});
-})();
-</script>
+
 <style id="about-redesign-iteration-4">
 /* ITERATION 4 — final art direction + production polish */
 .about-v4 .v4-hero-copy,.about-v4 .v4-hero-art{z-index:3}.about-v4 .v4-story-copy blockquote{position:relative}.about-v4 .v4-story-copy blockquote:after{content:"";position:absolute;right:0;top:-1px;width:110px;height:28px;border-top:1px solid var(--pk);border-radius:50%;transform:translateY(-13px) rotate(-8deg)}
@@ -1136,22 +1008,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 @media(max-width:640px){.trendz-cta .cta-shell{text-align:left}.trendz-cta .cta-title{font-size:clamp(2.9rem,13vw,5rem)}.trendz-cta .cta-actions,.trendz-cta .cta-meta{justify-content:flex-start}.trendz-cta:before{right:-55vw;top:-30vw;width:120vw;height:100vw}.trendz-cta:after{left:-55vw;bottom:-45vw;width:110vw;height:90vw}}
 @media(prefers-reduced-motion:reduce){.trendz-cta .cta-primary:hover,.trendz-cta .cta-phone:hover{transform:none}.trendz-cta .cta-title span{animation:none}}
 </style>
-<script id="about-redesign-iteration-4-final-qa">
-(function(){
- const root=document.querySelector('.about-v4'); if(!root)return;
- const expected=[
-  'For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.',
-  'What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.',
-  'Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.',
-  'Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.',
-  'To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.',
-  'To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.'
- ];
- const text=root.innerText;
- root.dataset.contentIntegrity=expected.every(s=>text.includes(s))?'pass':'review';
- root.querySelectorAll('img').forEach(img=>{if(!img.hasAttribute('decoding'))img.setAttribute('decoding','async')});
-})();
-</script>
+
 
 <style id="about-production-safety">
   html,body{width:100%;max-width:100%;overflow-x:hidden}
