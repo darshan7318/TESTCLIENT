@@ -297,8 +297,7 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(prefers-reduced-motion:reduce){.ar-wave-a,.ar-wave-b,.ar-orbit-1,.ar-orbit-2,.ar-anchor-loop,.ar-people-orbit span{animation:none!important}.is-revealed{transition:none!important}.ar-image-shell img{transition:none}.ar-purpose-card:hover,.ar-value:hover{transform:none}}
 </style>
 <script id="about-redesign-v1-motion">
-(function(){
-  const page=document.querySelector('.about-redesign');
+(function(){  const page=document.querySelector('.about-redesign');
   if(!page)return;
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems=page.querySelectorAll('[data-reveal]');
@@ -598,7 +597,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 .about-page .about-promise-title{max-width:1080px}
 .about-page .about-promise-title span{position:relative;display:inline-block}
 .about-page .about-promise-title span:after{content:"";position:absolute;left:-2%;right:-2%;bottom:-.08em;height:.08em;background:var(--organic-pink);border-radius:80% 20% 60% 40% / 70% 50% 50% 30%;transform:rotate(-1.2deg);opacity:.85}
-
 /* Organic buttons: slight human imperfection */
 .about-page .about-cta{border-radius:13px 28px 13px 28px;transition:transform .4s ease,border-radius .5s ease,background .35s ease}
 .about-page .about-cta:hover{border-radius:28px 13px 28px 13px;transform:translateY(-3px)}
@@ -819,9 +817,7 @@ document.addEventListener("DOMContentLoaded",()=>{
  root.dataset.responsiveQa='4-breakpoint-system';
  root.dataset.imageStrategy='hero-placeholder; founder-leadership-team-placeholders; no-placeholder-required-for-mission-vision-values-promise';
 })();
-</script></body>
-</html>
-<style id="about-redesign-iteration-1">
+</script><style id="about-redesign-iteration-1">
 /* ITERATION 1 — structural rebuild */
 .about-v4{--i:#17151f;--p:#5c55a2;--l:#c9c4ed;--pk:#d52d91;--paper:#f7f7f9;--line:#dedbe5;overflow:clip}
 .about-v4 *{box-sizing:border-box}.about-v4 h1,.about-v4 h2,.about-v4 h3,.about-v4 p{margin:0}.about-v4 em{font-style:normal;color:var(--p)}
@@ -897,8 +893,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 <style id="about-v9-no-artificial-numbering-and-values">
 /* ITERATION 5 — remove artificial section numbering; redesign Core Values as an editorial field. */
 .about-v4 .v4-section-meta{gap:0}
-.about-v4 .v4-section-meta>span:first-child{display:none!important}
-.about-v4 .v4-section-meta>i{width:42px!important;margin-right:2px}
+.about-v4 .v4-section-meta>span:first-child{display:none!important}.about-v4 .v4-section-meta>i{width:42px!important;margin-right:2px}
 .about-v4 .v4-hero-foot span:first-child{display:none!important}
 .about-v4 .v4-card-meta b{display:none!important}
 
@@ -938,3 +933,5 @@ document.addEventListener("DOMContentLoaded",()=>{
   .about-v4 .v4-values-editorial article,.about-v4 .v4-value-gesture{transition:none}
 }
 </style>
+</body>
+</html>
