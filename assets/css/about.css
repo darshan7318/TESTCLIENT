@@ -883,3 +883,34 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
   .about-v4 .v4-values-editorial article{cursor:default}
   .about-v4 .v5-people-gallery img{transition:none}
 }
+
+
+/* ITERATION 10 — production overflow, media and accessibility hardening */
+.about-v4,
+.about-v4 .v4-story,
+.about-v4 .v4-purpose,
+.about-v4 .v4-values,
+.about-v4 .v4-people,
+.about-v4 .v4-promise{max-width:100%;overflow-x:clip}
+.about-v4 .v4-wrap,
+.about-v4 .v4-story-grid,
+.about-v4 .v4-purpose-grid,
+.about-v4 .v4-values-editorial,
+.about-v4 .v4-people-grid{min-width:0}
+.about-v4 .v4-story-copy,
+.about-v4 .v4-purpose-card,
+.about-v4 .v4-value-copy,
+.about-v4 .v4-people-copy,
+.about-v4 .v4-promise-content{overflow-wrap:anywhere}
+.about-v4 img{height:auto;max-width:100%}
+.about-v4 .v5-people-gallery img{height:100%}
+.about-v4 :focus-visible{outline:3px solid rgba(213,45,145,.55);outline-offset:4px}
+@media(max-width:640px){
+  .about-v4 .v4-hero-foot{font-size:.48rem}
+  .about-v4 .v4-promise-content p{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-v4 *,
+  .about-v4 *::before,
+  .about-v4 *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
