@@ -140,23 +140,6 @@
   </div>
 </section>
 </main>
-<script id="about-v10-motion">
-document.addEventListener("DOMContentLoaded",()=>{
-  const page=document.querySelector('.about-v10'); if(!page)return;
-  if(window.lucide)window.lucide.createIcons();
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced||!window.gsap){return;}
-  const hero=page.querySelectorAll('.v10-hero .v10-eyebrow,.v10-hero h1,.v10-hero .v10-lead,.v10-hero-actions,.v10-hero-visual,.v10-hero-bottom');
-  window.gsap.fromTo(hero,{opacity:0,y:26},{opacity:1,y:0,duration:1,stagger:.08,ease:'power4.out',delay:.12});
-  if('IntersectionObserver' in window){
-    const targets=page.querySelectorAll('.v10-profile-intro,.v10-stats,.v10-story-content,.v10-section-head,.v10-timeline article,.v10-direction article,.v10-method article,.v10-values article,.v10-people-content,.v10-promise .v10-wrap');
-    const io=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(!e.isIntersecting)return;window.gsap.fromTo(e.target,{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:'power3.out',overwrite:true});obs.unobserve(e.target);});},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
-    targets.forEach(el=>io.observe(el));
-  }
-  const visual=page.querySelector('.v10-image-frame');
-  if(visual){page.addEventListener('pointermove',e=>{const r=visual.getBoundingClientRect();if(r.width===0)return;const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;window.gsap.to(visual,{rotation:1.5+x*2,y:y*5,duration:.7,ease:'power3.out',overwrite:true});});page.addEventListener('pointerleave',()=>window.gsap.to(visual,{rotation:1.5,y:0,duration:.8,ease:'power3.out'}));}
-});
-</script>
 <!-- PRE-FOOTER CTA -->
 <!-- =========================================================
      TRENDZ EVENTZ — TAILWIND PRE-FOOTER + FOOTER
