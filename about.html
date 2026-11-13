@@ -163,24 +163,6 @@ document.addEventListener("DOMContentLoaded",()=>{
      Static edition: Tailwind-first, no footer stylesheet dump.
 ========================================================= -->
 
-<!-- About page: embed the shared footer in this document so partial-page Netlify deploys cannot omit its loader or HTML asset. -->
-<style id="trendz-shared-footer-isolation">
-  #trendz-shared-footer {
-    all: initial;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
-    color: #cbd5e1;
-    isolation: isolate;
-    contain: layout style;
-  }
-
-  #trendz-shared-footer,
-  #trendz-shared-footer * {
-    box-sizing: border-box;
-  }
-</style>
 
 <div id="trendz-shared-footer" class="font-sans antialiased"><section class="relative isolate overflow-hidden bg-[#17151f] text-white">
   <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
