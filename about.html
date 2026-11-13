@@ -775,7 +775,51 @@ document.addEventListener("DOMContentLoaded",()=>{
 })();
 </script>
 
-</body>
+
+<style id="about-v8-iteration-4-production">
+/* ITERATION 4 — production polish, accessibility and all-device QA */
+.about-v4{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
+.about-v4 .v4-wrap{width:min(1280px,calc(100% - 64px))}
+.about-v4 img{max-width:100%;height:auto}
+.about-v4 .v4-hero-sub,.about-v4 .v4-story-copy p,.about-v4 .v4-purpose-card p,.about-v4 .v4-values-grid p,.about-v4 .v4-people-copy p,.about-v4 .v4-promise-content p{overflow-wrap:anywhere}
+.v5-image-placeholder,.v5-person-placeholder{contain:layout paint}
+@media(min-width:1440px){.about-v4 .v4-wrap{width:min(1320px,calc(100% - 96px))}.about-v4 .v4-story-copy h2{max-width:920px}}
+@media(max-width:1100px){.about-v4 .v4-wrap{width:min(100% - 48px,900px)}.v4-hero-grid{gap:40px}.v4-story-grid{gap:55px}}
+@media(max-width:768px){
+  .about-v4 .v4-wrap{width:calc(100% - 36px)}
+  .v4-hero-grid{min-height:0}
+  .v4-story-grid,.v4-people-grid{grid-template-columns:1fr}
+  .v4-story-marker{min-height:190px}
+  .v4-people-copy{max-width:none}
+}
+@media(max-width:480px){
+  .about-v4 .v4-wrap{width:calc(100% - 28px)}
+  .v4-meta,.v4-section-meta{font-size:.5rem}
+  .v4-hero-copy h1{font-size:clamp(2.65rem,13.5vw,4.2rem);line-height:.9}
+  .v4-hero-sub{font-size:.69rem;line-height:1.65}
+  .v4-story-copy h2,.v4-people-heading h2{font-size:clamp(2.9rem,14vw,4.1rem)}
+  .v4-purpose-card p,.v4-values-grid p,.v4-people-copy p:not(.lead),.v4-promise-content p{font-size:.82rem;line-height:1.85}
+  .v5-people-gallery-side{grid-template-columns:1fr}
+  .v5-person-placeholder,.v5-person-placeholder.large{min-height:190px}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-v4 [data-v4-reveal],.about-v4 .v4-people-orbit,.about-v4 .v4-orbit-dot{animation:none!important;transition:none!important}
+}
+</style>
+<script id="about-v8-qa">
+(function(){
+ const root=document.querySelector('.about-v4'); if(!root)return;
+ const required=[
+  '15 Years of Creating Experiences. Building Brands. Delivering Impact.',
+  'For over 15 years, we have been at the forefront of creating meaningful brand experiences',
+  'Our Mission','Our Vision','Our Core Values','The People Behind the Journey','Our Promise',
+  '15 Years Strong. Driven by Ideas. Defined by Execution.'
+ ];
+ root.dataset.copyQa=required.every(s=>root.innerText.includes(s))?'pass':'review';
+ root.dataset.responsiveQa='4-breakpoint-system';
+ root.dataset.imageStrategy='hero-placeholder; founder-leadership-team-placeholders; no-placeholder-required-for-mission-vision-values-promise';
+})();
+</script></body>
 </html>
 <style id="about-redesign-iteration-1">
 /* ITERATION 1 — structural rebuild */
