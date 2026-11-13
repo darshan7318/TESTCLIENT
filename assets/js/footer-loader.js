@@ -2,21 +2,20 @@
 (function () {
   "use strict";
 
-  function getFooterUrl() {
-    var script = document.currentScript;
-    if (script && script.src) {
-      try {
-        return new URL("../../footer.html", script.src).href;
-      } catch (error) {}
+  var loaderScript = document.currentScript;
+  var footerUrl = "/footer.html";
+
+  if (loaderScript && loaderScript.src) {
+    try {
+      footerUrl = new URL("../../footer.html", loaderScript.src).href;
+    } catch (error) {
+      footerUrl = "/footer.html";
     }
-    return new URL("/footer.html", window.location.origin).href;
   }
 
   function initFooter() {
     var host = document.querySelector("[data-trendz-footer]");
     if (!host || host.dataset.loaded === "true") return;
-
-    var footerUrl = getFooterUrl();
 
     fetch(footerUrl, {
       cache: "no-store",
