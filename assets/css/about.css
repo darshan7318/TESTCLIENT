@@ -782,3 +782,19 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
   .about-v4 .v5-people-gallery-main{min-height:320px}
   .about-v4 .v4-promise{padding-block:62px}
 }
+
+
+/* ITERATION 7 — section rhythm and content-driven sizing */
+.about-v4 .v4-story,
+.about-v4 .v4-values,
+.about-v4 .v4-people{padding-block:clamp(72px,9vw,132px)}
+.about-v4 .v4-purpose{padding-block:clamp(76px,10vw,140px)}
+.about-v4 .v4-story-grid{align-items:start}
+.about-v4 .v4-story-copy .prose p{max-width:720px}
+.about-v4 .v4-purpose-card{min-height:0;height:auto}
+.about-v4 .v4-purpose-card h2{margin-top:clamp(58px,7vw,92px)}
+.about-v4 .v4-purpose-card p{max-width:640px}
+.about-v4 .v4-values-editorial article{min-height:0}
+.about-v4 .v4-values-editorial{grid-auto-rows:minmax(0,1fr)}
+.about-v4 .v5-people-gallery-main{min-height:clamp(460px,48vw,620px)}
+.about-v4 .v4-promise{padding-block:clamp(90px,12vw,160px)}
