@@ -254,6 +254,46 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
  .about-v4 .v5-people-gallery{grid-template-columns:1fr;margin-top:38px}.about-v4 .v5-people-gallery-side{grid-template-columns:1fr 1fr}.about-v4 .v5-person-placeholder.large{min-height:300px}
 }
 </style>
+<style id="about-iteration-3-motion">
+/* ITERATION 3 — restrained scroll choreography + parallax */
+.about-v4 .about-motion{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.about-v4 .about-motion.is-visible{opacity:1;transform:none}
+.about-v4 .v4-hero-art,.about-v4 .v4-story-marker,.about-v4 .v5-people-gallery,.about-v4 .v4-promise-curve{will-change:transform}
+.about-v4 .v4-hero-art{transition:transform .12s linear}.about-v4 .v4-story-marker{transition:transform .12s linear}.about-v4 .v5-people-gallery{transition:transform .12s linear}.about-v4 .v4-promise-curve{transition:transform .12s linear}
+@media(prefers-reduced-motion:reduce){
+ .about-v4 .about-motion{opacity:1;transform:none;transition:none}
+ .about-v4 .v4-hero-art,.about-v4 .v4-story-marker,.about-v4 .v5-people-gallery,.about-v4 .v4-promise-curve{will-change:auto;transition:none}
+}
+</style>
+<script id="about-iteration-3-motion-script">
+(function(){
+ const root=document.querySelector('.about-v4'); if(!root)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const targets=[...root.querySelectorAll('.v4-story-copy,.v4-purpose-card,.v4-values-editorial article,.v4-people-heading,.v4-people-copy,.v4-promise-content')];
+ targets.forEach((el,i)=>{el.classList.add('about-motion');el.style.transitionDelay=(i%4)*70+'ms'});
+ if(reduce){targets.forEach(el=>el.classList.add('is-visible'));return;}
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+ targets.forEach(el=>io.observe(el));
+ const parallax=[
+  [root.querySelector('.v4-hero-art'),.035],
+  [root.querySelector('.v4-story-marker'),-.018],
+  [root.querySelector('.v5-people-gallery'),.022],
+  [root.querySelector('.v4-promise-curve'),.028]
+ ].filter(x=>x[0]);
+ let ticking=false;
+ function render(){
+   const sy=window.scrollY;
+   parallax.forEach(([el,s])=>{
+     const r=el.getBoundingClientRect();
+     const offset=(r.top+r.height*.5-window.innerHeight*.5)*s;
+     el.style.transform='translate3d(0,'+(-offset)+'px,0)';
+   });
+   ticking=false;
+ }
+ window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(render);ticking=true}},{passive:true});
+ render();
+})();
+</script>
 </head>
 <body class="bg-trendz-paper text-trendz-ink antialiased">
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
