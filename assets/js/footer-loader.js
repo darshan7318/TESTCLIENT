@@ -2,16 +2,37 @@
 (function () {
   "use strict";
 
+  function getFooterUrl() {
+    var script = document.currentScript;
+    if (script && script.src) {
+      try {
+        return new URL("../../footer.html", script.src).href;
+      } catch (error) {}
+    }
+    return new URL("/footer.html", window.location.origin).href;
+  }
+
   function initFooter() {
     var host = document.querySelector("[data-trendz-footer]");
     if (!host || host.dataset.loaded === "true") return;
 
-    fetch("footer.html", { cache: "no-store" })
+    var footerUrl = getFooterUrl();
+
+    fetch(footerUrl, {
+      cache: "no-store",
+      credentials: "same-origin"
+    })
       .then(function (response) {
-        if (!response.ok) throw new Error("Footer request failed: " + response.status);
+        if (!response.ok) {
+          throw new Error("Footer request failed: " + response.status + " (" + footerUrl + ")");
+        }
         return response.text();
       })
       .then(function (html) {
+        if (!html.trim()) {
+          throw new Error("Footer response was empty (" + footerUrl + ")");
+        }
+
         host.innerHTML = html;
         host.dataset.loaded = "true";
 
