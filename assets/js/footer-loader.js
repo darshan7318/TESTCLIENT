@@ -39,7 +39,7 @@
 
         // Guard against a Netlify fallback page being returned instead
         // of the actual shared footer partial.
-        if (html.indexOf("id="trendz-shared-footer"") === -1) {
+        if (html.indexOf('id="trendz-shared-footer"') === -1) {
           throw new Error("Footer response did not contain #trendz-shared-footer (" + footerUrl + ")");
         }
 
