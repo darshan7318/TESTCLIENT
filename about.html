@@ -121,6 +121,23 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 .v5-image-placeholder .v5-ph-label{position:relative;z-index:2;color:rgba(255,255,255,.76);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
 .v5-image-placeholder .v5-ph-note{position:relative;z-index:2;color:rgba(255,255,255,.38);font-size:.52rem;letter-spacing:.11em;text-transform:uppercase}
 @media(max-width:640px){.v5-image-placeholder{padding:16px}.v5-image-placeholder .v5-ph-label{font-size:.56rem}}
+</style>
+<style id="about-v6-iteration-2-story-people">
+/* ITERATION 2 — narrative hierarchy + people image architecture */
+.v4-story-copy .lead{font-size:clamp(1.12rem,1.65vw,1.35rem);line-height:1.72;font-weight:600}
+.v4-story-copy .prose p{font-size:clamp(.95rem,1.15vw,1.04rem);line-height:1.9}
+.v4-story-copy blockquote{font-weight:700;line-height:1.25}
+.v5-people-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:58px}
+.v5-people-gallery-main,.v5-people-gallery-side{display:grid;gap:16px}
+.v5-person-placeholder{position:relative;min-height:260px;padding:20px;display:flex;align-items:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,#24202c,#3a3347);border-radius:34px 10px 34px 10px}
+.v5-person-placeholder:before{content:"";position:absolute;inset:-20%;border:1px solid rgba(201,196,237,.18);border-radius:57% 43% 46% 54% / 41% 59% 41% 59%;transform:rotate(16deg)}
+.v5-person-placeholder:after{content:"";position:absolute;width:45%;height:65%;right:-12%;top:-10%;border:1px solid rgba(213,45,145,.25);border-radius:49% 51% 61% 39% / 58% 42% 58% 42%;transform:rotate(-14deg)}
+.v5-person-placeholder.large{min-height:430px;border-radius:48px 12px 48px 12px}
+.v5-person-placeholder .v5-person-meta{position:relative;z-index:2;display:flex;justify-content:space-between;width:100%;gap:12px;color:rgba(255,255,255,.72);font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.v5-person-placeholder .v5-person-meta span:last-child{color:rgba(255,255,255,.34)}
+.v5-people-copy{max-width:760px}
+@media(max-width:900px){.v5-people-gallery{grid-template-columns:1fr 1fr}.v5-person-placeholder.large{min-height:330px}}
+@media(max-width:640px){.v5-people-gallery{grid-template-columns:1fr;margin-top:42px}.v5-people-gallery-side{grid-template-columns:1fr 1fr}.v5-person-placeholder,.v5-person-placeholder.large{min-height:210px;border-radius:26px 9px 26px 9px}.v5-person-placeholder .v5-person-meta{font-size:.5rem;flex-direction:column;gap:5px}.v5-person-placeholder .v5-person-meta span:last-child{display:none}}
 </style></head>
 <body class="bg-trendz-paper text-trendz-ink antialiased">
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
@@ -334,7 +351,10 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
     <div class="v4-section-meta v4-dark"><span>05</span><i></i><span>THE PEOPLE BEHIND THE JOURNEY</span></div>
     <div class="v4-people-grid">
       <div class="v4-people-heading"><span class="v4-small light">THE PEOPLE BEHIND THE JOURNEY</span><h2 id="people-title">The People Behind the Journey</h2><div class="v4-people-orbit"><span>15</span></div></div>
-      <div class="v4-people-copy"><p class="lead">Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p><p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p><p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p></div>
+      <div class="v5-people-gallery" aria-label="People image placeholders">
+  <div class="v5-people-gallery-main"><div class="v5-person-placeholder large"><div class="v5-person-meta"><span>Founder Portrait Placeholder</span><span>Image</span></div></div></div>
+  <div class="v5-people-gallery-side"><div class="v5-person-placeholder"><div class="v5-person-meta"><span>Leadership Placeholder</span><span>Image</span></div></div><div class="v5-person-placeholder"><div class="v5-person-meta"><span>Team Placeholder</span><span>Image</span></div></div></div>
+</div><div class="v4-people-copy"><p class="lead">Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p><p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p><p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p></div>
     </div>
   </div>
 </section>
