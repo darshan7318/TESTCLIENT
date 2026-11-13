@@ -914,3 +914,11 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
   .about-v4 *::before,
   .about-v4 *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
+
+
+/* ITERATION 11 — remove redundant section micro-label repetition */
+.about-v4 .v4-values-intro .v4-small,
+.about-v4 .v4-people-heading .v4-small,
+.about-v4 .v4-promise-content .v4-small{
+  display:none;
+}
