@@ -857,3 +857,29 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
   .about-v4 .v5-people-gallery-main{min-height:300px}
   .about-v4 .v4-promise{padding-block:56px}
 }
+
+
+/* ITERATION 9 — tablet/desktop balance and touch-safe interaction */
+@media(min-width:901px){
+  .about-v4 .v4-purpose-card:nth-child(2){margin-top:42px}
+  .about-v4 .v4-purpose-card:hover{transform:translateY(-6px) rotate(-.2deg)}
+  .about-v4 .v4-purpose-card:nth-child(2):hover{transform:translateY(34px) rotate(.2deg)}
+}
+@media(min-width:901px) and (max-width:1200px){
+  .about-v4 .v4-wrap{width:min(100% - 56px,1120px)}
+  .about-v4 .v4-story-grid{gap:54px}
+  .about-v4 .v4-purpose-card{padding-inline:34px}
+  .about-v4 .v4-values-editorial article{padding-inline:25px}
+}
+@media(hover:none){
+  .about-v4 .v4-purpose-card:hover,
+  .about-v4 .v4-purpose-card:nth-child(2):hover,
+  .about-v4 .v4-values-editorial article:hover{transform:none}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-values-editorial article{transition:none}
+}
+@media(pointer:coarse){
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-values-editorial article{cursor:default}
+  .about-v4 .v5-people-gallery img{transition:none}
+}
