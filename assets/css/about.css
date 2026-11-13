@@ -947,3 +947,16 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:640px){
   .about-v4 .v4-hero-copy h1{max-width:100%}
 }
+
+
+/* ITERATION 14 — final editorial surface polish without increasing visual density */
+@media(min-width:641px){
+  .about-v4 .v4-values-editorial article:nth-child(odd){background:rgba(92,85,162,.018)}
+  .about-v4 .v4-values-editorial article:nth-child(even){background:rgba(213,45,145,.012)}
+}
+.about-v4 .v4-values-editorial article:first-child{border-top-color:rgba(92,85,162,.18)}
+.about-v4 .v4-values-editorial article:last-child{border-bottom:1px solid var(--organic-line)}
+@media(max-width:640px){
+  .about-v4 .v4-values-editorial article{background:transparent}
+  .about-v4 .v4-values-editorial article:last-child{border-bottom:0}
+}
