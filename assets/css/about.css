@@ -652,3 +652,133 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
     transition:none!important;
   }
 }
+
+
+/* ITERATION 6 — mobile-first editorial density refinement */
+@media(max-width:900px){
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:64px}
+  .about-v4 .v4-purpose{padding-block:72px}
+  .about-v4 .v4-purpose-grid{gap:20px}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){
+    min-height:0;
+    padding:34px 32px 38px;
+  }
+  .about-v4 .v4-purpose-card:nth-child(2){transform:none}
+  .about-v4 .v4-purpose-card h2{margin-top:62px}
+  .about-v4 .v4-purpose-card p{max-width:620px}
+  .about-v4 .v4-values-editorial{margin-top:38px}
+  .about-v4 .v4-values-editorial article{
+    min-height:0;
+    padding:28px 26px 30px;
+  }
+  .about-v4 .v4-value-gesture{margin-bottom:18px}
+  .about-v4 .v4-value-copy p{margin-top:10px}
+  .about-v4 .v4-people-grid{gap:30px}
+}
+@media(max-width:640px){
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:50px}
+  .about-v4 .v4-purpose{padding-block:58px}
+  .about-v4 .v4-section-meta{padding-bottom:10px}
+  .about-v4 .v4-section-meta:after{width:58px}
+  .about-v4 .v4-story-grid{gap:24px}
+  .about-v4 .v4-story-marker{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .about-v4 .v4-marker-curve{
+    width:58px;
+    height:58px;
+    margin:0 0 0 auto;
+  }
+  .about-v4 .v4-story-copy .lead{
+    font-size:1.08rem;
+    line-height:1.5;
+  }
+  .about-v4 .v4-story-copy blockquote{
+    margin-top:24px;
+    padding:18px 0 18px 15px;
+    font-size:1.05rem;
+  }
+  .about-v4 .v4-purpose-grid{gap:14px}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){
+    padding:27px 23px 30px;
+    border-radius:26px 8px 26px 8px;
+  }
+  .about-v4 .v4-purpose-card h2{
+    margin-top:48px;
+    font-size:2rem;
+  }
+  .about-v4 .v4-purpose-card p{
+    margin-top:12px;
+    font-size:.86rem;
+    line-height:1.72;
+  }
+  .about-v4 .v4-card-curve{
+    width:190px;
+    height:190px;
+    right:-85px;
+    top:-75px;
+  }
+  .about-v4 .v4-values-intro h2{
+    max-width:560px;
+  }
+  .about-v4 .v4-values-editorial{
+    margin-top:30px;
+  }
+  .about-v4 .v4-values-editorial article{
+    padding:23px 20px 25px;
+  }
+  .about-v4 .v4-value-gesture{
+    width:38px;
+    height:38px;
+    margin-bottom:15px;
+  }
+  .about-v4 .v4-value-copy h3{
+    font-size:1.05rem;
+  }
+  .about-v4 .v4-value-copy p{
+    font-size:.78rem;
+    line-height:1.62;
+  }
+  .about-v4 .v4-people-grid{gap:24px}
+  .about-v4 .v4-people-heading h2{
+    font-size:clamp(2.3rem,11vw,4rem);
+  }
+  .about-v4 .v4-people-copy .lead{
+    font-size:1.08rem;
+    line-height:1.5;
+  }
+  .about-v4 .v5-people-gallery-main{min-height:360px}
+  .about-v4 .v4-promise{
+    padding-block:76px;
+  }
+  .about-v4 .v4-promise-content h2{
+    font-size:clamp(2.6rem,13vw,4.6rem);
+  }
+  .about-v4 .v4-promise-content p{
+    font-size:.86rem;
+    line-height:1.75;
+  }
+}
+@media(max-width:380px){
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:42px}
+  .about-v4 .v4-purpose{padding-block:50px}
+  .about-v4 .v4-story-copy .lead{font-size:1rem}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){
+    padding:23px 19px 27px;
+  }
+  .about-v4 .v4-purpose-card h2{margin-top:42px;font-size:1.8rem}
+  .about-v4 .v4-value-copy h3{font-size:1rem}
+  .about-v4 .v5-people-gallery-main{min-height:320px}
+  .about-v4 .v4-promise{padding-block:62px}
+}
