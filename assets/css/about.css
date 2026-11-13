@@ -935,3 +935,15 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(min-width:641px) and (max-width:900px){
   .about-v4 .v4-values-editorial article:nth-child(even){padding-top:46px}
 }
+
+
+/* ITERATION 13 — preserve the locked hero copy while removing visual repetition */
+.about-v4 .v4-hero-sub{
+  display:none;
+}
+.about-v4 .v4-hero-copy h1{
+  margin-bottom:0;
+}
+@media(max-width:640px){
+  .about-v4 .v4-hero-copy h1{max-width:100%}
+}
