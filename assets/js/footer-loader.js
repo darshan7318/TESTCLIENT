@@ -11,7 +11,7 @@
   function showFooterError(host, error) {
     console.error("[Trendz Footer]", error);
     host.innerHTML =
-      '<div style="padding:32px 20px;text-align:center;background:#120f18;color:#94a3b8;font:12px/1.6 Inter,Arial,sans-serif">Trendz Eventz footer could not be loaded.</div>';
+      '<div id="trendz-shared-footer-error" role="status">Trendz Eventz footer could not be loaded.</div>';
   }
 
   function initFooter() {
