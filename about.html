@@ -13,14 +13,12 @@
   <link rel="apple-touch-icon" href="assets/img/brand/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config={theme:{extend:{colors:{trendz:{ink:'#17151F',purple:'#5C55A2',lilac:'#8B85CF',pink:'#D52D91',paper:'#F7F7F9',muted:'#6F6B78',line:'#E8E7EC'}},fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif'],display:['Syne','sans-serif'],mono:['"DM Mono"','monospace']}}}};
+    tailwind.config={theme:{extend:{colors:{trendz:{ink:'#17151F',purple:'#5C55A2',lilac:'#8B85CF',pink:'#D52D91',paper:'#F7F7F9',muted:'#6F6B78',line:'#E8E7EC'}},fontFamily:{sans:['Segoe UI','Arial','sans-serif'],heading:['Segoe UI','Arial','sans-serif'],display:['Segoe UI','Arial','sans-serif'],mono:['Consolas','monospace']}}}};
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <style>
+<style>
     :root{--tz-ink:#17151F;--tz-purple:#5C55A2;--tz-lilac:#8B85CF;--tz-pink:#D52D91;--tz-paper:#F7F7F9;--tz-line:#E8E7EC}
     html{scroll-behavior:smooth}body{background:var(--tz-paper);color:var(--tz-ink)}html,body{max-width:100%;overflow-x:hidden}
     .tz-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(247,247,249,.94);border-bottom:1px solid rgba(23,21,31,.06);transition:background 300ms ease,box-shadow 300ms ease,border-color 300ms ease}
@@ -1154,5 +1152,19 @@ document.addEventListener("DOMContentLoaded",()=>{
  root.querySelectorAll('img').forEach(img=>{if(!img.hasAttribute('decoding'))img.setAttribute('decoding','async')});
 })();
 </script>
+
+<style id="about-production-safety">
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body,.about-v4,.about-v4 *{font-family:"Segoe UI",Arial,sans-serif}
+  .about-v4 img{max-width:100%;height:auto}
+  .about-v4 [data-scroll-parallax]{will-change:transform}
+  @media(max-width:640px){
+    .about-v4 [data-scroll-parallax]{transform:none!important;will-change:auto}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .about-v4 [data-scroll-reveal]{opacity:1!important;transform:none!important;transition:none!important}
+    .about-v4 [data-scroll-parallax]{transform:none!important;will-change:auto}
+  }
+</style>
 </body>
 </html>
