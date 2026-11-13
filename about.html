@@ -338,6 +338,13 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
  .trendz-cta .cta-primary:hover,.trendz-cta .cta-phone:hover{transform:none}
 }
 </style>
+<!-- about-v12-scroll-parallax-refinement -->
+<style id="about-v12-scroll-parallax-refinement">
+.about-v4 [data-scroll-reveal]{transform:translate3d(0,34px,0);transition:opacity .78s cubic-bezier(.2,.8,.2,1),transform .82s cubic-bezier(.2,.8,.2,1)}
+.about-v4 [data-scroll-parallax]{backface-visibility:hidden;transform:translate3d(0,var(--parallax-y,0px),0)}
+@media(max-width:640px){.about-v4 [data-scroll-parallax]{--parallax-y:0px!important}}
+@media(prefers-reduced-motion:reduce){.about-v4 [data-scroll-reveal]{opacity:1!important;transform:none!important}.about-v4 [data-scroll-parallax]{transform:none!important}}
+</style>
 </head>
 <body class="bg-trendz-paper text-trendz-ink antialiased">
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
