@@ -13,12 +13,14 @@
   <link rel="apple-touch-icon" href="assets/img/brand/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config={theme:{extend:{colors:{trendz:{ink:'#17151F',purple:'#5C55A2',lilac:'#8B85CF',pink:'#D52D91',paper:'#F7F7F9',muted:'#6F6B78',line:'#E8E7EC'}},fontFamily:{sans:['Segoe UI','Arial','sans-serif'],heading:['Segoe UI','Arial','sans-serif'],display:['Segoe UI','Arial','sans-serif'],mono:['Consolas','monospace']}}}};
+    tailwind.config={theme:{extend:{colors:{trendz:{ink:'#17151F',purple:'#5C55A2',lilac:'#8B85CF',pink:'#D52D91',paper:'#F7F7F9',muted:'#6F6B78',line:'#E8E7EC'}},fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif'],display:['Syne','sans-serif'],mono:['"DM Mono"','monospace']}}}};
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-<style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <style>
     :root{--tz-ink:#17151F;--tz-purple:#5C55A2;--tz-lilac:#8B85CF;--tz-pink:#D52D91;--tz-paper:#F7F7F9;--tz-line:#E8E7EC}
     html{scroll-behavior:smooth}body{background:var(--tz-paper);color:var(--tz-ink)}html,body{max-width:100%;overflow-x:hidden}
     .tz-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(247,247,249,.94);border-bottom:1px solid rgba(23,21,31,.06);transition:background 300ms ease,box-shadow 300ms ease,border-color 300ms ease}
@@ -166,156 +168,7 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
   .v4-values-grid article{min-height:235px;border-right:0!important;border-radius:26px 8px 26px 8px!important}
   .v4-values-grid article h3{margin-top:52px}
 }
-</style><style id="about-content-layout-preservation">
-/* Preserve restored V4 geometry while keeping non-source structural copy non-visible. */
-.about-v4 .about-structural-copy{visibility:hidden!important;pointer-events:none!important}
-.about-v4 .about-structural-copy[aria-hidden="true"]{user-select:none!important}
-</style>
-
-<style id="about-iteration-1-foundation">
-/* ITERATION 1 — visual foundation: typography, rhythm, hierarchy */
-.about-v4,.about-v4 *{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important;box-sizing:border-box}
-.about-v4{--about-ink:#17151f;--about-paper:#f7f7f9;--about-line:#dedbe4;--about-purple:#5c55a2;--about-lilac:#c9c4ed;--about-pink:#d52d91;background:var(--about-paper);color:var(--about-ink)}
-.about-v4 h1,.about-v4 h2,.about-v4 h3,.about-v4 blockquote,.about-v4 strong{font-weight:700;letter-spacing:-.045em}
-.about-v4 p{letter-spacing:-.005em}
-.about-v4 .v4-wrap{width:min(1280px,calc(100% - 72px));margin-inline:auto}
-.about-v4 .v4-hero-grid{min-height:calc(100svh - 76px);padding-top:clamp(100px,10vw,138px);padding-bottom:36px}
-.about-v4 .v4-hero-copy h1{max-width:920px;font-size:clamp(3.8rem,7.5vw,8rem);line-height:.91;letter-spacing:-.06em}
-.about-v4 .v4-hero-copy h1 em{color:var(--about-lilac);font-style:normal}
-.about-v4 .v4-hero-sub{max-width:610px;line-height:1.75}
-.about-v4 .v4-story{padding-block:clamp(105px,12vw,165px)}
-.about-v4 .v4-story-grid{gap:clamp(60px,8vw,130px);padding-top:clamp(48px,6vw,76px)}
-.about-v4 .v4-story-copy{max-width:820px}
-.about-v4 .v4-story-copy .lead{font-size:clamp(1.08rem,1.55vw,1.34rem);line-height:1.75}
-.about-v4 .v4-story-copy .prose p{font-size:clamp(.94rem,1.08vw,1.02rem);line-height:1.9}
-.about-v4 .v4-story-copy blockquote{font-size:clamp(1.3rem,2vw,2rem);line-height:1.25}
-.about-v4 .v4-purpose{padding-block:clamp(100px,11vw,150px)}
-.about-v4 .v4-purpose-grid{gap:18px;margin-top:60px}
-.about-v4 .v4-purpose-card{min-height:540px;padding:34px}
-.about-v4 .v4-purpose-card h2{font-size:clamp(2.6rem,4.7vw,4.8rem);line-height:.92}
-.about-v4 .v4-purpose-card p{font-size:.9rem;line-height:1.85}
-.about-v4 .v4-people{padding-block:clamp(105px,12vw,155px)}
-.about-v4 .v4-people-grid{gap:clamp(55px,8vw,125px)}
-.about-v4 .v4-people-heading h2{font-size:clamp(3.2rem,6vw,6.3rem);line-height:.9}
-.about-v4 .v4-people-copy .lead{font-size:clamp(1.1rem,1.6vw,1.4rem);line-height:1.65}
-.about-v4 .v4-people-copy p:not(.lead){font-size:.9rem;line-height:1.9}
-.about-v4 .v4-promise{padding-block:clamp(110px,14vw,185px)}
-.about-v4 .v4-promise-content h2{font-size:clamp(3.4rem,7vw,7rem);line-height:.88}
-.about-v4 .v4-promise-content p{font-size:.95rem;line-height:1.9}
-.about-v4 .v4-promise-content strong{font-size:clamp(1.25rem,2vw,1.9rem);line-height:1.25}
-@media(max-width:900px){
- .about-v4 .v4-wrap{width:min(100% - 40px,720px)}
- .about-v4 .v4-hero-grid{min-height:auto;padding-top:110px}
- .about-v4 .v4-story-grid,.about-v4 .v4-people-grid{gap:48px}
-}
-@media(max-width:640px){
- .about-v4 .v4-wrap{width:calc(100% - 34px)}
- .about-v4 .v4-hero-grid{padding-top:92px;padding-bottom:70px}
- .about-v4 .v4-hero-copy h1{font-size:clamp(3rem,14vw,5rem);line-height:.94}
- .about-v4 .v4-story{padding-block:82px}
- .about-v4 .v4-story-grid{padding-top:44px}
- .about-v4 .v4-story-copy .lead{font-size:1.08rem}
- .about-v4 .v4-story-copy .prose p,.about-v4 .v4-people-copy p:not(.lead),.about-v4 .v4-promise-content p{font-size:.88rem}
- .about-v4 .v4-purpose{padding-block:82px}
- .about-v4 .v4-purpose-card{padding:25px;min-height:0}
- .about-v4 .v4-people{padding-block:82px}
- .about-v4 .v4-promise{padding-block:90px 105px}
-}
-</style>
-<style id="about-iteration-2-editorial">
-/* ITERATION 2 — section-specific editorial composition */
-.about-v4 .v4-values{background:#f1eff4;padding-block:clamp(100px,12vw,155px);position:relative;overflow:hidden}
-.about-v4 .v4-values:before{content:"";position:absolute;width:520px;height:680px;left:-310px;bottom:-330px;border:1px solid rgba(92,85,162,.13);border-radius:61% 39% 47% 53% / 42% 58% 42% 58%;transform:rotate(18deg);pointer-events:none}
-.about-v4 .v4-values-intro{position:relative;z-index:2;padding-top:54px}
-.about-v4 .v4-values-intro h2{max-width:850px;font-size:clamp(3.1rem,6vw,6.2rem);line-height:.9}
-.about-v4 .v4-values-editorial{position:relative;z-index:2;margin-top:66px;border-top:1px solid rgba(23,21,31,.8)}
-.about-v4 .v4-values-editorial article{position:relative;display:grid;grid-template-columns:90px minmax(0,1fr) 240px;align-items:center;min-height:142px;padding:22px 18px 22px 0;border-bottom:1px solid rgba(23,21,31,.16);transition:padding .45s cubic-bezier(.2,.8,.2,1),background .45s ease}
-.about-v4 .v4-values-editorial article:hover{padding-left:18px;background:rgba(255,255,255,.58)}
-.about-v4 .v4-values-editorial article:nth-child(even){background:rgba(255,255,255,.22)}
-.about-v4 .v4-value-gesture{width:54px;height:30px;border:1px solid rgba(92,85,162,.32);border-radius:67% 33% 54% 46% / 49% 61% 39% 51%;transform:rotate(-12deg);transition:transform .55s ease,border-radius .55s ease}
-.about-v4 .v4-values-editorial article:nth-child(2) .v4-value-gesture,.about-v4 .v4-values-editorial article:nth-child(5) .v4-value-gesture{border-color:rgba(213,45,145,.35);transform:rotate(10deg)}
-.about-v4 .v4-values-editorial article:hover .v4-value-gesture{transform:rotate(0) scale(1.12);border-radius:50%}
-.about-v4 .v4-value-copy h3{margin:0;font-size:clamp(1.25rem,2vw,1.8rem);line-height:1.05;letter-spacing:-.03em}
-.about-v4 .v4-value-copy p{max-width:560px;margin:9px 0 0;color:#6f6a77;font-size:.84rem;line-height:1.7}
-.about-v4 .v4-values-editorial article:after{content:"";position:absolute;right:24px;top:50%;width:150px;height:70px;border-top:1px solid rgba(92,85,162,.12);border-radius:50%;transform:translateY(-50%) rotate(-8deg);pointer-events:none}
-.about-v4 .v4-values-editorial article:nth-child(3n):after{border-color:rgba(213,45,145,.12);transform:translateY(-50%) rotate(8deg)}
-.about-v4 .v5-people-gallery{margin-top:54px;gap:14px}
-.about-v4 .v5-person-placeholder{background:linear-gradient(145deg,#211d29,#3a3347);border:1px solid rgba(255,255,255,.14);filter:saturate(.88)}
-.about-v4 .v5-person-placeholder.large{min-height:440px}
-.about-v4 .v5-person-placeholder:before{opacity:.8}.about-v4 .v5-person-placeholder:after{opacity:.7}
-.about-v4 .v4-people-copy{margin-top:38px}.about-v4 .v4-people-copy .lead{max-width:700px}
-@media(max-width:900px){.about-v4 .v4-values-editorial article{grid-template-columns:70px minmax(0,1fr) 130px}.about-v4 .v4-values-editorial article:after{width:90px}.about-v4 .v5-people-gallery{margin-top:42px}}
-@media(max-width:640px){
- .about-v4 .v4-values{padding-block:82px}.about-v4 .v4-values-intro{padding-top:42px}.about-v4 .v4-values-intro h2{font-size:clamp(2.8rem,12vw,4rem)}
- .about-v4 .v4-values-editorial{margin-top:46px}.about-v4 .v4-values-editorial article{grid-template-columns:42px minmax(0,1fr);min-height:0;padding:24px 0}.about-v4 .v4-values-editorial article:hover{padding-left:8px}.about-v4 .v4-values-editorial article:after{display:none}
- .about-v4 .v4-value-gesture{width:30px;height:22px}.about-v4 .v4-value-copy h3{font-size:1.18rem}.about-v4 .v4-value-copy p{font-size:.82rem;line-height:1.7}
- .about-v4 .v5-people-gallery{grid-template-columns:1fr;margin-top:38px}.about-v4 .v5-people-gallery-side{grid-template-columns:1fr 1fr}.about-v4 .v5-person-placeholder.large{min-height:300px}
-}
-</style>
-<style id="about-iteration-3-motion">
-/* ITERATION 3 — restrained scroll choreography + parallax */
-.about-v4 .about-motion{opacity:0;transform:translate3d(0,34px,0);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
-.about-v4 .about-motion.is-visible{opacity:1;transform:none}
-.about-v4 .v4-hero-art,.about-v4 .v4-story-marker,.about-v4 .v5-people-gallery,.about-v4 .v4-promise-curve{will-change:transform}
-.about-v4 .v4-hero-art{transition:transform .12s linear}.about-v4 .v4-story-marker{transition:transform .12s linear}.about-v4 .v5-people-gallery{transition:transform .12s linear}.about-v4 .v4-promise-curve{transition:transform .12s linear}
-@media(prefers-reduced-motion:reduce){
- .about-v4 .about-motion{opacity:1;transform:none;transition:none}
- .about-v4 .v4-hero-art,.about-v4 .v4-story-marker,.about-v4 .v5-people-gallery,.about-v4 .v4-promise-curve{will-change:auto;transition:none}
-}
-</style>
-
-<style id="about-iteration-4-production">
-/* ITERATION 4 — responsive art direction + CTA/footer continuity */
-.about-v4 .v4-hero-curve-a{border-radius:58% 42% 39% 61% / 47% 62% 38% 53%}
-.about-v4 .v4-hero-curve-b{border-radius:43% 57% 61% 39% / 56% 44% 56% 44%}
-.about-v4 .v4-purpose-card{backface-visibility:hidden}
-.about-v4 .v4-purpose-card.mission{border-radius:54px 12px 54px 12px}
-.about-v4 .v4-purpose-card.vision{border-radius:12px 54px 12px 54px}
-.about-v4 .v4-promise-content{position:relative;z-index:2}
-.trendz-cta{position:relative!important;overflow:hidden!important;background:#17151f!important;border-top:1px solid rgba(255,255,255,.1)}
-.trendz-cta:before{content:"";position:absolute;right:-20vw;top:-36vw;width:70vw;height:64vw;border:1px solid rgba(201,196,237,.17);border-radius:57% 43% 44% 56% / 39% 61% 39% 61%;transform:rotate(-12deg);pointer-events:none}
-.trendz-cta:after{content:"";position:absolute;left:-22vw;bottom:-32vw;width:60vw;height:48vw;border:1px solid rgba(213,45,145,.15);border-radius:47% 53% 61% 39% / 58% 42% 58% 42%;transform:rotate(12deg);pointer-events:none}
-.trendz-cta .cta-shell{position:relative;z-index:2;text-align:left;max-width:1100px}
-.trendz-cta .cta-title{max-width:1000px;margin-left:0;font-size:clamp(3.2rem,7vw,7rem);line-height:.86}
-.trendz-cta .cta-description{max-width:680px;margin-left:0}
-.trendz-cta .cta-actions,.trendz-cta .cta-meta{justify-content:flex-start}
-.trendz-cta .cta-primary{border-radius:13px 30px 13px 30px}
-.trendz-cta .cta-phone{border-radius:30px 13px 30px 13px}
-.trendz-footer{background:#120f18!important}
-@media(max-width:900px){
- .about-v4 .v4-hero-grid{grid-template-columns:1fr;align-items:start}
- .about-v4 .v4-hero-art{justify-self:center;width:min(100%,560px);margin-top:10px}
- .about-v4 .v4-purpose-grid{grid-template-columns:1fr}
- .about-v4 .v4-purpose-card{min-height:0;padding:32px}
- .about-v4 .v4-purpose-card h2{margin-top:150px}
-}
-@media(max-width:640px){
- .about-v4 .v4-hero-copy h1{font-size:clamp(2.9rem,13.5vw,5rem);letter-spacing:-.045em}
- .about-v4 .v4-hero-art{width:100%}
- .about-v4 .v4-hero-foot{position:relative;margin-top:18px;flex-wrap:wrap}
- .about-v4 .v4-purpose-card,.about-v4 .v4-purpose-card.mission,.about-v4 .v4-purpose-card.vision{border-radius:30px 9px 30px 9px!important;padding:25px}
- .about-v4 .v4-purpose-card h2{margin-top:120px;padding-top:0;font-size:2.9rem}
- .about-v4 .v4-values-editorial article{padding-block:23px}
- .about-v4 .v4-people-grid{gap:30px}
- .about-v4 .v4-people-heading h2{font-size:clamp(3rem,13vw,5rem)}
- .about-v4 .v4-promise-content h2{font-size:clamp(3rem,13vw,5rem)}
- .trendz-cta .cta-shell{padding-inline:20px}
- .trendz-cta .cta-title{font-size:clamp(2.7rem,12vw,5rem)}
- .trendz-cta:before{right:-55vw;top:-32vw;width:120vw;height:100vw}
- .trendz-cta:after{left:-55vw;bottom:-45vw;width:110vw;height:90vw}
-}
-@media(prefers-reduced-motion:reduce){
- .trendz-cta .cta-primary:hover,.trendz-cta .cta-phone:hover{transform:none}
-}
-</style>
-<!-- about-v12-scroll-parallax-refinement -->
-<style id="about-v12-scroll-parallax-refinement">
-.about-v4 [data-scroll-reveal]{transform:translate3d(0,34px,0);transition:opacity .78s cubic-bezier(.2,.8,.2,1),transform .82s cubic-bezier(.2,.8,.2,1)}
-.about-v4 [data-scroll-parallax]{backface-visibility:hidden;transform:translate3d(0,var(--parallax-y,0px),0)}
-@media(max-width:640px){.about-v4 [data-scroll-parallax]{--parallax-y:0px!important}}
-@media(prefers-reduced-motion:reduce){.about-v4 [data-scroll-reveal]{opacity:1!important;transform:none!important}.about-v4 [data-scroll-parallax]{transform:none!important}}
-</style>
-</head>
+</style></head>
 <body class="bg-trendz-paper text-trendz-ink antialiased">
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
 <header id="site-header" class="tz-header">
@@ -443,7 +296,22 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:640px){.about-redesign .ar-container{width:calc(100% - 32px)}.ar-section-meta{font-size:.5rem}.ar-section-meta .meta-right{display:none}.ar-hero-container{padding:68px 0 24px}.ar-eyebrow{font-size:.5rem}.ar-hero-title{font-size:clamp(3.45rem,15vw,5.2rem);line-height:.84;margin-top:24px}.ar-hero-sub{margin-top:31px;font-size:.47rem;gap:11px}.ar-sub-curve{width:38px}.ar-hero-visual{min-height:390px}.ar-image-shell{width:70vw;max-width:330px}.ar-orbit-1{width:86vw}.ar-orbit-2{width:70vw}.ar-year-marker{top:5%;left:0}.ar-year-marker strong{font-size:4rem}.ar-hero-coordinate{font-size:.42rem;bottom:8%}.ar-hero-bottom{flex-direction:column;align-items:flex-start;gap:8px;margin-top:24px}.ar-story-container,.ar-purpose .ar-container,.ar-values .ar-container,.ar-people .ar-container{padding-top:70px;padding-bottom:76px}.ar-story-layout{padding-top:55px}.ar-story-anchor{min-height:235px}.ar-giant-year{font-size:10rem}.ar-anchor-caption{left:6%;bottom:13%;font-size:.44rem}.ar-anchor-loop{width:220px;height:275px}.ar-story-copy h2{font-size:3.45rem}.ar-story-lead p{font-size:1.18rem}.ar-story-body{font-size:.82rem;line-height:1.85}.ar-story-copy blockquote{margin-top:34px;padding:24px 22px 24px 34px;font-size:.88rem;border-radius:0 28px 0 28px}.ar-purpose-intro{padding-top:52px}.ar-purpose-intro h2{font-size:3.05rem}.ar-purpose-grid{margin-top:52px}.ar-purpose-card{min-height:470px;padding:26px 24px 34px}.ar-purpose-card.ar-mission{border-radius:42px 0 42px 0}.ar-purpose-card.ar-vision{border-radius:0 42px 0 42px}.ar-purpose-card h3{margin-top:125px;font-size:2.35rem}.ar-purpose-card p{font-size:.79rem;line-height:1.85}.ar-values-heading{padding-top:50px}.ar-values-heading h2{font-size:3.2rem}.ar-values-grid{grid-template-columns:1fr;margin-top:50px}.ar-value{min-height:250px}.ar-value h3{margin-top:62px;font-size:1.15rem}.ar-people-layout{padding-top:54px}.ar-people-heading h2{font-size:3.35rem}.ar-people-orbit{margin-top:40px}.ar-people-copy p{font-size:.81rem;line-height:1.85}.ar-people-copy .ar-people-lead{font-size:1.16rem}.ar-promise .ar-container{padding-top:88px;padding-bottom:105px}.ar-promise-content{padding-top:52px}.ar-promise-content h2{font-size:3.55rem}.ar-promise-content p{font-size:.86rem;line-height:1.85}.ar-promise-line{align-items:flex-start;gap:12px;margin-top:42px}.ar-promise-line strong{font-size:.52rem}.ar-promise-wave{right:-520px}.ar-wave-a{width:120vw;height:90vw}.ar-wave-b{width:90vw;height:70vw}}
 @media(prefers-reduced-motion:reduce){.ar-wave-a,.ar-wave-b,.ar-orbit-1,.ar-orbit-2,.ar-anchor-loop,.ar-people-orbit span{animation:none!important}.is-revealed{transition:none!important}.ar-image-shell img{transition:none}.ar-purpose-card:hover,.ar-value:hover{transform:none}}
 </style>
-
+<script id="about-redesign-v1-motion">
+(function(){
+  const page=document.querySelector('.about-redesign');
+  if(!page)return;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealItems=page.querySelectorAll('[data-reveal]');
+  if(reduced){revealItems.forEach(el=>el.classList.add('is-revealed'));return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed');io.unobserve(entry.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  revealItems.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);});
+  const hero=page.querySelector('.ar-hero-visual');
+  const img=page.querySelector('.ar-image-shell');
+  if(hero&&img){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=((e.clientX-r.left)/r.width-.5)*2;const y=((e.clientY-r.top)/r.height-.5)*2;img.style.transform=`rotate(${3+x*1.1}deg) translate3d(${x*7}px,${y*6}px,0)`},{passive:true});hero.addEventListener('pointerleave',()=>{img.style.transform='';});}
+})();
+</script>
 <main id="main-content" class="about-redesign about-v4">
 <section class="about-hero-v4" aria-labelledby="about-title">
   <div class="v4-hero-curve v4-hero-curve-a" aria-hidden="true"></div><div class="v4-hero-curve v4-hero-curve-b" aria-hidden="true"></div>
@@ -451,21 +319,21 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
     <div class="v4-hero-copy">
       <div class="v4-meta"><span class="v4-dot"></span><span>ABOUT US</span><i></i></div>
       <h1 id="about-title"><span>15 Years of</span><span>Creating Experiences.</span><span>Building Brands.</span><span>Delivering <em>Impact.</em></span></h1>
-      <p class="v4-hero-sub about-structural-copy" aria-hidden="true">15 Years of Creating Experiences. Building Brands. Delivering Impact.</p>
+      <p class="v4-hero-sub">15 Years of Creating Experiences. Building Brands. Delivering Impact.</p>
     </div>
     <div class="v4-hero-art" aria-hidden="true">
       <div class="v4-art-ring ring-a"></div><div class="v4-art-ring ring-b"></div><div class="v4-art-ring ring-c"></div>
-      <div class="v4-image"><div class="v5-image-placeholder" role="img" aria-label="Hero image placeholder"></div></div>
-      <div class="v4-year about-structural-copy" aria-hidden="true"><strong>15</strong><span>YEARS</span></div>
+      <div class="v4-image"><div class="v5-image-placeholder" role="img" aria-label="Hero image placeholder"><span class="v5-ph-label">Hero Visual Placeholder</span><span class="v5-ph-note">Replace with approved Trendz campaign image</span></div></div>
+      <div class="v4-year"><strong>15</strong><span>YEARS</span></div>
       <span class="v4-orbit-dot"></span>
     </div>
-    <div class="v4-hero-foot about-structural-copy" aria-hidden="true"><span>ABOUT US</span><span>15 YEARS OF EXPERIENCE</span><span>INDIA</span></div>
+    <div class="v4-hero-foot"><span>ABOUT US</span><span>15 YEARS OF EXPERIENCE</span><span>INDIA</span></div>
   </div>
 </section>
 
 <section id="story" class="v4-story" aria-labelledby="story-title">
   <div class="v4-wrap">
-    <div class="v4-section-meta about-structural-copy" aria-hidden="true"><span>OUR STORY</span><span class="right">15 YEARS / A JOURNEY BUILT THROUGH EXPERIENCE</span></div>
+    <div class="v4-section-meta"><span>OUR STORY</span><span class="right">15 YEARS / A JOURNEY BUILT THROUGH EXPERIENCE</span></div>
     <div class="v4-story-grid">
       <aside class="v4-story-marker" aria-hidden="true"><strong>15</strong><span>YEARS OF<br>CREATING<br>EXPERIENCES</span><div class="v4-marker-curve"></div></aside>
       <div class="v4-story-copy">
@@ -484,18 +352,18 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 
 <section class="v4-purpose" aria-label="Our Mission and Our Vision">
   <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark about-structural-copy" aria-hidden="true"><span>OUR MISSION / OUR VISION</span></div>
+    <div class="v4-section-meta v4-dark"><span>OUR MISSION / OUR VISION</span></div>
     <div class="v4-purpose-grid">
-      <article class="v4-purpose-card mission"><div class="v4-card-meta about-structural-copy" aria-hidden="true"><span>OUR MISSION</span></div><div class="v4-card-curve"></div><h2>Our Mission</h2><p>To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.</p></article>
-      <article class="v4-purpose-card vision"><div class="v4-card-meta about-structural-copy" aria-hidden="true"><span>OUR VISION</span></div><div class="v4-card-curve"></div><h2>Our Vision</h2><p>To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.</p></article>
+      <article class="v4-purpose-card mission"><div class="v4-card-meta"><span>OUR MISSION</span></div><div class="v4-card-curve"></div><h2>Our Mission</h2><p>To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.</p></article>
+      <article class="v4-purpose-card vision"><div class="v4-card-meta"><span>OUR VISION</span></div><div class="v4-card-curve"></div><h2>Our Vision</h2><p>To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.</p></article>
     </div>
   </div>
 </section>
 
 <section class="v4-values" aria-labelledby="values-title">
   <div class="v4-wrap">
-    <div class="v4-section-meta about-structural-copy" aria-hidden="true"><span>OUR CORE VALUES</span><span class="right">THE STANDARDS BEHIND THE WORK</span></div>
-    <div class="v4-values-intro"><div><span class="v4-small about-structural-copy" aria-hidden="true">OUR CORE VALUES</span><h2 id="values-title">Our Core Values</h2></div></div>
+    <div class="v4-section-meta"><span>OUR CORE VALUES</span><span class="right">THE STANDARDS BEHIND THE WORK</span></div>
+    <div class="v4-values-intro"><div><span class="v4-small">OUR CORE VALUES</span><h2 id="values-title">Every interaction is shaped by <em>what we stand for.</em></h2></div></div>
     <div class="v4-values-editorial" aria-label="Our Core Values">
       <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Creativity &amp; Innovation</h3><p>Constantly exploring fresh ideas and unconventional approaches.</p></div></article>
       <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Commitment</h3><p>Taking ownership of every project and delivering on our promises.</p></div></article>
@@ -510,12 +378,12 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 <section class="v4-people" aria-labelledby="people-title">
   <div class="v4-people-curve" aria-hidden="true"></div>
   <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark about-structural-copy" aria-hidden="true"><span>THE PEOPLE BEHIND THE JOURNEY</span></div>
+    <div class="v4-section-meta v4-dark"><span>THE PEOPLE BEHIND THE JOURNEY</span></div>
     <div class="v4-people-grid">
-      <div class="v4-people-heading"><span class="v4-small light about-structural-copy" aria-hidden="true">THE PEOPLE BEHIND THE JOURNEY</span><h2 id="people-title">The People Behind the Journey</h2><div class="v4-people-orbit about-structural-copy" aria-hidden="true"><span>15</span></div></div>
+      <div class="v4-people-heading"><span class="v4-small light">THE PEOPLE BEHIND THE JOURNEY</span><h2 id="people-title">The People Behind the Journey</h2><div class="v4-people-orbit"><span>15</span></div></div>
       <div class="v5-people-gallery" aria-label="People image placeholders">
-  <div class="v5-people-gallery-main"><div class="v5-person-placeholder large"><div class="v5-person-meta" aria-hidden="true"></div></div></div>
-  <div class="v5-people-gallery-side"><div class="v5-person-placeholder"><div class="v5-person-meta" aria-hidden="true"></div></div><div class="v5-person-placeholder"><div class="v5-person-meta" aria-hidden="true"></div></div></div>
+  <div class="v5-people-gallery-main"><div class="v5-person-placeholder large"><div class="v5-person-meta"><span>Founder Portrait Placeholder</span><span>Image</span></div></div></div>
+  <div class="v5-people-gallery-side"><div class="v5-person-placeholder"><div class="v5-person-meta"><span>Leadership Placeholder</span><span>Image</span></div></div><div class="v5-person-placeholder"><div class="v5-person-meta"><span>Team Placeholder</span><span>Image</span></div></div></div>
 </div><div class="v4-people-copy"><p class="lead">Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p><p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p><p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p></div>
     </div>
   </div>
@@ -524,8 +392,8 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 <section class="v4-promise" aria-labelledby="promise-title">
   <div class="v4-promise-curve" aria-hidden="true"></div><div class="v4-promise-grid" aria-hidden="true"></div>
   <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark about-structural-copy" aria-hidden="true"><span>OUR PROMISE</span></div>
-    <div class="v4-promise-content"><span class="v4-small light about-structural-copy" aria-hidden="true">OUR PROMISE</span><h2 id="promise-title">Our Promise</h2><p>We don't just execute campaigns. We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.</p><strong>15 Years Strong. Driven by Ideas. Defined by Execution.</strong></div>
+    <div class="v4-section-meta v4-dark"><span>OUR PROMISE</span></div>
+    <div class="v4-promise-content"><span class="v4-small light">OUR PROMISE</span><h2 id="promise-title">We don't just execute campaigns.</h2><p>We don't just execute campaigns. We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.</p><strong>15 Years Strong. Driven by Ideas. Defined by Execution.</strong></div>
   </div>
 </section>
 </main>
@@ -537,7 +405,23 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 @media(max-width:640px){.v10-wrap,.v10-hero-grid,.v10-hero-bottom{width:calc(100% - 32px)}.v10-hero{padding-top:82px}.v10-hero h1{font-size:clamp(3rem,14vw,5rem)}.v10-hero-actions{margin-top:26px}.v10-hero-visual{margin-top:8px}.v10-hero-bottom{gap:12px 25px;font-size:.5rem}.v10-profile .v10-wrap{padding:60px 0}.v10-stats{grid-template-columns:1fr 1fr}.v10-stats div{min-height:120px}.v10-stats strong{font-size:2.7rem}.v10-section{padding:78px 0}.v10-section-head h2,.v10-story-content h2,.v10-people h2{font-size:clamp(2.65rem,12vw,4.5rem)}.v10-timeline{margin-top:48px}.v10-timeline article{grid-template-columns:42px 1fr;gap:14px;padding:24px 0}.v10-direction-grid{margin-top:48px}.v10-direction article{min-height:auto;padding:28px 0 42px}.v10-direction h3{margin-top:62px;font-size:2.55rem}.v10-method-grid,.v10-values-grid{grid-template-columns:1fr;margin-top:45px}.v10-method article{min-height:220px;border-right:0;border-bottom:1px solid var(--line)}.v10-method article:last-child{border-bottom:0}.v10-values article{min-height:220px}.v10-values h3{margin-top:52px}.v10-people-statement{grid-template-columns:1fr}.v10-promise h2{font-size:clamp(2.8rem,13vw,5rem)}.v10-promise-bottom{align-items:flex-start;flex-direction:column}.v10-promise-bottom a{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.about-v10 *{scroll-behavior:auto!important;transition:none!important;animation:none!important}.v10-image-frame{transform:none}}
 </style>
-
+<script id="about-v10-motion">
+document.addEventListener("DOMContentLoaded",()=>{
+  const page=document.querySelector('.about-v10'); if(!page)return;
+  if(window.lucide)window.lucide.createIcons();
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced||!window.gsap){return;}
+  const hero=page.querySelectorAll('.v10-hero .v10-eyebrow,.v10-hero h1,.v10-hero .v10-lead,.v10-hero-actions,.v10-hero-visual,.v10-hero-bottom');
+  window.gsap.fromTo(hero,{opacity:0,y:26},{opacity:1,y:0,duration:1,stagger:.08,ease:'power4.out',delay:.12});
+  if('IntersectionObserver' in window){
+    const targets=page.querySelectorAll('.v10-profile-intro,.v10-stats,.v10-story-content,.v10-section-head,.v10-timeline article,.v10-direction article,.v10-method article,.v10-values article,.v10-people-content,.v10-promise .v10-wrap');
+    const io=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(!e.isIntersecting)return;window.gsap.fromTo(e.target,{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:'power3.out',overwrite:true});obs.unobserve(e.target);});},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(el=>io.observe(el));
+  }
+  const visual=page.querySelector('.v10-image-frame');
+  if(visual){page.addEventListener('pointermove',e=>{const r=visual.getBoundingClientRect();if(r.width===0)return;const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;window.gsap.to(visual,{rotation:1.5+x*2,y:y*5,duration:.7,ease:'power3.out',overwrite:true});});page.addEventListener('pointerleave',()=>window.gsap.to(visual,{rotation:1.5,y:0,duration:.8,ease:'power3.out'}));}
+});
+</script>
 <!-- PRE-FOOTER CTA -->
 <section class="trendz-cta relative overflow-hidden">
  <div class="cta-art" aria-hidden="true"><div class="cta-orb cta-orb-1"></div><div class="cta-orb cta-orb-2"></div><div class="cta-orb cta-orb-3"></div>
@@ -744,7 +628,38 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <div class="organic-cursor-light" aria-hidden="true"></div>
 
-
+<script id="about-organic-ui-motion-v3">
+document.addEventListener("DOMContentLoaded",()=>{
+ const page=document.querySelector(".about-page"); if(!page)return;
+ const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const light=page.querySelector(".organic-cursor-light");
+ if(!reduced && light && window.gsap){
+   let visible=false;
+   window.addEventListener("pointermove",e=>{
+     if(!visible){visible=true;light.style.opacity="1";}
+     window.gsap.to(light,{x:e.clientX,y:e.clientY,duration:.55,ease:"power3.out",overwrite:true});
+   },{passive:true});
+   window.addEventListener("pointerleave",()=>{light.style.opacity="0"},{passive:true});
+ }
+ if(reduced || !window.gsap)return;
+ const cards=page.querySelectorAll(".about-direction-card,.about-value,.about-people-aside");
+ cards.forEach(card=>{
+   card.addEventListener("pointermove",e=>{
+     const r=card.getBoundingClientRect();
+     const x=(e.clientX-r.left)/r.width-.5;
+     const y=(e.clientY-r.top)/r.height-.5;
+     window.gsap.to(card,{rotationY:x*1.2,rotationX:-y*1.1,transformPerspective:900,duration:.45,ease:"power2.out",overwrite:true});
+   },{passive:true});
+   card.addEventListener("pointerleave",()=>window.gsap.to(card,{rotationY:0,rotationX:0,duration:.65,ease:"power3.out",overwrite:true}),{passive:true});
+ });
+ const title=page.querySelector(".about-promise-title");
+ if(title){window.gsap.fromTo(title,{clipPath:"inset(0 0 100% 0)"},{clipPath:"inset(0 0 0% 0)",duration:1.2,ease:"power4.out",scrollTrigger:window.ScrollTrigger?{trigger:title,start:"top 82%",once:true}:undefined});}
+ const nodes=page.querySelectorAll(".organic-node");
+ nodes.forEach(node=>{node.addEventListener("pointermove",e=>{const r=node.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;window.gsap.to(node,{x:x*8,y:y*7,duration:.35,ease:"power2.out",overwrite:true});},{passive:true});node.addEventListener("pointerleave",()=>window.gsap.to(node,{x:0,y:0,duration:.55,ease:"power3.out",overwrite:true}),{passive:true});});
+ const sections=page.querySelectorAll(".about-section,.organic-field");
+ if(window.ScrollTrigger){sections.forEach((section,i)=>{window.ScrollTrigger.create({trigger:section,start:"top 78%",onEnter:()=>section.classList.add("is-visible"),once:true});});}
+});
+</script>
 
 <style id="about-corporate-organic-v6">
 /* CORPORATE ORGANIC V6 — structured enterprise storytelling */
@@ -832,7 +747,33 @@ document.addEventListener("DOMContentLoaded",()=>{
 </style>
 
 
-
+<script id="about-section-01-hero-v14-motion">
+(function(){
+  const hero=document.querySelector('.v13-hero');
+  if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const art=hero.querySelector('.v13-hero-art');
+  const image=hero.querySelector('.v13-hero-image');
+  const rings=hero.querySelectorAll('.v13-hero-ring');
+  if(!art) return;
+  let raf=0, tx=0, ty=0, cx=0, cy=0;
+  art.addEventListener('pointermove', e=>{
+    const r=art.getBoundingClientRect();
+    tx=((e.clientX-r.left)/r.width-.5)*2;
+    ty=((e.clientY-r.top)/r.height-.5)*2;
+    if(!raf) raf=requestAnimationFrame(()=>{
+      cx+=(tx-cx)*.12; cy+=(ty-cy)*.12;
+      if(image) image.style.transform=`rotate(${3+cx*1.2}deg) translate3d(${cx*7}px,${cy*6}px,0) scale(1.012)`;
+      rings.forEach((ring,i)=>{ring.style.marginLeft=`${cx*(i?5:8)}px`;ring.style.marginTop=`${cy*(i?4:7)}px`;});
+      raf=0;
+    });
+  }, {passive:true});
+  art.addEventListener('pointerleave',()=>{
+    tx=ty=0;
+    if(image) image.style.transform='';
+    rings.forEach(r=>{r.style.marginLeft='';r.style.marginTop='';});
+  });
+})();
+</script>
 
 
 <style id="about-v8-iteration-4-production">
@@ -878,91 +819,8 @@ document.addEventListener("DOMContentLoaded",()=>{
  root.dataset.responsiveQa='4-breakpoint-system';
  root.dataset.imageStrategy='hero-placeholder; founder-leadership-team-placeholders; no-placeholder-required-for-mission-vision-values-promise';
 })();
-</script>
-<script id="about-v11-scroll-parallax-engine">
-(function(){
-  const root=document.querySelector('.about-v4');
-  if(!root)return;
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const revealSelectors=[
-    '.v4-section-meta','.v4-hero-copy','.v4-hero-art','.v4-story-marker','.v4-story-copy',
-    '.v4-purpose-card','.v4-values-intro','.v4-values-editorial article',
-    '.v4-people-heading','.v4-people-copy','.v4-people-art','.v4-promise-content'
-  ];
-
-  const reveal=[];
-  revealSelectors.forEach(sel=>root.querySelectorAll(sel).forEach(el=>{
-    if(!el.hasAttribute('data-scroll-reveal'))el.setAttribute('data-scroll-reveal','');
-    reveal.push(el);
-  }));
-
-  if(reduce){
-    reveal.forEach(el=>el.classList.add('is-visible'));
-    return;
-  }
-
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  },{threshold:.08,rootMargin:'0px 0px -10% 0px'});
-  reveal.forEach(el=>io.observe(el));
-
-  const parallax=[
-    ['.v4-hero-art',.075],
-    ['.v4-story-marker',-.045],
-    ['.v4-people-art',.055],
-    ['.v4-promise-content',-.025]
-  ];
-
-  const items=[];
-  parallax.forEach(([sel,strength])=>{
-    root.querySelectorAll(sel).forEach(el=>{
-      el.setAttribute('data-scroll-parallax','');
-      items.push({el,strength,top:0,height:0});
-    });
-  });
-
-  let ticking=false;
-  function measure(){
-    items.forEach(item=>{
-      const rect=item.el.getBoundingClientRect();
-      item.top=rect.top+window.scrollY;
-      item.height=rect.height;
-    });
-  }
-  function render(){
-    ticking=false;
-    const viewport=window.innerHeight;
-    items.forEach(item=>{
-      const center=item.top+item.height/2;
-      const progress=(window.scrollY+viewport/2-center)/(viewport+item.height);
-      const clamped=Math.max(-1,Math.min(1,progress));
-      item.el.style.setProperty('--parallax-y',(clamped*item.strength*viewport).toFixed(2)+'px');
-    });
-  }
-  function requestRender(){
-    if(!ticking){
-      ticking=true;
-      requestAnimationFrame(render);
-    }
-  }
-
-  measure();
-  render();
-  window.addEventListener('scroll',requestRender,{passive:true});
-  window.addEventListener('resize',function(){measure();requestRender()},{passive:true});
-  window.addEventListener('load',function(){measure();requestRender()},{once:true});
-
-  root.querySelectorAll('.v4-values-editorial article').forEach((el,index)=>{
-    el.style.transitionDelay=(Math.min(index,5)*70)+'ms';
-  });
-})();
-</script>
+</script></body>
+</html>
 <style id="about-redesign-iteration-1">
 /* ITERATION 1 — structural rebuild */
 .about-v4{--i:#17151f;--p:#5c55a2;--l:#c9c4ed;--pk:#d52d91;--paper:#f7f7f9;--line:#dedbe5;overflow:clip}
@@ -998,7 +856,19 @@ document.addEventListener("DOMContentLoaded",()=>{
 .about-v4 .v4-hero-copy h1 span{clip-path:inset(0 0 100% 0);animation:v4LineIn .9s cubic-bezier(.2,.8,.2,1) forwards}.about-v4 .v4-hero-copy h1 span:nth-child(1){animation-delay:.12s}.about-v4 .v4-hero-copy h1 span:nth-child(2){animation-delay:.2s}.about-v4 .v4-hero-copy h1 span:nth-child(3){animation-delay:.28s}.about-v4 .v4-hero-copy h1 span:nth-child(4){animation-delay:.36s}@keyframes v4LineIn{to{clip-path:inset(0 0 0 0)}}
 @media(prefers-reduced-motion:reduce){.about-v4 [data-v4-reveal]{opacity:1;transform:none;transition:none}.about-v4 .v4-people-orbit,.about-v4 .v4-orbit-dot,.about-v4 .v4-hero-copy h1 span{animation:none;clip-path:none}.about-v4 .v4-purpose-card,.about-v4 .v4-values-grid article{will-change:auto}}
 </style>
-
+<script id="about-redesign-iteration-3-motion">
+(function(){
+ const root=document.querySelector('.about-v4'); if(!root)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ root.querySelectorAll('.v4-story-copy,.v4-story-marker,.v4-purpose-card,.v4-values-grid article,.v4-people-heading,.v4-people-copy,.v4-promise-content').forEach(el=>el.setAttribute('data-v4-reveal',''));
+ if(reduce){root.querySelectorAll('[data-v4-reveal]').forEach(el=>el.classList.add('is-in'));return;}
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+ root.querySelectorAll('[data-v4-reveal]').forEach(el=>io.observe(el));
+ const art=root.querySelector('.v4-hero-art'),img=root.querySelector('.v4-image'),rings=root.querySelectorAll('.v4-art-ring');
+ if(art){art.addEventListener('pointermove',e=>{const r=art.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2,y=((e.clientY-r.top)/r.height-.5)*2;img.style.transform=`rotate(${3+x*1.1}deg) translate3d(${x*7}px,${y*6}px,0)`;rings.forEach((ring,i)=>ring.style.margin=`${y*(i+1)*3}px ${x*(i+1)*4}px`)},{passive:true});art.addEventListener('pointerleave',()=>{img.style.transform='';rings.forEach(r=>r.style.margin='')});}
+ root.querySelectorAll('.v4-purpose-card,.v4-values-grid article').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2,y=((e.clientY-r.top)/r.height-.5)*2;card.style.transform=`perspective(900px) rotateX(${y*-1.2}deg) rotateY(${x*1.2}deg) translateY(-4px)`},{passive:true});card.addEventListener('pointerleave',()=>card.style.transform='')});
+})();
+</script>
 <style id="about-redesign-iteration-4">
 /* ITERATION 4 — final art direction + production polish */
 .about-v4 .v4-hero-copy,.about-v4 .v4-hero-art{z-index:3}.about-v4 .v4-story-copy blockquote{position:relative}.about-v4 .v4-story-copy blockquote:after{content:"";position:absolute;right:0;top:-1px;width:110px;height:28px;border-top:1px solid var(--pk);border-radius:50%;transform:translateY(-13px) rotate(-8deg)}
@@ -1008,20 +878,63 @@ document.addEventListener("DOMContentLoaded",()=>{
 @media(max-width:640px){.trendz-cta .cta-shell{text-align:left}.trendz-cta .cta-title{font-size:clamp(2.9rem,13vw,5rem)}.trendz-cta .cta-actions,.trendz-cta .cta-meta{justify-content:flex-start}.trendz-cta:before{right:-55vw;top:-30vw;width:120vw;height:100vw}.trendz-cta:after{left:-55vw;bottom:-45vw;width:110vw;height:90vw}}
 @media(prefers-reduced-motion:reduce){.trendz-cta .cta-primary:hover,.trendz-cta .cta-phone:hover{transform:none}.trendz-cta .cta-title span{animation:none}}
 </style>
+<script id="about-redesign-iteration-4-final-qa">
+(function(){
+ const root=document.querySelector('.about-v4'); if(!root)return;
+ const expected=[
+  'For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.',
+  'What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.',
+  'Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.',
+  'Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.',
+  'To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.',
+  'To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.'
+ ];
+ const text=root.innerText;
+ root.dataset.contentIntegrity=expected.every(s=>text.includes(s))?'pass':'review';
+ root.querySelectorAll('img').forEach(img=>{if(!img.hasAttribute('decoding'))img.setAttribute('decoding','async')});
+})();
+</script>
+<style id="about-v9-no-artificial-numbering-and-values">
+/* ITERATION 5 — remove artificial section numbering; redesign Core Values as an editorial field. */
+.about-v4 .v4-section-meta{gap:0}
+.about-v4 .v4-section-meta>span:first-child{display:none!important}
+.about-v4 .v4-section-meta>i{width:42px!important;margin-right:2px}
+.about-v4 .v4-hero-foot span:first-child{display:none!important}
+.about-v4 .v4-card-meta b{display:none!important}
 
-
-<style id="about-production-safety">
-  html,body{width:100%;max-width:100%;overflow-x:hidden}
-  body,.about-v4,.about-v4 *{font-family:"Segoe UI",Arial,sans-serif}
-  .about-v4 img{max-width:100%;height:auto}
-  .about-v4 [data-scroll-parallax]{will-change:transform}
-  @media(max-width:640px){
-    .about-v4 [data-scroll-parallax]{transform:none!important;will-change:auto}
-  }
-  @media(prefers-reduced-motion:reduce){
-    .about-v4 [data-scroll-reveal]{opacity:1!important;transform:none!important;transition:none!important}
-    .about-v4 [data-scroll-parallax]{transform:none!important;will-change:auto}
-  }
+/* Core Values: no card grid, no serial numbers, no repeated dashboard pattern. */
+.about-v4 .v4-values{background:#f4f2f6;padding:clamp(92px,11vw,150px) 0;position:relative;overflow:hidden}
+.about-v4 .v4-values:after{content:"";position:absolute;width:58vw;height:42vw;max-width:760px;max-height:560px;right:-31vw;top:22%;border:1px solid rgba(92,85,162,.13);border-radius:61% 39% 47% 53% / 43% 59% 41% 57%;transform:rotate(-14deg);pointer-events:none}
+.about-v4 .v4-values-intro{position:relative;z-index:2;display:block;padding-top:0;max-width:1050px}
+.about-v4 .v4-values-intro .v4-small{margin-bottom:18px}
+.about-v4 .v4-values-intro h2{max-width:900px;margin:0;font-size:clamp(3.3rem,6.5vw,7rem);line-height:.86}
+.about-v4 .v4-values-editorial{position:relative;z-index:2;margin-top:clamp(55px,7vw,90px);border-top:1px solid rgba(23,21,31,.75)}
+.about-v4 .v4-values-editorial article{position:relative;display:grid;grid-template-columns:minmax(230px,.72fr) minmax(0,1.28fr);gap:clamp(30px,7vw,110px);align-items:center;min-height:155px;padding:28px 0;border-bottom:1px solid rgba(23,21,31,.18);overflow:hidden;transition:padding .45s cubic-bezier(.2,.8,.2,1),background .45s ease}
+.about-v4 .v4-values-editorial article:before{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:linear-gradient(90deg,#5c55a2,#d52d91);transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.about-v4 .v4-values-editorial article:hover{padding-left:24px;background:rgba(255,255,255,.38)}
+.about-v4 .v4-values-editorial article:hover:before{width:100%}
+.about-v4 .v4-value-copy h3{margin:0;font:800 clamp(1.35rem,2.2vw,2.2rem)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.045em;color:#211d2a}
+.about-v4 .v4-value-copy p{max-width:560px;margin:9px 0 0;color:#6f6b78;font-size:.82rem;line-height:1.85}
+.about-v4 .v4-value-gesture{justify-self:end;width:min(180px,70%);height:42px;border-top:1px solid rgba(92,85,162,.3);border-radius:50%;transform:rotate(-7deg);transition:width .5s ease,transform .5s ease,border-color .5s ease}
+.about-v4 .v4-values-editorial article:nth-child(2n) .v4-value-gesture{transform:rotate(7deg);border-color:rgba(213,45,145,.28)}
+.about-v4 .v4-values-editorial article:nth-child(3n) .v4-value-gesture{width:min(125px,55%);transform:rotate(-14deg)}
+.about-v4 .v4-values-editorial article:hover .v4-value-gesture{width:min(220px,78%);transform:rotate(0);border-color:#5c55a2}
+.about-v4 .v4-values-editorial article:nth-child(2n):hover .v4-value-gesture{border-color:#d52d91}
+@media(max-width:900px){
+  .about-v4 .v4-values-editorial article{grid-template-columns:minmax(190px,.75fr) minmax(0,1.25fr);gap:35px}
+}
+@media(max-width:640px){
+  .about-v4 .v4-values{padding:76px 0 86px}
+  .about-v4 .v4-values-intro h2{font-size:clamp(3rem,14vw,5rem)}
+  .about-v4 .v4-values-editorial{margin-top:46px}
+  .about-v4 .v4-values-editorial article{grid-template-columns:1fr;gap:18px;min-height:0;padding:25px 0 28px}
+  .about-v4 .v4-values-editorial article:hover{padding-left:12px}
+  .about-v4 .v4-value-gesture{justify-self:start;width:105px;height:25px}
+  .about-v4 .v4-values-editorial article:hover .v4-value-gesture{width:145px}
+  .about-v4 .v4-value-copy h3{font-size:1.35rem}
+  .about-v4 .v4-value-copy p{font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-v4 .v4-values-editorial article,.about-v4 .v4-value-gesture{transition:none}
+}
 </style>
-</body>
-</html>
