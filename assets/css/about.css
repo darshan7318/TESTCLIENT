@@ -798,3 +798,62 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 .about-v4 .v4-values-editorial{grid-auto-rows:minmax(0,1fr)}
 .about-v4 .v5-people-gallery-main{min-height:clamp(460px,48vw,620px)}
 .about-v4 .v4-promise{padding-block:clamp(90px,12vw,160px)}
+
+
+/* ITERATION 8 — mobile composition and tap-target hardening */
+@media(max-width:900px){
+  .about-v4 .v4-wrap{width:min(100% - 40px,760px)}
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:56px}
+  .about-v4 .v4-purpose{padding-block:64px}
+  .about-v4 .v4-purpose-grid{gap:18px}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){padding:34px 30px 36px}
+  .about-v4 .v4-purpose-card h2{margin-top:54px}
+  .about-v4 .v4-values-editorial{margin-top:32px}
+  .about-v4 .v4-values-editorial article{padding:26px 24px 28px}
+  .about-v4 .v4-people-grid{gap:28px}
+  .about-v4 .v4-promise{padding-block:82px}
+}
+@media(max-width:640px){
+  .about-v4 .v4-wrap{width:calc(100% - 32px)}
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:46px}
+  .about-v4 .v4-purpose{padding-block:54px}
+  .about-v4 .v4-section-meta{font-size:.55rem;line-height:1.4}
+  .about-v4 .v4-section-meta .right{font-size:.48rem}
+  .about-v4 .v4-story-grid{gap:20px}
+  .about-v4 .v4-story-copy .prose p{font-size:.82rem;line-height:1.75}
+  .about-v4 .v4-purpose-grid{gap:12px}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){padding:24px 20px 27px}
+  .about-v4 .v4-purpose-card h2{margin-top:44px;font-size:1.9rem}
+  .about-v4 .v4-purpose-card p{font-size:.82rem;line-height:1.7}
+  .about-v4 .v4-values-editorial{margin-top:26px}
+  .about-v4 .v4-values-editorial article{padding:20px 18px 23px}
+  .about-v4 .v4-value-copy h3{font-size:1rem}
+  .about-v4 .v4-value-copy p{font-size:.75rem;line-height:1.6}
+  .about-v4 .v4-people-grid{gap:20px}
+  .about-v4 .v5-people-gallery-main{min-height:340px}
+  .about-v4 .v4-promise{padding-block:66px}
+  .about-v4 .v4-promise-content strong{font-size:.58rem;letter-spacing:.11em}
+  .about-v4 a{min-height:44px}
+}
+@media(max-width:380px){
+  .about-v4 .v4-wrap{width:calc(100% - 24px)}
+  .about-v4 .v4-story,
+  .about-v4 .v4-values,
+  .about-v4 .v4-people{padding-block:38px}
+  .about-v4 .v4-purpose{padding-block:46px}
+  .about-v4 .v4-section-meta .right{display:none}
+  .about-v4 .v4-story-copy .lead{font-size:.98rem}
+  .about-v4 .v4-purpose-card,
+  .about-v4 .v4-purpose-card:nth-child(2){padding:21px 17px 24px}
+  .about-v4 .v4-purpose-card h2{margin-top:38px;font-size:1.72rem}
+  .about-v4 .v4-purpose-card p{font-size:.78rem}
+  .about-v4 .v4-values-editorial article{padding:18px 16px 21px}
+  .about-v4 .v5-people-gallery-main{min-height:300px}
+  .about-v4 .v4-promise{padding-block:56px}
+}
