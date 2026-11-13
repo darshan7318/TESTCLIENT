@@ -1812,97 +1812,214 @@
      MAIN
 ========================================================== -->
 
-<style>
-.about-page{--p:#7928ca;--v:#5a189a;--lav:#d8b4fe;--muted:#706c79;overflow:hidden;background:#fff;color:#17151f}
-.about-page *{box-sizing:border-box}.about-container{width:min(1200px,calc(100% - 48px));margin:auto}
-.about-eyebrow{display:flex;align-items:center;gap:11px;color:var(--p);font:700 .68rem Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase}.about-eyebrow:before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--p),#d52d91)}
-.about-display{font-family:"Plus Jakarta Sans",Inter,sans-serif;font-weight:800;letter-spacing:-.065em;line-height:.98}
-.about-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:min(740px,calc(100svh - 76px));overflow:hidden;background:#0b0b0f;color:#f8f9fa}
-.about-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 78% 15%,rgba(121,40,202,.22),transparent 42%),linear-gradient(120deg,#0b0b0f,#17131f)}
-.about-hero:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(#000,transparent)}
-.about-hero-inner{padding:clamp(90px,11vw,145px) 0 clamp(70px,8vw,105px)}.about-hero-title{max-width:980px;margin:26px 0 0;font-size:clamp(3rem,7.3vw,7rem)}.about-hero-title span{color:var(--lav)}
-.about-hero-copy{max-width:700px;margin-top:26px;color:#ffffffb5;font-size:clamp(1rem,1.35vw,1.12rem);line-height:1.8}
-.about-proof{display:flex;flex-wrap:wrap;gap:32px;margin-top:40px}.about-proof-number{font:800 1.8rem/1 "Plus Jakarta Sans",sans-serif}.about-proof-label{margin-top:8px;color:#ffffff80;font:700 .62rem Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase}
-.about-section{padding:clamp(76px,9vw,118px) 0}.about-story{background:#fff}
-.about-story-grid,.about-people-grid{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);gap:clamp(38px,7vw,100px);align-items:start}
-.about-index{color:var(--p);font:500 .7rem "DM Mono",monospace;letter-spacing:.16em}.about-section-title{margin:18px 0 0;font-size:clamp(2.25rem,4.7vw,4.4rem);color:#17151f}
-.about-copy{color:var(--muted);font-size:1rem;line-height:1.9}.about-copy p+p{margin-top:19px}.about-note{margin-top:28px;padding:20px 23px;border-left:3px solid var(--p);background:#f5f2fa;color:#34244f;font-weight:700;line-height:1.7}
-.about-direction{background:#0b0b0f;color:#fff}.about-direction .about-section-title{color:#fff}.about-direction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:42px}
-.about-direction-card{min-height:310px;padding:clamp(28px,4vw,50px);background:linear-gradient(145deg,#17151f,#111016);border:1px solid #ffffff1a}
-.about-direction-label{color:var(--lav);font:700 .67rem Inter,sans-serif;letter-spacing:.17em;text-transform:uppercase}.about-direction-title{margin-top:28px;font:700 clamp(2rem,3.4vw,3.4rem)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.055em}.about-direction-copy{max-width:500px;margin-top:18px;color:#ffffffa8;line-height:1.85}
-.about-values{background:#f7f7f9}.about-values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:44px;background:#dfdde6;border:1px solid #dfdde6}.about-value{min-height:205px;padding:28px;background:#fff;transition:background .2s,transform .2s}.about-value:hover{position:relative;z-index:1;transform:translateY(-3px);background:#fbf9ff}
-.about-value-index{color:var(--p);font:500 .67rem "DM Mono",monospace}.about-value-title{margin-top:34px;font:750 1.08rem/1.3 "Plus Jakarta Sans",sans-serif}.about-value-copy{margin-top:10px;color:var(--muted);font-size:.88rem;line-height:1.75}
-.about-people{background:#fff}.about-people-aside{padding:32px;background:#f5f2fa;border:1px solid #ebe6f2}.about-people-aside strong{display:block;color:#302052;font:750 clamp(1.8rem,3vw,2.6rem)/1.05 "Plus Jakarta Sans",sans-serif;letter-spacing:-.05em}.about-people-aside span{display:block;margin-top:16px;color:var(--muted);font-size:.88rem;line-height:1.75}
-.about-promise{position:relative;isolation:isolate;overflow:hidden;background:#111019;color:#fff}.about-promise:before{content:"";position:absolute;z-index:-1;width:520px;height:520px;right:-240px;top:-290px;border-radius:50%;background:radial-gradient(circle,rgba(121,40,202,.3),transparent 70%)}
-.about-promise-inner{max-width:950px}.about-promise .about-eyebrow{color:var(--lav)}.about-promise-title{margin-top:24px;font-size:clamp(2.7rem,6vw,5.6rem)}.about-promise-title span{color:var(--lav)}
-.about-promise-copy{max-width:690px;margin-top:22px;color:#ffffffa8;line-height:1.85}.about-signoff{display:inline-block;margin-top:34px;padding-top:17px;border-top:1px solid #ffffff30;font:500 .68rem "DM Mono",monospace;letter-spacing:.11em;text-transform:uppercase}
-.about-cta{display:inline-flex;align-items:center;gap:11px;margin-top:28px;min-height:48px;padding:0 19px;background:var(--p);color:#fff;font:700 .73rem Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,transform .2s}.about-cta:hover{background:var(--v);transform:translateY(-2px)}
-.about-reveal{opacity:0;transform:translateY(20px)}
-@media(max-width:900px){.about-story-grid,.about-people-grid{grid-template-columns:1fr;gap:32px}.about-direction-grid{grid-template-columns:1fr}.about-values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.about-container{width:calc(100% - 32px)}.about-hero{min-height:auto}.about-hero-inner{padding:86px 0 72px}.about-hero-title{font-size:clamp(2.75rem,13vw,4.6rem)}.about-proof{gap:22px}.about-proof-number{font-size:1.55rem}.about-proof-item{min-width:calc(50% - 12px)}.about-section{padding:76px 0}.about-values-grid{grid-template-columns:1fr}.about-value{min-height:auto}.about-direction-card{min-height:0;padding:30px 24px}.about-promise-title{font-size:clamp(2.55rem,12vw,4rem)}.about-note{font-size:.93rem}}
-@media(prefers-reduced-motion:reduce){.about-page *,.about-page *:before,.about-page *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.about-reveal{opacity:1!important;transform:none!important}}
-</style>
+<!-- ABOUT PAGE CONTENT -->
 <main id="main-content" class="about-page">
-<section class="about-hero" aria-labelledby="about-title"><div class="about-container about-hero-inner">
-<div class="about-eyebrow">About Trendz Eventz</div>
-<h1 id="about-title" class="about-display about-hero-title">15 Years of Creating Experiences.<br><span>Building Brands.</span><br>Delivering Impact.</h1>
-<p class="about-hero-copy">For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.</p>
-<div class="about-proof" aria-label="Our experience">
-<div class="about-proof-item"><div class="about-proof-number">15+</div><div class="about-proof-label">Years of experience</div></div>
-<div class="about-proof-item"><div class="about-proof-number">BTL</div><div class="about-proof-label">Experiential marketing</div></div>
-<div class="about-proof-item"><div class="about-proof-number">India</div><div class="about-proof-label">Nationwide delivery</div></div>
-</div></div></section>
-<section class="about-section about-story" aria-labelledby="story-title"><div class="about-container about-story-grid">
-<div class="about-reveal"><div class="about-index">01 / OUR STORY</div><h2 id="story-title" class="about-display about-section-title">Ideas brought to life. Connections made meaningful.</h2></div>
-<div class="about-copy about-reveal">
-<p>What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.</p>
-<p>Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.</p>
-<p>Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.</p>
-<div class="about-note">15 years of experience. Countless experiences. One commitment — making every brand interaction matter.</div>
-</div></div></section>
-<section class="about-section about-direction" aria-label="Mission and vision"><div class="about-container">
-<div class="about-reveal"><div class="about-eyebrow">Our Direction</div><h2 class="about-display about-section-title">The purpose behind every experience.</h2></div>
-<div class="about-direction-grid">
-<article class="about-direction-card about-reveal"><div class="about-direction-label">02 / Our Mission</div><h3 class="about-direction-title">Create impact. Build connection.</h3><p class="about-direction-copy">To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.</p></article>
-<article class="about-direction-card about-reveal"><div class="about-direction-label">03 / Our Vision</div><h3 class="about-direction-title">Be the partner leading brands trust.</h3><p class="about-direction-copy">To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.</p></article>
-</div></div></section>
-<section class="about-section about-values" aria-labelledby="values-title"><div class="about-container">
-<div class="about-reveal"><div class="about-index">04 / OUR CORE VALUES</div><h2 id="values-title" class="about-display about-section-title">Principles that shape how we work.</h2></div>
-<div class="about-values-grid">
-<article class="about-value about-reveal"><div class="about-value-index">01</div><h3 class="about-value-title">Creativity &amp; Innovation</h3><p class="about-value-copy">Constantly exploring fresh ideas and unconventional approaches.</p></article>
-<article class="about-value about-reveal"><div class="about-value-index">02</div><h3 class="about-value-title">Commitment</h3><p class="about-value-copy">Taking ownership of every project and delivering on our promises.</p></article>
-<article class="about-value about-reveal"><div class="about-value-index">03</div><h3 class="about-value-title">Excellence in Execution</h3><p class="about-value-copy">Ensuring attention to detail and quality at every stage.</p></article>
-<article class="about-value about-reveal"><div class="about-value-index">04</div><h3 class="about-value-title">Integrity &amp; Transparency</h3><p class="about-value-copy">Building long-term relationships through trust and accountability.</p></article>
-<article class="about-value about-reveal"><div class="about-value-index">05</div><h3 class="about-value-title">Client Partnership</h3><p class="about-value-copy">Understanding our clients' objectives and working as an extension of their teams.</p></article>
-<article class="about-value about-reveal"><div class="about-value-index">06</div><h3 class="about-value-title">Results &amp; Impact</h3><p class="about-value-copy">Creating experiences that deliver tangible value to brands.</p></article>
-</div></div></section>
-<section class="about-section about-people" aria-labelledby="people-title"><div class="about-container about-people-grid">
-<div class="about-reveal"><div class="about-index">05 / THE PEOPLE</div><h2 id="people-title" class="about-display about-section-title">The People Behind the Journey.</h2></div>
-<div class="about-reveal"><div class="about-copy">
-<p>Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p>
-<p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p>
-<p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p>
-</div><aside class="about-people-aside" style="margin-top:28px"><strong>Ideas need people. Experiences need commitment.</strong><span>Our people bring the creativity, expertise and teamwork that move each brand experience from idea to execution.</span></aside></div>
-</div></section>
-<section class="about-section about-promise" aria-labelledby="promise-title"><div class="about-container"><div class="about-promise-inner about-reveal">
-<div class="about-eyebrow">06 / Our Promise</div>
-<h2 id="promise-title" class="about-display about-promise-title">We don't just execute campaigns.<br><span>We create connections.</span></h2>
-<p class="about-promise-copy">We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.</p>
-<div class="about-signoff">15 Years Strong. Driven by Ideas. Defined by Execution.</div><br>
-<a href="contact.html" class="about-cta">Start a Conversation <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-</div></div></section>
+<style>
+.about-page{--p:#5C55A2;--v:#433b80;--lav:#c8c2eb;--pink:#D52D91;--muted:#6F6B78;overflow:clip;background:#fff;color:#17151f}
+.about-page *,.about-page *:before,.about-page *:after{box-sizing:border-box}
+.about-container{width:min(1200px,calc(100% - 48px));margin-inline:auto}
+.about-kicker{display:inline-flex;align-items:center;gap:11px;color:var(--p);font:700 .66rem/1.2 Inter,sans-serif;letter-spacing:.19em;text-transform:uppercase}
+.about-kicker:before{content:"";width:27px;height:1px;background:linear-gradient(90deg,var(--p),var(--pink))}
+.about-display{font-family:"Plus Jakarta Sans",Inter,sans-serif;font-weight:800;letter-spacing:-.065em;line-height:.98}
+.about-index{color:var(--p);font:500 .66rem/1.5 "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase}
+.about-section{position:relative;padding:clamp(78px,9vw,124px) 0}
+.about-section-title{max-width:730px;margin:18px 0 0;color:#17151f;font-size:clamp(2.35rem,4.7vw,4.5rem)}
+.about-copy{color:var(--muted);font-size:.96rem;line-height:1.95}
+.about-copy p+p{margin-top:18px}
+.about-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:min(790px,calc(100svh - 76px));padding:clamp(94px,10vw,142px) 0 clamp(76px,8vw,112px);overflow:hidden;background:#111019;color:#fff}
+.about-hero:before{content:"";position:absolute;z-index:-2;inset:0;background:radial-gradient(ellipse at 82% 17%,rgba(139,133,207,.27),transparent 38%),radial-gradient(ellipse at 8% 95%,rgba(213,45,145,.13),transparent 42%),linear-gradient(118deg,#111019 0%,#171321 56%,#21152b 100%)}
+.about-hero:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.19;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,#000,transparent 78%)}
+.about-hero-orbit{position:absolute;z-index:-1;width:min(48vw,690px);aspect-ratio:1;right:-8%;top:50%;border:1px solid rgba(216,211,246,.13);border-radius:50%;transform:translateY(-50%) rotate(-18deg)}
+.about-hero-orbit:before,.about-hero-orbit:after{content:"";position:absolute;border:1px solid rgba(216,211,246,.11);border-radius:50%;inset:9%}
+.about-hero-orbit:after{inset:22%;border-color:rgba(213,45,145,.17)}
+.about-hero-orbit span{position:absolute;left:16%;top:18%;width:11px;height:11px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 9px rgba(213,45,145,.09),0 0 35px rgba(213,45,145,.55)}
+.about-hero-inner{position:relative;z-index:1}
+.about-hero-title{max-width:1000px;margin:27px 0 0;font-size:clamp(3.2rem,7.7vw,7.7rem)}
+.about-hero-title .accent{color:#c9c4ed}
+.about-hero-title .outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.72)}
+.about-hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:38px;margin-top:34px}
+.about-hero-copy{max-width:610px;color:rgba(255,255,255,.68);font-size:clamp(.98rem,1.25vw,1.1rem);line-height:1.9}
+.about-hero-side{flex:0 0 auto;min-width:150px;padding-left:22px;border-left:1px solid rgba(255,255,255,.23)}
+.about-hero-side strong{display:block;font:800 clamp(2.1rem,3.2vw,3.1rem)/.95 "Plus Jakarta Sans",sans-serif;letter-spacing:-.07em}
+.about-hero-side span{display:block;margin-top:9px;color:rgba(255,255,255,.48);font:700 .58rem/1.5 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.about-hero-rule{display:flex;align-items:center;gap:14px;margin-top:clamp(50px,7vw,88px);color:rgba(255,255,255,.42);font:500 .6rem/1.2 "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase}
+.about-hero-rule:before{content:"";width:44px;height:1px;background:linear-gradient(90deg,var(--lav),transparent)}
+.about-hero [data-hero-reveal]{opacity:0;transform:translateY(24px)}
+.about-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
+.about-section-lead{max-width:380px;margin:0;color:var(--muted);font-size:.88rem;line-height:1.85}
+.about-story{background:#fff}
+.about-story-grid,.about-people-grid{display:grid;grid-template-columns:minmax(260px,.76fr) minmax(0,1.24fr);gap:clamp(42px,8vw,112px);align-items:start}
+.about-story-heading:after{content:"15";display:block;margin-top:34px;color:#f0eef5;font:800 clamp(7rem,15vw,13rem)/.8 "Plus Jakarta Sans",sans-serif;letter-spacing:-.1em}
+.about-story-statement{margin-top:32px;padding:26px 28px;border:1px solid #e9e5f1;background:linear-gradient(115deg,#f8f6fb,#fff);color:#30234a;font:750 clamp(1.05rem,1.7vw,1.35rem)/1.6 "Plus Jakarta Sans",sans-serif;letter-spacing:-.025em}
+.about-story-statement:before{content:"OUR COMMITMENT";display:block;margin-bottom:12px;color:var(--p);font:700 .57rem/1.3 Inter,sans-serif;letter-spacing:.17em}
+.about-manifesto{padding:26px 0;overflow:hidden;background:#f4f2f8;border-block:1px solid #e9e6ef}
+.about-manifesto-track{display:flex;align-items:center;justify-content:center;gap:clamp(26px,5vw,72px);flex-wrap:wrap}
+.about-manifesto-item{display:inline-flex;align-items:center;gap:12px;color:#51466a;font:700 .62rem/1.4 Inter,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.about-manifesto-item:before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pink))}
+.about-direction{overflow:hidden;background:#111019;color:#fff}
+.about-direction .about-section-title{color:#fff}
+.about-direction .about-section-lead{color:rgba(255,255,255,.55)}
+.about-direction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:52px}
+.about-direction-card{position:relative;display:flex;flex-direction:column;min-height:380px;padding:clamp(30px,4.5vw,56px);overflow:hidden;border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025))}
+.about-direction-card:after{content:"";position:absolute;right:-110px;bottom:-180px;width:340px;height:340px;border:1px solid rgba(200,194,237,.13);border-radius:50%;box-shadow:0 0 0 36px rgba(255,255,255,.018),0 0 0 72px rgba(255,255,255,.014);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.about-direction-card:hover:after{transform:scale(1.12) translate(-10px,-12px)}
+.about-direction-card:nth-child(2):after{border-color:rgba(213,45,145,.2)}
+.about-direction-top{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.about-direction-label{color:#c8c2eb;font:700 .62rem/1.4 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.about-direction-number{color:rgba(255,255,255,.3);font:500 .65rem/1 "DM Mono",monospace}
+.about-direction-title{position:relative;z-index:1;max-width:470px;margin:clamp(48px,6vw,74px) 0 0;font:750 clamp(2.2rem,3.7vw,3.6rem)/1.02 "Plus Jakarta Sans",sans-serif;letter-spacing:-.06em}
+.about-direction-copy{position:relative;z-index:1;max-width:510px;margin-top:20px;color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.9}
+.about-values{background:#F7F7F9}
+.about-values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:50px;border:1px solid #e5e3ea;background:#e5e3ea}
+.about-value{position:relative;min-height:240px;padding:clamp(24px,3vw,34px);background:#fff;transition:background .25s ease,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.about-value:hover{z-index:1;transform:translateY(-5px);background:#fcfbff;box-shadow:0 18px 38px rgba(38,26,65,.08)}
+.about-value-top{display:flex;align-items:center;justify-content:space-between}
+.about-value-index{color:var(--p);font:500 .65rem/1 "DM Mono",monospace;letter-spacing:.12em}
+.about-value-mark{display:grid;width:34px;height:34px;place-items:center;border:1px solid #e7e3ee;border-radius:50%;color:var(--p);transition:transform .3s ease,background .3s ease,color .3s ease}
+.about-value-mark svg{width:15px;height:15px}
+.about-value:hover .about-value-mark{transform:rotate(45deg);background:var(--p);color:#fff}
+.about-value-title{max-width:245px;margin:40px 0 0;color:#211d2a;font:750 1.12rem/1.35 "Plus Jakarta Sans",sans-serif;letter-spacing:-.03em}
+.about-value-copy{max-width:290px;margin:11px 0 0;color:var(--muted);font-size:.83rem;line-height:1.8}
+.about-people{background:#fff}
+.about-people-aside{display:grid;grid-template-columns:1fr auto;align-items:end;gap:22px;margin-top:32px;padding:28px;background:#f5f2fa;border:1px solid #e9e4f0}
+.about-people-aside strong{max-width:490px;color:#30234a;font:750 clamp(1.55rem,2.8vw,2.5rem)/1.12 "Plus Jakarta Sans",sans-serif;letter-spacing:-.055em}
+.about-people-aside span{max-width:150px;color:var(--p);font:500 .62rem/1.65 "DM Mono",monospace;text-align:right;text-transform:uppercase}
+.about-people-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px}
+.about-people-point{padding-top:14px;border-top:1px solid #E8E7EC;color:#514b5c;font:700 .68rem/1.6 Inter,sans-serif}
+.about-people-point span{display:block;margin-bottom:7px;color:var(--p);font:500 .58rem/1 "DM Mono",monospace}
+.about-promise{position:relative;isolation:isolate;overflow:hidden;background:#171321;color:#fff}
+.about-promise:before{content:"";position:absolute;z-index:-1;width:700px;height:700px;top:-390px;right:-180px;border-radius:50%;background:radial-gradient(circle,rgba(139,133,207,.28),rgba(213,45,145,.09) 42%,transparent 70%)}
+.about-promise:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.1;background-image:radial-gradient(rgba(255,255,255,.7) .65px,transparent .65px);background-size:19px 19px;mask-image:linear-gradient(90deg,transparent,#000)}
+.about-promise-inner{max-width:1030px}
+.about-promise .about-kicker{color:#c8c2eb}
+.about-promise-title{max-width:980px;margin:26px 0 0;font-size:clamp(2.9rem,6.9vw,6.5rem)}
+.about-promise-title span{color:#c8c2eb}
+.about-promise-copy{max-width:680px;margin-top:24px;color:rgba(255,255,255,.63);font-size:.98rem;line-height:1.9}
+.about-promise-signoff{display:inline-flex;align-items:center;gap:15px;margin-top:38px;padding-top:18px;border-top:1px solid rgba(255,255,255,.22);color:#fff;font:500 .65rem/1.6 "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.about-promise-signoff:before{content:"";width:24px;height:1px;background:var(--pink)}
+.about-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;margin-top:30px;padding:0 20px;border-radius:999px;background:linear-gradient(110deg,var(--p),#765db5 55%,var(--pink));color:#fff;font:700 .68rem/1 Inter,sans-serif;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;transition:transform .25s ease,box-shadow .25s ease}
+.about-cta:hover{transform:translateY(-3px);box-shadow:0 15px 32px rgba(92,85,162,.28)}
+.about-cta svg{width:16px;height:16px;transition:transform .25s ease}
+.about-cta:hover svg{transform:translate(2px,-2px)}
+.about-reveal{opacity:0;transform:translateY(24px)}
+@media(max-width:900px){
+ .about-hero{min-height:auto}.about-hero-orbit{width:65vw;right:-27%;opacity:.7}
+ .about-hero-bottom{align-items:flex-start;flex-direction:column}
+ .about-hero-side{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.22);padding-top:18px}
+ .about-story-grid,.about-people-grid{grid-template-columns:1fr;gap:32px}
+ .about-story-heading:after{display:none}.about-section-head{align-items:flex-start;flex-direction:column}
+ .about-direction-grid{grid-template-columns:1fr}.about-direction-card{min-height:320px}
+ .about-values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+ .about-container{width:calc(100% - 34px)}.about-hero{padding:90px 0 68px}
+ .about-hero-title{font-size:clamp(2.9rem,13vw,4.8rem)}.about-hero-copy{font-size:.94rem}
+ .about-hero-orbit{width:92vw;right:-58%;top:33%}.about-hero-rule{margin-top:48px}
+ .about-section{padding:76px 0}.about-section-title{font-size:clamp(2.3rem,11vw,3.65rem)}
+ .about-story-statement{padding:22px;font-size:1.02rem}
+ .about-manifesto-track{justify-content:flex-start;gap:18px 28px}.about-manifesto-item{font-size:.55rem}
+ .about-direction-card{min-height:0;padding:28px 24px 34px}.about-direction-title{margin-top:48px;font-size:2.35rem}
+ .about-values-grid{grid-template-columns:1fr;margin-top:34px}.about-value{min-height:0;padding:25px}.about-value-title{margin-top:29px}
+ .about-people-aside{grid-template-columns:1fr;padding:24px}.about-people-aside span{max-width:100%;text-align:left}
+ .about-people-points{grid-template-columns:1fr;gap:15px}.about-promise-title{font-size:clamp(2.65rem,12vw,4.25rem)}
+ .about-promise-signoff{align-items:flex-start;font-size:.57rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .about-page *, .about-page *:before, .about-page *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .about-reveal,.about-hero [data-hero-reveal]{opacity:1!important;transform:none!important}
+}
+</style>
+<section class="about-hero" aria-labelledby="about-title">
+ <div class="about-hero-orbit" aria-hidden="true"><span></span></div>
+ <div class="about-container about-hero-inner">
+  <div class="about-kicker" data-hero-reveal>About Trendz Eventz</div>
+  <h1 id="about-title" class="about-display about-hero-title" data-hero-reveal>15 Years of Creating<br><span class="accent">Experiences.</span><br><span class="outline">Building Brands.</span><br>Delivering Impact.</h1>
+  <div class="about-hero-bottom" data-hero-reveal><p class="about-hero-copy">For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.</p><div class="about-hero-side"><strong>15+</strong><span>Years of creating<br>brand experiences</span></div></div>
+  <div class="about-hero-rule" data-hero-reveal>Creativity · Commitment · Execution</div>
+ </div>
+</section>
+<section class="about-section about-story" aria-labelledby="story-title">
+ <div class="about-container about-story-grid">
+  <div class="about-story-heading about-reveal"><div class="about-index">01 / OUR STORY</div><h2 id="story-title" class="about-display about-section-title">A journey shaped by ideas, people and possibility.</h2></div>
+  <div class="about-story-body about-copy about-reveal">
+   <p>What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.</p>
+   <p>Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.</p>
+   <p>Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.</p>
+   <div class="about-story-statement">15 years of experience. Countless experiences. One commitment — making every brand interaction matter.</div>
+  </div>
+ </div>
+</section>
+<div class="about-manifesto" aria-label="Our approach"><div class="about-container about-manifesto-track"><span class="about-manifesto-item">Strategic thinking</span><span class="about-manifesto-item">Creative ideas</span><span class="about-manifesto-item">Flawless execution</span><span class="about-manifesto-item">Meaningful engagement</span></div></div>
+<section class="about-section about-direction" aria-labelledby="direction-title">
+ <div class="about-container">
+  <div class="about-section-head about-reveal"><div><div class="about-kicker">Our Direction</div><h2 id="direction-title" class="about-display about-section-title">The purpose behind every experience.</h2></div><p class="about-section-lead">A clear point of view guides how we think, plan and deliver — from the first idea to the final interaction.</p></div>
+  <div class="about-direction-grid">
+   <article class="about-direction-card about-reveal"><div class="about-direction-top"><span class="about-direction-label">02 / Our Mission</span><span class="about-direction-number">01</span></div><h3 class="about-direction-title">Create impact.<br>Build connection.</h3><p class="about-direction-copy">To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.</p></article>
+   <article class="about-direction-card about-reveal"><div class="about-direction-top"><span class="about-direction-label">03 / Our Vision</span><span class="about-direction-number">02</span></div><h3 class="about-direction-title">Be the partner<br>leading brands trust.</h3><p class="about-direction-copy">To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.</p></article>
+  </div>
+ </div>
+</section>
+<section class="about-section about-values" aria-labelledby="values-title">
+ <div class="about-container">
+  <div class="about-section-head about-reveal"><div><div class="about-index">04 / OUR CORE VALUES</div><h2 id="values-title" class="about-display about-section-title">Principles that shape how we work.</h2></div><p class="about-section-lead">The standards we bring to every brief, every partnership and every moment of execution.</p></div>
+  <div class="about-values-grid">
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">01 / 06</span><span class="about-value-mark"><i data-lucide="lightbulb"></i></span></div><h3 class="about-value-title">Creativity &amp; Innovation</h3><p class="about-value-copy">Constantly exploring fresh ideas and unconventional approaches.</p></article>
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">02 / 06</span><span class="about-value-mark"><i data-lucide="handshake"></i></span></div><h3 class="about-value-title">Commitment</h3><p class="about-value-copy">Taking ownership of every project and delivering on our promises.</p></article>
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">03 / 06</span><span class="about-value-mark"><i data-lucide="target"></i></span></div><h3 class="about-value-title">Excellence in Execution</h3><p class="about-value-copy">Ensuring attention to detail and quality at every stage.</p></article>
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">04 / 06</span><span class="about-value-mark"><i data-lucide="shield-check"></i></span></div><h3 class="about-value-title">Integrity &amp; Transparency</h3><p class="about-value-copy">Building long-term relationships through trust and accountability.</p></article>
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">05 / 06</span><span class="about-value-mark"><i data-lucide="users"></i></span></div><h3 class="about-value-title">Client Partnership</h3><p class="about-value-copy">Understanding our clients' objectives and working as an extension of their teams.</p></article>
+   <article class="about-value about-reveal"><div class="about-value-top"><span class="about-value-index">06 / 06</span><span class="about-value-mark"><i data-lucide="trending-up"></i></span></div><h3 class="about-value-title">Results &amp; Impact</h3><p class="about-value-copy">Creating experiences that deliver tangible value to brands.</p></article>
+  </div>
+ </div>
+</section>
+<section class="about-section about-people" aria-labelledby="people-title">
+ <div class="about-container about-people-grid">
+  <div class="about-reveal"><div class="about-index">05 / THE PEOPLE</div><h2 id="people-title" class="about-display about-section-title">The people behind the journey.</h2></div>
+  <div class="about-reveal"><div class="about-copy">
+   <p>Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p>
+   <p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p>
+   <p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p>
+  </div>
+  <aside class="about-people-aside"><strong>Ideas need people. Experiences need commitment.</strong><span>The people behind every interaction</span></aside>
+  <div class="about-people-points"><div class="about-people-point"><span>01</span>Business development</div><div class="about-people-point"><span>02</span>Creative</div><div class="about-people-point"><span>03</span>Production &amp; operations</div></div></div>
+ </div>
+</section>
+<section class="about-section about-promise" aria-labelledby="promise-title">
+ <div class="about-container"><div class="about-promise-inner about-reveal">
+  <div class="about-kicker">06 / Our Promise</div>
+  <h2 id="promise-title" class="about-display about-promise-title">We don't just execute campaigns.<br><span>We create connections.</span></h2>
+  <p class="about-promise-copy">We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.</p>
+  <div class="about-promise-signoff">15 Years Strong. Driven by Ideas. Defined by Execution.</div><br>
+  <a href="contact.html" class="about-cta">Start a Conversation <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+ </div></div>
+</section>
 </main>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
- if (window.lucide) lucide.createIcons();
- const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- if (reduced || typeof gsap === "undefined") {document.querySelectorAll(".about-reveal").forEach(el=>{el.style.opacity="1";el.style.transform="none";});return;}
- if (typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
- gsap.from(".about-hero .about-eyebrow,.about-hero-title,.about-hero-copy,.about-proof-item",{opacity:0,y:22,duration:.8,stagger:.08,ease:"power3.out"});
- if(typeof ScrollTrigger!=="undefined"){gsap.utils.toArray(".about-reveal").forEach(el=>gsap.fromTo(el,{opacity:0,y:22},{opacity:1,y:0,duration:.72,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 88%",once:true}}));}
- else{gsap.to(".about-reveal",{opacity:1,y:0,duration:.7,stagger:.04});}
+document.addEventListener("DOMContentLoaded",()=>{
+ if(window.lucide)window.lucide.createIcons();
+ const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const hero=document.querySelectorAll(".about-hero [data-hero-reveal]");
+ const reveals=document.querySelectorAll(".about-reveal");
+ if(reduced||typeof window.gsap==="undefined"){
+  [...hero,...reveals].forEach(el=>{el.style.opacity="1";el.style.transform="none"});
+  return;
+ }
+ window.gsap.to(hero,{opacity:1,y:0,duration:1,stagger:.13,ease:"power3.out",delay:.12});
+ if("IntersectionObserver"in window){
+  const observer=new IntersectionObserver((entries,obs)=>{
+   entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    window.gsap.to(entry.target,{opacity:1,y:0,duration:.78,ease:"power3.out",clearProps:"transform",overwrite:"auto"});
+    obs.unobserve(entry.target);
+   });
+  },{root:null,rootMargin:"0px 0px -8% 0px",threshold:.08});
+  reveals.forEach(el=>observer.observe(el));
+ }else{
+  window.gsap.to(reveals,{opacity:1,y:0,duration:.75,stagger:.04});
+ }
 });
 </script>
+
 
 <!-- PRE-FOOTER CTA -->
 <section class="trendz-cta relative overflow-hidden">
@@ -3517,5 +3634,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const header=document.getElementById("site-header");
+ const button=document.getElementById("mobile-menu-button");
+ const menu=document.getElementById("mobile-navigation");
+ const backdrop=document.getElementById("mobile-menu-backdrop");
+ const updateHeader=()=>header&&header.classList.toggle("is-scrolled",window.scrollY>24);
+ updateHeader();window.addEventListener("scroll",updateHeader,{passive:true});
+ if(!button||!menu||!backdrop)return;
+ const setMenu=open=>{
+  button.classList.toggle("is-open",open);
+  button.setAttribute("aria-expanded",String(open));
+  button.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  menu.classList.toggle("is-open",open);menu.setAttribute("aria-hidden",String(!open));
+  backdrop.classList.toggle("is-open",open);backdrop.setAttribute("aria-hidden",String(!open));
+ };
+ button.addEventListener("click",()=>setMenu(button.getAttribute("aria-expanded")!=="true"));
+ backdrop.addEventListener("click",()=>setMenu(false));
+ menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+ document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
+ window.addEventListener("resize",()=>{if(window.innerWidth>=1024)setMenu(false)},{passive:true});
+});
+</script>
+
 </body>
 </html>
