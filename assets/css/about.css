@@ -284,3 +284,40 @@ html,body{font-family:"Segoe UI",SegoeUI,Arial,sans-serif!important}
 /* ITERATION 2 — shared footer isolation moved out of page markup */
 #trendz-shared-footer{all:initial;display:block;width:100%;box-sizing:border-box;font-family:Inter,"Segoe UI",Arial,sans-serif;color:#cbd5e1;isolation:isolate;contain:layout style}
 #trendz-shared-footer,#trendz-shared-footer *{box-sizing:border-box}
+
+/* ITERATION 4 — cross-device overflow and touch-safety pass */
+.about-v4{width:100%;max-width:100%;overflow:clip}
+.about-v4 img{max-width:100%}
+.about-v4 .v4-wrap{width:min(1280px,calc(100% - 72px));margin-inline:auto}
+.about-v4 .v4-hero-art,.about-v4 .v4-hero-grid,.about-v4 .v4-story-grid,.about-v4 .v4-purpose-grid,.about-v4 .v4-values-editorial,.about-v4 .v4-people-grid{min-width:0}
+#trendz-shared-footer{max-width:100%;overflow:hidden}
+#trendz-shared-footer a{overflow-wrap:anywhere}
+@media(max-width:1100px){
+  .about-v4 .v4-wrap{width:min(100% - 48px,1100px)}
+}
+@media(max-width:900px){
+  .about-v4 .v4-wrap{width:min(100% - 40px,760px)}
+  .about-v4 .v4-hero-grid{grid-template-columns:1fr;gap:36px}
+  .about-v4 .v4-hero-art{min-height:430px}
+  .about-v4 .v4-story-grid,.about-v4 .v4-purpose-grid,.about-v4 .v4-people-grid{grid-template-columns:1fr}
+  .about-v4 .v4-values-editorial{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .about-v4 .v4-wrap{width:calc(100% - 32px)}
+  .about-v4 .v4-hero-grid{gap:26px}
+  .about-v4 .v4-hero-art{min-height:350px}
+  .about-v4 .v4-image{width:min(78vw,330px);margin-inline:auto}
+  .about-v4 .v4-values-editorial{grid-template-columns:1fr}
+  .about-v4 .v4-purpose-card{min-height:auto}
+  .about-v4 .v4-section-meta{gap:12px;flex-wrap:wrap}
+  .about-v4 .v4-section-meta .right{margin-left:auto;text-align:right}
+}
+@media(max-width:380px){
+  .about-v4 .v4-wrap{width:calc(100% - 24px)}
+  .about-v4 .v4-hero-art{min-height:320px}
+  .about-v4 .v4-image{width:82vw}
+  .about-v4 .v4-section-meta .right{display:none}
+}
+@media(hover:none){
+  .about-v4 .v5-people-gallery figure:hover img{transform:none;filter:none}
+}
