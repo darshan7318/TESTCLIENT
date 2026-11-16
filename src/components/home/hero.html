@@ -1,0 +1,494 @@
+<!-- =========================================================
+     MINIMALIST LUXURY HERO — INTER FONT & AUTO IMAGE SLIDER
+========================================================== -->
+<section id="hero" class="relative isolate overflow-hidden bg-[#16142a] pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24" aria-label="Trendz Eventz — Experiential Agency">
+
+  <!-- =====================================================
+       ORGANIC ATMOSPHERE BACKGROUND
+  ====================================================== -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <!-- Organic Floating Blobs -->
+    <div class="hero-organic-blob blob-1"></div>
+    <div class="hero-organic-blob blob-2"></div>
+    <div class="hero-organic-blob blob-3"></div>
+
+    <!-- Fine Grid & Noise Overlay -->
+    <div class="about-grid-bg absolute inset-0"></div>
+    <div class="about-noise-bg absolute inset-0"></div>
+
+    <!-- Animated Contour Ribbon -->
+    <svg class="hero-contour-svg absolute -right-20 top-12 h-[650px] w-[650px] opacity-[0.14]" viewBox="0 0 700 600" fill="none">
+      <path class="hero-contour-line" d="M30 300C100 100 250 40 380 150 C510 260 600 160 680 40" />
+      <path class="hero-contour-line contour-delay-1" d="M0 370C120 180 270 120 400 220 C520 320 610 240 700 110" />
+      <path class="hero-contour-line contour-delay-2" d="M20 440C140 260 290 220 420 300 C540 380 620 330 700 210" />
+    </svg>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- =====================================================
+         MAIN STAGE: COPY (LEFT) & AUTO SLIDER (RIGHT)
+    ====================================================== -->
+    <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+
+      <!-- LEFT COLUMN: Messaging, Value & Action Triggers (7 Cols) -->
+      <div class="lg:col-span-7">
+
+        <!-- Live Status Pill -->
+        <div class="inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-white/[0.06] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.25em] text-violet-200 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.2)]">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-fuchsia-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-fuchsia-400"></span>
+          </span>
+          <span>15+ YEARS OF EXPERIENTIAL LEADERSHIP</span>
+          <span class="text-violet-400/40">·</span>
+          <span class="text-violet-300/70 font-medium">PAN-INDIA</span>
+        </div>
+
+        <!-- High-Impact Enterprise ROI Headline (Inter Font) -->
+        <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.2rem] font-black tracking-[-0.04em] leading-[0.96] text-white">
+          Experiential Marketing
+          <span class="about-gradient-text block mt-1.5 sm:mt-2">Engineered for Enterprise Impact.</span>
+        </h1>
+
+        <!-- Enterprise Subtitle -->
+        <p class="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-violet-100/80">
+          We transform high-stakes corporate conventions, dealer summits, and nationwide brand activations into measurable momentum across 50+ cities.
+        </p>
+
+        <!-- Action Triggers -->
+        <div class="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
+          <a href="contact.html" class="group inline-flex items-center justify-between gap-4 rounded-full bg-white px-7 py-3.5 sm:py-4 text-xs font-bold uppercase tracking-wider text-[#16142a] transition-all duration-300 hover:bg-violet-100 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.35)] hover:-translate-y-0.5">
+            <span>Request an Event Proposal</span>
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#16142a] text-white transition-transform duration-300 group-hover:rotate-45">
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </span>
+          </a>
+
+          <a href="work.html" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3.5 sm:py-4 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-violet-400/40 hover:bg-white/[0.1] hover:-translate-y-0.5">
+            <span>Explore Verified Work</span>
+            <i data-lucide="arrow-right" class="h-4 w-4 text-violet-300"></i>
+          </a>
+
+          <a href="tel:+919987399997" class="inline-flex items-center gap-2 text-xs font-medium text-violet-300/80 hover:text-white transition-colors duration-200">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
+              <i data-lucide="phone" class="h-3.5 w-3.5 text-fuchsia-400"></i>
+            </span>
+            <span>+91 99873 99997</span>
+          </a>
+        </div>
+
+        <!-- Turnaround Assurance -->
+        <div class="mt-5 flex items-center gap-2 text-xs text-violet-300/60">
+          <i data-lucide="zap" class="h-3.5 w-3.5 text-fuchsia-400"></i>
+          <span>Fast technical evaluation · Same-day proposal turnaround for enterprise briefs</span>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Auto Image Slider with Organic Halo (5 Cols) -->
+      <div class="relative lg:col-span-5">
+
+        <!-- Outer Organic Halo Ring -->
+        <div class="hero-organic-ring pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Primary Featured Campaign Auto Slider -->
+        <div id="heroAutoSlider" class="hero-main-card glass-card relative overflow-hidden rounded-[2.5rem_1.25rem_2.5rem_1.25rem] p-3 border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] transition-all duration-500">
+          
+          <div class="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem_1rem_2rem_1rem]">
+            
+            <!-- Slide 1: Philips -->
+            <div class="hero-slide active absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 pointer-events-auto" data-slide-index="0">
+              <img src="assets/img/work/philips-dealers-meet-1.jpg" alt="Philips National Dealers Convention, Goa delivered by Trendz Eventz" width="900" height="675" loading="eager" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-fuchsia-300">01 / CORPORATE CONVENTION</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Verified Ground Delivery
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Philips National Dealers Convention</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Goa, India</span>
+                  <span>500+ National Dealers</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Bombay Dyeing -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="1">
+              <img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg" alt="Bombay Dyeing Annual Sales Meet" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-300">02 / ANNUAL SALES MEET</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Leadership Convention
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Bombay Dyeing Annual Sales Meet</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Mumbai &amp; Pan-India</span>
+                  <span>Senior Sales Force</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Cadbury -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="2">
+              <img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Cadbury Shubh Aarambh Activation" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-amber-300">03 / BRAND ACTIVATION</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Experiential BTL
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Cadbury Shubh Aarambh Activation</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Multi-City Campaign</span>
+                  <span>Direct Consumer Engagement</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Lipton -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="3">
+              <img src="assets/img/work/lipton-flash-mob-1.jpg" alt="Lipton Ice Tea Flash Mob Activation" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300">04 / HIGH-FOOTFALL STUNT</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Viral Live Campaign
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Lipton Ice Tea Flash Mob Activation</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Premier Metro Malls</span>
+                  <span>50,000+ Footfall Reached</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Samsung -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="4">
+              <img src="assets/img/work/samsung-store-launch-1.jpg" alt="Samsung Flagship Store Experience Launch" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-indigo-300">05 / RETAIL LAUNCH</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Flagship Store Opening
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Samsung Flagship Store Experience</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Metro Retail Hub</span>
+                  <span>VIP Experience &amp; Launch</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Overlay: Slider Progress Dots & Slide Counter -->
+            <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <button type="button" class="hero-dot active h-2 w-7 rounded-full bg-white transition-all duration-300" data-to-slide="0" aria-label="Go to slide 1"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="1" aria-label="Go to slide 2"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="2" aria-label="Go to slide 3"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="3" aria-label="Go to slide 4"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="4" aria-label="Go to slide 5"></button>
+              </div>
+              <span id="heroSlideCounter" class="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-bold tracking-widest text-white backdrop-blur-md">01 / 05</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Floating Satellite Card 1 (Top-Right): Cadbury Brand Activation -->
+        <div class="hero-floating-card-1 glass-card absolute -top-6 -right-4 sm:-top-8 sm:-right-6 hidden sm:flex items-center gap-3.5 rounded-2xl p-3 border border-white/15 shadow-2xl backdrop-blur-xl">
+          <div class="h-12 w-12 overflow-hidden rounded-xl border border-white/10 shrink-0">
+            <img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Cadbury Shubh Aarambh Activation" width="100" height="100" class="h-full w-full object-cover">
+          </div>
+          <div>
+            <div class="text-[8px] font-bold uppercase tracking-[0.2em] text-violet-300">BTL EXPERIENTIAL</div>
+            <div class="text-xs font-bold text-white">Cadbury Shubh Aarambh</div>
+            <div class="text-[9px] text-slate-400">Consumer Activation</div>
+          </div>
+        </div>
+
+        <!-- Floating Satellite Card 2 (Bottom-Left): 15-Year Metric Badge -->
+        <div class="hero-floating-card-2 glass-card absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-6 flex items-center gap-3.5 rounded-2xl p-3.5 sm:p-4 border border-violet-500/30 bg-[#16142a]/95 shadow-2xl backdrop-blur-xl">
+          <div class="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg shrink-0">
+            <span class="text-xl sm:text-2xl font-black">15</span>
+          </div>
+          <div>
+            <div class="text-[8px] font-bold uppercase tracking-[0.2em] text-fuchsia-300">ESTABLISHED TRACK RECORD</div>
+            <div class="text-xs sm:text-sm font-bold text-white">100% In-House Execution</div>
+            <div class="text-[9px] text-violet-300/70">Mumbai &amp; 50+ Cities</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =====================================================
+         ENTERPRISE 4-METRIC STRIP
+    ====================================================== -->
+    <div class="mt-14 sm:mt-16 border-t border-white/10 pt-8 sm:pt-10">
+      <div class="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-4 lg:gap-8">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">15+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fuchsia-300">Years Experience</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Proven track record across leading Indian &amp; global enterprises.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">500+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-violet-300">Events Delivered</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Conventions, dealer meets, launches, and retail rollouts.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">50+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-violet-300">Cities Activated</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Pan-India on-ground production and operational network.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">100%</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fuchsia-300">On-Ground Control</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Direct execution accountability without vendor delegation.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     AUTO SLIDER CONTROLLER
+========================================================== -->
+<script>
+(function() {
+  const slider = document.getElementById('heroAutoSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.hero-slide');
+  const dots = slider.querySelectorAll('.hero-dot');
+  const counter = document.getElementById('heroSlideCounter');
+  const total = slides.length;
+  let current = 0;
+  let timer = null;
+
+  function showSlide(index) {
+    current = (index + total) % total;
+    slides.forEach((s, i) => {
+      if (i === current) {
+        s.classList.add('active', 'opacity-100', 'pointer-events-auto');
+        s.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        s.classList.remove('active', 'opacity-100', 'pointer-events-auto');
+        s.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    dots.forEach((d, i) => {
+      if (i === current) {
+        d.classList.add('active', 'w-7', 'bg-white');
+        d.classList.remove('w-2', 'bg-white/40');
+      } else {
+        d.classList.remove('active', 'w-7', 'bg-white');
+        d.classList.add('w-2', 'bg-white/40');
+      }
+    });
+
+    if (counter) {
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    }
+  }
+
+  function nextSlide() {
+    showSlide(current + 1);
+  }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(nextSlide, 4200);
+  }
+
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+  }
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      const idx = parseInt(d.dataset.toSlide, 10);
+      showSlide(idx);
+      startAuto();
+    });
+  });
+
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+
+  startAuto();
+})();
+</script>
+
+<!-- =========================================================
+     ORGANIC MOTION SYSTEM & INTER FONT STYLES
+========================================================== -->
+<style>
+  /* Inter Font from escanav.com */
+  #hero,
+  #hero * {
+    font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+  }
+
+  /* Organic Floating Blobs */
+  .hero-organic-blob {
+    position: absolute;
+    filter: blur(85px);
+    will-change: transform;
+    animation: heroOrganicFloat 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-organic-blob.blob-1 {
+    width: 440px;
+    height: 440px;
+    left: -120px;
+    top: -100px;
+    background: #7c3aed;
+    opacity: 0.28;
+    border-radius: 42% 58% 63% 37% / 48% 43% 57% 52%;
+  }
+
+  .hero-organic-blob.blob-2 {
+    width: 420px;
+    height: 420px;
+    right: -80px;
+    top: 20%;
+    background: #c026d3;
+    opacity: 0.18;
+    border-radius: 58% 42% 35% 65% / 45% 55% 45% 55%;
+    animation-delay: -5s;
+  }
+
+  .hero-organic-blob.blob-3 {
+    width: 480px;
+    height: 320px;
+    left: 30%;
+    bottom: -100px;
+    background: #4f46e5;
+    opacity: 0.16;
+    border-radius: 55% 45% 30% 70% / 60% 40% 60% 40%;
+    animation-delay: -9s;
+  }
+
+  @keyframes heroOrganicFloat {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+      transform: translate3d(24px, -20px, 0) rotate(3deg) scale(1.04);
+    }
+    66% {
+      transform: translate3d(-18px, 18px, 0) rotate(-2deg) scale(0.97);
+    }
+  }
+
+  /* Animated Contour Lines */
+  .hero-contour-line {
+    stroke: #c4b5fd;
+    stroke-width: 1.2;
+    stroke-dasharray: 8 14;
+    animation: heroContourMove 20s linear infinite;
+  }
+
+  .contour-delay-1 {
+    animation-delay: -7s;
+  }
+
+  .contour-delay-2 {
+    animation-delay: -14s;
+  }
+
+  @keyframes heroContourMove {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 500;
+    }
+  }
+
+  /* Organic Ring Halo */
+  .hero-organic-ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 2.8rem 1.5rem 2.8rem 1.5rem;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    transform: rotate(1deg);
+    animation: heroRingGlow 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroRingGlow {
+    0% {
+      border-color: rgba(168, 85, 247, 0.2);
+      transform: rotate(1deg) scale(0.995);
+    }
+    100% {
+      border-color: rgba(236, 72, 153, 0.35);
+      transform: rotate(-1deg) scale(1.005);
+    }
+  }
+
+  /* Floating Satellite Cards */
+  .hero-floating-card-1 {
+    animation: heroFloatCard 8s ease-in-out infinite;
+  }
+
+  .hero-floating-card-2 {
+    animation: heroFloatCardReverse 9s ease-in-out infinite;
+  }
+
+  @keyframes heroFloatCard {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes heroFloatCardReverse {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(7px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-organic-blob,
+    .hero-contour-line,
+    .hero-organic-ring,
+    .hero-floating-card-1,
+    .hero-floating-card-2 {
+      animation: none !important;
+    }
+  }
+</style>

@@ -118,63 +118,14 @@ function nav_active(string $target, string $current): string
          TAILWIND
     ====================================================== -->
 
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- =====================================================
+         COMPILED TAILWIND CSS
+    ====================================================== -->
 
-    <script>
-
-        tailwind.config = {
-
-            theme: {
-
-                extend: {
-
-                    colors: {
-
-                        trendz: {
-
-                            ink: '#17151F',
-                            purple: '#5C55A2',
-                            lilac: '#8B85CF',
-                            pink: '#D52D91',
-                            paper: '#F7F7F9',
-                            muted: '#6F6B78',
-                            line: '#E8E7EC'
-
-                        }
-
-                    },
-
-                    fontFamily: {
-
-                        sans: [
-                            'Inter',
-                            'sans-serif'
-                        ],
-
-                        heading: [
-                            '"Plus Jakarta Sans"',
-                            'sans-serif'
-                        ],
-
-                        display: [
-                            'Syne',
-                            'sans-serif'
-                        ],
-
-                        mono: [
-                            '"DM Mono"',
-                            'monospace'
-                        ]
-
-                    }
-
-                }
-
-            }
-
-        };
-
-    </script>
+    <link
+        rel="stylesheet"
+        href="assets/css/trendz.min.css"
+    >
 
     <!-- =====================================================
          ICONS
@@ -2299,9 +2250,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Swiper -->
   <link
     rel="stylesheet"
@@ -2315,31 +2263,6 @@ document.addEventListener('DOMContentLoaded', function () {
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ["Space Grotesk", "sans-serif"],
-            body: ["Manrope", "sans-serif"],
-            mono: ["DM Mono", "monospace"],
-          },
-
-          colors: {
-            trendz: {
-              purple: "#5C55A2",
-              deep: "#1E1C38",
-              ink: "#11101E",
-              lilac: "#8B85CF",
-              pink: "#D52D91",
-              paper: "#F7F7FB",
-            },
-          },
-        },
-      },
-    };
-  </script>
 
   <style>
     html,

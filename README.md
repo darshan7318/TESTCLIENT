@@ -1,4 +1,4 @@
-# Trendz Eventz — Official Corporate Website (Netlify Static Edition)
+# Trendz Eventz — Official Corporate Website (Gulp & Compiled Tailwind CSS Edition)
 
 > **Meaningful experiences. Measurable momentum.**  
 > Official corporate website for Trendz Eventz, an experiential marketing and corporate event agency in Mumbai, Maharashtra, India.  
@@ -8,11 +8,13 @@
 
 ## 1. Project Overview & Architecture
 
-This repository contains the official **Trendz Eventz** website, customized for **high-performance static deployment on Netlify without PHP**:
-- **Pure Jamstack / Zero PHP:** Fully decoupled static HTML5, CSS3, and modern JavaScript. Requires no PHP interpreter, Node compiler, or dynamic backend.
+This repository contains the official **Trendz Eventz** website, built with a **Component-Driven Gulp + Tailwind CSS PostCSS pipeline** that compiles clean, production-minified CSS and outputs a standalone, directly deployable client build:
+- **Shared Component Architecture (`src/components/`):** Reusable UI elements (`header.html`, `footer.html`, `meta-head.html`, `scripts.html`) are isolated into single sources of truth. Pages in `src/pages/` compose these shared components cleanly via `gulp-file-include`. Any updates to the navigation, footer, brand, or metadata propagate instantly across all 20 pages upon build!
+- **Compiled Tailwind CSS (Zero CDN Runtime):** Tailwind utilities are pre-compiled and tree-shaken with PostCSS, Autoprefixer, and CSSNano into a single, lightning-fast 54 KB minified stylesheet (`assets/css/trendz.min.css`). Zero runtime script overhead, zero FOUC, and full CSP compliance.
+- **Automated Gulp 5 Pipeline:** One-command development and production workflows (`npm run dev`, `npm run build`) with BrowserSync live-reloading.
+- **Directly Deployable Client Build (`dist/`):** Running `npm run build` generates a standalone, self-contained `dist/` directory ready for instant deployment to Netlify, Vercel, cPanel, Apache, Nginx, or GitHub Pages.
 - **Netlify Forms Integration:** Contact RFP submissions are captured natively using Netlify Forms (`data-netlify="true"`, spam bot honeypot, and instant AJAX feedback).
 - **SEO & Canonical Routing:** 100% pre-rendered pages, comprehensive XML sitemap (`sitemap.xml`), and Netlify edge redirects (`_redirects` & `netlify.toml`) preserving legacy `.php` paths.
-- **Dynamic & Static Case Studies:** Interactive query-param explorer (`case-study.html?slug=...`) paired with dedicated static case study pages (`case-studies/*.html`).
 - **Edge Security Headers:** Pre-configured `_headers` and `netlify.toml` deploying HTTP security headers (`nosniff`, `SAMEORIGIN`, `strict-origin-when-cross-origin`, CSP).
 
 ---
@@ -21,69 +23,104 @@ This repository contains the official **Trendz Eventz** website, customized for 
 
 ```
 TESTCLIENT/
-├── index.html                    # Homepage (Hero, Marquee, Services, Work, Scale)
-├── about.html                    # Corporate profile, Bharat Jadhav leadership & 15+ years
-├── services.html                 # Six specialized experiential capability pillars
-├── work.html                     # Filterable case study explorer
-├── case-study.html               # Dynamic case study explorer (?slug= routing)
-├── case-studies/                 # 12 pre-rendered static case study detail pages
-├── clients.html                  # 13 verified enterprise client brand partners
-├── contact.html                  # Netlify Forms RFP submission experience
-├── netlify.toml                  # Netlify build, redirects, and edge security headers
+├── gulpfile.js                   # Gulp 5 build pipeline (Components, CSS, Assets, Watchers)
+├── tailwind.config.js            # Tailwind theme, custom Trendz palette & typography
+├── postcss.config.js             # PostCSS plugins (Tailwind, Autoprefixer, CSSNano)
+├── package.json                  # NPM scripts & dev dependencies
+├── src/
+│   ├── components/               # 🧩 Reusable Shared Components
+│   │   ├── meta-head.html        # Shared <head> metadata, fonts, compiled CSS
+│   │   ├── header.html           # Shared navbar, branding, CTA & mobile drawer
+│   │   ├── footer.html           # Shared corporate footer, pre-footer & credentials
+│   │   └── scripts.html          # Shared core scripts, Lucide icons, controllers
+│   ├── pages/                    # 📄 Modular Source Pages
+│   │   ├── index.html            # Homepage source
+│   │   ├── about.html            # About page source
+│   │   ├── services.html         # Services page source
+│   │   ├── work.html             # Portfolio explorer source
+│   │   ├── case-study.html       # Dynamic case study explorer source
+│   │   ├── case-studies/         # 12 static case study sources
+│   │   ├── clients.html          # Clients page source
+│   │   └── contact.html          # Contact RFP page source
+│   └── css/
+│       ├── header.css            # Header component styles
+│       └── main.css              # Tailwind entrypoint & utility extensions
+├── dist/                         # 🚀 Production-ready deployable client build
+│   ├── index.html                # Compiled homepage
+│   ├── about.html                # Compiled about page
+│   ├── services.html             # Compiled services page
+│   ├── work.html                 # Compiled work page
+│   ├── case-study.html           # Compiled case study page
+│   ├── case-studies/             # 12 compiled static case studies
+│   ├── clients.html              # Compiled clients page
+│   ├── contact.html              # Compiled contact page
+│   └── assets/
+│       ├── css/trendz.min.css    # Pre-compiled, minified Tailwind stylesheet
+│       ├── js/                   # Core lifecycle & interactions
+│       └── img/                  # Brand, client logos, authentic event photography
+├── index.html                    # Root homepage
+├── about.html                    # Root about page
+├── services.html                 # Root services page
+├── work.html                     # Root work page
+├── case-study.html               # Root dynamic case study page
+├── case-studies/                 # 12 root static case study pages
+├── clients.html                  # Root clients page
+├── contact.html                  # Root contact page
+├── netlify.toml                  # Netlify build (npm run build -> dist) & headers
 ├── _redirects                    # Netlify redirect rules (legacy .php -> .html)
 ├── _headers                      # Netlify HTTP security and caching headers
 ├── robots.txt                    # Search crawler directives
 ├── sitemap.xml                   # XML sitemap covering all canonical endpoints
-├── generate_static.py            # Automated static site generator
-├── test_static_build.py          # Quality assurance and verification test suite
-├── assets/
-│   ├── css/                      # Tokens, base, components, motion
-│   ├── js/                       # Core lifecycle & interactions
-│   └── img/
-│       ├── brand/                # Logos, icons, founder signature
-│       ├── clients/              # 13 verified client partner logos (PNG)
-│       └── work/                 # 39 authentic on-ground event photos
-└── legacy_php/                   # Quarantined legacy PHP templates & includes
+└── test_static_build.py          # Quality assurance and verification test suite
 ```
 
 ---
 
-## 3. Netlify Deployment Guide
+## 3. Quickstart & Developer Workflow
 
-### Option A: Connect via Git (GitHub / GitLab / Bitbucket)
-1. Push this repository to GitHub/GitLab.
-2. In Netlify Dashboard, click **Add new site** > **Import an existing project**.
-3. Select your repository.
-4. Deployment settings are auto-detected from `netlify.toml`:
-   - **Base directory:** (leave empty)
-   - **Build command:** (leave empty, or `python generate_static.py`)
-   - **Publish directory:** `.`
-5. Click **Deploy site**.
-
-### Option B: Netlify CLI
+### Installation:
 ```bash
-npm install -g netlify-cli
-netlify deploy --prod --dir=.
+npm install
 ```
 
-### Option C: Drag & Drop
-Drag the project folder directly into the Netlify Drop web interface: [https://app.netlify.com/drop](https://app.netlify.com/drop).
+### Development with Live Reload (BrowserSync):
+```bash
+npm run dev
+# or: gulp dev
+```
+Spins up a local development server at `http://localhost:3000` with automated watchers on CSS, HTML, and JS. Any style or markup changes recompile Tailwind and hot-reload the browser automatically.
+
+### Production Build:
+```bash
+npm run build
+# or: gulp build
+```
+Compiles and minifies Tailwind CSS via PostCSS, processes all HTML files, syncs all images, scripts, and deployment configurations into the self-contained `dist/` directory.
+
+### Run Verification & QA Test Suite:
+```bash
+npm test
+# or: python test_static_build.py && python test_static_build.py dist
+```
 
 ---
 
-## 4. Local Quickstart (Zero PHP Required)
+## 4. Client Deployment Guide
 
-Run locally using Python's built-in static HTTP server or Node `serve`:
+### Option A: Direct Client Handoff (Zip & Send)
+Run `npm run build`. The generated `dist/` directory is 100% self-contained and ready to be zipped and sent directly to the client or uploaded to any cPanel/Apache/Nginx/FTP host.
 
-### Using Python:
+### Option B: Netlify (Git Integration)
+Push this repository to GitHub/GitLab. In Netlify, settings are auto-detected from `netlify.toml`:
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+
+### Option C: Netlify Drag & Drop
+Drag the `dist/` folder directly into [https://app.netlify.com/drop](https://app.netlify.com/drop).
+
+### Option D: Netlify CLI
 ```bash
-python -m http.server 8080
-```
-Open your browser at `http://localhost:8080`.
-
-### Running the QA & Integrity Suite:
-```bash
-python test_static_build.py
+npx netlify-cli deploy --prod --dir=dist
 ```
 
 ---

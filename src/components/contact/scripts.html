@@ -1,0 +1,234 @@
+
+<!-- =========================================================
+     INTERACTION
+     ========================================================= -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* ---------------------------------------------
+       Lucide Icons
+       --------------------------------------------- */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    /* ---------------------------------------------
+       Scroll Reveal
+       --------------------------------------------- */
+
+    const revealElements = document.querySelectorAll(
+        '.tz-reveal, .tz-reveal-left, .tz-reveal-right'
+    );
+
+    if ('IntersectionObserver' in window) {
+
+        const observer = new IntersectionObserver(
+            function (entries, obs) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('is-visible');
+
+                        obs.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: '0px 0px -60px 0px'
+            }
+        );
+
+        revealElements.forEach(function (element) {
+            observer.observe(element);
+        });
+
+    } else {
+
+        revealElements.forEach(function (element) {
+            element.classList.add('is-visible');
+        });
+
+    }
+
+    /* ---------------------------------------------
+       Magnetic CTA
+       --------------------------------------------- */
+
+    if (
+        window.matchMedia &&
+        window.matchMedia('(pointer: fine)').matches &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+
+        document
+            .querySelectorAll('.tz-submit, .tz-closing-btn')
+            .forEach(function (button) {
+
+                button.addEventListener('mousemove', function (event) {
+
+                    const rect = button.getBoundingClientRect();
+
+                    const x =
+                        (event.clientX - rect.left - rect.width / 2) * 0.08;
+
+                    const y =
+                        (event.clientY - rect.top - rect.height / 2) * 0.08;
+
+                    button.style.transform =
+                        `translate3d(${x}px, ${y}px, 0)`;
+
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    button.style.transform = '';
+                });
+
+            });
+    }
+
+    /* ---------------------------------------------
+       Smooth Internal Links
+       --------------------------------------------- */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(function (link) {
+
+            link.addEventListener('click', function (event) {
+
+                const targetId =
+                    link.getAttribute('href');
+
+                if (!targetId || targetId === '#') {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:
+                        window.matchMedia(
+                            '(prefers-reduced-motion: reduce)'
+                        ).matches
+                            ? 'auto'
+                            : 'smooth',
+                    block: 'start'
+                });
+
+            });
+
+        });
+
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const formWrap = document.getElementById("tz-rfp-form-wrap");
+    const successWrap = document.getElementById("tz-rfp-success");
+    const form = document.getElementById("rfp-form");
+    const errorBox = document.getElementById("tz-form-error");
+    const errorMsg = document.getElementById("tz-form-error-msg");
+
+    // 1. Show success state if redirected from Netlify Forms
+    if (urlParams.get("submitted") === "true") {
+        if (formWrap) formWrap.style.display = "none";
+        if (successWrap) {
+            successWrap.style.display = "block";
+            if (window.lucide) lucide.createIcons();
+        }
+    }
+
+    // 2. Auto-prefill requirement select
+    const reqQuery = urlParams.get("service") || urlParams.get("requirement");
+    if (reqQuery) {
+        const select = document.getElementById("rfp-requirement");
+        if (select) {
+            const cleanQuery = reqQuery.toLowerCase();
+            for (let i = 0; i < select.options.length; i++) {
+                const optVal = select.options[i].value.toLowerCase();
+                if (optVal && (optVal.includes(cleanQuery) || cleanQuery.includes(optVal))) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    // 3. AJAX Netlify Submission
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (errorBox) errorBox.style.display = "none";
+
+            const name = (document.getElementById("rfp-name")?.value || "").trim();
+            const company = (document.getElementById("rfp-company")?.value || "").trim();
+            const email = (document.getElementById("rfp-email")?.value || "").trim();
+            const phone = (document.getElementById("rfp-phone")?.value || "").trim();
+            const req = (document.getElementById("rfp-requirement")?.value || "").trim();
+            const msg = (document.getElementById("rfp-message")?.value || "").trim();
+
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            if (!name || !company || !emailValid || !phone || !req || !msg) {
+                if (errorBox) {
+                    errorMsg.textContent = (!emailValid && email) ? "Please enter a valid corporate email address." : "Please fill out all required fields marked with an asterisk (*).";
+                    errorBox.style.display = "flex";
+                    if (window.lucide) lucide.createIcons();
+                }
+                return;
+            }
+
+            const submitBtn = document.getElementById("rfp-submit-btn");
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.7";
+                const spanContent = submitBtn.querySelector(".tz-submit-btn-content span");
+                if (spanContent) spanContent.textContent = "Transmitting Brief...";
+            }
+
+            const formData = new FormData(form);
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(res => {
+                if (res.ok) {
+                    if (formWrap) formWrap.style.display = "none";
+                    if (successWrap) {
+                        successWrap.style.display = "block";
+                        successWrap.scrollIntoView({ behavior: "smooth", block: "center" });
+                        if (window.lucide) lucide.createIcons();
+                    }
+                } else {
+                    form.submit();
+                }
+            })
+            .catch(() => {
+                form.submit();
+            });
+        });
+    }
+});
+</script>
+<!-- =========================================================
+     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER
+========================================================= -->
+

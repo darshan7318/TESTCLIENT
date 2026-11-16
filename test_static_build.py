@@ -1,20 +1,27 @@
 #!/usr/bin/env python3
 """
-Test Suite for Static Netlify Build
-Verifies HTML validity, link integrity, asset presence, zero PHP tags, and Netlify config.
+Test Suite for Static Build & Tailwind CSS Compilation
+Verifies HTML validity, link integrity, asset presence, zero PHP tags,
+compiled Tailwind CSS presence, zero CDN Tailwind references, and deployment config.
 """
 
 import os
+import sys
 import re
 import glob
 
-ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+target_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
+ROOT_DIR = os.path.abspath(target_dir)
 
 errors = []
 warnings = []
 
+print(f"Target directory: {ROOT_DIR}")
 html_files = glob.glob(os.path.join(ROOT_DIR, '*.html')) + glob.glob(os.path.join(ROOT_DIR, 'case-studies', '*.html'))
 print(f"Testing {len(html_files)} HTML files...")
+
+if len(html_files) == 0:
+    errors.append(f"No HTML files found in {ROOT_DIR}")
 
 # 1. Check for unparsed PHP tags in all HTML files
 for f in html_files:
@@ -32,12 +39,45 @@ for f in html_files:
     with open(f, 'r', encoding='utf-8', errors='ignore') as fp:
         content = fp.read()
     
-    # Matches href="...php"
     php_links = re.findall(r'href=[\'"]([^\'"]+\.php[^\'"]*)[\'"]', content)
     if php_links:
         errors.append(f"File {rel_path} contains legacy .php href links: {set(php_links)}")
 
-# 3. Check image references in HTML files
+# 3. Check for Tailwind CDN references and uncompiled runtime scripts
+for f in html_files:
+    rel_path = os.path.relpath(f, ROOT_DIR)
+    with open(f, 'r', encoding='utf-8', errors='ignore') as fp:
+        content = fp.read()
+    
+    if 'cdn.tailwindcss.com' in content:
+        errors.append(f"File {rel_path} contains uncompiled Tailwind CDN reference!")
+    
+    if 'tailwind.config' in content:
+        errors.append(f"File {rel_path} contains runtime tailwind.config script!")
+
+# 4. Check that compiled Tailwind stylesheet is linked in all HTML files (except footer.html)
+for f in html_files:
+    rel_path = os.path.relpath(f, ROOT_DIR)
+    if os.path.basename(f) == 'footer.html':
+        continue
+    with open(f, 'r', encoding='utf-8', errors='ignore') as fp:
+        content = fp.read()
+    
+    if 'trendz.min.css' not in content:
+        errors.append(f"File {rel_path} is missing compiled trendz.min.css link!")
+
+# 5. Check compiled CSS file existence and non-zero size
+css_file = os.path.join(ROOT_DIR, 'assets', 'css', 'trendz.min.css')
+if not os.path.exists(css_file):
+    errors.append(f"Missing compiled CSS file: {css_file}")
+else:
+    size = os.path.getsize(css_file)
+    if size < 10000:
+        errors.append(f"Compiled CSS file {css_file} is suspiciously small ({size} bytes)")
+    else:
+        print(f"Verified compiled CSS: {os.path.relpath(css_file, ROOT_DIR)} ({size:,} bytes)")
+
+# 6. Check image references in HTML files
 all_img_srcs = set()
 for f in html_files:
     rel_path = os.path.relpath(f, ROOT_DIR)
@@ -49,14 +89,12 @@ for f in html_files:
     for src in srcs:
         if src.startswith(('http://', 'https://', 'data:')):
             continue
-        # Clean query strings or hashes
         clean_src = src.split('?')[0].split('#')[0]
-        # Resolve path
         target_path = os.path.normpath(os.path.join(file_dir, clean_src))
         if not os.path.exists(target_path):
             errors.append(f"Missing image in {rel_path}: {src} (resolved: {target_path})")
 
-# 4. Check internal link references
+# 7. Check internal link references
 for f in html_files:
     rel_path = os.path.relpath(f, ROOT_DIR)
     file_dir = os.path.dirname(f)
@@ -72,19 +110,14 @@ for f in html_files:
             continue
         target_path = os.path.normpath(os.path.join(file_dir, clean_link))
         if not os.path.exists(target_path) and not os.path.isdir(target_path):
-            # Check if clean link exists with .html
             if os.path.exists(target_path + '.html'):
                 pass
             else:
                 errors.append(f"Broken internal link in {rel_path}: {l} (resolved: {target_path})")
 
-# 5. Check Netlify configuration files
+# 8. Check Netlify configuration files
 if not os.path.exists(os.path.join(ROOT_DIR, 'netlify.toml')):
     errors.append("Missing netlify.toml")
-else:
-    toml_content = open(os.path.join(ROOT_DIR, 'netlify.toml'), 'r', encoding='utf-8').read()
-    if 'publish = "."' not in toml_content:
-        warnings.append("netlify.toml might need publish = '.'")
 
 if not os.path.exists(os.path.join(ROOT_DIR, '_redirects')):
     errors.append("Missing _redirects")
@@ -92,7 +125,7 @@ if not os.path.exists(os.path.join(ROOT_DIR, '_redirects')):
 if not os.path.exists(os.path.join(ROOT_DIR, '_headers')):
     errors.append("Missing _headers")
 
-# 6. Check Netlify Forms on contact.html
+# 9. Check Netlify Forms on contact.html
 contact_path = os.path.join(ROOT_DIR, 'contact.html')
 if os.path.exists(contact_path):
     contact_content = open(contact_path, 'r', encoding='utf-8').read()
@@ -114,6 +147,6 @@ for warn in warnings:
     print(f"  [WARNING] {warn}")
 
 if not errors:
-    print("\nALL TESTS PASSED! Static build is 100% ready for Netlify deployment without PHP.")
+    print(f"\nALL TESTS PASSED! '{ROOT_DIR}' is 100% verified and ready for client deployment.")
 else:
-    exit(1)
+    sys.exit(1)

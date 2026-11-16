@@ -1,0 +1,390 @@
+
+<!-- =========================================================
+     GSAP
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /*
+     * -------------------------------------------------------
+     * LUCIDE
+     * -------------------------------------------------------
+     */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * FILTER SYSTEM
+     * -------------------------------------------------------
+     */
+
+    const filterButtons = document.querySelectorAll('.tz-filter');
+    const projects = document.querySelectorAll('.tz-project');
+    const featured = document.querySelector('.tz-featured');
+    const emptyState = document.getElementById('portfolio-empty');
+
+    function applyFilter(filter) {
+
+        let visibleCount = 0;
+
+        projects.forEach(function (project) {
+
+            const category =
+                project.getAttribute('data-category');
+
+            const shouldShow =
+                filter === 'all' ||
+                category === filter;
+
+            if (shouldShow) {
+
+                project.classList.remove('is-hidden');
+
+                visibleCount++;
+
+                if (window.gsap) {
+
+                    gsap.fromTo(
+                        project,
+                        {
+                            opacity: 0,
+                            y: 24
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: .55,
+                            ease: 'power3.out',
+                            overwrite: true
+                        }
+                    );
+
+                }
+
+            } else {
+
+                project.classList.add('is-hidden');
+
+            }
+
+        });
+
+        /*
+         * Featured Samsung project remains visible
+         * because it is the primary portfolio anchor.
+         */
+
+        if (featured) {
+            featured.style.display = 'block';
+        }
+
+        if (emptyState) {
+            emptyState.classList.toggle(
+                'is-visible',
+                visibleCount === 0
+            );
+        }
+    }
+
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener('click', function () {
+
+            const filter =
+                this.getAttribute('data-filter');
+
+            filterButtons.forEach(function (btn) {
+
+                btn.classList.remove('is-active');
+
+                btn.setAttribute(
+                    'aria-pressed',
+                    'false'
+                );
+
+            });
+
+            this.classList.add('is-active');
+
+            this.setAttribute(
+                'aria-pressed',
+                'true'
+            );
+
+            applyFilter(filter);
+
+        });
+
+    });
+
+
+    /*
+     * -------------------------------------------------------
+     * SCROLL REVEALS
+     * -------------------------------------------------------
+     */
+
+    const revealElements =
+        document.querySelectorAll('.tz-work-reveal');
+
+    const reduceMotion =
+        window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+
+    if (
+        !reduceMotion &&
+        window.gsap &&
+        window.ScrollTrigger
+    ) {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        revealElements.forEach(function (element) {
+
+            gsap.fromTo(
+                element,
+                {
+                    opacity: 0,
+                    y: 32
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: .8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 88%',
+                        once: true
+                    }
+                }
+            );
+
+        });
+
+
+        /*
+         * Subtle featured media parallax.
+         */
+
+        const featuredImage =
+            document.querySelector(
+                '.tz-featured-media img'
+            );
+
+        if (featuredImage) {
+
+            gsap.to(
+                featuredImage,
+                {
+                    yPercent: 5,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.tz-featured',
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1
+                    }
+                }
+            );
+
+        }
+
+    } else {
+
+        revealElements.forEach(function (element) {
+
+            element.classList.add('is-visible');
+
+        });
+
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * POINTER-BASED IMAGE MOVEMENT
+     * -------------------------------------------------------
+     *
+     * Only active for fine pointer devices.
+     */
+
+    const finePointer =
+        window.matchMedia(
+            '(hover: hover) and (pointer: fine)'
+        ).matches;
+
+    if (
+        finePointer &&
+        !reduceMotion
+    ) {
+
+        document
+            .querySelectorAll('.tz-project-link')
+            .forEach(function (card) {
+
+                const image =
+                    card.querySelector('img');
+
+                if (!image) {
+                    return;
+                }
+
+                card.addEventListener(
+                    'mousemove',
+                    function (event) {
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+                        const x =
+                            (event.clientX - rect.left)
+                            / rect.width
+                            - .5;
+
+                        const y =
+                            (event.clientY - rect.top)
+                            / rect.height
+                            - .5;
+
+                        image.style.transform =
+                            `scale(1.045)
+                             translate(${x * 5}px, ${y * 5}px)`;
+
+                    }
+                );
+
+                card.addEventListener(
+                    'mouseleave',
+                    function () {
+
+                        image.style.transform =
+                            '';
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * FEATURED CARD POINTER LIGHT
+     * -------------------------------------------------------
+     */
+
+    if (
+        finePointer &&
+        !reduceMotion
+    ) {
+
+        const featuredCard =
+            document.querySelector(
+                '.tz-featured-link'
+            );
+
+        if (featuredCard) {
+
+            featuredCard.addEventListener(
+                'mousemove',
+                function (event) {
+
+                    const rect =
+                        featuredCard.getBoundingClientRect();
+
+                    const x =
+                        event.clientX - rect.left;
+
+                    const y =
+                        event.clientY - rect.top;
+
+                    featuredCard.style.background =
+                        `
+                        radial-gradient(
+                            450px circle at ${x}px ${y}px,
+                            rgba(192,132,252,.13),
+                            transparent 60%
+                        ),
+                        linear-gradient(
+                            145deg,
+                            #281340 0%,
+                            #3a1760 100%
+                        )
+                        `;
+
+                }
+            );
+
+            featuredCard.addEventListener(
+                'mouseleave',
+                function () {
+
+                    featuredCard.style.background = '';
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /*
+     * -------------------------------------------------------
+     * SMOOTH FILTER SCROLL POSITION
+     * -------------------------------------------------------
+     */
+
+    const filterContainer =
+        document.getElementById(
+            'portfolio-filters'
+        );
+
+    if (filterContainer) {
+
+        filterContainer
+            .addEventListener(
+                'wheel',
+                function (event) {
+
+                    if (
+                        window.innerWidth < 850 &&
+                        Math.abs(event.deltaY)
+                    ) {
+
+                        event.preventDefault();
+
+                        filterContainer.scrollLeft +=
+                            event.deltaY;
+
+                    }
+
+                },
+                {
+                    passive: false
+                }
+            );
+
+    }
+
+});
+</script>
+
+<!-- =========================================================
+     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER
+========================================================= -->
+

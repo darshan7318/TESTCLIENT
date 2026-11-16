@@ -1,0 +1,518 @@
+<!-- ==========================================================
+     GSAP
+========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* -------------------------------------------------------
+       Lucide
+    ------------------------------------------------------- */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    /* -------------------------------------------------------
+       Reduced motion
+    ------------------------------------------------------- */
+
+    const reduceMotion =
+        window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+    /* -------------------------------------------------------
+       Intersection Observer
+    ------------------------------------------------------- */
+
+    const reveals =
+        document.querySelectorAll(
+            '.cs-reveal, .cs-reveal-left, .cs-reveal-right'
+        );
+
+    if (
+        !reduceMotion &&
+        'IntersectionObserver' in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                function (entries, obs) {
+
+                    entries.forEach(function (entry) {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add(
+                            'is-visible'
+                        );
+
+                        obs.unobserve(
+                            entry.target
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        '0px 0px -70px 0px'
+                }
+            );
+
+        reveals.forEach(function (element) {
+            observer.observe(element);
+        });
+
+    } else {
+
+        reveals.forEach(function (element) {
+            element.classList.add('is-visible');
+        });
+
+    }
+
+    /* -------------------------------------------------------
+       GSAP / ScrollTrigger
+    ------------------------------------------------------- */
+
+    if (
+        !reduceMotion &&
+        window.gsap &&
+        window.ScrollTrigger
+    ) {
+
+        gsap.registerPlugin(
+            ScrollTrigger
+        );
+
+        /* Hero image parallax */
+
+        const heroImage =
+            document.querySelector(
+                '.cs-hero-image img'
+            );
+
+        if (heroImage) {
+
+            gsap.to(heroImage, {
+
+                yPercent: 6,
+
+                ease: 'none',
+
+                scrollTrigger: {
+                    trigger: '.cs-hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.2
+                }
+
+            });
+
+        }
+
+        /* Main showcase parallax */
+
+        const showcaseImage =
+            document.querySelector(
+                '.cs-showcase-frame img'
+            );
+
+        if (showcaseImage) {
+
+            gsap.fromTo(
+                showcaseImage,
+                {
+                    yPercent: -4,
+                    scale: 1.08
+                },
+                {
+                    yPercent: 5,
+                    scale: 1.02,
+                    ease: 'none',
+
+                    scrollTrigger: {
+                        trigger:
+                            '.cs-showcase',
+                        start:
+                            'top bottom',
+                        end:
+                            'bottom top',
+                        scrub: 1.1
+                    }
+                }
+            );
+
+        }
+
+        /* Gallery subtle parallax */
+
+        document
+            .querySelectorAll(
+                '.cs-gallery-item img'
+            )
+            .forEach(function (image) {
+
+                gsap.fromTo(
+                    image,
+                    {
+                        yPercent: -3
+                    },
+                    {
+                        yPercent: 3,
+                        ease: 'none',
+
+                        scrollTrigger: {
+                            trigger:
+                                image.closest(
+                                    '.cs-gallery-item'
+                                ),
+                            start:
+                                'top bottom',
+                            end:
+                                'bottom top',
+                            scrub: 1
+                        }
+                    }
+                );
+
+            });
+
+    }
+
+    /* -------------------------------------------------------
+       Sticky navigation active section
+    ------------------------------------------------------- */
+
+    const navLinks =
+        document.querySelectorAll(
+            '.cs-nav-link'
+        );
+
+    const sections = [
+        'overview',
+        'execution',
+        'proof',
+        'gallery',
+        'next-project'
+    ]
+        .map(function (id) {
+            return document.getElementById(id);
+        })
+        .filter(Boolean);
+
+    if (
+        'IntersectionObserver' in window &&
+        sections.length
+    ) {
+
+        const sectionObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        navLinks.forEach(
+                            function (link) {
+
+                                const target =
+                                    link.getAttribute(
+                                        'href'
+                                    );
+
+                                link.classList.toggle(
+                                    'active',
+                                    target ===
+                                        '#' +
+                                        entry.target.id
+                                );
+
+                            }
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: .35,
+                    rootMargin:
+                        '-15% 0px -55% 0px'
+                }
+            );
+
+        sections.forEach(function (section) {
+            sectionObserver.observe(section);
+        });
+
+    }
+
+    /* -------------------------------------------------------
+       Smooth section navigation
+    ------------------------------------------------------- */
+
+    document
+        .querySelectorAll(
+            '.cs-nav-link'
+        )
+        .forEach(function (link) {
+
+            link.addEventListener(
+                'click',
+                function (event) {
+
+                    const targetId =
+                        this.getAttribute(
+                            'href'
+                        );
+
+                    if (
+                        !targetId ||
+                        targetId === '#'
+                    ) {
+                        return;
+                    }
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+                    if (!target) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:
+                            reduceMotion
+                                ? 'auto'
+                                : 'smooth',
+                        block: 'start'
+                    });
+
+                }
+            );
+
+        });
+
+    /* -------------------------------------------------------
+       Cursor-reactive hero lighting
+    ------------------------------------------------------- */
+
+    if (
+        !reduceMotion &&
+        window.matchMedia(
+            '(pointer: fine)'
+        ).matches
+    ) {
+
+        const hero =
+            document.querySelector(
+                '.cs-hero'
+            );
+
+        if (hero) {
+
+            hero.addEventListener(
+                'pointermove',
+                function (event) {
+
+                    const rect =
+                        hero.getBoundingClientRect();
+
+                    const x =
+                        ((event.clientX -
+                            rect.left) /
+                            rect.width) *
+                        100;
+
+                    const y =
+                        ((event.clientY -
+                            rect.top) /
+                            rect.height) *
+                        100;
+
+                    hero.style.background =
+                        `
+                        radial-gradient(
+                            circle at ${x}% ${y}%,
+                            rgba(124,58,237,.075),
+                            transparent 28rem
+                        ),
+                        #fff
+                        `;
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+        }
+
+    }
+
+});
+</script>
+
+
+<script>
+window.__TRENDZ_PROJECTS = {"samsung-store-launch": {"slug": "samsung-store-launch", "client": "Samsung", "title": "100-Store Thematic Retail Launch", "category": "Retail Launch", "scope_badge": "100 Stores", "location": "Mumbai, Pune & Bangalore", "objective": "Give a larger-than-life launch experience to the consumer target group while creating a high feel-good factor and pride for store owners.", "scope": "Simultaneous thematic retail d\u00e9cor and launch coordination across 100 premium stores in Mumbai, Pune, and Bangalore.", "execution": "Synchronized store transformations featuring custom branded entrance arches, window display dressing, interactive demo zones, and launch day hospitality for dealer partners.", "verified_metric": "100 stores launched with thematic d\u00e9cor", "hero_image": "assets/img/work/samsung-store-launch-1.jpg", "gallery": ["assets/img/work/samsung-store-launch-1.jpg", "assets/img/work/samsung-store-launch-2.jpg", "assets/img/work/samsung-store-launch-3.jpg"]}, "philips-dealers-meet": {"slug": "philips-dealers-meet", "client": "Philips", "title": "National Dealers Meet in Goa", "category": "Dealer Meet & Celebration", "scope_badge": "~500 Dealers", "location": "Goa", "objective": "Celebrate the historic \u20b9100 Crore sales milestone and host national dealer partners for an executive gala.", "scope": "Full-scale celebratory convention and hospitality experience in Goa hosting approximately 500 top dealers.", "execution": "Complete event architecture: thematic stage production, executive keynote presentations, awards gala, entertainment choreography, and luxury delegate management.", "verified_metric": "500 dealers hosted in Goa celebrating \u20b9100 crore sales", "hero_image": "assets/img/work/philips-dealers-meet-1.jpg", "gallery": ["assets/img/work/philips-dealers-meet-1.jpg", "assets/img/work/philips-dealers-meet-2.jpg", "assets/img/work/philips-dealers-meet-3.jpg"]}, "tvs-tyres-launch": {"slug": "tvs-tyres-launch", "client": "TVS Tyres", "title": "National 10-City Product Launch Tour", "category": "Dealer Launch Tour", "scope_badge": "10 Cities", "location": "Pan-India", "objective": "Launch an innovative new tyre range to regional dealer networks and internal sales leadership nationwide.", "scope": "High-production launch events staged in 10 major commercial hub cities across India on a synchronized tour schedule.", "execution": "Bespoke stage design, dramatic product unveiling mechanisms, audio-visual technical production, and structured dealer interactive sessions executed across all 10 cities.", "verified_metric": "10 cities in the launch tour", "hero_image": "assets/img/work/tvs-tyres-launch-1.jpg", "gallery": ["assets/img/work/tvs-tyres-launch-1.jpg", "assets/img/work/tvs-tyres-launch-2.jpg", "assets/img/work/tvs-tyres-launch-3.jpg"]}, "maruti-driving-school": {"slug": "maruti-driving-school", "client": "Maruti Driving School", "title": "Pan-Metro Driver Recruitment Drive", "category": "Recruitment & Activation", "scope_badge": "~50 MDS Centres", "location": "Metro Cities", "objective": "Create widespread awareness of MDS amongst the target demographic, then recruit, onboard, and register candidate drivers.", "scope": "Deployed dedicated recruitment teams across approximately 50 Maruti Driving School centres in key metro cities across India.", "execution": "End-to-end recruitment drives coordinating localized registration setups, branded information kiosks, candidate evaluation workflows, and real-time onboarding reporting.", "verified_metric": "~50 driving school centres covered", "hero_image": "assets/img/work/maruti-driving-school-1.jpg", "gallery": ["assets/img/work/maruti-driving-school-1.jpg", "assets/img/work/maruti-driving-school-2.jpg", "assets/img/work/maruti-driving-school-3.jpg"]}, "lipton-mto-activation": {"slug": "lipton-mto-activation", "client": "Lipton", "title": "Modern Trade 200-Store Sampling Program", "category": "Sampling & Modern Trade", "scope_badge": "200 Stores", "location": "Metro Cities (Hypercity & Big Bazaar)", "objective": "Sample Lipton Ice Tea directly to shoppers at point of sale to drive trial and immediate basket conversion.", "scope": "Trained sampling brand ambassadors deployed across 200 Hypercity and Big Bazaar retail hypermarkets.", "execution": "High-standard cold-chain sampling kiosks, branded apparel, product freshness protocols, and live consumer feedback collection across 200 large-format stores.", "verified_metric": "200 stores with sampling teams", "hero_image": "assets/img/work/lipton-mto-activation-1.jpg", "gallery": ["assets/img/work/lipton-mto-activation-1.jpg", "assets/img/work/lipton-mto-activation-2.jpg", "assets/img/work/lipton-mto-activation-3.jpg"]}, "lipton-mall-engagement": {"slug": "lipton-mall-engagement", "client": "Lipton", "title": "In-Mall Experiential Engagement & Games", "category": "Mall Activation", "scope_badge": "Multi-Mall Tour", "location": "Leading Shopping Malls", "objective": "Engage family and youth demographics in high-traffic shopping atriums through playful interactive branded zones.", "scope": "Interactive live game arenas and refreshing chilled zones bringing Lipton Ice Tea to life for shoppers.", "execution": "Custom-built experiential pavilions with digital reaction games, instant photo zones, and chilled sampling bars generating active dwell time.", "verified_metric": "High-dwell interactive mall installations", "hero_image": "assets/img/work/lipton-mall-engagement-1.jpg", "gallery": ["assets/img/work/lipton-mall-engagement-1.jpg", "assets/img/work/lipton-mall-engagement-2.jpg", "assets/img/work/lipton-mall-engagement-3.jpg"]}, "lipton-flash-mob": {"slug": "lipton-flash-mob", "client": "Lipton", "title": "Mall Atrium Flash Mob PR Stunt", "category": "Guerrilla & PR Stunt", "scope_badge": "High-Footfall Atrium", "location": "Premier Metro Mall Atrium", "objective": "Create a surprise high-energy spectacle that draws immediate crowds and sparks organic social conversation around Lipton.", "scope": "Surprise choreographed guerrilla dance flash mob in a bustling central mall atrium.", "execution": "Disguised performers synchronizing to high-beat music, drawing thousands of spectators to the central atrium, followed by immediate chilled sampling distribution.", "verified_metric": "High-energy crowd spectacle and viral momentum", "hero_image": "assets/img/work/lipton-flash-mob-1.jpg", "gallery": ["assets/img/work/lipton-flash-mob-1.jpg", "assets/img/work/lipton-flash-mob-2.jpg", "assets/img/work/lipton-flash-mob-3.jpg"]}, "yokohama-road-safety": {"slug": "yokohama-road-safety", "client": "Yokohama", "title": "Expressway Road Safety Week Activation", "category": "Public Safety & OOH", "scope_badge": "Expressway Toll Nakas", "location": "Mumbai\u2013Pune Expressway", "objective": "Educate motorists on tyre safety and tyre USPs while supporting state road safety awareness.", "scope": "On-ground tyre tag and safety inspection distribution at toll nakas on the Mumbai-Pune Expressway in official association with the Traffic Police.", "execution": "Collaborated with expressway traffic authorities, deployed safety marshals at toll barriers, distributed safety inspection tags to drivers, and conducted visual tyre audits.", "verified_metric": "Run with the Traffic Police during Road Safety Week", "hero_image": "assets/img/work/yokohama-road-safety-1.jpg", "gallery": ["assets/img/work/yokohama-road-safety-1.jpg", "assets/img/work/yokohama-road-safety-2.jpg", "assets/img/work/yokohama-road-safety-3.jpg"]}, "cadbury-shubh-aarambh": {"slug": "cadbury-shubh-aarambh", "client": "Cadbury", "title": "Shubh Aarambh Diwali Mall Activation", "category": "Festive Mall Activation", "scope_badge": "10 Malls", "location": "Mumbai & Delhi", "objective": "Celebrate the Diwali festival with Cadbury by creating joyous sweet-sharing moments across premier retail centers.", "scope": "Elaborate festive thematic installations and interactive engagement zones across 10 top-tier malls in Mumbai and Delhi.", "execution": "Rich festive gold-and-purple d\u00e9cor, interactive greeting generation, photo moments for families, and festive product gifting touchpoints.", "verified_metric": "10 malls in Mumbai and Delhi", "hero_image": "assets/img/work/cadbury-shubh-aarambh-1.jpg", "gallery": ["assets/img/work/cadbury-shubh-aarambh-1.jpg", "assets/img/work/cadbury-shubh-aarambh-2.jpg"]}, "bombay-dyeing-sales-meet": {"slug": "bombay-dyeing-sales-meet", "client": "Bombay Dyeing", "title": "National Sales Meet & Awards Gala", "category": "Sales Meet & Felicitations", "scope_badge": "~600 Sales Staff", "location": "Pan-India Delegates", "objective": "Felicitate top-performing national sales staff and unveil commercial strategic targets.", "scope": "Large-scale national corporate sales convention inviting approximately 600 sales staff from all Indian zones.", "execution": "Full production staging, bespoke award trophies, dynamic lighting and audio engineering, executive presentations, and motivational stage experiences.", "verified_metric": "600 sales staff felicitated", "hero_image": "assets/img/work/bombay-dyeing-sales-meet-1.jpg", "gallery": ["assets/img/work/bombay-dyeing-sales-meet-1.jpg", "assets/img/work/bombay-dyeing-sales-meet-2.jpg", "assets/img/work/bombay-dyeing-sales-meet-3.jpg"]}, "vitra-annual-meet": {"slug": "vitra-annual-meet", "client": "Vitra", "title": "Annual General Meeting & Strategy Assembly", "category": "Corporate AGM", "scope_badge": "Annual Meet", "location": "Corporate Convention Center", "objective": "Conduct the official Annual General Meeting and establish the commercial agenda for the upcoming fiscal year.", "scope": "Formal corporate gathering delivering high-clarity keynote staging, executive hospitality, and corporate agenda alignment.", "execution": "Sophisticated corporate boardroom-grade AV, synchronized presentation systems, seamless executive delegate registration, and protocol management.", "verified_metric": "AGM annual meet with agenda for the year ahead", "hero_image": "assets/img/work/vitra-annual-meet-1.jpg", "gallery": ["assets/img/work/vitra-annual-meet-1.jpg", "assets/img/work/vitra-annual-meet-2.jpg", "assets/img/work/vitra-annual-meet-3.jpg"]}, "hypercity-branding-relaunch": {"slug": "hypercity-branding-relaunch", "client": "Hypercity", "title": "Pan-India Hypermarket Re-Launch & Branding", "category": "Retail Branding & Relaunch", "scope_badge": "Pan-India", "location": "National Store Network", "objective": "Execute comprehensive store branding and customer re-engagement across Hypercity hypermarkets nationwide.", "scope": "Overhaul of in-store navigation signage, entrance branding, promotional aisle overheads, and grand re-opening customer activations.", "execution": "Simultaneous fabrication and overnight installation across all stores, high-visibility promotional exterior graphics, and re-launch engagement activities.", "verified_metric": "Store branding rolled out across India", "hero_image": "assets/img/work/hypercity-branding-relaunch-1.jpg", "gallery": ["assets/img/work/hypercity-branding-relaunch-1.jpg", "assets/img/work/hypercity-branding-relaunch-2.jpg", "assets/img/work/hypercity-branding-relaunch-3.jpg"]}};
+
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+    if (!slug || !window.__TRENDZ_PROJECTS[slug] || slug === "samsung-store-launch") {
+        return;
+    }
+
+    const p = window.__TRENDZ_PROJECTS[slug];
+    const keys = Object.keys(window.__TRENDZ_PROJECTS);
+    const curIdx = keys.indexOf(slug);
+    const prevKey = keys[(curIdx - 1 + keys.length) % keys.length];
+    const nextKey = keys[(curIdx + 1) % keys.length];
+    const prevP = window.__TRENDZ_PROJECTS[prevKey];
+    const nextP = window.__TRENDZ_PROJECTS[nextKey];
+
+    // Document metadata
+    document.title = p.client + " " + p.title + " | Case Study | Trendz Eventz";
+
+    // Text elements
+    const breadcrumbCurrent = document.querySelector(".cs-breadcrumb-current");
+    if (breadcrumbCurrent) breadcrumbCurrent.textContent = p.client;
+
+    const kickerClient = document.querySelector(".cs-client");
+    if (kickerClient) kickerClient.textContent = p.client;
+
+    const titleEl = document.querySelector(".cs-title");
+    if (titleEl) {
+        titleEl.innerHTML = p.title + ' <span>' + p.scope_badge + '</span>';
+    }
+
+    const objEl = document.querySelector(".cs-objective");
+    if (objEl) objEl.textContent = p.objective;
+
+    // Meta items
+    const metaItems = document.querySelectorAll(".cs-meta-item");
+    if (metaItems.length >= 3) {
+        metaItems[0].innerHTML = '<i data-lucide="layers-3"></i> ' + p.category;
+        metaItems[1].innerHTML = '<i data-lucide="map-pin"></i> ' + p.location;
+        metaItems[2].innerHTML = '<i data-lucide="badge-check"></i> ' + p.verified_metric;
+    }
+
+    // Hero visual
+    const heroImg = document.querySelector(".cs-hero-image img");
+    if (heroImg) {
+        heroImg.src = p.hero_image;
+        heroImg.alt = p.client + " — " + p.title;
+    }
+    const heroCaption = document.querySelector(".cs-hero-caption strong");
+    if (heroCaption) heroCaption.textContent = p.client + " · " + p.scope_badge;
+
+    const orbitLabel1 = document.querySelector(".cs-orbit-label-1");
+    if (orbitLabel1) orbitLabel1.textContent = p.category;
+
+    // Overview section
+    const overviewCopy = document.querySelector(".cs-overview .cs-section-copy");
+    if (overviewCopy) overviewCopy.textContent = p.objective;
+
+    const factValues = document.querySelectorAll(".cs-fact-value");
+    if (factValues.length >= 4) {
+        factValues[0].textContent = p.client;
+        factValues[1].textContent = p.category;
+        factValues[2].textContent = p.location;
+        factValues[3].textContent = p.verified_metric;
+    }
+
+    // Showcase
+    const showcaseImg = document.querySelector(".cs-showcase-frame img");
+    if (showcaseImg) {
+        showcaseImg.src = p.hero_image;
+        showcaseImg.alt = p.client + " " + p.title;
+    }
+    const showcaseKicker = document.querySelector(".cs-showcase-kicker");
+    if (showcaseKicker) showcaseKicker.textContent = "Case Study / " + p.category;
+    const showcaseTitle = document.querySelector(".cs-showcase-title");
+    if (showcaseTitle) showcaseTitle.textContent = p.client + ". " + p.title;
+    const showcaseBadge = document.querySelector(".cs-showcase-badge strong");
+    if (showcaseBadge) showcaseBadge.textContent = p.verified_metric;
+
+    // Execution Story
+    const storyCopies = document.querySelectorAll(".cs-story-copy");
+    if (storyCopies.length >= 3) {
+        storyCopies[0].textContent = p.objective;
+        storyCopies[1].textContent = p.scope;
+        storyCopies[2].textContent = p.execution;
+    }
+
+    // Proof Section
+    const proofStats = document.querySelectorAll(".cs-proof-stat-value");
+    if (proofStats.length >= 4) {
+        proofStats[0].textContent = p.client;
+        proofStats[1].textContent = p.category;
+        proofStats[2].textContent = p.location;
+        proofStats[3].textContent = p.verified_metric;
+    }
+
+    // Gallery Section
+    const galleryGrid = document.querySelector(".cs-gallery-grid");
+    if (galleryGrid && p.gallery) {
+        galleryGrid.innerHTML = p.gallery.map(function(img, i) {
+            const num = String(i + 1).padStart(2, '0');
+            return '<figure class="cs-gallery-item cs-reveal">' +
+                '<img src="' + img + '" alt="' + p.client + ' ' + p.title + ' — project image ' + (i + 1) + '" loading="lazy">' +
+                '<div class="cs-gallery-shade" aria-hidden="true"></div>' +
+                '<span class="cs-gallery-index" aria-hidden="true">' + num + '</span>' +
+            '</figure>';
+        }).join("");
+    }
+
+    // CTA
+    const ctaPlanBtn = document.querySelector(".cs-cta-actions .cs-btn-primary");
+    if (ctaPlanBtn) {
+        ctaPlanBtn.href = "contact.html?requirement=" + encodeURIComponent(p.category);
+    }
+
+    // Next / Prev navigation
+    const prevNav = document.querySelector(".cs-next-grid .cs-project-nav:first-child");
+    if (prevNav) {
+        prevNav.href = "case-study.html?slug=" + prevKey;
+        const pImg = prevNav.querySelector("img");
+        if (pImg) pImg.src = prevP.hero_image;
+        const pClient = prevNav.querySelector(".cs-project-client");
+        if (pClient) pClient.textContent = prevP.client;
+        const pTitle = prevNav.querySelector(".cs-project-title");
+        if (pTitle) pTitle.textContent = prevP.title;
+    }
+
+    const nextNav = document.querySelector(".cs-next-grid .cs-project-nav:last-child");
+    if (nextNav) {
+        nextNav.href = "case-study.html?slug=" + nextKey;
+        const nImg = nextNav.querySelector("img");
+        if (nImg) nImg.src = nextP.hero_image;
+        const nClient = nextNav.querySelector(".cs-project-client");
+        if (nClient) nClient.textContent = nextP.client;
+        const nTitle = nextNav.querySelector(".cs-project-title");
+        if (nTitle) nTitle.textContent = nextP.title;
+    }
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+});
+</script>
+<!-- =========================================================
+     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER

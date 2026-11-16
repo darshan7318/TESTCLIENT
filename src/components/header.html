@@ -1,0 +1,106 @@
+<!-- =========================================================
+     SKIP NAVIGATION
+========================================================== -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
+
+<!-- =========================================================
+     SITE HEADER COMPONENT
+========================================================== -->
+<header id="site-header" class="tz-header">
+  <div class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple">PAN-INDIA</span>
+        <span class="h-3 w-px bg-black/10"></span>
+        <span class="text-[10px] font-medium text-trendz-muted">Headquartered in Mumbai · Delivering across 50+ cities</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="tel:+919987399997" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="phone" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <span class="h-3 w-px bg-black/10"></span>
+        <a href="mailto:info@trendzeventz.com" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="mail" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>info@trendzeventz.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10">
+    <div class="tz-main-nav flex h-[76px] items-center justify-between">
+      <a href="@@baseindex.html" class="tz-brand" aria-label="Trendz Eventz — Home">
+        <span class="tz-brand-lockup">
+          <span class="tz-logo-wrap">
+            <img src="@@baseassets/img/brand/logo2.gif" alt="Trendz Eventz" width="180" height="60" loading="eager" decoding="async" class="tz-logo">
+            <span class="tz-logo-accent" aria-hidden="true"></span>
+          </span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:block" aria-label="Primary navigation">
+        <ul class="flex items-center gap-0.5">
+          <li><a href="@@baseindex.html" class="tz-nav-link@@if (active === 'home') { is-active}"@@if (active === 'home') { aria-current="page"}>Home</a></li>
+          <li><a href="@@baseabout.html" class="tz-nav-link@@if (active === 'about') { is-active}"@@if (active === 'about') { aria-current="page"}>About</a></li>
+          <li><a href="@@baseservices.html" class="tz-nav-link@@if (active === 'services') { is-active}"@@if (active === 'services') { aria-current="page"}>Services</a></li>
+          <li><a href="@@basework.html" class="tz-nav-link@@if (active === 'work') { is-active}"@@if (active === 'work') { aria-current="page"}>Work</a></li>
+          <li><a href="@@baseclients.html" class="tz-nav-link@@if (active === 'clients') { is-active}"@@if (active === 'clients') { aria-current="page"}>Clients</a></li>
+          <li><a href="@@basecontact.html" class="tz-nav-link@@if (active === 'contact') { is-active}"@@if (active === 'contact') { aria-current="page"}>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="@@basecontact.html" class="tz-cta">
+          <span>Request a Proposal</span>
+          <span class="tz-cta-arrow"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="@@basecontact.html" aria-label="Request a Proposal" class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white hover:bg-trendz-purple">
+          <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+        <button id="mobile-menu-button" type="button" class="tz-menu-button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-navigation" class="tz-mobile-panel lg:hidden" aria-hidden="true">
+    <div class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6">
+      <div class="mb-4 flex items-center justify-between">
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted">Navigation</span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple">Trendz Eventz</span>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <div class="space-y-1">
+          <a href="@@baseindex.html" class="tz-mobile-link@@if (active === 'home') { is-active}"@@if (active === 'home') { aria-current="page"}><span>Home</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="@@baseabout.html" class="tz-mobile-link@@if (active === 'about') { is-active}"@@if (active === 'about') { aria-current="page"}><span>About</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="@@baseservices.html" class="tz-mobile-link@@if (active === 'services') { is-active}"@@if (active === 'services') { aria-current="page"}><span>Services</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="@@basework.html" class="tz-mobile-link@@if (active === 'work') { is-active}"@@if (active === 'work') { aria-current="page"}><span>Work</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="@@baseclients.html" class="tz-mobile-link@@if (active === 'clients') { is-active}"@@if (active === 'clients') { aria-current="page"}><span>Clients</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="@@basecontact.html" class="tz-mobile-link@@if (active === 'contact') { is-active}"@@if (active === 'contact') { aria-current="page"}><span>Contact</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+      </nav>
+      <div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <a href="tel:+919987399997" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="phone" class="h-4 w-4 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <a href="mailto:info@trendzeventz.com" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="mail" class="h-4 w-4 text-trendz-purple"></i>
+          <span class="truncate">info@trendzeventz.com</span>
+        </a>
+      </div>
+      <a href="@@basecontact.html" class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white hover:bg-trendz-purple">
+        <span>Start a conversation</span>
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+      </a>
+    </div>
+  </div>
+</header>
+<div id="mobile-menu-backdrop" class="tz-mobile-backdrop lg:hidden" aria-hidden="true"></div>

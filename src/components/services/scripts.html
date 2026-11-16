@@ -1,0 +1,296 @@
+
+<!-- =========================================================
+     GSAP + SCROLLTRIGGER
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* ---------------------------------------------
+       Lucide
+    --------------------------------------------- */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /* ---------------------------------------------
+       Reduced motion
+    --------------------------------------------- */
+
+    const reduceMotion =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+    /* ---------------------------------------------
+       GSAP reveal system
+    --------------------------------------------- */
+
+    if (
+        !reduceMotion &&
+        window.gsap &&
+        window.ScrollTrigger
+    ) {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        /* Hero */
+        gsap.from('.hero-line', {
+            yPercent: 110,
+            opacity: 0,
+            duration: 1.1,
+            stagger: .11,
+            ease: 'power4.out',
+            delay: .15
+        });
+
+
+        /* General reveal */
+        gsap.utils.toArray('.tz-reveal').forEach(function (element) {
+
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 88%',
+                    once: true
+                },
+                opacity: 1,
+                y: 0,
+                duration: .85,
+                ease: 'power3.out'
+            });
+
+        });
+
+
+        gsap.utils.toArray('.tz-reveal-left').forEach(function (element) {
+
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 84%',
+                    once: true
+                },
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+        });
+
+
+        gsap.utils.toArray('.tz-reveal-right').forEach(function (element) {
+
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 84%',
+                    once: true
+                },
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+        });
+
+
+        /* Service media parallax */
+        gsap.utils.toArray('.tz-media-frame img').forEach(function (image) {
+
+            gsap.to(image, {
+                yPercent: -7,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: image.closest('.tz-service'),
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+
+        });
+
+
+        /* Service index drift */
+        gsap.utils.toArray('.tz-service-index').forEach(function (index) {
+
+            gsap.to(index, {
+                y: -45,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: index.closest('.tz-service'),
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1.3
+                }
+            });
+
+        });
+
+
+        /* Closing panel entrance */
+        gsap.from('.tz-close-panel', {
+            scrollTrigger: {
+                trigger: '.tz-close-panel',
+                start: 'top 85%',
+                once: true
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1.1,
+            ease: 'power3.out'
+        });
+
+
+        /* Capability navigation highlighting */
+        const services = gsap.utils.toArray('.tz-service');
+        const navLinks = gsap.utils.toArray('.tz-index-link');
+
+        services.forEach(function (service, index) {
+
+            ScrollTrigger.create({
+                trigger: service,
+                start: 'top 48%',
+                end: 'bottom 48%',
+
+                onEnter: function () {
+                    navLinks.forEach(link =>
+                        link.classList.remove('active')
+                    );
+
+                    if (navLinks[index]) {
+                        navLinks[index].classList.add('active');
+                    }
+                },
+
+                onEnterBack: function () {
+                    navLinks.forEach(link =>
+                        link.classList.remove('active')
+                    );
+
+                    if (navLinks[index]) {
+                        navLinks[index].classList.add('active');
+                    }
+                }
+            });
+
+        });
+
+    } else {
+
+        /* Reduced motion fallback */
+        document
+            .querySelectorAll('.tz-reveal, .tz-reveal-left, .tz-reveal-right')
+            .forEach(function (element) {
+                element.style.opacity = '1';
+                element.style.transform = 'none';
+            });
+
+    }
+
+
+    /* ---------------------------------------------
+       Magnetic buttons
+       Desktop / fine pointer only
+    --------------------------------------------- */
+
+    if (
+        !reduceMotion &&
+        window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    ) {
+
+        document.querySelectorAll('.magnetic').forEach(function (button) {
+
+            button.addEventListener('mousemove', function (event) {
+
+                const rect = button.getBoundingClientRect();
+
+                const x =
+                    event.clientX -
+                    (rect.left + rect.width / 2);
+
+                const y =
+                    event.clientY -
+                    (rect.top + rect.height / 2);
+
+                gsap.to(button, {
+                    x: x * .12,
+                    y: y * .12,
+                    duration: .3,
+                    ease: 'power2.out'
+                });
+
+            });
+
+            button.addEventListener('mouseleave', function () {
+
+                gsap.to(button, {
+                    x: 0,
+                    y: 0,
+                    duration: .5,
+                    ease: 'elastic.out(1, .4)'
+                });
+
+            });
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------
+       Smooth anchor navigation
+    --------------------------------------------- */
+
+    document
+        .querySelectorAll('.tz-index-link, a[href^="#"]')
+        .forEach(function (link) {
+
+            link.addEventListener('click', function (event) {
+
+                const targetId =
+                    link.getAttribute('href');
+
+                if (
+                    !targetId ||
+                    targetId === '#' ||
+                    !targetId.startsWith('#')
+                ) {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: reduceMotion ? 'auto' : 'smooth',
+                    block: 'start'
+                });
+
+            });
+
+        });
+
+});
+</script>
+
+
+<!-- =========================================================
+     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER
+========================================================= -->
+

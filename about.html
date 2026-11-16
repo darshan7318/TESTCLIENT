@@ -14,136 +14,964 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config={theme:{extend:{colors:{trendz:{ink:'#17151F',purple:'#5C55A2',lilac:'#8B85CF',pink:'#D52D91',paper:'#F7F7F9',muted:'#6F6B78',line:'#E8E7EC'}},fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif'],display:['Syne','sans-serif'],mono:['"DM Mono"','monospace']}}}};
-  </script>
+  <link rel="stylesheet" href="assets/css/trendz.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <link rel="stylesheet" href="assets/css/about.css"><link rel="stylesheet" href="assets/css/footer.css">
+  
 </head>
 <body class="bg-trendz-paper text-trendz-ink antialiased">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
-<header id="site-header" class="tz-header">
-  <div class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block"><div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10"><div class="flex items-center gap-3"><span class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple">PAN-INDIA</span><span class="h-3 w-px bg-black/10"></span><span class="text-[10px] font-medium text-trendz-muted">Headquartered in Mumbai · Delivering across 50+ cities</span></div><div class="flex items-center gap-5"><a href="tel:+919987399997" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink"><i data-lucide="phone" class="h-3.5 w-3.5 text-trendz-purple"></i><span>+91 99873 99997</span></a><span class="h-3 w-px bg-black/10"></span><a href="mailto:info@trendzeventz.com" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink"><i data-lucide="mail" class="h-3.5 w-3.5 text-trendz-purple"></i><span>info@trendzeventz.com</span></a></div></div></div>
-  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10"><div class="tz-main-nav flex h-[76px] items-center justify-between">
-    <a href="index.html" class="tz-brand" aria-label="Trendz Eventz — Home"><span class="tz-brand-lockup"><span class="tz-logo-wrap"><img src="assets/img/brand/logo2.gif" alt="Trendz Eventz" width="180" height="60" loading="eager" decoding="async" class="tz-logo"><span class="tz-logo-accent" aria-hidden="true"></span></span></span></a>
-    <nav class="hidden lg:block" aria-label="Primary navigation"><ul class="flex items-center gap-0.5"><li><a href="index.html" class="tz-nav-link">Home</a></li><li><a href="about.html" class="tz-nav-link is-active" aria-current="page">About</a></li><li><a href="services.html" class="tz-nav-link">Services</a></li><li><a href="work.html" class="tz-nav-link">Work</a></li><li><a href="clients.html" class="tz-nav-link">Clients</a></li><li><a href="contact.html" class="tz-nav-link">Contact</a></li></ul></nav>
-    <div class="hidden lg:block"><a href="contact.html" class="tz-cta"><span>Request a Proposal</span><span class="tz-cta-arrow"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span></a></div>
-    <div class="flex items-center gap-2 lg:hidden"><a href="contact.html" aria-label="Request a Proposal" class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white hover:bg-trendz-purple"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><button id="mobile-menu-button" type="button" class="tz-menu-button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false"><span class="tz-menu-line"></span><span class="tz-menu-line"></span><span class="tz-menu-line"></span></button></div>
-  </div></div>
-  <div id="mobile-navigation" class="tz-mobile-panel lg:hidden" aria-hidden="true"><div class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6"><div class="mb-4 flex items-center justify-between"><span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted">Navigation</span><span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple">Trendz Eventz</span></div><nav aria-label="Mobile navigation"><div class="space-y-1"><a href="index.html" class="tz-mobile-link"><span>Home</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><a href="about.html" class="tz-mobile-link is-active" aria-current="page"><span>About</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><a href="services.html" class="tz-mobile-link"><span>Services</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><a href="work.html" class="tz-mobile-link"><span>Work</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><a href="clients.html" class="tz-mobile-link"><span>Clients</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a><a href="contact.html" class="tz-mobile-link"><span>Contact</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a></div></nav><div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2"><a href="tel:+919987399997" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted"><i data-lucide="phone" class="h-4 w-4 text-trendz-purple"></i><span>+91 99873 99997</span></a><a href="mailto:info@trendzeventz.com" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted"><i data-lucide="mail" class="h-4 w-4 text-trendz-purple"></i><span class="truncate">info@trendzeventz.com</span></a></div><a href="contact.html" class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white hover:bg-trendz-purple"><span>Start a conversation</span><span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span></a></div></div>
-</header>
-<div id="mobile-menu-backdrop" class="tz-mobile-backdrop lg:hidden" aria-hidden="true"></div>
-<script id="about-redesign-v1-motion">
-(function(){  const page=document.querySelector('.about-redesign');
-  if(!page)return;
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealItems=page.querySelectorAll('[data-reveal]');
-  if(reduced){revealItems.forEach(el=>el.classList.add('is-revealed'));return;}
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed');io.unobserve(entry.target);}});
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  revealItems.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);});
-  const hero=page.querySelector('.ar-hero-visual');
-  const img=page.querySelector('.ar-image-shell');
-  if(hero&&img){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=((e.clientX-r.left)/r.width-.5)*2;const y=((e.clientY-r.top)/r.height-.5)*2;img.style.transform=`rotate(${3+x*1.1}deg) translate3d(${x*7}px,${y*6}px,0)`},{passive:true});hero.addEventListener('pointerleave',()=>{img.style.transform='';});}
-})();
-</script>
-<main id="main-content" class="about-redesign about-v4">
-<section class="about-hero-v4" aria-labelledby="about-title">
-  <div class="v4-hero-curve v4-hero-curve-a" aria-hidden="true"></div><div class="v4-hero-curve v4-hero-curve-b" aria-hidden="true"></div>
-  <div class="v4-wrap v4-hero-grid">
-    <div class="v4-hero-copy">
-      <div class="v4-meta"><span class="v4-dot"></span><span>ABOUT US</span><i></i></div>
-      <h1 id="about-title"><span>15 Years of</span><span>Creating Experiences.</span><span>Building Brands.</span><span>Delivering <em>Impact.</em></span></h1>
-      <p class="v4-hero-sub">15 Years of Creating Experiences. Building Brands. Delivering Impact.</p>
-    </div>
-    <div class="v4-hero-art" aria-hidden="true">
-      <div class="v4-art-ring ring-a"></div><div class="v4-art-ring ring-b"></div><div class="v4-art-ring ring-c"></div>
-      <div class="v4-image"><img src="assets/img/work/case-studies-hero-1.jpg" alt="Trendz Eventz experiential event campaign" width="1200" height="800" loading="eager" decoding="async"></div>
-      <div class="v4-year"><strong>15</strong><span>YEARS</span></div>
-      <span class="v4-orbit-dot"></span>
-    </div>
-    <div class="v4-hero-foot"><span>ABOUT US</span><span>15 YEARS OF EXPERIENCE</span><span>INDIA</span></div>
-  </div>
-</section>
 
-<section id="story" class="v4-story" aria-labelledby="story-title">
-  <div class="v4-wrap">
-    <div class="v4-section-meta"><span>OUR STORY</span><span class="right">15 YEARS / A JOURNEY BUILT THROUGH EXPERIENCE</span></div>
-    <div class="v4-story-grid">
-      <aside class="v4-story-marker" aria-hidden="true"><strong>15</strong><span>YEARS OF<br>CREATING<br>EXPERIENCES</span><div class="v4-marker-curve"></div></aside>
-      <div class="v4-story-copy">
-        <h2 id="story-title">Our <em>Story</em></h2>
-        <p class="lead">For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.</p>
-        <div class="prose">
-          <p>What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.</p>
-          <p>Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.</p>
-          <p>Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.</p>
-        </div>
-        <blockquote>15 years of experience. Countless experiences. One commitment — making every brand interaction matter.</blockquote>
+
+<!-- =========================================================
+     SKIP NAVIGATION
+========================================================== -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
+
+<!-- =========================================================
+     SITE HEADER COMPONENT
+========================================================== -->
+<header id="site-header" class="tz-header">
+  <div class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple">PAN-INDIA</span>
+        <span class="h-3 w-px bg-black/10"></span>
+        <span class="text-[10px] font-medium text-trendz-muted">Headquartered in Mumbai · Delivering across 50+ cities</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="tel:+919987399997" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="phone" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <span class="h-3 w-px bg-black/10"></span>
+        <a href="mailto:info@trendzeventz.com" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="mail" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>info@trendzeventz.com</span>
+        </a>
       </div>
     </div>
   </div>
-</section>
 
-<section class="v4-purpose" aria-label="Our Mission and Our Vision">
-  <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark"><span>OUR MISSION / OUR VISION</span></div>
-    <div class="v4-purpose-grid">
-      <article class="v4-purpose-card mission"><div class="v4-card-meta"><span>OUR MISSION</span></div><div class="v4-card-curve"></div><h2>Our Mission</h2><p>To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.</p></article>
-      <article class="v4-purpose-card vision"><div class="v4-card-meta"><span>OUR VISION</span></div><div class="v4-card-curve"></div><h2>Our Vision</h2><p>To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.</p></article>
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10">
+    <div class="tz-main-nav flex h-[76px] items-center justify-between">
+      <a href="index.html" class="tz-brand" aria-label="Trendz Eventz — Home">
+        <span class="tz-brand-lockup">
+          <span class="tz-logo-wrap">
+            <img src="assets/img/brand/logo2.gif" alt="Trendz Eventz" width="180" height="60" loading="eager" decoding="async" class="tz-logo">
+            <span class="tz-logo-accent" aria-hidden="true"></span>
+          </span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:block" aria-label="Primary navigation">
+        <ul class="flex items-center gap-0.5">
+          <li><a href="index.html" class="tz-nav-link">Home</a></li>
+          <li><a href="about.html" class="tz-nav-link is-active" aria-current="page">About</a></li>
+          <li><a href="services.html" class="tz-nav-link">Services</a></li>
+          <li><a href="work.html" class="tz-nav-link">Work</a></li>
+          <li><a href="clients.html" class="tz-nav-link">Clients</a></li>
+          <li><a href="contact.html" class="tz-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="contact.html" class="tz-cta">
+          <span>Request a Proposal</span>
+          <span class="tz-cta-arrow"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="contact.html" aria-label="Request a Proposal" class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white hover:bg-trendz-purple">
+          <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+        <button id="mobile-menu-button" type="button" class="tz-menu-button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+        </button>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="v4-values" aria-labelledby="values-title">
-  <div class="v4-wrap">
-    <div class="v4-section-meta"><span>OUR CORE VALUES</span><span class="right">THE STANDARDS BEHIND THE WORK</span></div>
-    <div class="v4-values-intro"><div><span class="v4-small">OUR CORE VALUES</span><h2 id="values-title">Every interaction is shaped by <em>what we stand for.</em></h2></div></div>
-    <div class="v4-values-editorial" aria-label="Our Core Values">
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Creativity &amp; Innovation</h3><p>Constantly exploring fresh ideas and unconventional approaches.</p></div></article>
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Commitment</h3><p>Taking ownership of every project and delivering on our promises.</p></div></article>
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Excellence in Execution</h3><p>Ensuring attention to detail and quality at every stage.</p></div></article>
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Integrity &amp; Transparency</h3><p>Building long-term relationships through trust and accountability.</p></div></article>
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Client Partnership</h3><p>Understanding our clients' objectives and working as an extension of their teams.</p></div></article>
-      <article><div class="v4-value-gesture" aria-hidden="true"></div><div class="v4-value-copy"><h3>Results &amp; Impact</h3><p>Creating experiences that deliver tangible value to brands.</p></div></article>
+  <div id="mobile-navigation" class="tz-mobile-panel lg:hidden" aria-hidden="true">
+    <div class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6">
+      <div class="mb-4 flex items-center justify-between">
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted">Navigation</span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple">Trendz Eventz</span>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <div class="space-y-1">
+          <a href="index.html" class="tz-mobile-link"><span>Home</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="about.html" class="tz-mobile-link is-active" aria-current="page"><span>About</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="services.html" class="tz-mobile-link"><span>Services</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="work.html" class="tz-mobile-link"><span>Work</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="clients.html" class="tz-mobile-link"><span>Clients</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="contact.html" class="tz-mobile-link"><span>Contact</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+      </nav>
+      <div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <a href="tel:+919987399997" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="phone" class="h-4 w-4 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <a href="mailto:info@trendzeventz.com" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="mail" class="h-4 w-4 text-trendz-purple"></i>
+          <span class="truncate">info@trendzeventz.com</span>
+        </a>
+      </div>
+      <a href="contact.html" class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white hover:bg-trendz-purple">
+        <span>Start a conversation</span>
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+      </a>
     </div>
   </div>
-</section>
+</header>
+<div id="mobile-menu-backdrop" class="tz-mobile-backdrop lg:hidden" aria-hidden="true"></div>
 
-<section class="v4-people" aria-labelledby="people-title">
-  <div class="v4-people-curve" aria-hidden="true"></div>
-  <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark"><span>THE PEOPLE BEHIND THE JOURNEY</span></div>
-    <div class="v4-people-grid">
-      <div class="v4-people-heading"><span class="v4-small light">THE PEOPLE BEHIND THE JOURNEY</span><h2 id="people-title">The People Behind the Journey</h2><div class="v4-people-orbit"><span>15</span></div></div>
-      <div class="v5-people-gallery" aria-label="Leadership and campaign imagery">
-  <figure class="v5-people-gallery-main">
-    <img src="assets/img/brand/bharat-jadhav.jpg" alt="Bharat Jadhav, Founder and Managing Director of Trendz Eventz" width="900" height="1100" loading="lazy" decoding="async">
-    <figcaption><strong>Bharat Jadhav</strong><span>Founder &amp; Managing Director</span></figcaption>
-  </figure>
-  <div class="v5-people-gallery-side">
-    <figure><img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg" alt="Trendz Eventz corporate sales meet experience" width="900" height="600" loading="lazy" decoding="async"><figcaption>Corporate Experience</figcaption></figure>
-    <figure><img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Trendz Eventz brand activation experience" width="900" height="600" loading="lazy" decoding="async"><figcaption>Brand Activation</figcaption></figure>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #16142a;
+      color: #ffffff;
+      font-family: "Manrope", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .about-grid-bg {
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.045) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.045) 1px,
+          transparent 1px
+        );
+      background-size: 56px 56px;
+    }
+
+    .about-noise-bg {
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .about-glow {
+      filter: blur(90px);
+      will-change: transform;
+    }
+
+    .about-gradient-text {
+      background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-silver-text {
+      background: linear-gradient(180deg, #ffffff 0%, #c9c4ed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 12px -4px rgba(0, 0, 0, 0.3);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.065);
+      border-color: rgba(168, 85, 247, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.25), 0 8px 16px -6px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+
+
+<main id="main-content" class="overflow-hidden min-h-screen">
+  <!-- =========================================================
+     ABOUT HERO — DARK EXPERIENTIAL DESIGN SYSTEM
+========================================================== -->
+<section class="relative isolate overflow-hidden bg-[#16142a] pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32" aria-labelledby="about-title">
+
+  <!-- Atmospheric Background Elements -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="about-grid-bg absolute inset-0"></div>
+    <div class="about-noise-bg absolute inset-0"></div>
+    <!-- Ambient Glow Orbs -->
+    <div class="about-glow absolute -top-24 left-1/4 h-[32rem] w-[32rem] rounded-full bg-violet-600/20"></div>
+    <div class="about-glow absolute top-1/3 -right-20 h-[28rem] w-[28rem] rounded-full bg-fuchsia-600/15"></div>
+    <div class="about-glow absolute bottom-0 left-10 h-[24rem] w-[24rem] rounded-full bg-indigo-600/15"></div>
   </div>
-</div><div class="v4-people-copy"><p class="lead">Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.</p><p>Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.</p><p>We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.</p></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="mb-6 flex items-center gap-2 text-xs font-mono text-violet-300/60" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-white transition-colors duration-200">Home</a>
+      <span class="text-violet-400/40">/</span>
+      <span class="text-violet-400 font-semibold">About Us</span>
+    </nav>
+
+    <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+
+      <!-- Left Column: Copy & CTAs -->
+      <div class="lg:col-span-7">
+
+        <!-- Eyebrow Pill Badge -->
+        <div class="inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-white/[0.06] px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-violet-200 backdrop-blur-md">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-fuchsia-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-fuchsia-400"></span>
+          </span>
+          ABOUT US
+          <span class="text-violet-400/40">·</span>
+          <span class="text-violet-300/70">15 YEARS OF EXPERIENCE</span>
+        </div>
+
+        <!-- H1 Main Heading -->
+        <h1 id="about-title" class="mt-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-[-0.045em] leading-[0.95] text-white font-['Space_Grotesk']">
+          15 Years of <span class="about-gradient-text">Creating Experiences.</span>
+          <br class="hidden sm:inline">
+          Building Brands.
+          <br class="hidden sm:inline">
+          Delivering <span class="text-violet-300 italic font-['Syne'] font-bold">Impact.</span>
+        </h1>
+
+        <!-- Subtitle matching exact copy -->
+        <p class="mt-6 max-w-2xl text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-violet-100/75">
+          15 Years of Creating Experiences. Building Brands. Delivering Impact.
+        </p>
+
+        <!-- Key Metrics Strip -->
+        <div class="mt-8 grid grid-cols-3 gap-4 border-y border-white/10 py-6 max-w-xl">
+          <div>
+            <div class="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white">15+</div>
+            <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-violet-300/60">Years Pan-India</div>
+          </div>
+          <div>
+            <div class="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white">50+</div>
+            <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-violet-300/60">Cities Activated</div>
+          </div>
+          <div>
+            <div class="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold text-white">100%</div>
+            <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-violet-300/60">On-Ground Execution</div>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="#story" class="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#1e1c38] transition-all duration-300 hover:bg-violet-100 hover:shadow-[0_10px_25px_-5px_rgba(255,255,255,0.3)] hover:-translate-y-0.5">
+            <span>Explore Our Story</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#1e1c38] text-white transition-transform duration-300 group-hover:translate-y-0.5">
+              <i data-lucide="arrow-down" class="h-3.5 w-3.5"></i>
+            </span>
+          </a>
+          <a href="contact.html" class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-violet-400/40 hover:bg-white/[0.08] hover:-translate-y-0.5">
+            <span>Start a Conversation</span>
+            <i data-lucide="arrow-up-right" class="h-4 w-4 text-violet-300"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Visual Frame with 15-Year Badge -->
+      <div class="relative lg:col-span-5" aria-hidden="true">
+
+        <!-- Orbital Ring Outline -->
+        <div class="absolute -inset-4 rounded-3xl border border-violet-400/20 rotate-1 pointer-events-none"></div>
+
+        <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/10 to-transparent p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm">
+          <img src="assets/img/work/case-studies-hero-1.jpg" alt="Trendz Eventz experiential event campaign" width="1200" height="800" loading="eager" decoding="async" class="h-full w-full rounded-xl sm:rounded-2xl object-cover">
+          <!-- Subtle Gradient Overlay -->
+          <div class="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-t from-[#16142a]/80 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Floating 15-Year Experience Pill Badge -->
+        <div class="glass-card absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-8 flex items-center gap-4 rounded-2xl p-4 sm:p-5">
+          <div class="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg">
+            <span class="font-['Space_Grotesk'] text-2xl sm:text-3xl font-black">15</span>
+          </div>
+          <div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-fuchsia-300">ESTABLISHED TRACK RECORD</div>
+            <div class="text-xs sm:text-sm font-semibold text-white">Years of Experiential Excellence</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="v4-promise" aria-labelledby="promise-title">
-  <div class="v4-promise-curve" aria-hidden="true"></div><div class="v4-promise-grid" aria-hidden="true"></div>
-  <div class="v4-wrap">
-    <div class="v4-section-meta v4-dark"><span>OUR PROMISE</span></div>
-    <div class="v4-promise-content"><span class="v4-small light">OUR PROMISE</span><h2 id="promise-title">We don't just execute campaigns.</h2><p>We don't just execute campaigns. We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.</p><strong>15 Years Strong. Driven by Ideas. Defined by Execution.</strong></div>
+  <!-- =========================================================
+     OUR STORY — WHITE EDITORIAL SECTION
+========================================================== -->
+<section id="story" class="relative isolate overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-b border-slate-200/80 text-slate-900" aria-labelledby="story-title">
+
+  <!-- Ambient Light Background -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -left-32 top-20 h-96 w-96 rounded-full bg-purple-100/50 blur-3xl"></div>
+    <div class="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-indigo-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-[0.035]" style="background-image:radial-gradient(#4f46e5 1px,transparent 1px);background-size:24px 24px;"></div>
   </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Eyebrow -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-5">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-purple-200 bg-purple-50 px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-purple-700">
+        <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
+        <span>OUR STORY</span>
+      </div>
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">15 YEARS / A JOURNEY BUILT THROUGH EXPERIENCE</span>
+    </div>
+
+    <!-- Main Content Layout -->
+    <div class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+
+      <!-- Left Column: Milestone Feature Badge -->
+      <aside class="lg:col-span-4" aria-label="15 Years Milestone">
+        <div class="sticky top-28 rounded-3xl border border-slate-200 bg-slate-50/90 p-8 lg:p-10 text-center lg:text-left shadow-lg shadow-purple-950/5">
+          <div class="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-purple-700">
+            <span class="h-2 w-2 rounded-full bg-purple-600"></span>
+            MILESTONE
+          </div>
+
+          <div class="mt-4 font-['Space_Grotesk'] text-7xl sm:text-8xl font-black leading-none text-slate-950 tracking-tighter">
+            15
+          </div>
+
+          <div class="mt-2 font-['Space_Grotesk'] text-sm sm:text-base font-bold uppercase tracking-wider text-purple-900">
+            YEARS OF<br>CREATING<br>EXPERIENCES
+          </div>
+
+          <div class="mt-6 h-px w-full bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-transparent"></div>
+
+          <p class="mt-6 font-mono text-xs leading-relaxed text-slate-500">
+            From humble beginnings to an integrated pan-India experiential marketing powerhouse.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Right Column: Narrative Copy & Editorial Quote -->
+      <div class="lg:col-span-8">
+
+        <h2 id="story-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] text-slate-950 font-['Space_Grotesk']">
+          Our <span class="text-purple-700">Story</span>
+        </h2>
+
+        <!-- Lead Paragraph -->
+        <p class="mt-6 text-lg sm:text-xl font-medium leading-relaxed text-slate-800 font-['Manrope']">
+          For over 15 years, we have been at the forefront of creating meaningful brand experiences, bringing ideas to life and connecting brands with their audiences.
+        </p>
+
+        <!-- Body Paragraphs -->
+        <div class="mt-6 space-y-5 text-base sm:text-lg leading-relaxed text-slate-600 font-['Manrope']">
+          <p>
+            What began as a vision to create impactful brand interactions has evolved into an integrated BTL and Experiential Marketing Agency, delivering innovative, engaging and result-oriented solutions across India.
+          </p>
+          <p>
+            Over the last decade and a half, we have partnered with brands across industries, executing campaigns that go beyond visibility to create meaningful consumer engagement.
+          </p>
+          <p>
+            Our journey has been shaped by creativity, commitment, strong execution capabilities and, most importantly, the trust our clients have placed in us.
+          </p>
+        </div>
+
+        <!-- Pull Quote Glass Card -->
+        <blockquote class="mt-10 rounded-2xl border-l-4 border-l-purple-600 border border-slate-200/80 bg-purple-50/60 p-6 sm:p-8 shadow-sm">
+          <div class="text-purple-600 font-serif text-4xl leading-none">“</div>
+          <p class="mt-2 font-['Space_Grotesk'] text-lg sm:text-xl lg:text-2xl font-bold leading-snug text-slate-950 tracking-tight">
+            15 years of experience. Countless experiences. One commitment — making every brand interaction matter.
+          </p>
+        </blockquote>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+
+  <!-- =========================================================
+     OUR MISSION / OUR VISION — DARK EXPERIENTIAL DESIGN SYSTEM
+========================================================== -->
+<section class="relative isolate overflow-hidden bg-[#16142a] py-20 sm:py-24 lg:py-28" aria-label="Our Mission and Our Vision">
+
+  <!-- Atmospheric Background Elements -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="about-grid-bg absolute inset-0 opacity-40"></div>
+    <div class="about-glow absolute top-1/2 left-1/3 h-[26rem] w-[26rem] rounded-full bg-violet-600/15"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Eyebrow -->
+    <div class="flex items-center gap-3 border-b border-white/10 pb-5">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-violet-400/20 bg-white/[0.06] px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-violet-200 backdrop-blur-md">
+        <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+        <span>OUR MISSION / OUR VISION</span>
+      </div>
+      <span class="h-px flex-1 bg-white/10 hidden sm:block"></span>
+    </div>
+
+    <!-- Dual Purpose Cards Grid -->
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
+
+      <!-- Card 01: Our Mission -->
+      <article class="glass-card group relative overflow-hidden rounded-3xl p-8 sm:p-10 lg:p-12">
+        <!-- Top Accent Strip -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 opacity-60 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-violet-300">
+            01 / MISSION
+          </span>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-300 group-hover:border-violet-400/40 transition">
+            <i data-lucide="target" class="h-5 w-5"></i>
+          </div>
+        </div>
+
+        <h2 class="mt-6 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white font-['Space_Grotesk']">
+          Our Mission
+        </h2>
+
+        <p class="mt-4 text-base sm:text-lg leading-relaxed text-slate-300/90 font-['Manrope']">
+          To create impactful brand experiences through innovative thinking, strategic planning and flawless execution. We strive to help brands build stronger connections with their audiences through engaging, measurable and memorable marketing solutions.
+        </p>
+      </article>
+
+      <!-- Card 02: Our Vision -->
+      <article class="glass-card group relative overflow-hidden rounded-3xl p-8 sm:p-10 lg:p-12">
+        <!-- Top Accent Strip -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-fuchsia-500 to-indigo-500 opacity-60 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-fuchsia-300">
+            02 / VISION
+          </span>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-300 group-hover:border-fuchsia-400/40 transition">
+            <i data-lucide="compass" class="h-5 w-5"></i>
+          </div>
+        </div>
+
+        <h2 class="mt-6 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white font-['Space_Grotesk']">
+          Our Vision
+        </h2>
+
+        <p class="mt-4 text-base sm:text-lg leading-relaxed text-slate-300/90 font-['Manrope']">
+          To be a trusted and preferred experiential marketing partner for leading brands, recognised for creativity, operational excellence, innovation and the ability to transform brand objectives into powerful real-world experiences.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- =========================================================
+     OUR CORE VALUES — WHITE EDITORIAL GRID
+========================================================== -->
+<section class="relative isolate overflow-hidden bg-[#f8f7fb] py-20 sm:py-24 lg:py-28 border-y border-slate-200/80 text-slate-900" aria-labelledby="values-title">
+
+  <!-- Ambient Light Background -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -right-32 top-10 h-80 w-80 rounded-full bg-purple-100/40 blur-3xl"></div>
+    <div class="absolute -left-32 bottom-10 h-80 w-80 rounded-full bg-indigo-100/30 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Eyebrow -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-5">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-purple-200 bg-purple-50 px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-purple-700">
+        <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
+        <span>OUR CORE VALUES</span>
+      </div>
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">THE STANDARDS BEHIND THE WORK</span>
+    </div>
+
+    <!-- Section Header -->
+    <div class="mt-10 max-w-3xl">
+      <h2 id="values-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] text-slate-950 font-['Space_Grotesk']">
+        Our <span class="text-purple-700">Core Values</span>
+      </h2>
+    </div>
+
+    <!-- 6 Values Grid -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Our Core Values">
+
+      <!-- Value 01 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">01</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Creativity &amp; Innovation
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Constantly exploring fresh ideas and unconventional approaches.
+        </p>
+      </article>
+
+      <!-- Value 02 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">02</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Commitment
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Taking ownership of every project and delivering on our promises.
+        </p>
+      </article>
+
+      <!-- Value 03 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">03</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Excellence in Execution
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Ensuring attention to detail and quality at every stage.
+        </p>
+      </article>
+
+      <!-- Value 04 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">04</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Integrity &amp; Transparency
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Building long-term relationships through trust and accountability.
+        </p>
+      </article>
+
+      <!-- Value 05 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">05</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Client Partnership
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Understanding our clients' objectives and working as an extension of their teams.
+        </p>
+      </article>
+
+      <!-- Value 06 -->
+      <article class="group relative rounded-2xl border border-slate-200/90 bg-white p-7 lg:p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold uppercase tracking-wider text-purple-700">06</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-purple-300 group-hover:bg-purple-600 transition"></span>
+        </div>
+        <h3 class="mt-5 text-xl font-bold text-slate-950 font-['Space_Grotesk'] tracking-tight">
+          Results &amp; Impact
+        </h3>
+        <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-['Manrope']">
+          Creating experiences that deliver tangible value to brands.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- =========================================================
+     THE PEOPLE BEHIND THE JOURNEY — DARK EXPERIENTIAL DESIGN SYSTEM
+========================================================== -->
+<section class="relative isolate overflow-hidden bg-[#16142a] py-20 sm:py-24 lg:py-28" aria-labelledby="people-title">
+
+  <!-- Atmospheric Background Elements -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="about-grid-bg absolute inset-0 opacity-40"></div>
+    <div class="about-glow absolute top-1/2 -left-20 h-[30rem] w-[30rem] rounded-full bg-indigo-600/15"></div>
+    <div class="about-glow absolute bottom-10 right-10 h-[26rem] w-[26rem] rounded-full bg-violet-600/15"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Eyebrow -->
+    <div class="flex items-center gap-3 border-b border-white/10 pb-5">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-violet-400/20 bg-white/[0.06] px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-violet-200 backdrop-blur-md">
+        <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+        <span>THE PEOPLE BEHIND THE JOURNEY</span>
+      </div>
+      <span class="h-px flex-1 bg-white/10 hidden sm:block"></span>
+    </div>
+
+    <!-- Section Title -->
+    <div class="mt-10 max-w-3xl">
+      <h2 id="people-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] text-white font-['Space_Grotesk']">
+        The People Behind <span class="about-gradient-text">the Journey</span>
+      </h2>
+    </div>
+
+    <!-- Main Grid: Gallery + Narrative -->
+    <div class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+
+      <!-- Gallery Showcase (5 Cols) -->
+      <div class="lg:col-span-5 space-y-4">
+
+        <!-- Founder Portrait Card -->
+        <figure class="glass-card relative overflow-hidden rounded-3xl p-3">
+          <div class="relative overflow-hidden rounded-2xl aspect-[4/5]">
+            <img src="assets/img/brand/bharat-jadhav.jpg" alt="Bharat Jadhav, Founder and Managing Director of Trendz Eventz" width="900" height="1100" loading="lazy" decoding="async" class="h-full w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-transparent to-transparent"></div>
+            <figcaption class="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-[#1e1c38]/85 p-4 backdrop-blur-md">
+              <strong class="block text-base font-bold text-white font-['Space_Grotesk']">Bharat Jadhav</strong>
+              <span class="font-mono text-xs uppercase tracking-wider text-violet-300">Founder &amp; Managing Director</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- Experience Vignettes Grid -->
+        <div class="grid grid-cols-2 gap-4" aria-label="Campaign imagery">
+          <figure class="glass-card relative overflow-hidden rounded-2xl p-2">
+            <div class="relative overflow-hidden rounded-xl aspect-[16/10]">
+              <img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg" alt="Trendz Eventz corporate sales meet experience" width="900" height="600" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <figcaption class="absolute bottom-2 left-2 text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                Corporate Experience
+              </figcaption>
+            </div>
+          </figure>
+
+          <figure class="glass-card relative overflow-hidden rounded-2xl p-2">
+            <div class="relative overflow-hidden rounded-xl aspect-[16/10]">
+              <img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Trendz Eventz brand activation experience" width="900" height="600" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <figcaption class="absolute bottom-2 left-2 text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                Brand Activation
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+
+      </div>
+
+      <!-- Narrative Copy (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <p class="text-xl sm:text-2xl font-bold leading-snug text-white font-['Space_Grotesk']">
+          Behind every successful campaign is a team that believes in the power of ideas and the importance of execution.
+        </p>
+
+        <p class="text-base sm:text-lg leading-relaxed text-slate-300 font-['Manrope']">
+          Our leadership brings together industry experience, strategic understanding, creative vision and business acumen. Supported by dedicated professionals across business development, creative, production and operations, we work collaboratively to deliver seamless brand experiences.
+        </p>
+
+        <p class="text-base sm:text-lg leading-relaxed text-slate-300 font-['Manrope']">
+          We believe that our people are our greatest strength, and their passion, expertise and commitment have been instrumental in shaping our 15-year journey.
+        </p>
+
+        <!-- Department Badges -->
+        <div class="pt-4 flex flex-wrap gap-2.5">
+          <span class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-wider text-violet-200">
+            Business Development
+          </span>
+          <span class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-wider text-violet-200">
+            Creative Strategy
+          </span>
+          <span class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-wider text-violet-200">
+            Pan-India Production
+          </span>
+          <span class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-wider text-violet-200">
+            On-Ground Operations
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- =========================================================
+     OUR PROMISE — WHITE EDITORIAL CLOSING
+========================================================== -->
+<section class="relative isolate overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-t border-slate-200/80 text-slate-900" aria-labelledby="promise-title">
+
+  <!-- Ambient Light Background Elements -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -left-32 top-10 h-80 w-80 rounded-full bg-purple-100/40 blur-3xl"></div>
+    <div class="absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-fuchsia-100/30 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+
+    <!-- Section Eyebrow -->
+    <div class="inline-flex items-center gap-2.5 rounded-full border border-purple-200 bg-purple-50 px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-purple-700">
+      <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span>
+      <span>OUR PROMISE</span>
+    </div>
+
+    <!-- H2 Section Title -->
+    <h2 id="promise-title" class="mt-8 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] text-slate-950 font-['Space_Grotesk']">
+      Our Promise
+    </h2>
+
+    <!-- Promise Core Card -->
+    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50/80 p-8 sm:p-12 lg:p-16 text-center shadow-lg shadow-purple-950/5">
+
+      <p class="text-lg sm:text-xl lg:text-2xl font-medium leading-relaxed text-slate-700 max-w-3xl mx-auto font-['Manrope']">
+        We don't just execute campaigns. We create connections, bring brands closer to consumers and turn marketing objectives into experiences that leave a lasting impression.
+      </p>
+
+      <div class="my-8 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-purple-600 to-transparent"></div>
+
+      <!-- Motto / Closing Impact Statement -->
+      <div class="font-['Space_Grotesk'] text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-950">
+        <strong>15 Years Strong. Driven by Ideas. Defined by Execution.</strong>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="contact.html" class="group inline-flex items-center gap-3 rounded-full bg-[#16142a] px-7 py-4 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-purple-900 hover:shadow-xl hover:-translate-y-0.5">
+          <span>Request an Event Proposal</span>
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-white/20 text-white transition-transform duration-300 group-hover:rotate-45">
+            <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+          </span>
+        </a>
+
+        <a href="work.html" class="inline-flex items-center gap-3 rounded-full border border-slate-300 bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-slate-800 transition-all duration-300 hover:border-purple-400 hover:bg-purple-50/50 hover:-translate-y-0.5">
+          <span>Explore Verified Work</span>
+          <i data-lucide="arrow-right" class="h-4 w-4 text-purple-700"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 </main>
-<!-- PRE-FOOTER CTA -->
-<!-- Shared footer -->
-<div data-trendz-footer aria-label="Trendz Eventz footer"></div>
-<script src="assets/js/footer-loader.js"></script>
+
+<div id="trendz-shared-footer" class="font-sans antialiased">
+<footer class="relative isolate overflow-hidden bg-[#120f18] text-slate-300 border-t border-white/10">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -left-52 top-24 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl"></div>
+    <div class="absolute -right-52 bottom-0 h-96 w-96 rounded-full bg-cyan-400/5 blur-3xl"></div>
+    <div class="absolute -right-[25rem] top-[-15rem] h-[42rem] w-[42rem] rounded-[55%_45%_41%_59%/38%_61%_39%_62%] border border-violet-300/10 rotate-[-15deg]"></div>
+    <div class="absolute inset-0 opacity-[.035] [background-image:radial-gradient(rgba(255,255,255,.8)_0.6px,transparent_0.6px)] [background-size:28px_28px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.45fr_repeat(3,minmax(0,1fr))] lg:gap-10">
+
+      <div>
+        <a href="index.html"
+           class="inline-flex items-center rounded-[12px_4px_12px_4px] bg-white px-3 py-2 transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg]">
+          <img src="assets/img/brand/logo.png" alt="Trendz Eventz" class="block h-9 w-auto object-contain">
+        </a>
+
+        <p class="mt-6 text-sm font-extrabold leading-6 text-white">
+          Meaningful experiences.
+          <span class="block text-violet-300">Measurable momentum.</span>
+        </p>
+
+        <p class="mt-3 max-w-sm text-xs leading-7 text-slate-400/60">
+          Trendz Eventz is an experiential marketing and corporate
+          event agency headquartered in Mumbai, delivering pan-India
+          dealer meets, launches, on-ground activations, and retail
+          branding since 2011.
+        </p>
+
+        <div class="mt-6 space-y-3">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Mumbai%2C%20Maharashtra%2C%20India" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="map-pin" class="h-3.5 w-3.5"></i>
+            </span>
+            Mumbai, Maharashtra, India
+          </a>
+          <a href="tel:+919987399997" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="phone" class="h-3.5 w-3.5"></i>
+            </span>
+            +91 99873 99997
+          </a>
+          <a href="mailto:info@trendzeventz.com" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="mail" class="h-3.5 w-3.5"></i>
+            </span>
+            info@trendzeventz.com
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Navigation</h3>
+        <nav class="space-y-3">
+          <a href="index.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Home Overview</a>
+          <a href="about.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">About Trendz</a>
+          <a href="services.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Core Capabilities</a>
+          <a href="work.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Case Studies & Work</a>
+          <a href="clients.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Client Portfolio</a>
+          <a href="contact.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Request a Proposal</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Core Capabilities</h3>
+        <nav class="space-y-3">
+          <a href="services.html#corporate-events" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Corporate Events & Dealer Meets</a>
+          <a href="services.html#btl-experiential" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">BTL Activations & Mall Takeovers</a>
+          <a href="services.html#retail-branding" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Retail Audits & Store Branding</a>
+          <a href="services.html#digital-marketing" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Digital Campaign Amplification</a>
+          <a href="services.html#mobile-tele-marketing" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Field Force & Candidate Outreach</a>
+          <a href="services.html#broadcast-print-outdoor" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Highway OOH & PR Stunts</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Leadership & Scale</h3>
+
+        <div class="border-l border-violet-300/20 pl-4">
+          <strong class="block text-sm font-extrabold text-white">Bharat Jadhav</strong>
+          <span class="mt-1 block text-[10px] font-bold text-violet-300">Founder & Managing Director</span>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">15+ Years</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">500+ Events</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">Pan-India Footprint</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">10-City Tours</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">100 Stores Launched</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+    <div class="flex flex-col gap-5 text-[9px] leading-5 text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>
+        &copy; <span data-current-year>2026</span> Trendz Eventz.
+        All rights reserved.
+        <span class="text-slate-400/60">Built for corporate excellence.</span>
+      </p>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+        <span>Mumbai · Pune · Bangalore · Delhi · Goa</span>
+        <a href="https://instagram.com/trendz_eventz"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 font-extrabold text-violet-300 transition hover:text-fuchsia-300">
+          <i data-lucide="instagram" class="h-3.5 w-3.5"></i>
+          <span>@trendz_eventz</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+<!-- =========================================================
+     SHARED CORE SCRIPTS
+========================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Initialize Lucide Icons
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
+
+  // 2. Set dynamic current year in footer
+  document.querySelectorAll('[data-current-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // 3. Header Scroll Controller & Mobile Menu
+  var header = document.getElementById('site-header');
+  var menuBtn = document.getElementById('mobile-menu-button');
+  var menuPanel = document.getElementById('mobile-navigation');
+  var backdrop = document.getElementById('mobile-menu-backdrop');
+
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (menuBtn && menuPanel) {
+    var toggleMenu = function (open) {
+      var isOpen = typeof open === 'boolean' ? open : !menuPanel.classList.contains('is-open');
+      menuBtn.classList.toggle('is-open', isOpen);
+      menuPanel.classList.toggle('is-open', isOpen);
+      if (backdrop) backdrop.classList.toggle('is-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1024 && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    }, { passive: true });
+  }
+});
+</script>
 </body>
 </html>
+

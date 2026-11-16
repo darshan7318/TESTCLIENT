@@ -1,0 +1,30 @@
+<!-- CONTENT LOCK: User-provided About Us copy is source of truth. Do not paraphrase, reorder, shorten, or invent claims. -->
+@@include('../components/meta-head.html', {
+  "title": "About Us | Trendz Eventz — 15 Years of Creating Experiences",
+  "description": "Discover Trendz Eventz: 15 years of creating meaningful brand experiences, building brands and delivering impact through BTL and experiential marketing across India.",
+  "canonical": "https://trendzeventz.com/about.html",
+  "base": "",
+  "extra_css": ""
+})
+
+@@include('../components/header.html', {
+  "active": "about",
+  "base": ""
+})
+
+@@include('../components/about/styles.html')
+
+<main id="main-content" class="overflow-hidden min-h-screen">
+  @@include('../components/about/hero.html')
+  @@include('../components/about/story.html')
+  @@include('../components/about/purpose.html')
+  @@include('../components/about/values.html')
+  @@include('../components/about/people.html')
+  @@include('../components/about/promise.html')
+</main>
+
+@@include('../components/footer.html', {
+  "base": ""
+})
+
+@@include('../components/scripts.html')

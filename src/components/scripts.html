@@ -1,0 +1,71 @@
+<!-- =========================================================
+     SHARED CORE SCRIPTS
+========================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Initialize Lucide Icons
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
+
+  // 2. Set dynamic current year in footer
+  document.querySelectorAll('[data-current-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // 3. Header Scroll Controller & Mobile Menu
+  var header = document.getElementById('site-header');
+  var menuBtn = document.getElementById('mobile-menu-button');
+  var menuPanel = document.getElementById('mobile-navigation');
+  var backdrop = document.getElementById('mobile-menu-backdrop');
+
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (menuBtn && menuPanel) {
+    var toggleMenu = function (open) {
+      var isOpen = typeof open === 'boolean' ? open : !menuPanel.classList.contains('is-open');
+      menuBtn.classList.toggle('is-open', isOpen);
+      menuPanel.classList.toggle('is-open', isOpen);
+      if (backdrop) backdrop.classList.toggle('is-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1024 && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    }, { passive: true });
+  }
+});
+</script>
+</body>
+</html>

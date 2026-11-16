@@ -1,3973 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- =====================================================
-         CORE
-    ====================================================== -->
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
-
-    <meta
-        name="theme-color"
-        content="#F7F7F9"
-    >
-
-    <meta
-        name="color-scheme"
-        content="light"
-    >
-
-    <title>
-        Trendz Eventz — Experiential Marketing &amp; Corporate Events Agency Mumbai
-    </title>
-
-    <meta
-        name="description"
-        content="Meaningful experiences. Measurable momentum. Trendz Eventz delivers corporate events, pan-India dealer meets, launches, BTL activations, and retail branding."
-    >
-
-    <link
-        rel="canonical"
-        href="https://trendzeventz.com/"
-    >
-
-    <!-- =====================================================
-         BRAND
-    ====================================================== -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="assets/img/brand/logo.png"
-    >
-
-    <link
-        rel="apple-touch-icon"
-        href="assets/img/brand/logo.png"
-    >
-
-    <!-- =====================================================
-         FONTS
-    ====================================================== -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- =====================================================
-         TAILWIND
-    ====================================================== -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-
-        tailwind.config = {
-
-            theme: {
-
-                extend: {
-
-                    colors: {
-
-                        trendz: {
-
-                            ink: '#17151F',
-                            purple: '#5C55A2',
-                            lilac: '#8B85CF',
-                            pink: '#D52D91',
-                            paper: '#F7F7F9',
-                            muted: '#6F6B78',
-                            line: '#E8E7EC'
-
-                        }
-
-                    },
-
-                    fontFamily: {
-
-                        sans: [
-                            'Inter',
-                            'sans-serif'
-                        ],
-
-                        heading: [
-                            '"Plus Jakarta Sans"',
-                            'sans-serif'
-                        ],
-
-                        display: [
-                            'Syne',
-                            'sans-serif'
-                        ],
-
-                        mono: [
-                            '"DM Mono"',
-                            'monospace'
-                        ]
-
-                    }
-
-                }
-
-            }
-
-        };
-
-    </script>
-
-    <!-- =====================================================
-         ICONS
-    ====================================================== -->
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- =====================================================
-         GSAP
-    ====================================================== -->
-
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
-
-    <!-- =====================================================
-         HEADER CSS
-    ====================================================== -->
-
-    <style>
-
-        :root {
-
-            --tz-ink: #17151F;
-            --tz-purple: #5C55A2;
-            --tz-lilac: #8B85CF;
-            --tz-pink: #D52D91;
-            --tz-paper: #F7F7F9;
-            --tz-line: #E8E7EC;
-
-        }
-
-
-        /* ===================================================
-           BASE
-        ==================================================== */
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            background:
-                var(--tz-paper);
-
-            color:
-                var(--tz-ink);
-
-        }
-
-
-        html,
-        body {
-
-            max-width: 100%;
-
-            overflow-x: hidden;
-
-        }
-
-
-        /* ===================================================
-           HEADER
-        ==================================================== */
-
-        .tz-header {
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-            right: 0;
-
-            z-index: 1000;
-
-            background:
-                rgba(247, 247, 249, 0.94);
-
-            border-bottom:
-                1px solid rgba(23, 21, 31, 0.06);
-
-            transition:
-                height 400ms cubic-bezier(.2,.8,.2,1),
-                background 300ms ease,
-                box-shadow 300ms ease,
-                border-color 300ms ease;
-
-        }
-
-
-        .tz-header.is-scrolled {
-
-            background:
-                rgba(247, 247, 249, 0.82);
-
-            border-color:
-                rgba(23, 21, 31, 0.10);
-
-            box-shadow:
-                0 16px 50px rgba(23, 21, 31, 0.075);
-
-            backdrop-filter:
-                blur(22px);
-
-            -webkit-backdrop-filter:
-                blur(22px);
-
-        }
-
-
-        /* ===================================================
-           UTILITY BAR
-        ==================================================== */
-
-        .tz-utility {
-
-            transition:
-                height 300ms ease,
-                opacity 250ms ease,
-                transform 300ms ease;
-
-        }
-
-
-        .tz-header.is-scrolled .tz-utility {
-
-            height: 0;
-
-            opacity: 0;
-
-            overflow: hidden;
-
-            transform:
-                translateY(-100%);
-
-        }
-
-
-        /* ===================================================
-           MAIN NAV
-        ==================================================== */
-
-        .tz-main-nav {
-
-            transition:
-                height 350ms cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .tz-header.is-scrolled .tz-main-nav {
-
-            height: 64px;
-
-        }
-
-
-        /* ===================================================
-           BRAND
-        ==================================================== */
-
-        .tz-brand {
-
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            height: 48px;
-
-            perspective: 800px;
-
-            text-decoration: none;
-
-        }
-
-
-        /*
-         * Complete brand lockup:
-         *
-         * [ TZ CIRCLE ] [ ORIGINAL TRENDZ LOGO ]
-         */
-        .tz-brand-lockup {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 11px;
-
-            height: 100%;
-
-        }
-
-
-        /* ===================================================
-           TZ CIRCLE
-        ==================================================== */
-
-        .tz-monogram {
-
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 34px;
-
-            height: 34px;
-
-            min-width: 34px;
-
-            flex: 0 0 34px;
-
-            border:
-                1.5px solid var(--tz-purple);
-
-            border-radius: 50%;
-
-            background:
-                transparent;
-
-            color:
-                var(--tz-purple);
-
-            overflow: hidden;
-
-            transform:
-                translateZ(0);
-
-            transition:
-                transform 350ms cubic-bezier(.2,.8,.2,1),
-                border-color 250ms ease,
-                background 250ms ease,
-                color 250ms ease,
-                box-shadow 300ms ease;
-
-        }
-
-
-        /*
-         * Architectural horizontal cut.
-         */
-        .tz-monogram::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: -15%;
-
-            top: 50%;
-
-            width: 130%;
-
-            height: 1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent 0%,
-                    rgba(92,85,162,.25) 25%,
-                    rgba(92,85,162,.60) 50%,
-                    rgba(213,45,145,.50) 75%,
-                    transparent 100%
-                );
-
-            opacity: .7;
-
-            transform:
-                translateY(-50%);
-
-        }
-
-
-        /*
-         * Small brand accent.
-         */
-        .tz-monogram::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 4px;
-
-            height: 4px;
-
-            right: 4px;
-
-            top: 4px;
-
-            border-radius: 50%;
-
-            background:
-                var(--tz-pink);
-
-            opacity: .9;
-
-            box-shadow:
-                0 0 0 3px rgba(213,45,145,.06);
-
-        }
-
-
-        /* ===================================================
-           TZ LETTERS
-        ==================================================== */
-
-        .tz-monogram-text {
-
-            position: relative;
-
-            z-index: 2;
-
-            display: block;
-
-            font-family:
-                'Syne',
-                sans-serif;
-
-            font-size: 12px;
-
-            line-height: 1;
-
-            font-weight: 800;
-
-            letter-spacing:
-                -0.12em;
-
-            transform:
-                translateX(-1px);
-
-            transition:
-                transform 300ms cubic-bezier(.2,.8,.2,1),
-                color 250ms ease;
-
-        }
-
-
-        /* ===================================================
-           ORIGINAL LOGO WRAPPER
-        ==================================================== */
-
-        .tz-logo-wrap {
-
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: visible;
-
-        }
-
-
-        /* ===================================================
-           ORIGINAL TRENDZ LOGO
-        ==================================================== */
-
-        .tz-logo {
-
-            position: relative;
-
-            z-index: 3;
-
-            display: block;
-
-            height: 43px;
-
-            width: auto;
-
-            object-fit: contain;
-
-            transform-origin: left center;
-
-            will-change: transform;
-
-            transition:
-                filter 300ms ease,
-                transform 350ms cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        /*
-         * Do not alter the supplied logo artwork.
-         * Only apply a subtle presentation effect.
-         */
-        .tz-brand:hover .tz-logo {
-
-            filter:
-                drop-shadow(
-                    0 8px 18px
-                    rgba(92,85,162,.16)
-                );
-
-        }
-
-
-        /* ===================================================
-           BRAND UNDERLINE
-        ==================================================== */
-
-        .tz-logo-accent {
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: -5px;
-
-            width: 0;
-
-            height: 2px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--tz-purple),
-                    var(--tz-pink)
-                );
-
-            transition:
-                width 400ms cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .tz-brand:hover .tz-logo-accent {
-
-            width: 100%;
-
-        }
-
-
-        /* ===================================================
-           TZ HOVER
-        ==================================================== */
-
-        .tz-brand:hover .tz-monogram {
-
-            transform:
-                translateY(-1px)
-                rotate(-4deg);
-
-            border-color:
-                var(--tz-pink);
-
-            color:
-                var(--tz-pink);
-
-            background:
-                rgba(213,45,145,.035);
-
-            box-shadow:
-                0 0 0 5px
-                rgba(213,45,145,.055);
-
-        }
-
-
-        .tz-brand:hover .tz-monogram-text {
-
-            transform:
-                translateX(-1px)
-                scale(1.05);
-
-        }
-
-
-        .tz-brand:hover .tz-logo {
-
-            transform:
-                translateX(2px);
-
-        }
-
-
-        /* ===================================================
-           NAV LINKS
-        ==================================================== */
-
-        .tz-nav-link {
-
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            height: 42px;
-
-            padding:
-                0 15px;
-
-            border-radius: 999px;
-
-            color:
-                rgba(23, 21, 31, 0.62);
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing:
-                -0.01em;
-
-            transition:
-                color 180ms ease,
-                background 180ms ease;
-
-        }
-
-
-        .tz-nav-link:hover {
-
-            color:
-                var(--tz-ink);
-
-            background:
-                rgba(23,21,31,.035);
-
-        }
-
-
-        .tz-nav-link::after {
-
-            content: "";
-
-            position: absolute;
-
-            bottom: 5px;
-
-            left: 50%;
-
-            width: 5px;
-
-            height: 5px;
-
-            border-radius: 50%;
-
-            background:
-                var(--tz-purple);
-
-            transform:
-                translateX(-50%)
-                scale(0);
-
-            opacity: 0;
-
-            transition:
-                transform 200ms ease,
-                opacity 200ms ease;
-
-        }
-
-
-        .tz-nav-link.is-active {
-
-            color:
-                var(--tz-purple);
-
-            background:
-                rgba(92,85,162,.07);
-
-        }
-
-
-        .tz-nav-link.is-active::after {
-
-            transform:
-                translateX(-50%)
-                scale(1);
-
-            opacity: 1;
-
-        }
-
-
-        /* ===================================================
-           CTA
-        ==================================================== */
-
-        .tz-cta {
-
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 11px;
-
-            height: 44px;
-
-            padding:
-                0 8px 0 18px;
-
-            overflow: hidden;
-
-            border-radius: 999px;
-
-            background:
-                var(--tz-ink);
-
-            color:
-                white;
-
-            font-size: 10px;
-
-            font-weight: 700;
-
-            letter-spacing:
-                .01em;
-
-            isolation: isolate;
-
-            transition:
-                transform 250ms cubic-bezier(.2,.8,.2,1),
-                background 250ms ease,
-                box-shadow 250ms ease;
-
-        }
-
-
-        .tz-cta::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: -1;
-
-            background:
-                linear-gradient(
-                    110deg,
-                    var(--tz-purple),
-                    var(--tz-pink)
-                );
-
-            transform:
-                translateX(-105%);
-
-            transition:
-                transform 500ms cubic-bezier(.2,.8,.2,1);
-
-        }
-
-
-        .tz-cta:hover {
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 14px 30px
-                rgba(92,85,162,.20);
-
-        }
-
-
-        .tz-cta:hover::before {
-
-            transform:
-                translateX(0);
-
-        }
-
-
-        .tz-cta-arrow {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 28px;
-
-            height: 28px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.10);
-
-            transition:
-                transform 300ms ease,
-                background 300ms ease;
-
-        }
-
-
-        .tz-cta:hover .tz-cta-arrow {
-
-            transform:
-                rotate(45deg);
-
-            background:
-                rgba(255,255,255,.18);
-
-        }
-
-
-        /* ===================================================
-           MOBILE PANEL
-        ==================================================== */
-
-        .tz-mobile-panel {
-
-            position: absolute;
-
-            left: 0;
-
-            right: 0;
-
-            top: 100%;
-
-            background:
-                rgba(247,247,249,.98);
-
-            border-bottom:
-                1px solid rgba(23,21,31,.08);
-
-            box-shadow:
-                0 24px 60px
-                rgba(23,21,31,.10);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            pointer-events: none;
-
-            transform:
-                translateY(-12px);
-
-            transition:
-                opacity 220ms ease,
-                transform 280ms cubic-bezier(.2,.8,.2,1),
-                visibility 220ms ease;
-
-        }
-
-
-        .tz-mobile-panel.is-open {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            pointer-events: auto;
-
-            transform:
-                translateY(0);
-
-        }
-
-
-        /* ===================================================
-           MOBILE BACKDROP
-        ==================================================== */
-
-        .tz-mobile-backdrop {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 900;
-
-            background:
-                rgba(23,21,31,.20);
-
-            backdrop-filter:
-                blur(4px);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            pointer-events: none;
-
-            transition:
-                opacity 200ms ease,
-                visibility 200ms ease;
-
-        }
-
-
-        .tz-mobile-backdrop.is-open {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            pointer-events: auto;
-
-        }
-
-
-        /* ===================================================
-           MOBILE MENU BUTTON
-        ==================================================== */
-
-        .tz-menu-button {
-
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 42px;
-
-            height: 42px;
-
-            border:
-                1px solid rgba(23,21,31,.10);
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.55);
-
-            transition:
-                border-color 200ms ease,
-                background 200ms ease;
-
-        }
-
-
-        .tz-menu-button:hover {
-
-            border-color:
-                rgba(92,85,162,.35);
-
-            background:
-                white;
-
-        }
-
-
-        .tz-menu-line {
-
-            position: absolute;
-
-            width: 17px;
-
-            height: 1.5px;
-
-            background:
-                currentColor;
-
-            transition:
-                transform 220ms ease,
-                opacity 180ms ease;
-
-        }
-
-
-        .tz-menu-line:nth-child(1) {
-
-            transform:
-                translateY(-5px);
-
-        }
-
-
-        .tz-menu-line:nth-child(2) {
-
-            transform:
-                translateY(0);
-
-        }
-
-
-        .tz-menu-line:nth-child(3) {
-
-            transform:
-                translateY(5px);
-
-        }
-
-
-        .tz-menu-button.is-open
-        .tz-menu-line:nth-child(1) {
-
-            transform:
-                translateY(0)
-                rotate(45deg);
-
-        }
-
-
-        .tz-menu-button.is-open
-        .tz-menu-line:nth-child(2) {
-
-            opacity: 0;
-
-        }
-
-
-        .tz-menu-button.is-open
-        .tz-menu-line:nth-child(3) {
-
-            transform:
-                translateY(0)
-                rotate(-45deg);
-
-        }
-
-
-        /* ===================================================
-           MOBILE NAV LINKS
-        ==================================================== */
-
-        .tz-mobile-link {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            min-height: 54px;
-
-            padding:
-                0 16px;
-
-            border:
-                1px solid transparent;
-
-            border-radius: 14px;
-
-            color:
-                rgba(23,21,31,.70);
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition:
-                color 180ms ease,
-                background 180ms ease,
-                border-color 180ms ease,
-                transform 180ms ease;
-
-        }
-
-
-        .tz-mobile-link:hover {
-
-            color:
-                var(--tz-ink);
-
-            background:
-                rgba(23,21,31,.035);
-
-            transform:
-                translateX(3px);
-
-        }
-
-
-        .tz-mobile-link.is-active {
-
-            color:
-                var(--tz-purple);
-
-            background:
-                rgba(92,85,162,.07);
-
-            border-color:
-                rgba(92,85,162,.12);
-
-        }
-
-
-        /* ===================================================
-           ACCESSIBILITY
-        ==================================================== */
-
-        :focus-visible {
-
-            outline:
-                2px solid var(--tz-purple);
-
-            outline-offset:
-                3px;
-
-        }
-
-
-        /* ===================================================
-           RESPONSIVE BRAND
-        ==================================================== */
-
-        @media (max-width: 768px) {
-
-            .tz-brand-lockup {
-
-                gap: 9px;
-
-            }
-
-
-            .tz-monogram {
-
-                width: 31px;
-
-                height: 31px;
-
-                min-width: 31px;
-
-                flex-basis: 31px;
-
-            }
-
-
-            .tz-monogram-text {
-
-                font-size: 11px;
-
-            }
-        }
-
-
-        @media (max-width: 640px) {
-
-            .tz-brand-lockup {
-
-                gap: 8px;
-
-            }
-
-
-            .tz-monogram {
-
-                width: 29px;
-
-                height: 29px;
-
-                min-width: 29px;
-
-                flex-basis: 29px;
-
-                border-width:
-                    1.25px;
-
-            }
-
-
-            .tz-monogram-text {
-
-                font-size: 10px;
-
-            }
-
-        }
-
-
-        @media (max-width: 380px) {
-
-            .tz-brand-lockup {
-
-                gap: 7px;
-
-            }
-
-
-            .tz-monogram {
-
-                width: 26px;
-
-                height: 26px;
-
-                min-width: 26px;
-
-                flex-basis: 26px;
-
-            }
-
-
-            .tz-monogram-text {
-
-                font-size: 9px;
-
-            }
-
-        }
-
-
-        /* ===================================================
-           REDUCED MOTION
-        ==================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-
-                scroll-behavior: auto;
-
-            }
-
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    0.01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    0.01ms !important;
-
-            }
-
-        }
-
-    </style>
-
-<link rel="stylesheet" href="assets/css/footer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F7F9">
+  <meta name="color-scheme" content="light">
+  <title>Trendz Eventz — Experiential Marketing &amp; Corporate Events Agency Mumbai</title>
+  <meta name="description" content="Meaningful experiences. Measurable momentum. Trendz Eventz delivers corporate events, pan-India dealer meets, launches, BTL activations, and retail branding.">
+  <link rel="canonical" href="https://trendzeventz.com/">
+  <link rel="icon" type="image/png" href="assets/img/brand/logo.png">
+  <link rel="apple-touch-icon" href="assets/img/brand/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/trendz.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  
 </head>
-
-
 <body class="bg-trendz-paper text-trendz-ink antialiased">
 
 
 <!-- =========================================================
      SKIP NAVIGATION
 ========================================================== -->
-
-<a
-    href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white"
->
-    Skip to main content
-</a>
-
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-trendz-ink focus:px-5 focus:py-3 focus:text-white">Skip to main content</a>
 
 <!-- =========================================================
-     HEADER
+     SITE HEADER COMPONENT
 ========================================================== -->
-
-<header
-    id="site-header"
-    class="tz-header"
->
-
-    <!-- =====================================================
-         UTILITY BAR
-    ====================================================== -->
-
-    <div
-        class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block"
-    >
-
-        <div
-            class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10"
-        >
-
-            <div class="flex items-center gap-3">
-
-                <span
-                    class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple"
-                >
-                    PAN-INDIA
-                </span>
-
-                <span class="h-3 w-px bg-black/10"></span>
-
-                <span
-                    class="text-[10px] font-medium text-trendz-muted"
-                >
-                    Headquartered in Mumbai · Delivering across 50+ cities
-                </span>
-
-            </div>
-
-
-            <div class="flex items-center gap-5">
-
-                <a
-                    href="tel:+919987399997"
-                    class="group flex items-center gap-2 text-[10px] font-medium text-trendz-muted transition-colors hover:text-trendz-ink"
-                >
-
-                    <i
-                        data-lucide="phone"
-                        class="h-3.5 w-3.5 text-trendz-purple"
-                    ></i>
-
-                    <span>
-                        +91 99873 99997
-                    </span>
-
-                </a>
-
-
-                <span class="h-3 w-px bg-black/10"></span>
-
-
-                <a
-                    href="mailto:info@trendzeventz.com"
-                    class="group flex items-center gap-2 text-[10px] font-medium text-trendz-muted transition-colors hover:text-trendz-ink"
-                >
-
-                    <i
-                        data-lucide="mail"
-                        class="h-3.5 w-3.5 text-trendz-purple"
-                    ></i>
-
-                    <span>
-                        info@trendzeventz.com
-                    </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
+<header id="site-header" class="tz-header">
+  <div class="tz-utility hidden h-8 border-b border-black/[0.045] lg:block">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 xl:px-10">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-trendz-purple">PAN-INDIA</span>
+        <span class="h-3 w-px bg-black/10"></span>
+        <span class="text-[10px] font-medium text-trendz-muted">Headquartered in Mumbai · Delivering across 50+ cities</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="tel:+919987399997" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="phone" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <span class="h-3 w-px bg-black/10"></span>
+        <a href="mailto:info@trendzeventz.com" class="flex items-center gap-2 text-[10px] font-medium text-trendz-muted hover:text-trendz-ink">
+          <i data-lucide="mail" class="h-3.5 w-3.5 text-trendz-purple"></i>
+          <span>info@trendzeventz.com</span>
+        </a>
+      </div>
     </div>
-
-
-    <!-- =====================================================
-         MAIN NAV
-    ====================================================== -->
-
-    <div
-        class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10"
-    >
-
-        <div
-            class="tz-main-nav flex h-[76px] items-center justify-between"
-        >
-
-            <!-- =================================================
-                 BRAND
-            ================================================== -->
-
-            <a
-                href="index.html"
-                class="tz-brand group"
-                aria-label="Trendz Eventz — Home"
-            >
-
-                <span class="tz-brand-lockup">
-
-                    <!-- =========================================
-                         ORIGINAL TRENDZ LOGO
-                    ========================================== -->
-
-                    <span class="tz-logo-wrap bg-[#70518e] rounded-lg">
-
-                        <img
-                            src="assets/img/brand/logo2.gif"
-                            alt="Trendz Eventz"
-                            width="100%"
-                            height="100%"
-                            loading="eager"
-                            decoding="async"
-                            class="tz-logo"
-                        >
-
-
-                        <span
-                            class="tz-logo-accent"
-                            aria-hidden="true"
-                        ></span>
-
-                    </span>
-
-                </span>
-
-            </a>
-
-
-            <!-- =================================================
-                 DESKTOP NAV
-            ================================================== -->
-
-            <nav
-                class="hidden lg:block"
-                aria-label="Primary navigation"
-            >
-
-                <ul class="flex items-center gap-0.5">
-
-                    <li>
-
-                        <a
-                            href="index.html"
-                            class="tz-nav-link is-active"
-                            aria-current="page"
-                        >
-                            Home
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a
-                            href="about.html"
-                            class="tz-nav-link"
-                            
-                        >
-                            About
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a
-                            href="services.html"
-                            class="tz-nav-link"
-                            
-                        >
-                            Services
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a
-                            href="work.html"
-                            class="tz-nav-link"
-                            
-                        >
-                            Work
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a
-                            href="clients.html"
-                            class="tz-nav-link"
-                            
-                        >
-                            Clients
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a
-                            href="contact.html"
-                            class="tz-nav-link"
-                            
-                        >
-                            Contact
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </nav>
-
-
-            <!-- =================================================
-                 DESKTOP CTA
-            ================================================== -->
-
-            <div class="hidden lg:block">
-
-                <a
-                    href="contact.html"
-                    class="tz-cta"
-                >
-
-                    <span>
-                        Request a Proposal
-                    </span>
-
-                    <span
-                        class="tz-cta-arrow"
-                    >
-
-                        <i
-                            data-lucide="arrow-up-right"
-                            class="h-4 w-4"
-                        ></i>
-
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- =================================================
-                 MOBILE CONTROLS
-            ================================================== -->
-
-            <div class="flex items-center gap-2 lg:hidden">
-
-                <a
-                    href="contact.html"
-                    aria-label="Request a Proposal"
-                    class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white transition-all hover:-translate-y-0.5 hover:bg-trendz-purple"
-                >
-
-                    <i
-                        data-lucide="arrow-up-right"
-                        class="h-4 w-4"
-                    ></i>
-
-                </a>
-
-
-                <button
-                    id="mobile-menu-button"
-                    type="button"
-                    class="tz-menu-button"
-                    aria-label="Open navigation menu"
-                    aria-controls="mobile-navigation"
-                    aria-expanded="false"
-                >
-
-                    <span
-                        class="tz-menu-line"
-                    ></span>
-
-                    <span
-                        class="tz-menu-line"
-                    ></span>
-
-                    <span
-                        class="tz-menu-line"
-                    ></span>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         MOBILE PANEL
-    ====================================================== -->
-
-    <div
-        id="mobile-navigation"
-        class="tz-mobile-panel lg:hidden"
-        aria-hidden="true"
-    >
-
-        <div
-            class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6"
-        >
-
-            <!-- Mobile panel heading -->
-
-            <div
-                class="mb-4 flex items-center justify-between"
-            >
-
-                <span
-                    class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted"
-                >
-                    Navigation
-                </span>
-
-                <span
-                    class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple"
-                >
-                    Trendz Eventz
-                </span>
-
-            </div>
-
-
-            <!-- Mobile navigation -->
-
-            <nav
-                aria-label="Mobile navigation"
-            >
-
-                <div class="space-y-1">
-
-                                            <a
-                            href="index.html"
-                            class="tz-mobile-link is-active" aria-current="page"
-                        >
-                            <span>
-                                Home
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                        <a
-                            href="about.html"
-                            class="tz-mobile-link"
-                        >
-                            <span>
-                                About
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                        <a
-                            href="services.html"
-                            class="tz-mobile-link"
-                        >
-                            <span>
-                                Services
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                        <a
-                            href="work.html"
-                            class="tz-mobile-link"
-                        >
-                            <span>
-                                Work
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                        <a
-                            href="clients.html"
-                            class="tz-mobile-link"
-                        >
-                            <span>
-                                Clients
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                        <a
-                            href="contact.html"
-                            class="tz-mobile-link"
-                        >
-                            <span>
-                                Contact
-                            </span>
-                            <i
-                                data-lucide="arrow-up-right"
-                                class="h-4 w-4"
-                            ></i>
-                        </a>
-
-                </div>
-
-            </nav>
-
-
-            <!-- Contact -->
-
-            <div
-                class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2"
-            >
-
-                <a
-                    href="tel:+919987399997"
-                    class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted hover:bg-white"
-                >
-
-                    <i
-                        data-lucide="phone"
-                        class="h-4 w-4 text-trendz-purple"
-                    ></i>
-
-                    <span>
-                        +91 99873 99997
-                    </span>
-
-                </a>
-
-
-                <a
-                    href="mailto:info@trendzeventz.com"
-                    class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted hover:bg-white"
-                >
-
-                    <i
-                        data-lucide="mail"
-                        class="h-4 w-4 text-trendz-purple"
-                    ></i>
-
-                    <span class="truncate">
-                        info@trendzeventz.com
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- CTA -->
-
-            <a
-                href="contact.html"
-                class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white transition-colors hover:bg-trendz-purple"
-            >
-
-                <span>
-                    Start a conversation
-                </span>
-
-                <span
-                    class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"
-                >
-
-                    <i
-                        data-lucide="arrow-up-right"
-                        class="h-4 w-4"
-                    ></i>
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     MOBILE BACKDROP
-========================================================== -->
-
-<div
-    id="mobile-menu-backdrop"
-    class="tz-mobile-backdrop lg:hidden"
-    aria-hidden="true"
-></div>
-
-
-<!-- =========================================================
-     MAIN
-========================================================== -->
-
-<main
-    id="main-content"
-    class="flex-grow"
->
-
-
-<!-- =========================================================
-     HEADER JAVASCRIPT
-========================================================== -->
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    'use strict';
-
-
-    /* =====================================================
-       ICONS
-    ====================================================== */
-
-    if (typeof lucide !== 'undefined') {
-
-        lucide.createIcons();
-
-    }
-
-
-    /* =====================================================
-       ELEMENTS
-    ====================================================== */
-
-    const header =
-        document.getElementById('site-header');
-
-    const menuButton =
-        document.getElementById('mobile-menu-button');
-
-    const mobileNavigation =
-        document.getElementById('mobile-navigation');
-
-    const mobileBackdrop =
-        document.getElementById('mobile-menu-backdrop');
-
-    const brand =
-        document.querySelector('.tz-brand');
-
-    const logo =
-        document.querySelector('.tz-logo');
-
-
-    /* =====================================================
-       SCROLL STATE
-    ====================================================== */
-
-    let ticking = false;
-
-
-    const updateHeader = function () {
-
-        if (!header) {
-            return;
-        }
-
-
-        if (window.scrollY > 20) {
-
-            header.classList.add('is-scrolled');
-
-        } else {
-
-            header.classList.remove('is-scrolled');
-
-        }
-
-
-        ticking = false;
-
-    };
-
-
-    window.addEventListener(
-        'scroll',
-        function () {
-
-            if (!ticking) {
-
-                window.requestAnimationFrame(
-                    updateHeader
-                );
-
-                ticking = true;
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    updateHeader();
-
-
-    /* =====================================================
-       LOGO MAGNETIC MICRO-INTERACTION
-    ====================================================== */
-
-    if (
-        brand &&
-        logo &&
-        !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-        ).matches
-    ) {
-
-        brand.addEventListener(
-            'mousemove',
-            function (event) {
-
-                const rect =
-                    brand.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX - rect.left;
-
-
-                const y =
-                    event.clientY - rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const moveX =
-                    ((x - centerX) / centerX) * 3;
-
-
-                const moveY =
-                    ((y - centerY) / centerY) * 2;
-
-
-                logo.style.transform =
-                    `translate(${moveX}px, ${moveY}px)`;
-
-            }
-        );
-
-
-        brand.addEventListener(
-            'mouseleave',
-            function () {
-
-                logo.style.transform =
-                    'translate(0, 0)';
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       MOBILE MENU
-    ====================================================== */
-
-    let menuOpen = false;
-
-
-    const openMenu = function () {
-
-        menuOpen = true;
-
-
-        menuButton?.classList.add(
-            'is-open'
-        );
-
-
-        mobileNavigation?.classList.add(
-            'is-open'
-        );
-
-
-        mobileBackdrop?.classList.add(
-            'is-open'
-        );
-
-
-        menuButton?.setAttribute(
-            'aria-expanded',
-            'true'
-        );
-
-
-        menuButton?.setAttribute(
-            'aria-label',
-            'Close navigation menu'
-        );
-
-
-        mobileNavigation?.setAttribute(
-            'aria-hidden',
-            'false'
-        );
-
-
-        document.body.style.overflow =
-            'hidden';
-
-
-        /* Animate links */
-
-        if (
-            typeof gsap !== 'undefined' &&
-            mobileNavigation
-        ) {
-
-            const links =
-                mobileNavigation.querySelectorAll(
-                    '.tz-mobile-link'
-                );
-
-
-            gsap.fromTo(
-                links,
-
-                {
-                    opacity: 0,
-                    y: 12
-                },
-
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.35,
-                    stagger: 0.045,
-                    ease: 'power3.out'
-                }
-            );
-
-        }
-
-    };
-
-
-    const closeMenu = function () {
-
-        menuOpen = false;
-
-
-        menuButton?.classList.remove(
-            'is-open'
-        );
-
-
-        mobileNavigation?.classList.remove(
-            'is-open'
-        );
-
-
-        mobileBackdrop?.classList.remove(
-            'is-open'
-        );
-
-
-        menuButton?.setAttribute(
-            'aria-expanded',
-            'false'
-        );
-
-
-        menuButton?.setAttribute(
-            'aria-label',
-            'Open navigation menu'
-        );
-
-
-        mobileNavigation?.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-
-        document.body.style.overflow =
-            '';
-
-    };
-
-
-    menuButton?.addEventListener(
-        'click',
-        function () {
-
-            if (menuOpen) {
-
-                closeMenu();
-
-            } else {
-
-                openMenu();
-
-            }
-
-        }
-    );
-
-
-    mobileBackdrop?.addEventListener(
-        'click',
-        closeMenu
-    );
-
-
-    /* =====================================================
-       MOBILE LINK CLOSE
-    ====================================================== */
-
-    mobileNavigation
-        ?.querySelectorAll('a')
-        .forEach(function (link) {
-
-            link.addEventListener(
-                'click',
-                closeMenu
-            );
-
-        });
-
-
-    /* =====================================================
-       ESCAPE
-    ====================================================== */
-
-    document.addEventListener(
-        'keydown',
-        function (event) {
-
-            if (
-                event.key === 'Escape' &&
-                menuOpen
-            ) {
-
-                closeMenu();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       DESKTOP BREAKPOINT RESET
-    ====================================================== */
-
-    const desktopQuery =
-        window.matchMedia(
-            '(min-width: 1024px)'
-        );
-
-
-    const resetOnDesktop =
-        function (event) {
-
-            if (
-                event.matches &&
-                menuOpen
-            ) {
-
-                closeMenu();
-
-            }
-
-        };
-
-
-    if (
-        desktopQuery.addEventListener
-    ) {
-
-        desktopQuery.addEventListener(
-            'change',
-            resetOnDesktop
-        );
-
-    } else {
-
-        desktopQuery.addListener(
-            resetOnDesktop
-        );
-
-    }
-
-
-    /* =====================================================
-       GSAP INITIAL ENTRANCE
-    ====================================================== */
-
-    if (
-        typeof gsap !== 'undefined' &&
-        !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-        ).matches
-    ) {
-
-        const utility =
-            document.querySelector(
-                '.tz-utility'
-            );
-
-
-        const mainNav =
-            document.querySelector(
-                '.tz-main-nav'
-            );
-
-
-        gsap.set(
-            [utility, mainNav],
-            {
-                opacity: 0
-            }
-        );
-
-
-        const intro =
-            gsap.timeline({
-                defaults: {
-                    ease: 'power3.out'
-                }
-            });
-
-
-        if (utility) {
-
-            intro.to(
-                utility,
-                {
-                    opacity: 1,
-                    duration: 0.35
-                }
-            );
-
-        }
-
-
-        if (mainNav) {
-
-            intro.fromTo(
-                mainNav,
-
-                {
-                    y: -10,
-                    opacity: 0
-                },
-
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.55
-                },
-
-                '-=0.15'
-            );
-
-        }
-
-    }
-
-});
-
-</script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Swiper -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-  />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ["Space Grotesk", "sans-serif"],
-            body: ["Manrope", "sans-serif"],
-            mono: ["DM Mono", "monospace"],
-          },
-
-          colors: {
-            trendz: {
-              purple: "#5C55A2",
-              deep: "#1E1C38",
-              ink: "#11101E",
-              lilac: "#8B85CF",
-              pink: "#D52D91",
-              paper: "#F7F7FB",
-            },
-          },
-        },
-      },
-    };
-  </script>
-
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: #1e1c38;
-    }
-
-    body {
-      font-family: "Manrope", sans-serif;
-      overflow-x: hidden;
-    }
-
-    .trendz-hero {
-      height: 100svh;
-      height: 100dvh;
-      min-height: 0;
-      max-height: 100dvh;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-grid {
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.055) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.055) 1px,
-          transparent 1px
-        );
-      background-size: 56px 56px;
-    }
-
-    .hero-noise {
-      opacity: .055;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-    }
-
-    .hero-glow {
-      filter: blur(80px);
-      will-change: transform;
-    }
-
-    .hero-image {
-      transform: scale(1.04);
-      transition:
-        transform 1.2s cubic-bezier(.16,1,.3,1),
-        filter 1.2s ease;
-    }
-
-    .swiper-slide-active .hero-image {
-      transform: scale(1);
-    }
-
-    .hero-image-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(30,28,56,.16),
-          transparent 50%,
-          rgba(17,16,30,.15)
-        ),
-        linear-gradient(
-          180deg,
-          transparent 55%,
-          rgba(17,16,30,.58)
-        );
-      pointer-events: none;
-    }
-
-    .swiper-slide {
-      overflow: hidden;
-    }
-
-    .hero-progress {
-      width: 100%;
-      height: 2px;
-      background: rgba(255,255,255,.18);
-      overflow: hidden;
-    }
-
-    .hero-progress-fill {
-      width: 0%;
-      height: 100%;
-      background: white;
-      transform-origin: left center;
-    }
-
-    .swiper-slide-active .hero-progress-fill {
-      animation: progress 6.5s linear forwards;
-    }
-
-    @keyframes progress {
-      from {
-        width: 0%;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-
-    .hero-kicker::before {
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 10px;
-      border-radius: 999px;
-      background: #d52d91;
-      box-shadow: 0 0 18px rgba(213,45,145,.8);
-    }
-
-    .hero-word {
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: top;
-    }
-
-    .hero-word-inner {
-      display: inline-block;
-      will-change: transform;
-    }
-
-    .magnetic {
-      will-change: transform;
-    }
-
-    @media (max-width: 767px) {
-      .hero-grid {
-        background-size: 32px 32px;
-      }
-    }
-
-    @media (max-height: 680px) and (min-width: 768px) {
-      .hero-main {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
-      }
-
-      .hero-heading {
-        font-size: clamp(3rem, 6vw, 5.8rem) !important;
-      }
-
-      .hero-description {
-        display: none;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .trendz-hero {
-        height: 100svh;
-        height: 100dvh;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-
-
-<!-- ==========================================================
-     TRENDZ HERO
-========================================================== -->
-<style>
-/* ==========================================================
-   TRENDZ HERO — CINEMATIC VIEWPORT SYSTEM
-   ========================================================== */
-#trendzHero.trendz-hero{
-  --hero-nav-h:5rem;
-  --hero-pad:clamp(12px,2vw,32px);
-  position:relative;
-  height:calc(100svh - var(--hero-nav-h));
-  min-height:calc(100svh - var(--hero-nav-h));
-  max-height:calc(100dvh - var(--hero-nav-h));
-  overflow:hidden;
-  isolation:isolate;
-}
-#trendzHero .hero-main{height:100%;min-height:0;}
-#trendzHero .hero-main > header{position:relative;z-index:30;}
-#trendzHero .hero-main > .relative.grid{min-height:0;overflow:hidden;}
-#trendzHero .hero-main > footer{min-height:28px;}
-#trendzHero .hero-image-wrap{height:100%;min-height:0;border-radius:2px;}
-#trendzHero .trendzSwiper{height:100%;}
-#trendzHero .swiper-wrapper,#trendzHero .swiper-slide{height:100%;min-height:0;}
-#trendzHero .swiper-slide{overflow:hidden;background:#111;}
-#trendzHero .hero-image{transform:scale(1.06);transition:transform 1.4s cubic-bezier(.16,1,.3,1),filter 1s ease;filter:saturate(.9) contrast(1.05);}
-#trendzHero .swiper-slide-active .hero-image{transform:scale(1.015);filter:saturate(1) contrast(1.06);}
-#trendzHero .swiper-slide::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.02) 38%,rgba(0,0,0,.78) 100%);pointer-events:none;}
-#trendzHero .swiper-slide::after{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(circle at 72% 20%,rgba(255,255,255,.13),transparent 28%),linear-gradient(110deg,rgba(105,65,255,.12),transparent 45%);mix-blend-mode:screen;pointer-events:none;}
-#trendzHero .swiper-slide > div{z-index:5;}
-#trendzHero .hero-image-wrap::before{content:"";position:absolute;inset:0;z-index:10;pointer-events:none;border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(0,0,0,.18),inset 0 0 90px rgba(0,0,0,.2);}
-#trendzHero .hero-grid{opacity:.38;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);}
-#trendzHero .hero-noise{opacity:.055;mix-blend-mode:screen;}
-#trendzHero .hero-kicker::before{content:"";display:inline-block;width:28px;height:1px;margin:0 10px 3px 0;background:currentColor;opacity:.6;}
-#trendzHero .hero-heading .split-line{overflow:hidden;}
-#trendzHero .hero-heading{filter:drop-shadow(0 8px 35px rgba(0,0,0,.14));}
-#trendzHero .hero-progress{position:relative;height:2px;background:rgba(255,255,255,.22);overflow:hidden;transition:height .25s ease,background .25s ease;}
-#trendzHero .hero-progress:hover{height:4px;background:rgba(255,255,255,.4);}
-#trendzHero .hero-progress-fill{display:block;height:100%;width:0;background:#fff;transform-origin:left center;transition:width .45s cubic-bezier(.16,1,.3,1);}
-#trendzHero .hero-progress.is-active .hero-progress-fill{width:100%;}
-#trendzHero .hero-progress.is-active{background:rgba(255,255,255,.5);}
-#trendzHero .hero-slide-meta{opacity:0;transform:translateY(16px);transition:opacity .7s ease .12s,transform .7s cubic-bezier(.16,1,.3,1) .12s;}
-#trendzHero .swiper-slide-active .hero-slide-meta{opacity:1;transform:none;}
-#trendzHero .hero-scroll-cue{position:absolute;right:clamp(14px,2vw,32px);bottom:clamp(70px,8vh,110px);z-index:40;display:flex;align-items:center;gap:9px;writing-mode:vertical-rl;font:500 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.38);pointer-events:none;}
-#trendzHero .hero-scroll-cue::after{content:"";width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,.55),transparent);animation:trendzScrollCue 1.8s ease-in-out infinite;}
-@keyframes trendzScrollCue{0%,100%{transform:scaleY(.45);transform-origin:top;opacity:.35}50%{transform:scaleY(1);transform-origin:top;opacity:1}}
-#trendzHero .hero-edge-glow{position:absolute;inset:auto 0 0;height:90px;z-index:8;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.18),transparent);}
-@media (max-width:767px){
-  #trendzHero.trendz-hero{--hero-nav-h:5rem;height:calc(100svh - var(--hero-nav-h));max-height:calc(100dvh - var(--hero-nav-h));}
-  #trendzHero .hero-main{padding-top:12px;padding-bottom:12px;}
-  #trendzHero .hero-main > .relative.grid{grid-template-rows:minmax(0,1fr) minmax(205px,39svh);gap:10px;overflow:hidden;}
-  #trendzHero .hero-main > .relative.grid > div:first-child{justify-content:center;min-height:0;overflow:hidden;}
-  #trendzHero .hero-heading{font-size:clamp(2.75rem,13vw,4.5rem);line-height:.84;}
-  #trendzHero .hero-description{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-  #trendzHero .hero-main > footer{margin-top:8px;padding-top:8px;}
-  #trendzHero .hero-scroll-cue{display:none;}
-}
-@media (max-height:700px) and (min-width:768px){
-  #trendzHero .hero-main{padding-top:10px;padding-bottom:10px;}
-  #trendzHero .hero-main > .relative.grid{padding-top:10px;gap:12px;}
-  #trendzHero .hero-description{margin-top:10px;}
-  #trendzHero .hero-main .hero-reveal.mt-7{margin-top:12px;}
-}
-@media (prefers-reduced-motion:reduce){
-  #trendzHero .hero-scroll-cue::after{animation:none;}
-  #trendzHero .hero-image{transition:none;}
-}
-</style>
-<section
-  id="trendzHero"
-  class="trendz-hero relative w-full bg-trendz-deep text-white mt-20"
-  aria-label="Trendz Eventz — Experiential Agency"
->
-
-  <!-- Atmospheric background -->
-  <div
-    class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-    aria-hidden="true"
-  >
-
-    <div
-      class="hero-glow absolute -left-[18vw] -top-[20vh]
-             h-[55vw] w-[55vw] rounded-full
-             bg-trendz-purple/30"
-      data-parallax="0.08"
-    ></div>
-
-    <div
-      class="hero-glow absolute -right-[18vw] top-[15vh]
-             h-[45vw] w-[45vw] rounded-full
-             bg-trendz-pink/10"
-      data-parallax="-0.05"
-    ></div>
-
-    <div
-      class="hero-grid absolute inset-0"
-    ></div>
-
-    <div
-      class="hero-noise absolute inset-0"
-    ></div>
   </div>
 
-
-  <!-- Main shell -->
-  <div
-    class="hero-main mx-auto flex h-full w-full max-w-[1600px]
-           flex-col px-5 py-5
-           sm:px-7 sm:py-7
-           lg:px-10 lg:py-8"
-  >
-
-    <!-- TOP NAV -->
-    <header
-      class="hero-reveal flex shrink-0 items-center justify-between"
-    >
-
-      <a
-        href="#"
-        class="group flex items-center gap-3"
-        aria-label="Trendz Eventz home"
-      >
-
-        <div
-          class="flex h-9 w-9 items-center justify-center
-                 border border-white/30 bg-white/5
-                 font-display text-xs font-bold
-                 transition group-hover:bg-white group-hover:text-trendz-deep"
-        >
-          TZ
-        </div>
-
-        <div class="hidden sm:block">
-          <div class="font-display text-[13px] font-bold tracking-[.18em]">
-            TRENDZ
-          </div>
-
-          <div
-            class="font-mono text-[8px] tracking-[.28em] text-white/45"
-          >
-            EVENTZ
-          </div>
-        </div>
-
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-6 xl:px-10">
+    <div class="tz-main-nav flex h-[76px] items-center justify-between">
+      <a href="index.html" class="tz-brand" aria-label="Trendz Eventz — Home">
+        <span class="tz-brand-lockup">
+          <span class="tz-logo-wrap">
+            <img src="assets/img/brand/logo2.gif" alt="Trendz Eventz" width="180" height="60" loading="eager" decoding="async" class="tz-logo">
+            <span class="tz-logo-accent" aria-hidden="true"></span>
+          </span>
+        </span>
       </a>
 
+      <nav class="hidden lg:block" aria-label="Primary navigation">
+        <ul class="flex items-center gap-0.5">
+          <li><a href="index.html" class="tz-nav-link is-active" aria-current="page">Home</a></li>
+          <li><a href="about.html" class="tz-nav-link">About</a></li>
+          <li><a href="services.html" class="tz-nav-link">Services</a></li>
+          <li><a href="work.html" class="tz-nav-link">Work</a></li>
+          <li><a href="clients.html" class="tz-nav-link">Clients</a></li>
+          <li><a href="contact.html" class="tz-nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
-      <div
-        class="hidden items-center gap-8
-               font-mono text-[9px] uppercase tracking-[.2em]
-               text-white/55 md:flex"
-      >
-        <span>Experiential Agency</span>
-
-        <span class="h-px w-12 bg-white/20"></span>
-
-        <span>India / Global</span>
+      <div class="hidden lg:block">
+        <a href="contact.html" class="tz-cta">
+          <span>Request a Proposal</span>
+          <span class="tz-cta-arrow"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+        </a>
       </div>
 
-    </header>
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="contact.html" aria-label="Request a Proposal" class="flex h-10 w-10 items-center justify-center rounded-full bg-trendz-ink text-white hover:bg-trendz-purple">
+          <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </a>
+        <button id="mobile-menu-button" type="button" class="tz-menu-button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+          <span class="tz-menu-line"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-navigation" class="tz-mobile-panel lg:hidden" aria-hidden="true">
+    <div class="mx-auto max-w-[1440px] px-4 py-5 sm:px-6">
+      <div class="mb-4 flex items-center justify-between">
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-muted">Navigation</span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-trendz-purple">Trendz Eventz</span>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <div class="space-y-1">
+          <a href="index.html" class="tz-mobile-link is-active" aria-current="page"><span>Home</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="about.html" class="tz-mobile-link"><span>About</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="services.html" class="tz-mobile-link"><span>Services</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="work.html" class="tz-mobile-link"><span>Work</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="clients.html" class="tz-mobile-link"><span>Clients</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <a href="contact.html" class="tz-mobile-link"><span>Contact</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+      </nav>
+      <div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <a href="tel:+919987399997" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="phone" class="h-4 w-4 text-trendz-purple"></i>
+          <span>+91 99873 99997</span>
+        </a>
+        <a href="mailto:info@trendzeventz.com" class="flex min-h-[48px] items-center gap-3 rounded-xl border border-black/[0.07] bg-white/50 px-4 text-xs font-medium text-trendz-muted">
+          <i data-lucide="mail" class="h-4 w-4 text-trendz-purple"></i>
+          <span class="truncate">info@trendzeventz.com</span>
+        </a>
+      </div>
+      <a href="contact.html" class="mt-3 flex min-h-[54px] items-center justify-between rounded-xl bg-trendz-ink px-5 text-sm font-bold text-white hover:bg-trendz-purple">
+        <span>Start a conversation</span>
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"><i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+      </a>
+    </div>
+  </div>
+</header>
+<div id="mobile-menu-backdrop" class="tz-mobile-backdrop lg:hidden" aria-hidden="true"></div>
 
 
-    <!-- HERO CONTENT -->
-    <div
-      class="relative grid flex-1
-             grid-cols-1 gap-5 pt-5
-             md:grid-cols-[minmax(0,1fr)_minmax(320px,43%)]
-             md:gap-7 md:pt-6
-             lg:grid-cols-[minmax(0,1fr)_minmax(430px,46%)]
-             lg:gap-10 lg:pt-8"
-    >
+<!-- =========================================================
+     MINIMALIST LUXURY HERO — INTER FONT & AUTO IMAGE SLIDER
+========================================================== -->
+<section id="hero" class="relative isolate overflow-hidden bg-[#16142a] pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24" aria-label="Trendz Eventz — Experiential Agency">
 
-      <!-- LEFT -->
-      <div
-        class="flex min-h-0 flex-col justify-center"
-      >
+  <!-- =====================================================
+       ORGANIC ATMOSPHERE BACKGROUND
+  ====================================================== -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <!-- Organic Floating Blobs -->
+    <div class="hero-organic-blob blob-1"></div>
+    <div class="hero-organic-blob blob-2"></div>
+    <div class="hero-organic-blob blob-3"></div>
 
-        <!-- Kicker -->
-        <div
-          class="hero-reveal hero-kicker mb-4
-                 font-mono text-[9px] font-medium uppercase
-                 tracking-[.3em] text-white/55
-                 sm:mb-5 sm:text-[10px]"
-        >
-          Experiential / Corporate / Live
+    <!-- Fine Grid & Noise Overlay -->
+    <div class="about-grid-bg absolute inset-0"></div>
+    <div class="about-noise-bg absolute inset-0"></div>
+
+    <!-- Animated Contour Ribbon -->
+    <svg class="hero-contour-svg absolute -right-20 top-12 h-[650px] w-[650px] opacity-[0.14]" viewBox="0 0 700 600" fill="none">
+      <path class="hero-contour-line" d="M30 300C100 100 250 40 380 150 C510 260 600 160 680 40" />
+      <path class="hero-contour-line contour-delay-1" d="M0 370C120 180 270 120 400 220 C520 320 610 240 700 110" />
+      <path class="hero-contour-line contour-delay-2" d="M20 440C140 260 290 220 420 300 C540 380 620 330 700 210" />
+    </svg>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- =====================================================
+         MAIN STAGE: COPY (LEFT) & AUTO SLIDER (RIGHT)
+    ====================================================== -->
+    <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+
+      <!-- LEFT COLUMN: Messaging, Value & Action Triggers (7 Cols) -->
+      <div class="lg:col-span-7">
+
+        <!-- Live Status Pill -->
+        <div class="inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-white/[0.06] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.25em] text-violet-200 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.2)]">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-fuchsia-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-fuchsia-400"></span>
+          </span>
+          <span>15+ YEARS OF EXPERIENTIAL LEADERSHIP</span>
+          <span class="text-violet-400/40">·</span>
+          <span class="text-violet-300/70 font-medium">PAN-INDIA</span>
         </div>
 
-
-        <!-- Main headline -->
-        <h1
-          class="hero-heading hero-reveal
-                 max-w-[900px]
-                 font-display font-semibold
-                 leading-[.84] tracking-[-.065em]
-                 text-[clamp(3.2rem,8vw,8.8rem)]"
-        >
-
-          <span class="block text-white">
-            <span class="split-line">WE ARCHITECT</span>
-          </span>
-
-          <span class="mt-1 block text-white/35">
-            <span class="split-line">EXPERIENCES THAT</span>
-          </span>
-
-          <span class="mt-1 block text-trendz-lilac">
-            <span class="split-line">
-              MOVE MARKETS
-              <span class="text-white">&amp;</span>
-              MINDS.
-            </span>
-          </span>
-
+        <!-- High-Impact Enterprise ROI Headline (Inter Font) -->
+        <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.2rem] font-black tracking-[-0.04em] leading-[0.96] text-white">
+          Experiential Marketing
+          <span class="about-gradient-text block mt-1.5 sm:mt-2">Engineered for Enterprise Impact.</span>
         </h1>
 
-
-        <!-- Description -->
-        <p
-          class="hero-description hero-reveal mt-5 max-w-[560px]
-                 text-[11px] leading-[1.65] text-white/58
-                 sm:mt-6 sm:text-xs
-                 lg:mt-7 lg:text-[13px]"
-        >
-          Trendz Eventz creates corporate experiences, brand
-          moments and live productions designed to make people
-          remember what happened next.
+        <!-- Enterprise Subtitle -->
+        <p class="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-violet-100/80">
+          We transform high-stakes corporate conventions, dealer summits, and nationwide brand activations into measurable momentum across 50+ cities.
         </p>
 
-
-        <!-- CTA -->
-        <div
-          class="hero-reveal mt-5 flex flex-wrap items-center gap-3
-                 sm:mt-6 lg:mt-7"
-        >
-
-          <a
-            href="#work"
-            class="magnetic group inline-flex items-center gap-3
-                   bg-white px-5 py-3.5
-                   font-mono text-[9px] font-medium
-                   uppercase tracking-[.18em]
-                   text-trendz-deep
-                   transition-all duration-300
-                   hover:bg-trendz-lilac"
-          >
-
-            <span>Explore our work</span>
-
-            <i
-              data-lucide="arrow-up-right"
-              class="h-4 w-4 transition-transform
-                     group-hover:translate-x-1 group-hover:-translate-y-1"
-            ></i>
-
+        <!-- Action Triggers -->
+        <div class="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
+          <a href="contact.html" class="group inline-flex items-center justify-between gap-4 rounded-full bg-white px-7 py-3.5 sm:py-4 text-xs font-bold uppercase tracking-wider text-[#16142a] transition-all duration-300 hover:bg-violet-100 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.35)] hover:-translate-y-0.5">
+            <span>Request an Event Proposal</span>
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#16142a] text-white transition-transform duration-300 group-hover:rotate-45">
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </span>
           </a>
 
-
-          <a
-            href="#contact"
-            class="magnetic inline-flex items-center gap-3
-                   border border-white/20 px-5 py-3.5
-                   font-mono text-[9px]
-                   uppercase tracking-[.18em]
-                   text-white/75
-                   transition-all duration-300
-                   hover:border-white hover:text-white"
-          >
-
-            <span>Start a conversation</span>
-
+          <a href="work.html" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3.5 sm:py-4 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-violet-400/40 hover:bg-white/[0.1] hover:-translate-y-0.5">
+            <span>Explore Verified Work</span>
+            <i data-lucide="arrow-right" class="h-4 w-4 text-violet-300"></i>
           </a>
 
+          <a href="tel:+919987399997" class="inline-flex items-center gap-2 text-xs font-medium text-violet-300/80 hover:text-white transition-colors duration-200">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
+              <i data-lucide="phone" class="h-3.5 w-3.5 text-fuchsia-400"></i>
+            </span>
+            <span>+91 99873 99997</span>
+          </a>
         </div>
 
-
-        <!-- Proof -->
-        <div
-          class="hero-reveal mt-7 flex flex-wrap
-                 border-t border-white/10 pt-4
-                 sm:mt-8 sm:pt-5"
-        >
-
-          <div class="pr-6 sm:pr-8">
-            <div
-              class="font-display text-xl font-semibold
-                     tracking-[-.04em] sm:text-2xl"
-            >
-              15+
-            </div>
-
-            <div
-              class="mt-1 font-mono text-[7px]
-                     uppercase tracking-[.22em] text-white/40"
-            >
-              Years
-            </div>
-          </div>
-
-
-          <div
-            class="border-l border-white/10 px-6 sm:px-8"
-          >
-            <div
-              class="font-display text-xl font-semibold
-                     tracking-[-.04em] sm:text-2xl"
-            >
-              500+
-            </div>
-
-            <div
-              class="mt-1 font-mono text-[7px]
-                     uppercase tracking-[.22em] text-white/40"
-            >
-              Productions
-            </div>
-          </div>
-
-
-          <div
-            class="border-l border-white/10 pl-6 sm:pl-8"
-          >
-            <div
-              class="font-display text-xl font-semibold
-                     tracking-[-.04em] sm:text-2xl"
-            >
-              PAN
-            </div>
-
-            <div
-              class="mt-1 font-mono text-[7px]
-                     uppercase tracking-[.22em] text-white/40"
-            >
-              India Execution
-            </div>
-          </div>
-
+        <!-- Turnaround Assurance -->
+        <div class="mt-5 flex items-center gap-2 text-xs text-violet-300/60">
+          <i data-lucide="zap" class="h-3.5 w-3.5 text-fuchsia-400"></i>
+          <span>Fast technical evaluation · Same-day proposal turnaround for enterprise briefs</span>
         </div>
 
       </div>
 
+      <!-- RIGHT COLUMN: Auto Image Slider with Organic Halo (5 Cols) -->
+      <div class="relative lg:col-span-5">
 
-      <!-- RIGHT / SWIPER -->
-      <div
-        class="hero-reveal relative min-h-0 overflow-hidden"
-      >
+        <!-- Outer Organic Halo Ring -->
+        <div class="hero-organic-ring pointer-events-none" aria-hidden="true"></div>
 
-        <div
-          class="hero-image-wrap relative h-full min-h-[250px]
-                 overflow-hidden border border-white/10
-                 bg-black/20"
-        >
-
-          <div
-            class="swiper trendzSwiper h-full w-full"
-          >
-
-            <div class="swiper-wrapper">
-
-              <!-- SLIDE 1 -->
-              <article class="swiper-slide relative h-full">
-
-                <img
-                  src="assets/img/work/case-studies-hero-1.jpg"
-                  alt="Trendz Eventz corporate event experience"
-                  class="hero-image absolute inset-0 h-full w-full
-                         object-cover"
-                />
-
-                <div
-                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
-                         sm:p-6 lg:p-7"
-                >
-
-                  <div
-                    class="mb-3 font-mono text-[8px]
-                           uppercase tracking-[.24em] text-white/55"
-                  >
-                    01 / Corporate Experience
-                  </div>
-
-                  <h2
-                    class="max-w-[430px]
-                           font-display text-xl font-medium
-                           leading-[.95] tracking-[-.035em]
-                           sm:text-2xl lg:text-3xl"
-                  >
-                    Philips National Dealers Convention
-                  </h2>
-
-                  <div
-                    class="mt-4 flex items-center justify-between
-                           border-t border-white/20 pt-3"
-                  >
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      Goa
-                    </span>
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      500+ Dealers
-                    </span>
-
-                  </div>
-
+        <!-- Primary Featured Campaign Auto Slider -->
+        <div id="heroAutoSlider" class="hero-main-card glass-card relative overflow-hidden rounded-[2.5rem_1.25rem_2.5rem_1.25rem] p-3 border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] transition-all duration-500">
+          
+          <div class="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem_1rem_2rem_1rem]">
+            
+            <!-- Slide 1: Philips -->
+            <div class="hero-slide active absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 pointer-events-auto" data-slide-index="0">
+              <img src="assets/img/work/philips-dealers-meet-1.jpg" alt="Philips National Dealers Convention, Goa delivered by Trendz Eventz" width="900" height="675" loading="eager" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-fuchsia-300">01 / CORPORATE CONVENTION</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Verified Ground Delivery
+                  </span>
                 </div>
-
-              </article>
-
-
-              <!-- SLIDE 2 -->
-              <article class="swiper-slide relative h-full">
-
-                <img
-                  src="assets/img/work/case-studies-hero-2.jpg"
-                  alt="Trendz Eventz brand experience"
-                  class="hero-image absolute inset-0 h-full w-full
-                         object-cover"
-                />
-
-                <div
-                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
-                         sm:p-6 lg:p-7"
-                >
-
-                  <div
-                    class="mb-3 font-mono text-[8px]
-                           uppercase tracking-[.24em] text-white/55"
-                  >
-                    02 / Brand Experience
-                  </div>
-
-                  <h2
-                    class="max-w-[430px]
-                           font-display text-xl font-medium
-                           leading-[.95] tracking-[-.035em]
-                           sm:text-2xl lg:text-3xl"
-                  >
-                    Enterprise Brand Experience
-                  </h2>
-
-                  <div
-                    class="mt-4 flex items-center justify-between
-                           border-t border-white/20 pt-3"
-                  >
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      Mumbai
-                    </span>
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      National Campaign
-                    </span>
-
-                  </div>
-
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Philips National Dealers Convention</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Goa, India</span>
+                  <span>500+ National Dealers</span>
                 </div>
+              </div>
+            </div>
 
-              </article>
-
-
-              <!-- SLIDE 3 -->
-              <article class="swiper-slide relative h-full">
-
-                <img
-                  src="assets/img/work/case-studies-hero-3.jpg"
-                  alt="Trendz Eventz synchronized retail launch"
-                  class="hero-image absolute inset-0 h-full w-full
-                         object-cover"
-                />
-
-                <div
-                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
-                         sm:p-6 lg:p-7"
-                >
-
-                  <div
-                    class="mb-3 font-mono text-[8px]
-                           uppercase tracking-[.24em] text-white/55"
-                  >
-                    03 / Retail Activation
-                  </div>
-
-                  <h2
-                    class="max-w-[430px]
-                           font-display text-xl font-medium
-                           leading-[.95] tracking-[-.035em]
-                           sm:text-2xl lg:text-3xl"
-                  >
-                    Synchronized Retail Launch
-                  </h2>
-
-                  <div
-                    class="mt-4 flex items-center justify-between
-                           border-t border-white/20 pt-3"
-                  >
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      Pan-India
-                    </span>
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      100 Stores
-                    </span>
-
-                  </div>
-
+            <!-- Slide 2: Bombay Dyeing -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="1">
+              <img src="assets/img/work/bombay-dyeing-sales-meet-1.jpg" alt="Bombay Dyeing Annual Sales Meet" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-300">02 / ANNUAL SALES MEET</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Leadership Convention
+                  </span>
                 </div>
-
-              </article>
-
-
-              <!-- SLIDE 4 -->
-              <article class="swiper-slide relative h-full">
-
-                <img
-                  src="assets/img/work/case-studies-hero-4.jpg"
-                  alt="Trendz Eventz corporate leadership event"
-                  class="hero-image absolute inset-0 h-full w-full
-                         object-cover"
-                />
-
-                <div
-                  class="hero-slide-meta absolute inset-x-0 bottom-0 z-10 p-5
-                         sm:p-6 lg:p-7"
-                >
-
-                  <div
-                    class="mb-3 font-mono text-[8px]
-                           uppercase tracking-[.24em] text-white/55"
-                  >
-                    04 / Leadership Experience
-                  </div>
-
-                  <h2
-                    class="max-w-[430px]
-                           font-display text-xl font-medium
-                           leading-[.95] tracking-[-.035em]
-                           sm:text-2xl lg:text-3xl"
-                  >
-                    Corporate Leadership Experience
-                  </h2>
-
-                  <div
-                    class="mt-4 flex items-center justify-between
-                           border-t border-white/20 pt-3"
-                  >
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      India
-                    </span>
-
-                    <span
-                      class="font-mono text-[8px]
-                             uppercase tracking-[.18em] text-white/60"
-                    >
-                      Enterprise Event
-                    </span>
-
-                  </div>
-
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Bombay Dyeing Annual Sales Meet</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Mumbai &amp; Pan-India</span>
+                  <span>Senior Sales Force</span>
                 </div>
+              </div>
+            </div>
 
-              </article>
+            <!-- Slide 3: Cadbury -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="2">
+              <img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Cadbury Shubh Aarambh Activation" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-amber-300">03 / BRAND ACTIVATION</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Experiential BTL
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Cadbury Shubh Aarambh Activation</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Multi-City Campaign</span>
+                  <span>Direct Consumer Engagement</span>
+                </div>
+              </div>
+            </div>
 
+            <!-- Slide 4: Lipton -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="3">
+              <img src="assets/img/work/lipton-flash-mob-1.jpg" alt="Lipton Ice Tea Flash Mob Activation" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300">04 / HIGH-FOOTFALL STUNT</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Viral Live Campaign
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Lipton Ice Tea Flash Mob Activation</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Premier Metro Malls</span>
+                  <span>50,000+ Footfall Reached</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Samsung -->
+            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none" data-slide-index="4">
+              <img src="assets/img/work/samsung-store-launch-1.jpg" alt="Samsung Flagship Store Experience Launch" width="900" height="675" loading="lazy" decoding="async" class="h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16142a] via-[#16142a]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-[#16142a]/85 p-4 backdrop-blur-xl">
+                <div class="flex items-center justify-between">
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-indigo-300">05 / RETAIL LAUNCH</span>
+                  <span class="inline-flex items-center gap-1.5 text-[9px] text-emerald-400 font-semibold">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Flagship Store Opening
+                  </span>
+                </div>
+                <h3 class="mt-1 text-sm sm:text-base font-bold text-white">Samsung Flagship Store Experience</h3>
+                <div class="mt-2 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-violet-200/70">
+                  <span>Metro Retail Hub</span>
+                  <span>VIP Experience &amp; Launch</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Overlay: Slider Progress Dots & Slide Counter -->
+            <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <button type="button" class="hero-dot active h-2 w-7 rounded-full bg-white transition-all duration-300" data-to-slide="0" aria-label="Go to slide 1"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="1" aria-label="Go to slide 2"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="2" aria-label="Go to slide 3"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="3" aria-label="Go to slide 4"></button>
+                <button type="button" class="hero-dot h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70" data-to-slide="4" aria-label="Go to slide 5"></button>
+              </div>
+              <span id="heroSlideCounter" class="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-bold tracking-widest text-white backdrop-blur-md">01 / 05</span>
             </div>
 
           </div>
 
+        </div>
 
-          <!-- Slide counter -->
-          <div
-            class="absolute left-5 top-5 z-20
-                   font-mono text-[9px] tracking-[.2em]"
-          >
-
-            <span id="slideCurrent">01</span>
-
-            <span class="mx-1 text-white/30">/</span>
-
-            <span class="text-white/40">04</span>
-
+        <!-- Floating Satellite Card 1 (Top-Right): Cadbury Brand Activation -->
+        <div class="hero-floating-card-1 glass-card absolute -top-6 -right-4 sm:-top-8 sm:-right-6 hidden sm:flex items-center gap-3.5 rounded-2xl p-3 border border-white/15 shadow-2xl backdrop-blur-xl">
+          <div class="h-12 w-12 overflow-hidden rounded-xl border border-white/10 shrink-0">
+            <img src="assets/img/work/cadbury-shubh-aarambh-1.jpg" alt="Cadbury Shubh Aarambh Activation" width="100" height="100" class="h-full w-full object-cover">
           </div>
-
-
-          <!-- Controls -->
-          <div
-            class="absolute right-5 top-5 z-20 flex gap-2"
-          >
-
-            <button
-              id="prevSlide"
-              type="button"
-              aria-label="Previous project"
-              class="magnetic flex h-9 w-9 items-center justify-center
-                     border border-white/25 bg-black/10
-                     backdrop-blur-sm
-                     transition hover:bg-white hover:text-trendz-deep"
-            >
-              <i data-lucide="arrow-left" class="h-3.5 w-3.5"></i>
-            </button>
-
-
-            <button
-              id="nextSlide"
-              type="button"
-              aria-label="Next project"
-              class="magnetic flex h-9 w-9 items-center justify-center
-                     border border-white/25 bg-black/10
-                     backdrop-blur-sm
-                     transition hover:bg-white hover:text-trendz-deep"
-            >
-              <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
-            </button>
-
+          <div>
+            <div class="text-[8px] font-bold uppercase tracking-[0.2em] text-violet-300">BTL EXPERIENTIAL</div>
+            <div class="text-xs font-bold text-white">Cadbury Shubh Aarambh</div>
+            <div class="text-[9px] text-slate-400">Consumer Activation</div>
           </div>
+        </div>
 
-
-          <!-- Progress -->
-          <div
-            class="absolute bottom-5 left-5 right-5 z-20
-                   grid grid-cols-4 gap-2"
-          >
-
-            <button
-              type="button"
-              class="hero-progress"
-              data-slide="0"
-              aria-label="Go to slide 1"
-            >
-              <span class="hero-progress-fill"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hero-progress"
-              data-slide="1"
-              aria-label="Go to slide 2"
-            >
-              <span class="hero-progress-fill"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hero-progress"
-              data-slide="2"
-              aria-label="Go to slide 3"
-            >
-              <span class="hero-progress-fill"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hero-progress"
-              data-slide="3"
-              aria-label="Go to slide 4"
-            >
-              <span class="hero-progress-fill"></span>
-            </button>
-
+        <!-- Floating Satellite Card 2 (Bottom-Left): 15-Year Metric Badge -->
+        <div class="hero-floating-card-2 glass-card absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-6 flex items-center gap-3.5 rounded-2xl p-3.5 sm:p-4 border border-violet-500/30 bg-[#16142a]/95 shadow-2xl backdrop-blur-xl">
+          <div class="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg shrink-0">
+            <span class="text-xl sm:text-2xl font-black">15</span>
           </div>
-
+          <div>
+            <div class="text-[8px] font-bold uppercase tracking-[0.2em] text-fuchsia-300">ESTABLISHED TRACK RECORD</div>
+            <div class="text-xs sm:text-sm font-bold text-white">100% In-House Execution</div>
+            <div class="text-[9px] text-violet-300/70">Mumbai &amp; 50+ Cities</div>
+          </div>
         </div>
 
       </div>
 
     </div>
 
-
-    <!-- BOTTOM TICKER -->
-    <footer
-      class="hero-reveal mt-4 flex shrink-0 items-center
-             overflow-hidden border-t border-white/10
-             pt-3 sm:mt-5 sm:pt-4"
-    >
-
-      <div
-        class="mr-5 shrink-0 font-mono text-[7px]
-               uppercase tracking-[.25em] text-white/35"
-      >
-        We create
-      </div>
-
-      <div
-        class="flex min-w-0 overflow-hidden"
-      >
-
-        <div
-          class="flex shrink-0 gap-8 whitespace-nowrap
-                 font-display text-[10px] font-medium
-                 uppercase tracking-[.08em] text-white/55
-                 sm:text-xs"
-        >
-
-          <span>Corporate Summits</span>
-          <span class="text-trendz-pink">●</span>
-
-          <span>Brand Launches</span>
-          <span class="text-trendz-pink">●</span>
-
-          <span>Dealer Meets</span>
-          <span class="text-trendz-pink">●</span>
-
-          <span>Experiential Marketing</span>
-          <span class="text-trendz-pink">●</span>
-
-          <span>Destination Events</span>
-          <span class="text-trendz-pink">●</span>
-
-          <span>Live Productions</span>
-
+    <!-- =====================================================
+         ENTERPRISE 4-METRIC STRIP
+    ====================================================== -->
+    <div class="mt-14 sm:mt-16 border-t border-white/10 pt-8 sm:pt-10">
+      <div class="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-4 lg:gap-8">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">15+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fuchsia-300">Years Experience</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Proven track record across leading Indian &amp; global enterprises.</p>
         </div>
 
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">500+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-violet-300">Events Delivered</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Conventions, dealer meets, launches, and retail rollouts.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">50+</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-violet-300">Cities Activated</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Pan-India on-ground production and operational network.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-violet-400/40 transition duration-300">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">100%</div>
+          <div class="mt-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fuchsia-300">On-Ground Control</div>
+          <p class="mt-2 text-xs text-slate-400 leading-normal hidden sm:block">Direct execution accountability without vendor delegation.</p>
+        </div>
       </div>
-
-    </footer>
+    </div>
 
   </div>
 
-
-  <!-- Scroll indicator -->
-  <div
-    class="absolute bottom-24 left-3 hidden
-           -rotate-90 origin-left
-           font-mono text-[7px] uppercase
-           tracking-[.35em] text-white/30
-           xl:block"
-  >
-    Scroll to explore
-  </div>
-
-  <div class="hero-scroll-cue" aria-hidden="true">Scroll to change</div>
-  <div class="hero-edge-glow" aria-hidden="true"></div>
 </section>
 
-
-<!-- ==========================================================
-     LIBRARIES
+<!-- =========================================================
+     AUTO SLIDER CONTROLLER
 ========================================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-<script src="https://unpkg.com/lucide@latest"></script>
-
-
-<!-- ==========================================================
-     TRENDZ HERO ENGINE
-========================================================== -->
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+(function() {
+  const slider = document.getElementById('heroAutoSlider');
+  if (!slider) return;
 
-  "use strict";
+  const slides = slider.querySelectorAll('.hero-slide');
+  const dots = slider.querySelectorAll('.hero-dot');
+  const counter = document.getElementById('heroSlideCounter');
+  const total = slides.length;
+  let current = 0;
+  let timer = null;
 
-
-  /* ----------------------------------------------------------
-     ICONS
-  ---------------------------------------------------------- */
-
-  lucide.createIcons();
-
-
-  /* ----------------------------------------------------------
-     REDUCED MOTION
-  ---------------------------------------------------------- */
-
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-
-  /* ----------------------------------------------------------
-     LENIS
-  ---------------------------------------------------------- */
-
-  if (!reducedMotion && typeof Lenis !== "undefined") {
-
-    const lenis = new Lenis({
-      duration: 1.1,
-      smoothWheel: true,
-      wheelMultiplier: 0.85,
-      touchMultiplier: 1,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    if (typeof ScrollTrigger !== "undefined") {
-      lenis.on("scroll", ScrollTrigger.update);
-
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-
-      gsap.ticker.lagSmoothing(0);
-    }
-  }
-
-
-  /* ----------------------------------------------------------
-     GSAP
-  ---------------------------------------------------------- */
-
-  if (
-    !reducedMotion &&
-    typeof gsap !== "undefined"
-  ) {
-
-    gsap.registerPlugin(ScrollTrigger);
-
-
-    /* --------------------------------------------
-       HERO REVEAL
-    -------------------------------------------- */
-
-    const revealElements = document.querySelectorAll(
-      ".hero-reveal"
-    );
-
-    gsap.fromTo(
-      revealElements,
-      {
-        opacity: 0,
-        y: 28,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.08,
-        ease: "power4.out",
-        delay: 0.15,
+  function showSlide(index) {
+    current = (index + total) % total;
+    slides.forEach((s, i) => {
+      if (i === current) {
+        s.classList.add('active', 'opacity-100', 'pointer-events-auto');
+        s.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        s.classList.remove('active', 'opacity-100', 'pointer-events-auto');
+        s.classList.add('opacity-0', 'pointer-events-none');
       }
-    );
-
-
-    /* --------------------------------------------
-       HEADLINE
-    -------------------------------------------- */
-
-    const heading = document.querySelector(
-      ".hero-heading"
-    );
-
-    if (
-      heading &&
-      typeof SplitType !== "undefined"
-    ) {
-
-      const split = new SplitType(
-        heading.querySelectorAll(".split-line"),
-        {
-          types: "lines,words",
-        }
-      );
-
-      gsap.fromTo(
-        split.words,
-        {
-          yPercent: 115,
-          opacity: 0,
-        },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.05,
-          stagger: 0.035,
-          ease: "power4.out",
-          delay: 0.25,
-        }
-      );
-    }
-
-
-    /* --------------------------------------------
-       ATMOSPHERIC PARALLAX
-    -------------------------------------------- */
-
-    document
-      .querySelectorAll("[data-parallax]")
-      .forEach((element) => {
-
-        const amount = Number(
-          element.dataset.parallax
-        );
-
-        gsap.to(element, {
-          yPercent: amount * 100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#trendzHero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-
-      });
-
-
-    /* --------------------------------------------
-       HERO IMAGE MICRO PARALLAX
-    -------------------------------------------- */
-
-    gsap.to(".hero-image", {
-      yPercent: -4,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#trendzHero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-      },
     });
 
-  }
-
-
-  /* ----------------------------------------------------------
-     SWIPER
-  ---------------------------------------------------------- */
-
-  const swiper = new Swiper(
-    ".trendzSwiper",
-    {
-      loop: false,
-
-      speed: reducedMotion ? 0 : 1050,
-
-      autoplay: false,
-
-      mousewheel: reducedMotion ? false : {
-        enabled: true,
-        forceToAxis: true,
-        releaseOnEdges: true,
-        sensitivity: 0.85,
-        thresholdDelta: 35,
-        thresholdTime: 650,
-      },
-
-      effect: "fade",
-
-      fadeEffect: {
-        crossFade: true,
-      },
-
-      keyboard: {
-        enabled: true,
-      },
-
-      grabCursor: true,
-
-      allowTouchMove: true,
-
-      preloadImages: true,
-
-      watchSlidesProgress: true,
-
-      on: {
-
-        init(swiper) {
-          updateCounter(swiper);
-          updateProgress(swiper);
-        },
-
-        slideChange(swiper) {
-          updateCounter(swiper);
-          updateProgress(swiper);
-        },
-
-      },
-    }
-  );
-
-
-  /* ----------------------------------------------------------
-     COUNTER
-  ---------------------------------------------------------- */
-
-  function updateCounter(swiper) {
-
-    const counter =
-      document.getElementById("slideCurrent");
-
-    if (!counter) return;
-
-    const realIndex =
-      swiper.realIndex + 1;
-
-    counter.textContent =
-      String(realIndex).padStart(2, "0");
-  }
-
-  function updateProgress(swiper) {
-    document.querySelectorAll(".hero-progress").forEach((button, index) => {
-      button.classList.toggle("is-active", index === swiper.activeIndex);
-    });
-  }
-
-
-  /* ----------------------------------------------------------
-     NAVIGATION
-  ---------------------------------------------------------- */
-
-  document
-    .getElementById("prevSlide")
-    ?.addEventListener(
-      "click",
-      () => swiper.slidePrev()
-    );
-
-  document
-    .getElementById("nextSlide")
-    ?.addEventListener(
-      "click",
-      () => swiper.slideNext()
-    );
-
-
-  /* ----------------------------------------------------------
-     CUSTOM PROGRESS
-  ---------------------------------------------------------- */
-
-  document
-    .querySelectorAll("[data-slide]")
-    .forEach((button) => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          const index =
-            Number(button.dataset.slide);
-
-          swiper.slideTo(index);
-
-        }
-      );
-
+    dots.forEach((d, i) => {
+      if (i === current) {
+        d.classList.add('active', 'w-7', 'bg-white');
+        d.classList.remove('w-2', 'bg-white/40');
+      } else {
+        d.classList.remove('active', 'w-7', 'bg-white');
+        d.classList.add('w-2', 'bg-white/40');
+      }
     });
 
-
-  /* ----------------------------------------------------------
-     MAGNETIC BUTTONS
-  ---------------------------------------------------------- */
-
-  if (
-    !reducedMotion &&
-    typeof gsap !== "undefined"
-  ) {
-
-    document
-      .querySelectorAll(".magnetic")
-      .forEach((element) => {
-
-        element.addEventListener(
-          "mousemove",
-          (event) => {
-
-            const rect =
-              element.getBoundingClientRect();
-
-            const x =
-              event.clientX -
-              rect.left -
-              rect.width / 2;
-
-            const y =
-              event.clientY -
-              rect.top -
-              rect.height / 2;
-
-            gsap.to(element, {
-              x: x * 0.15,
-              y: y * 0.15,
-              duration: 0.35,
-              ease: "power3.out",
-            });
-
-          }
-        );
-
-
-        element.addEventListener(
-          "mouseleave",
-          () => {
-
-            gsap.to(element, {
-              x: 0,
-              y: 0,
-              duration: 0.5,
-              ease: "elastic.out(1, .5)",
-            });
-
-          }
-        );
-
-      });
-
+    if (counter) {
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    }
   }
 
+  function nextSlide() {
+    showSlide(current + 1);
+  }
 
-  /* ----------------------------------------------------------
-     VISIBILITY / INPUT SAFETY
-  ---------------------------------------------------------- */
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(nextSlide, 4200);
+  }
 
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      swiper.mousewheel?.disable();
-    } else if (!reducedMotion) {
-      swiper.mousewheel?.enable();
-    }
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+  }
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      const idx = parseInt(d.dataset.toSlide, 10);
+      showSlide(idx);
+      startAuto();
+    });
   });
 
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
 
-  /* ----------------------------------------------------------
-     TOUCH / POINTER SAFETY
-  ---------------------------------------------------------- */
-
-  const hero = document.getElementById("trendzHero");
-
-  hero?.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowDown" || event.key === "PageDown") {
-      event.preventDefault();
-      swiper.slideNext();
-    }
-    if (event.key === "ArrowUp" || event.key === "PageUp") {
-      event.preventDefault();
-      swiper.slidePrev();
-    }
-  });
-
-  /* Keep wheel transitions deliberate instead of allowing rapid skipping. */
-  let lastWheel = 0;
-  hero?.addEventListener("wheel", (event) => {
-    if (reducedMotion) return;
-    const now = performance.now();
-    if (now - lastWheel < 550) return;
-    if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return;
-    lastWheel = now;
-  }, { passive: true });
-
-
-});
+  startAuto();
+})();
 </script>
 
-
-
+<!-- =========================================================
+     ORGANIC MOTION SYSTEM & INTER FONT STYLES
+========================================================== -->
 <style>
-    .light-marquee {
-        display: flex;
-        width: max-content;
-        will-change: transform;
+  /* Inter Font from escanav.com */
+  #hero,
+  #hero * {
+    font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+  }
+
+  /* Organic Floating Blobs */
+  .hero-organic-blob {
+    position: absolute;
+    filter: blur(85px);
+    will-change: transform;
+    animation: heroOrganicFloat 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-organic-blob.blob-1 {
+    width: 440px;
+    height: 440px;
+    left: -120px;
+    top: -100px;
+    background: #7c3aed;
+    opacity: 0.28;
+    border-radius: 42% 58% 63% 37% / 48% 43% 57% 52%;
+  }
+
+  .hero-organic-blob.blob-2 {
+    width: 420px;
+    height: 420px;
+    right: -80px;
+    top: 20%;
+    background: #c026d3;
+    opacity: 0.18;
+    border-radius: 58% 42% 35% 65% / 45% 55% 45% 55%;
+    animation-delay: -5s;
+  }
+
+  .hero-organic-blob.blob-3 {
+    width: 480px;
+    height: 320px;
+    left: 30%;
+    bottom: -100px;
+    background: #4f46e5;
+    opacity: 0.16;
+    border-radius: 55% 45% 30% 70% / 60% 40% 60% 40%;
+    animation-delay: -9s;
+  }
+
+  @keyframes heroOrganicFloat {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
-
-    .light-group {
-        display: flex;
-        gap: 14px;
-        padding-right: 14px;
+    33% {
+      transform: translate3d(24px, -20px, 0) rotate(3deg) scale(1.04);
     }
-
-
-    /* Premium light logo card */
-    .light-brand {
-        position: relative;
-
-        width: 220px;
-        height: 96px;
-
-        flex: 0 0 220px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        overflow: hidden;
-
-        border: 1px solid rgba(226,232,240,.95);
-
-        border-radius: 22px;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(255,255,255,.98),
-                rgba(248,250,252,.88)
-            );
-
-        box-shadow:
-            0 5px 20px rgba(15,23,42,.045),
-            inset 0 1px 0 rgba(255,255,255,.9);
-
-        transition:
-            transform .45s cubic-bezier(.2,.8,.2,1),
-            border-color .45s ease,
-            box-shadow .45s ease;
+    66% {
+      transform: translate3d(-18px, 18px, 0) rotate(-2deg) scale(0.97);
     }
+  }
 
+  /* Animated Contour Lines */
+  .hero-contour-line {
+    stroke: #c4b5fd;
+    stroke-width: 1.2;
+    stroke-dasharray: 8 14;
+    animation: heroContourMove 20s linear infinite;
+  }
 
-    /* subtle light sweep */
-    .light-brand::before {
-        content: "";
+  .contour-delay-1 {
+    animation-delay: -7s;
+  }
 
-        position: absolute;
+  .contour-delay-2 {
+    animation-delay: -14s;
+  }
 
-        inset: 0;
-
-        background:
-            linear-gradient(
-                115deg,
-                transparent 25%,
-                rgba(255,255,255,.9) 50%,
-                transparent 75%
-            );
-
-        transform: translateX(-120%);
-
-        transition: transform .7s ease;
+  @keyframes heroContourMove {
+    from {
+      stroke-dashoffset: 0;
     }
-
-
-    /* soft hover glow */
-    .light-brand::after {
-        content: "";
-
-        position: absolute;
-
-        width: 130px;
-        height: 130px;
-
-        left: 50%;
-        top: 50%;
-
-        transform: translate(-50%, -50%);
-
-        border-radius: 50%;
-
-        background: rgba(59,130,246,.055);
-
-        filter: blur(30px);
-
-        opacity: 0;
-
-        transition: opacity .4s ease;
+    to {
+      stroke-dashoffset: 500;
     }
+  }
 
+  /* Organic Ring Halo */
+  .hero-organic-ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 2.8rem 1.5rem 2.8rem 1.5rem;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    transform: rotate(1deg);
+    animation: heroRingGlow 6s ease-in-out infinite alternate;
+  }
 
-    .light-brand:hover {
-        transform: translateY(-6px) scale(1.02);
-
-        border-color: rgba(148,163,184,.65);
-
-        box-shadow:
-            0 20px 50px rgba(15,23,42,.10),
-            0 3px 10px rgba(15,23,42,.04);
+  @keyframes heroRingGlow {
+    0% {
+      border-color: rgba(168, 85, 247, 0.2);
+      transform: rotate(1deg) scale(0.995);
     }
-
-
-    .light-brand:hover::before {
-        transform: translateX(120%);
+    100% {
+      border-color: rgba(236, 72, 153, 0.35);
+      transform: rotate(-1deg) scale(1.005);
     }
+  }
 
+  /* Floating Satellite Cards */
+  .hero-floating-card-1 {
+    animation: heroFloatCard 8s ease-in-out infinite;
+  }
 
-    .light-brand:hover::after {
-        opacity: 1;
+  .hero-floating-card-2 {
+    animation: heroFloatCardReverse 9s ease-in-out infinite;
+  }
+
+  @keyframes heroFloatCard {
+    0%, 100% {
+      transform: translateY(0);
     }
-
-
-    /* Logo */
-    .light-brand img {
-        position: relative;
-        z-index: 3;
-
-        max-width: 125px;
-        max-height: 40px;
-
-        width: auto;
-        height: auto;
-
-        object-fit: contain;
-
-        filter: grayscale(100%);
-
-        opacity: .55;
-
-        transition:
-            filter .5s ease,
-            opacity .5s ease,
-            transform .5s cubic-bezier(.2,.8,.2,1);
+    50% {
+      transform: translateY(-8px);
     }
+  }
 
-
-    .light-brand:hover img {
-        filter: grayscale(0);
-
-        opacity: 1;
-
-        transform: scale(1.08);
+  @keyframes heroFloatCardReverse {
+    0%, 100% {
+      transform: translateY(0);
     }
-
-
-    /* Number */
-    .light-brand > span {
-        position: absolute;
-
-        left: 15px;
-        top: 13px;
-
-        z-index: 5;
-
-        font-size: 8px;
-
-        font-weight: 800;
-
-        letter-spacing: .18em;
-
-        color: #cbd5e1;
-
-        transition:
-            color .3s ease,
-            transform .3s ease;
+    50% {
+      transform: translateY(7px);
     }
+  }
 
-
-    .light-brand:hover > span {
-        color: #64748b;
-        transform: translateX(2px);
+  @media (prefers-reduced-motion: reduce) {
+    .hero-organic-blob,
+    .hero-contour-line,
+    .hero-organic-ring,
+    .hero-floating-card-1,
+    .hero-floating-card-2 {
+      animation: none !important;
     }
-
-
-    /* Motion */
-    .light-forward {
-        animation: light-forward 46s linear infinite;
-    }
-
-    .light-reverse {
-        animation: light-reverse 52s linear infinite;
-    }
-
-
-    @keyframes light-forward {
-        from {
-            transform: translate3d(0,0,0);
-        }
-
-        to {
-            transform: translate3d(calc(-50% - 7px),0,0);
-        }
-    }
-
-
-    @keyframes light-reverse {
-        from {
-            transform: translate3d(calc(-50% - 7px),0,0);
-        }
-
-        to {
-            transform: translate3d(0,0,0);
-        }
-    }
-
-
-    /* Pause */
-    .light-marquee:hover {
-        animation-play-state: paused;
-    }
-
-
-    /* Mobile */
-    @media (max-width: 640px) {
-
-        .light-brand {
-            width: 155px;
-            height: 78px;
-            flex-basis: 155px;
-            border-radius: 17px;
-        }
-
-        .light-brand img {
-            max-width: 95px;
-            max-height: 32px;
-        }
-
-        .light-brand > span {
-            left: 11px;
-            top: 10px;
-            font-size: 7px;
-        }
-
-        .light-group {
-            gap: 10px;
-            padding-right: 10px;
-        }
-
-        .light-forward {
-            animation-duration: 34s;
-        }
-
-        .light-reverse {
-            animation-duration: 40s;
-        }
-    }
-
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-        .light-marquee {
-            animation: none !important;
-        }
-
-        .light-brand {
-            transition: none;
-        }
-    }
+  }
 </style>
 
 <!-- WHAT TRENDZ DOES -->
@@ -4246,6 +900,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lucide.createIcons();
     }
 </script>
+
 
 <!-- 4. WHY TRENDZ (4 Core Competitive Advantages) -->
 <!-- =========================================================
@@ -5452,6 +2107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 </script>
+
 <!-- =========================================================
      TRENDZ — SIX CAPABILITIES / ORGANIC EDITORIAL GRID
 ========================================================= -->
@@ -6881,6 +3537,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+
 <!-- 7. OPERATING DISCIPLINE -->
 <section class="execution-system relative overflow-hidden bg-white border-b border-slate-100">
 
@@ -7842,6 +4499,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 <!-- =========================================================
      TRENDZ — ARTISTIC ORGANIC CAPABILITIES
@@ -9440,6 +6098,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
 <!-- =========================================================
      TRENDZ — ARTISTIC TRUSTED NETWORK
 ========================================================= -->
@@ -10920,17 +7579,196 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 </style>
-<!-- =========================================================
-     TRENDZ — ARTISTIC PRE-FOOTER + FOOTER
-========================================================= -->
 
-<!-- PRE-FOOTER CTA -->
-<!-- =========================================================
-     TRENDZ EVENTZ — TAILWIND PRE-FOOTER + FOOTER
-     Static edition: Tailwind-first, no footer stylesheet dump.
-========================================================= -->
 
-<div data-trendz-footer aria-label="Trendz Eventz footer"></div>
-<script src="assets/js/footer-loader.js"></script>
+<div id="trendz-shared-footer" class="font-sans antialiased">
+<footer class="relative isolate overflow-hidden bg-[#120f18] text-slate-300 border-t border-white/10">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -left-52 top-24 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl"></div>
+    <div class="absolute -right-52 bottom-0 h-96 w-96 rounded-full bg-cyan-400/5 blur-3xl"></div>
+    <div class="absolute -right-[25rem] top-[-15rem] h-[42rem] w-[42rem] rounded-[55%_45%_41%_59%/38%_61%_39%_62%] border border-violet-300/10 rotate-[-15deg]"></div>
+    <div class="absolute inset-0 opacity-[.035] [background-image:radial-gradient(rgba(255,255,255,.8)_0.6px,transparent_0.6px)] [background-size:28px_28px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.45fr_repeat(3,minmax(0,1fr))] lg:gap-10">
+
+      <div>
+        <a href="index.html"
+           class="inline-flex items-center rounded-[12px_4px_12px_4px] bg-white px-3 py-2 transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg]">
+          <img src="assets/img/brand/logo.png" alt="Trendz Eventz" class="block h-9 w-auto object-contain">
+        </a>
+
+        <p class="mt-6 text-sm font-extrabold leading-6 text-white">
+          Meaningful experiences.
+          <span class="block text-violet-300">Measurable momentum.</span>
+        </p>
+
+        <p class="mt-3 max-w-sm text-xs leading-7 text-slate-400/60">
+          Trendz Eventz is an experiential marketing and corporate
+          event agency headquartered in Mumbai, delivering pan-India
+          dealer meets, launches, on-ground activations, and retail
+          branding since 2011.
+        </p>
+
+        <div class="mt-6 space-y-3">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Mumbai%2C%20Maharashtra%2C%20India" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="map-pin" class="h-3.5 w-3.5"></i>
+            </span>
+            Mumbai, Maharashtra, India
+          </a>
+          <a href="tel:+919987399997" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="phone" class="h-3.5 w-3.5"></i>
+            </span>
+            +91 99873 99997
+          </a>
+          <a href="mailto:info@trendzeventz.com" class="group flex items-center gap-3 text-xs text-slate-400/60 transition hover:translate-x-1 hover:text-white">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.03] text-violet-300">
+              <i data-lucide="mail" class="h-3.5 w-3.5"></i>
+            </span>
+            info@trendzeventz.com
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Navigation</h3>
+        <nav class="space-y-3">
+          <a href="index.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Home Overview</a>
+          <a href="about.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">About Trendz</a>
+          <a href="services.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Core Capabilities</a>
+          <a href="work.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Case Studies & Work</a>
+          <a href="clients.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Client Portfolio</a>
+          <a href="contact.html" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Request a Proposal</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Core Capabilities</h3>
+        <nav class="space-y-3">
+          <a href="services.html#corporate-events" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Corporate Events & Dealer Meets</a>
+          <a href="services.html#btl-experiential" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">BTL Activations & Mall Takeovers</a>
+          <a href="services.html#retail-branding" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Retail Audits & Store Branding</a>
+          <a href="services.html#digital-marketing" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Digital Campaign Amplification</a>
+          <a href="services.html#mobile-tele-marketing" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Field Force & Candidate Outreach</a>
+          <a href="services.html#broadcast-print-outdoor" class="block text-xs leading-5 text-slate-400/55 transition hover:translate-x-1 hover:text-violet-300">Highway OOH & PR Stunts</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="mb-5 text-[10px] font-extrabold uppercase tracking-[.22em] text-white">Leadership & Scale</h3>
+
+        <div class="border-l border-violet-300/20 pl-4">
+          <strong class="block text-sm font-extrabold text-white">Bharat Jadhav</strong>
+          <span class="mt-1 block text-[10px] font-bold text-violet-300">Founder & Managing Director</span>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">15+ Years</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">500+ Events</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">Pan-India Footprint</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">10-City Tours</span>
+          <span class="rounded-[10px_4px_10px_4px] border border-white/10 bg-white/[.03] px-2.5 py-1.5 text-[9px] font-extrabold text-slate-300/60">100 Stores Launched</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+    <div class="flex flex-col gap-5 text-[9px] leading-5 text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>
+        &copy; <span data-current-year>2026</span> Trendz Eventz.
+        All rights reserved.
+        <span class="text-slate-400/60">Built for corporate excellence.</span>
+      </p>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+        <span>Mumbai · Pune · Bangalore · Delhi · Goa</span>
+        <a href="https://instagram.com/trendz_eventz"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 font-extrabold text-violet-300 transition hover:text-fuchsia-300">
+          <i data-lucide="instagram" class="h-3.5 w-3.5"></i>
+          <span>@trendz_eventz</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+<!-- =========================================================
+     SHARED CORE SCRIPTS
+========================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Initialize Lucide Icons
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
+
+  // 2. Set dynamic current year in footer
+  document.querySelectorAll('[data-current-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // 3. Header Scroll Controller & Mobile Menu
+  var header = document.getElementById('site-header');
+  var menuBtn = document.getElementById('mobile-menu-button');
+  var menuPanel = document.getElementById('mobile-navigation');
+  var backdrop = document.getElementById('mobile-menu-backdrop');
+
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (menuBtn && menuPanel) {
+    var toggleMenu = function (open) {
+      var isOpen = typeof open === 'boolean' ? open : !menuPanel.classList.contains('is-open');
+      menuBtn.classList.toggle('is-open', isOpen);
+      menuPanel.classList.toggle('is-open', isOpen);
+      if (backdrop) backdrop.classList.toggle('is-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1024 && menuPanel.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    }, { passive: true });
+  }
+});
+</script>
 </body>
 </html>
+
